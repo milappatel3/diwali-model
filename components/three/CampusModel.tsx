@@ -4,7 +4,6 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Html } from '@react-three/drei';
 import { useStore } from '@/lib/store';
 import { HALL, ROOM_POLY } from '@/lib/hall';
 import { ENTRANCE, MAJOR_ROOM, TALL_ZONES, inTall, type CampusData, type PolyJ } from '@/lib/campus';
@@ -179,7 +178,7 @@ export function CampusShell({ data, opts }: { data: CampusData; opts: CampusOpts
 /* ───────────────────────────── exhibition ───────────────────────────── */
 export function Exhibition() {
   const project = useStore((s) => s.project);
-  const { scene } = useThree();
+  const { scene, invalidate } = useThree();
   const ev = useMemo(() => ({ onSelect: () => {}, onHover: () => {} }), []);
   // Exhibit materials are authored in physical units (emissive in the thousands). In this plain-lit view that would blow
   // out, so clamp them while this view is mounted and restore the shared singletons on the way out.
@@ -191,12 +190,13 @@ export function Exhibition() {
         for (const m of ms) if (m.emissiveIntensity > 4 && !saved.has(m)) { saved.set(m, m.emissiveIntensity); m.emissiveIntensity = m.emissiveMap ? 1 : 2; }
       });
     pass();
-    const t = setTimeout(pass, 400);
+    invalidate();
+    const t = setTimeout(() => { pass(); invalidate(); }, 400);
     return () => {
       clearTimeout(t);
       saved.forEach((v, m) => ((m as any).emissiveIntensity = v));
     };
-  }, [scene, project.items]);
+  }, [scene, project.items, invalidate]);
   return <Items3D project={project} ev={ev} selected={null} />;
 }
 
@@ -572,26 +572,8 @@ export function Dressing({ data, dusk }: { data: CampusData; dusk: boolean }) {
 }
 
 /* ───────────────────────────── labels ───────────────────────────── */
-export function NearHtml({ pos, max, children }: { pos: [number, number, number]; max: number; children: React.ReactNode }) {
-  const { camera } = useThree();
-  const [show, setShow] = React.useState(true);
-  const g = useRef<THREE.Group>(null);
-  const t = useRef(0);
-  const tmp = useMemo(() => new THREE.Vector3(), []);
-  useFrame((st) => {
-    if (st.clock.elapsedTime - t.current < 0.4 || !g.current) return;
-    t.current = st.clock.elapsedTime;
-    const s = camera.position.distanceTo(g.current.getWorldPosition(tmp)) < max;
-    if (s !== show) setShow(s);
-  });
-  return (
-    <group ref={g} position={pos}>
-      <Html center zIndexRange={[10, 0]} style={{ pointerEvents: 'none', display: show ? 'block' : 'none' }}>
-        {children}
-      </Html>
-    </group>
-  );
-}
+import { NearHtml } from './Labels';
+export { NearHtml };
 
 export function RoomLabels({ data }: { data: CampusData }) {
   const list = useMemo(() => {

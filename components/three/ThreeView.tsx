@@ -2,7 +2,8 @@
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, PointerLockControls, Html } from '@react-three/drei';
+import { OrbitControls, PointerLockControls } from '@react-three/drei';
+import { NearHtml, LabelOverlay, LabelProjector } from './Labels';
 import { EffectComposer, Bloom, ToneMapping, Noise, Vignette, N8AO } from '@react-three/postprocessing';
 import { ToneMappingMode, Effect, BlendFunction } from 'postprocessing';
 import { useStore } from '@/lib/store';
@@ -106,7 +107,8 @@ export default function ThreeView() {
         <Canvas
           shadows
           flat
-          dpr={[1, quality === 'high' ? 1.75 : 1]}
+          dpr={[1, quality === 'high' ? 1.25 : 1]}
+          frameloop={cam === 'walk' ? 'always' : 'demand'}
           gl={{ antialias: false, powerPreference: 'high-performance', stencil: false }}
           camera={{ fov: 55, near: 0.05, far: 300, position: W(...PRESETS.entrance.pos) }}
           onPointerMissed={() => select(null)}
@@ -124,6 +126,7 @@ export default function ThreeView() {
           }}
         >
           <color attach="background" args={['#020202']} />
+          <LabelProjector />
           <Suspense fallback={null}>
             <SceneContent
               project={project}
@@ -151,6 +154,7 @@ export default function ThreeView() {
             </EffectComposer>
           </Suspense>
         </Canvas>
+        <LabelOverlay />
         {cam === 'walk' && <div className="crosshair" />}
         {(!ready || glLost) && (
           <div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', zIndex: 4, background: '#050505', color: 'var(--on-dark-2)', fontSize: 13, textAlign: 'center', padding: 24 }}>
@@ -315,27 +319,6 @@ function FloorHeat() {
   );
 }
 
-function NearHtml({ pos, max, children, z = 10 }: { pos: THREE.Vector3 | [number, number, number]; max: number; children: React.ReactNode; z?: number }) {
-  const { camera } = useThree();
-  const [show, setShow] = useState(true);
-  const v = useMemo(() => (Array.isArray(pos) ? new THREE.Vector3(...pos) : pos), [pos]);
-  const g = useRef<THREE.Group>(null);
-  const t = useRef(0);
-  useFrame((st) => {
-    if (st.clock.elapsedTime - t.current < 0.4 || !g.current) return;
-    t.current = st.clock.elapsedTime;
-    const s = camera.position.distanceTo(g.current.getWorldPosition(new THREE.Vector3())) < max;
-    if (s !== show) setShow(s);
-  });
-  return (
-    <group ref={g} position={v}>
-      <Html center zIndexRange={[z, 0]} style={{ pointerEvents: 'none', display: show ? 'block' : 'none' }}>
-        {children}
-      </Html>
-    </group>
-  );
-}
-
 function People() {
   const project = useStore((s) => s.project);
   const result = useStore((s) => s.result);
@@ -459,10 +442,16 @@ function Metering({ sc, zoneInd, mode, onMeter }: { sc: CalcScene | null; zoneIn
     for (const x of [-0.6, -0.2, 0.2, 0.6]) for (const y of [-0.5, 0, 0.5]) g.push([x, y, Math.abs(x) < 0.3 && Math.abs(y) < 0.3 ? 1.6 : 1]);
     return g;
   }, []);
+  const { invalidate } = useThree();
+  const pending = useRef(false);
   useFrame((st) => {
     if (!sc || mode === 'manual') return;
     const t = st.clock.elapsedTime;
-    if (t - last.current < 0.45) return;
+    if (t - last.current < 0.45) {
+      // frameloop="demand": make sure one more frame comes after the camera settles, so the meter catches the final view
+      if (!pending.current) { pending.current = true; setTimeout(() => { pending.current = false; invalidate(); }, 500); }
+      return;
+    }
     last.current = t;
     ray.far = 80;
     const samples: { Y: number; w: number }[] = [];
@@ -508,7 +497,7 @@ function Metering({ sc, zoneInd, mode, onMeter }: { sc: CalcScene | null; zoneIn
 
 function OrbitRig({ preset }: { preset: string }) {
   const ctl = useRef<any>(null);
-  const { camera } = useThree();
+  const { camera, invalidate } = useThree();
   const focus = useStore((s) => s.focus3d);
   const tgt = useMemo(() => W(...(PRESETS[preset] || PRESETS.entrance).tgt), [preset]);
   useEffect(() => {
@@ -519,15 +508,17 @@ function OrbitRig({ preset }: { preset: string }) {
     const id = requestAnimationFrame(() => {
       ctl.current?.target.copy(tgt);
       ctl.current?.update();
+      invalidate();
     });
     return () => cancelAnimationFrame(id);
-  }, [preset, camera, tgt]);
+  }, [preset, camera, tgt, invalidate]);
   useEffect(() => {
     if (!focus) return;
     ctl.current?.target.copy(W(focus.x, focus.y, focus.z));
     camera.position.copy(W(focus.x, focus.y - 22, focus.z + 10));
     ctl.current?.update();
-  }, [focus, camera]);
+    invalidate();
+  }, [focus, camera, invalidate]);
   return <OrbitControls ref={ctl} makeDefault enableDamping dampingFactor={0.08} maxPolarAngle={Math.PI * 0.495} minDistance={0.5} maxDistance={70} target={tgt} />;
 }
 

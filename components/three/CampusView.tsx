@@ -10,6 +10,7 @@ import { useCE, editedData } from '@/lib/campusEdits';
 import { W, FTm } from './materials';
 import { CampusShell, CampusSite, Crowd, Dressing, EditedItems, EventZones, RoomLabels, type CampusOpts } from './CampusModel';
 import { KdcActivities } from './CampusKdc';
+import { LabelOverlay, LabelProjector } from './Labels';
 import { SiteExtras, UtsavpurGates } from './CampusEntrances';
 import { KdcBooths, CarnivalGates, AnnakutLayouts, Displays } from './CampusFestival';
 import { SolarCanopies, ShoeRows, Ramps } from './CampusExtras';
@@ -80,11 +81,13 @@ export default function CampusView() {
       <div className="three-wrap">
         <Canvas
           flat
-          dpr={[1, 1.5]}
+          dpr={[1, 1.25]}
+          frameloop={cam === 'walk' ? 'always' : 'demand'}
           gl={{ antialias: true, powerPreference: 'high-performance', stencil: false }}
           camera={{ fov: 50, near: 0.3, far: 2500, position: W(...PRESETS.aerialSW.pos) }}
         >
           <color attach="background" args={[sky]} />
+          <LabelProjector />
           <fog attach="fog" args={[sky, 400, 1500]} />
           <Lighting dusk={o.dusk} />
           <Suspense fallback={null}>
@@ -118,6 +121,7 @@ export default function CampusView() {
             <ToneMapping mode={ToneMappingMode.AGX} />
           </EffectComposer>
         </Canvas>
+        <LabelOverlay />
         {cam === 'walk' && <div className="crosshair" />}
         {!ready && (
           <div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', zIndex: 4, background: '#f4efe6', color: '#4a4034', fontSize: 13 }}>
@@ -174,7 +178,7 @@ function Lighting({ dusk }: { dusk: boolean }) {
 
 function OrbitRig({ preset }: { preset: string }) {
   const ctl = useRef<any>(null);
-  const { camera } = useThree();
+  const { camera, invalidate } = useThree();
   const p = PRESETS[preset] || PRESETS.aerialSW;
   const tgt = useMemo(() => W(...p.tgt), [p]);
   useEffect(() => {
@@ -183,9 +187,10 @@ function OrbitRig({ preset }: { preset: string }) {
     const id = requestAnimationFrame(() => {
       ctl.current?.target.copy(tgt);
       ctl.current?.update();
+      invalidate();
     });
     return () => cancelAnimationFrame(id);
-  }, [p, camera, tgt]);
+  }, [p, camera, tgt, invalidate]);
   return <OrbitControls ref={ctl} makeDefault enableDamping dampingFactor={0.08} maxPolarAngle={Math.PI * 0.495} minDistance={2} maxDistance={900} target={tgt} />;
 }
 

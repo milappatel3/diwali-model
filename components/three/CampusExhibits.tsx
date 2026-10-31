@@ -48,7 +48,7 @@ export function ExhibitLayout() {
   const exAll = useCE((s) => s.e.exItems);
   const ex = useMemo(() => exAll.filter((e) => !KDC_KINDS.has(e.kind) && !SITE_KINDS.has(e.kind)), [exAll]);
   const drapes = useCE((s) => s.e.drapes);
-  const { scene } = useThree();
+  const { scene, invalidate } = useThree();
   const ev = useMemo(() => ({ onSelect: () => {}, onHover: () => {} }), []);
   const items = useMemo(() => legacyItems(ex, drapes), [ex, drapes]);
   const proj = useMemo(() => ({ ...project, items }), [project, items]);
@@ -60,9 +60,10 @@ export function ExhibitLayout() {
       for (const m of ms) if (m.emissiveIntensity > 4 && !saved.has(m)) { saved.set(m, m.emissiveIntensity); m.emissiveIntensity = m.emissiveMap ? 1 : 2; }
     });
     pass();
-    const t = setTimeout(pass, 400);
+    invalidate();
+    const t = setTimeout(() => { pass(); invalidate(); }, 400);
     return () => { clearTimeout(t); saved.forEach((v, m) => ((m as any).emissiveIntensity = v)); };
-  }, [scene, items]);
+  }, [scene, items, invalidate]);
   const LEGACY = new Set(['indiaMap', 'stages', 'house', 'tv', 'mirror', 'dioramaGod', 'dioramaGuru', 'nvBox', 'lotus']);
   return (
     <>
