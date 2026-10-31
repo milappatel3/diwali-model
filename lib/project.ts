@@ -1,8 +1,10 @@
-// Design for the Diwali Exhibition 2026 in the Assembly Hall, placed exactly on the client's layout drawing.
-// The drawing is read with its bottom edge = the hall's SOUTH wall and its left edge = the WEST wall, stretched to the
-// audience floor (119.5′ × 95.2′): px → ft  x = px·0.0905,  y = 95.17 − py·0.1327.  This puts the drawing's "Exit" on door
-// S1 and its "Entrance" beside door S2c, and makes the 24′×24′ house square.
-// Each exhibit carries the items from the Final Content Proposal slides.
+// Design for the Diwali Exhibition 2026 in the Assembly Hall (hall feet: origin = SW interior corner, +x east, +y north).
+// v4: the layout follows the exhibition in Campus 3D (lib/campusEdits.ts → DEFAULT_EDITS.drapes / exItems): the client's
+// pipe-and-drape drawing with 15 black drape runs, the queue line, photo booth, calendar tables, Sant Milan and Neelkanth
+// Varni rooms in the west column, CAPA + India map + the 16-stage L-wall along the south, the TV kiosks and the walk-through
+// house on the east, the Beliefs / Core Values room on the north and the Adhar Stambh bays in the middle room.
+// Every light from v3 moved with its exhibit and was re-aimed; fixtures that hung on drapes that no longer exist now hang on
+// the new runs (dc1 / dc3 light pipes) or on stands.
 import type { Item, Probe, Project, SectionId, V2 } from './types';
 import { DEFAULT_INVENTORY } from './fixtures';
 import { FESTIVAL_POSTERS } from './content';
@@ -56,70 +58,122 @@ export function defaultProject(): Project {
   const add = (...xs: Item[]) => items.push(...xs);
   const sfOf = (item: Item) => (key: string): Surface => itemSurfaces(item).find((q) => q.id === `${item.id}:${key}`)!;
   const at = (q: Surface, z = q.c.z): [number, number, number] => [q.c.x, q.c.y, z];
+  const BLACK = { h: 12, color: 'black', fullness: 0.5 };
 
-  // ——— THE DRAWING'S BOXES (section boxes first so their titles anchor the labels) ———
+  // ——— SECTION / AREA BOXES (as in Campus 3D; section boxes first so their titles anchor the labels) ———
   add(
-    zone('Hindu Festivals', 's1', 59.3, 84.6, 5.6, 29.5, true, 'zS1'),
-    zone('Rites & Traditions', 's2', 87.1, 114.1, 3.3, 34.8, true, 'zS2'),
-    zone('The Hindu Way of Life', 's3', 90.8, 115.9, 48.4, 74.6, true, 'zS3'),
-    zone('Beliefs & Worldview', 's4', 66.8, 82.1, 65.3, 91.5, true, 'zS4'),
-    zone('Core Values', 's5', 37.7, 60.6, 65.3, 91.5, true, 'zS5'),
-    zone('Adhar Stambh', 's6', 56.6, 86.0, 34.8, 60.9, true, 'zS6'),
-    zone('Line', 'infra', 3.2, 31.6, 65.3, 91.5),
-    zone('Photo booth', 'photo', 3.35, 19.3, 44.2, 60.4),
-    zone('Outreach', 'infra', 26.4, 42.5, 44.2, 60.4),
-    zone('Sant Milan', 'infra', 3.35, 19.3, 25.9, 42.1),
-    zone('Calendar distribution', 'infra', 26.4, 42.5, 25.9, 42.1),
-    zone('Neelkanth Varni', 'infra', 3.35, 19.3, 3.3, 24.2),
-    zone('Welcome to Diwali', 'entry', 40.7, 56.8, 3.3, 29.5),
-    { ...zone('Entrance', 'entry', 43.9, 54.3, 5.2, 11.3), params: { w: 10.4, d: 6.1, title: 'Entrance', zone: true } },
-    { ...zone('Exit', 'infra', 7.2, 14.9, 0.2, 2.6), params: { w: 7.7, d: 2.4, title: 'Exit', zone: true } },
-    { ...zone('Centerpiece', 'infra', 43.9, 56.2, 34.8, 60.9), params: { w: 12.3, d: 26.1, title: 'Centerpiece', zone: true } },
+    zone('Hindu Festivals', 's1', 57.5, 87.6, 2.1, 30.7, true, 'zS1'),
+    zone('Rites & Traditions', 's2', 87.8, 115.7, 2.1, 36, true, 'zS2'),
+    zone('The Hindu Way of Life', 's3', 90.6, 117, 37, 84, true, 'zS3'),
+    zone('Beliefs & Worldview', 's4', 52, 90.1, 61.7, 93.6, true, 'zS4'),
+    zone('Core Values', 's5', 40.4, 52, 61.7, 93.6, true, 'zS5'),
+    zone('Adhar Stambh', 's6', 40.8, 88.4, 30.7, 61.7, true, 'zS6'),
+    zone('Line', 'infra', 3.6, 22.8, 54, 92.2),
+    zone('Photo booth', 'photo', 23.45, 38.55, 67.8, 92.2),
+    zone('Calendar distribution', 'infra', 4.1, 20.1, 29.75, 49.65),
+    zone('Sant Milan', 'infra', 1.9, 19.9, 17.7, 27.6),
+    zone('Neelkanth Varni', 'infra', 1.9, 19.9, 2.1, 17.7),
+    zone('CAPA — BAPS Charities', 'entry', 42, 57, 3.75, 28.45),
+    { ...zone('Hall doors', 'entry', 0.2, 3.4, 36.7, 43), params: { w: 3.2, d: 6.3, title: 'Hall doors', zone: true } },
+    { ...zone('House entrance', 'infra', 97.1, 101.1, 56.6, 58.6), params: { w: 4, d: 2, title: 'Entrance', zone: true } },
+    { ...zone('House exit', 'infra', 89.6, 91.6, 64.5, 68.5), params: { w: 2, d: 4, title: 'Exit', zone: true } },
   );
 
-  // ——— PIPE & DRAPE: perimeter masking (12′ black, 1.5′ off the walls, broken ≥2′ clear of every door) ———
+  // ——— PIPE & DRAPE: the 15 black 12′ runs from Campus 3D (dc1 and dc3 carry a steel light pipe) ———
+  const DR: [string, string, SectionId, [number, number], [number, number], boolean][] = [
+    ['dn', 'North run (Beliefs room)', 's4', [39, 93.6], [88.9, 93.6], false],
+    ['dwMid', 'Beliefs room — west wall (behind the lotus)', 's5', [40.4, 93.6], [40.4, 52.4], false],
+    ['dmid', 'Centre divider', 'infra', [38.4, 52.4], [66, 52.4], false],
+    ['dhw', 'Beliefs room — east wall', 's4', [90.1, 95], [90.1, 72], false],
+    ['dc1', 'Beliefs | Adhar Stambh divider (light pipe)', 's4', [51.2, 61.7], [88.9, 61.7], true],
+    ['dc2', 'Adhar Stambh — east wall', 's6', [88.4, 61.7], [88.4, 31.2], false],
+    ['dc3', 'Festivals | Adhar Stambh divider (light pipe)', 's1', [39.5, 30.7], [88.4, 30.7], true],
+    ['dcapaW', 'CAPA — back wall', 'entry', [40.8, 30.7], [40.8, 2.1], false],
+    ['dbot', 'South run (festival posters)', 's1', [59.4, 2.1], [114.2, 2.1], false],
+    ['deast', 'East run (Rites / TVs)', 's2', [115.7, 58.9], [115.7, 2.1], false],
+    ['dwl', 'West run (Sant Milan / Neelkanth Varni)', 'infra', [1.9, 29.8], [1.9, 2.1], false],
+    ['dbotL', 'South run (west)', 'infra', [0.8, 2.1], [40.8, 2.1], false],
+    ['dsmT', 'Sant Milan — north wall', 'infra', [1.9, 27.6], [19.9, 27.6], false],
+    ['dsmR', 'Sant Milan — east wall', 'infra', [19.9, 27.6], [19.9, 17.7], false],
+    ['dsmB', 'Sant Milan | Neelkanth Varni divider', 'infra', [1.9, 17.7], [19.9, 17.7], false],
+  ];
+  for (const [k, name, sec, a, b, pipe] of DR) add(run(name, sec, [a, b], pipe ? { ...BLACK, ...LIGHT_PIPE } : BLACK, 'dr_' + k));
+
+  // ——— LINE (serpentine stanchion queue, 6 rows) ———
+  const qRows = [57, 63.5, 70, 76.5, 83, 89.5];
+  const qPts: [number, number][] = [];
+  qRows.forEach((y, i) => (i % 2 === 0 ? qPts.push([4.6, y], [21.8, y]) : qPts.push([21.8, y], [4.6, y])));
+  add(line('stanchions', 'Queue line (6 rows)', 'infra', qPts));
+
+  // ——— PHOTO BOOTH (backdrop on the west side, facing east) ———
   add(
-    run('Masking — west wall (south)', 'infra', [[1.5, 3], [1.5, 34.3]], MASK, 'pmW1'),
-    run('Masking — west wall (north)', 'infra', [[1.5, 60.8], [1.5, 93]], MASK, 'pmW2'),
-    run('Masking — south wall (between S1 and S2)', 'infra', [[18, 1.5], [24, 1.5]], MASK, 'pmS1'),
-    run('Masking — south wall behind Welcome (light pipe)', 'entry', [[48.5, 1.5], [57.5, 1.5]], { ...MASK, ...LIGHT_PIPE }, 'pmS2'),
-    run('Masking — north wall', 'infra', [[21, 93.7], [90, 93.7]], MASK, 'pmN1'),
-    run('Masking — north wall behind the house (light pipe)', 's3', [[90, 93.7], [108.2, 93.7]], { ...MASK, ...LIGHT_PIPE }, 'pmN2'),
-    run('Stage masking (south half)', 'infra', [[118.8, 19.5], [118.8, 47]], MASK, 'pmStS'),
-    run('Stage masking + House backdrop (14′ light pipe)', 's3', [[118.8, 47], [118.8, 75.8]], { h: 14, color: 'black', fullness: 0.5, ...LIGHT_PIPE }, 'pmStN'),
+    it('banner', 'Photo booth backdrop — Happy Diwali', 'photo', 24.1, 80, 0, { w: 10, h: 8, bottom: 0, title: 'Happy Diwali', sub: 'Diwali Exhibition 2026', style: 'photo', feet: true }),
+    it('floorMark', 'Stand-here mark', 'photo', 29.6, 80, 0, {}),
+    rig('tbar', 'Photo key stand', 'photo', 35.8, 75.4, 145, 8.5, 'tbPhL'),
+    rig('tbar', 'Photo fill stand', 'photo', 35.8, 84.6, 215, 8.5, 'tbPhR'),
+  );
+  add(
+    fx('Photo key', 'photo', 'fresnel200', 'tbPhL', 1.5, [29.6, 80, 5.2], { ww: 1, cw: 0.3 }, 0.45, { zoom: 40 }),
+    fx('Photo fill', 'photo', 'fresnel200', 'tbPhR', 1.5, [29.6, 80, 5.2], { ww: 1, cw: 0.3 }, 0.24, { zoom: 45 }),
   );
 
-  // ——— WELCOME TO DIWALI (entrance at door S2c, bottom of the drawing) ———
+  // ——— CALENDAR DISTRIBUTION (two 10′ tables at the hall doors) ———
   add(
-    it('banner', 'Welcome to Diwali', 'entry', 48.8, 20, 270, { w: 8, h: 8, bottom: 0, title: 'Welcome to Diwali', sub: 'Diwali Exhibition 2026 · Timeless Hindu Heritage', style: 'saffron', feet: true }),
-    it('posterStand', 'Exhibition map & flow', 'entry', 54.5, 12, 270, { w: 2.5, h: 4, bottom: 1.8, title: 'Welcome — Exhibition Map', style: 'saffron' }),
-  );
-  add(
-    fxD('Welcome wash L', 'entry', 'rgbwPar200', 'pmS2', 1.5, [47, 19.9, 4.6], AMBER_RGBW, 0.6),
-    fxD('Welcome wash R', 'entry', 'rgbwPar200', 'pmS2', 3.5, [50.6, 19.9, 4.6], AMBER_RGBW, 0.6),
-    fxD('Welcome map poster', 'entry', 'gallery30', 'pmS2', 6, [54.5, 12.05, 3.8], { ww: 1 }, 0.5),
+    it('table', 'Calendar table 1', 'infra', 8.6, 39.7, 90, { w: 10, d: 2.5, h: 2.5 }),
+    it('table', 'Calendar table 2', 'infra', 15.6, 39.7, 90, { w: 10, d: 2.5, h: 2.5 }),
   );
 
-  // ——— 1 HINDU FESTIVALS (interactive India map + poster wall along the south wall) ———
+  // ——— SANT MILAN (drape room x 1.9–19.9, y 17.7–27.6; sants seated on the west side facing east) ———
   add(
-    it('mapDeck', 'Interactive India map — Many Traditions. One Light.', 's1', 72, 16.5, 90, { w: 12, d: 12, h: 3, divos: 44 }),
-    run('Festival poster wall (ivory)', 's1', [[58.7, 3.5], [86.3, 3.5]], { h: 10, color: 'ivory', fullness: 0.5 }, 'drPosters'),
-    it('banner', 'Header — Many Traditions. One Light.', 's1', 72.5, 3.72, 90, { w: 18, h: 2.1, bottom: 7.4, title: 'MANY TRADITIONS. ONE LIGHT.', sub: 'Hindu Festivals', style: 'cream', feet: false, onDrape: true }),
-    run('Festivals — north backdrop (light pipe)', 's1', [[60.5, 30], [82, 30]], { h: 10, color: 'black', fullness: 0.5, ...LIGHT_PIPE }, 'drFestN'),
-    it('signStand', 'Section 1 sign', 's1', 61.5, 25.5, 180, { title: 'Hindu Festivals', num: 1 }),
-    { ...rig('pipebar', 'Poster light pipe W', 's1', 66, 9.2, 90, 10, 'pbF1'), params: { h: 10, w: 12 } },
-    { ...rig('pipebar', 'Poster light pipe E', 's1', 79.5, 9.2, 90, 10, 'pbF2'), params: { h: 10, w: 12 } },
+    it('banner', 'Sant Milan backdrop', 'infra', 2.6, 22.65, 0, { w: 8, h: 8, bottom: 0, title: 'Sant Milan', sub: 'Darshan & blessings', style: 'maroon', feet: true }),
+    it('table', 'Sant Milan table', 'infra', 11.5, 22.65, 90, { w: 8, d: 2.4, h: 2.6, mat: 'drapeMaroon' }),
+    rig('tbar', 'Sant Milan stand', 'infra', 18.4, 22.65, 180, 10, 'tbSM'),
+  );
+  add(fx('Sant Milan key', 'infra', 'fresnel200', 'tbSM', 1.5, [9.4, 22.65, 4.2], { ww: 1, cw: 0.2 }, 0.45, { zoom: 45 }));
+
+  // ——— NEELKANTH VARNI (room x 1.9–19.9, y 2.1–17.7; murti against the south run, facing north) ———
+  add(
+    it('banner', 'Neelkanth Varni backdrop', 'infra', 12.1, 2.9, 90, { w: 10, h: 8, bottom: 0, title: 'Neelkanth Varni', sub: 'Tapasvi · Yogi · Guide', style: 'night', feet: true }),
+    it('table', 'Neelkanth Varni murti riser', 'infra', 12.1, 6, 90, { w: 5, d: 3.5, h: 3, mat: 'woodDark' }),
+    rig('tbar', 'Neelkanth Varni stand', 'infra', 12.1, 15.8, 270, 10, 'tbNV'),
+  );
+  add(
+    fx('Neelkanth Varni murti', 'infra', 'gallery30', 'tbNV', 1, [12.1, 6, 4], { ww: 1 }, 0.4),
+    fx('Neelkanth Varni backdrop', 'infra', 'gallery30', 'tbNV', 2, [12.1, 3, 5], { ww: 1 }, 0.4),
+  );
+
+  // ——— CAPA — BAPS CHARITIES (booth x 42–57 against the CAPA back wall, facing east) ———
+  add(
+    it('banner', 'CAPA backdrop — Light Beyond the Celebration', 'entry', 42.6, 16.1, 0, { w: 12, h: 8, bottom: 0, title: 'BAPS Charities', sub: 'Light Beyond the Celebration', style: 'maroon', feet: true }),
+    it('table', 'CAPA table', 'entry', 46.5, 16.1, 90, { w: 8, d: 2.5, h: 2.5, mat: 'drapeMaroon' }),
+    rig('tbar', 'CAPA stand', 'entry', 55.4, 16.1, 180, 10, 'tbCapa'),
+  );
+  add(
+    fx('CAPA backdrop L', 'entry', 'gallery30', 'tbCapa', 0.5, [42.7, 12.6, 5], { ww: 1 }, 0.55),
+    fx('CAPA backdrop R', 'entry', 'gallery30', 'tbCapa', 2.5, [42.7, 19.6, 5], { ww: 1 }, 0.55),
+    fx('CAPA table key', 'entry', 'fresnel200', 'tbCapa', 1.5, [47, 16.1, 3.4], { ww: 1, cw: 0.2 }, 0.35, { zoom: 45 }),
+  );
+
+  // ——— 1 HINDU FESTIVALS (India map; festival posters on the south run) ———
+  const PY = 2.28;
+  add(
+    it('mapDeck', 'Interactive India map — Many Traditions. One Light.', 's1', 72.2, 16.4, 90, { w: 12, d: 12, h: 3, divos: 44 }),
+    it('banner', 'Header — Many Traditions. One Light.', 's1', 72.5, PY + 0.04, 90, { w: 18, h: 2.1, bottom: 7.4, title: 'MANY TRADITIONS. ONE LIGHT.', sub: 'Hindu Festivals', style: 'cream', feet: false, onDrape: true }),
+    it('signStand', 'Section 1 sign', 's1', 61.5, 26, 180, { title: 'Hindu Festivals', num: 1 }),
+    { ...rig('pipebar', 'Poster light pipe W', 's1', 66, 7.8, 90, 10, 'pbF1'), params: { h: 10, w: 12 } },
+    { ...rig('pipebar', 'Poster light pipe E', 's1', 79.5, 7.8, 90, 10, 'pbF2'), params: { h: 10, w: 12 } },
   );
   const posterX = (i: number) => 60.3 + i * 3.45;
-  for (let i = 0; i < 8; i++) add(it('poster', `Poster — ${FESTIVAL_POSTERS[i]}`, 's1', posterX(i), 3.68, 90, { w: 2.4, h: 5, bottom: 1.6, title: FESTIVAL_POSTERS[i] }));
-  for (let i = 0; i < 8; i++) add(fx(`Posters ${i + 1}`, 's1', 'gallery30', i < 4 ? 'pbF1' : 'pbF2', 0, [posterX(i), 3.7, 4.1], { ww: 1 }, 0.38, { u: posterX(i) - (i < 4 ? 66 : 79.5) }));
+  for (let i = 0; i < 8; i++) add(it('poster', `Poster — ${FESTIVAL_POSTERS[i]}`, 's1', posterX(i), PY, 90, { w: 2.4, h: 5, bottom: 1.6, title: FESTIVAL_POSTERS[i] }));
+  for (let i = 0; i < 8; i++) add(fx(`Posters ${i + 1}`, 's1', 'gallery30', i < 4 ? 'pbF1' : 'pbF2', 0, [posterX(i), PY + 0.02, 4.1], { ww: 1 }, 0.38, { u: posterX(i) - (i < 4 ? 66 : 79.5) }));
+  // map keys hang on the dc3 light pipe (y 30.7, starts at x 39.5)
   add(
-    fxD('Map key W', 's1', 'cobPar100', 'drFestN', 9.5, [69.5, 17.5, 3.2], { ww: 1, cw: 1 }),
-    fxD('Map key E', 's1', 'cobPar100', 'drFestN', 13.5, [74.5, 17.5, 3.2], { ww: 1, cw: 1 }),
-    fxD('Map photo key', 's1', 'fresnel200', 'drFestN', 11.5, [72, 24.5, 5], { ww: 1, cw: 0.25 }, 0.12, { zoom: 45 }),
+    fxD('Map key W', 's1', 'cobPar100', 'dr_dc3', 30, [69.7, 17.4, 3.2], { ww: 1, cw: 1 }),
+    fxD('Map key E', 's1', 'cobPar100', 'dr_dc3', 35, [74.7, 17.4, 3.2], { ww: 1, cw: 1 }),
+    fxD('Map photo key', 's1', 'fresnel200', 'dr_dc3', 32.7, [72.2, 24.4, 5], { ww: 1, cw: 0.25 }, 0.12, { zoom: 45 }),
   );
 
-  // ——— 2 RITES & TRADITIONS (engraved L-wall in the south-east corner, lily-pad path) ———
+  // ——— 2 RITES & TRADITIONS (engraved L-wall in the south-east corner, lily-pad path) — same place as before ———
   const lwall = it('lwall', 'Game of Life — 16 Sacred Steps (engraved panel wall)', 's2', 87.77, 1.0, 90, { runA: 24, corner: 4, runB: 32, depth: 2, h: 8, mirror: false }, { id: 'lwall' });
   const LW = sfOf(lwall);
   const mid = (a: Surface, b: Surface, z = 4.3): [number, number, number] => [(a.c.x + b.c.x) / 2, (a.c.y + b.c.y) / 2, z];
@@ -143,30 +197,29 @@ export function defaultProject(): Project {
     fx('Panels 11–12', 's2', 'gallery30', 'crS2b', 4, mid(LW('p11'), LW('p12')), { ww: 1 }),
     fx('Panels 9–10', 's2', 'gallery30', 'crS2b', 5, mid(LW('p9'), LW('p10')), { ww: 1 }),
   );
-  // the two angled guide bars between Rites and the house
-  add(
-    run('Guide bar to House (west, light pipe)', 's3', [[84, 35.5], [91.2, 48.7]], { h: 8, color: 'black', fullness: 0.5, ...LIGHT_PIPE }, 'drGuideW'),
-    run('Guide bar to House (east)', 's3', [[97.6, 46.7], [115.4, 36.8]], { h: 8, color: 'black', fullness: 0.5 }, 'drGuideE'),
-  );
 
-  // ——— 3 HINDU WAY OF LIFE (24′×24′ walk-through house, entrance facing Rites to the south) ———
-  const house = it('house', 'Hindu House (walk-through)', 's3', 103.35, 61.5, 270, { w: 24, d: 24, h: 8, wall: 2, entry: [10.5, 13.5], exit: [1.5, 4.5], tau: 0.55 }, { id: 'house' });
+  // ——— TV KIOSKS (four, between Rites and the house, angled toward the walkway) ———
+  ([[94, 50.1, 305], [112.4, 50.4, 247], [97, 40, 300], [110.3, 40, 253]] as [number, number, number][]).forEach(([x, y, r], i) =>
+    add(it('kiosk', `TV / touch-screen kiosk ${i + 1}`, 's3', x, y, r, { nits: 300 })));
+
+  // ——— 3 HINDU WAY OF LIFE (24′×24′ walk-through house; entrance on the south face, exit on the west face) ———
+  const house = it('house', 'Hindu House (walk-through)', 's3', 103.6, 71.3, 270, { w: 24, d: 24, h: 8, wall: 2, entry: [10.5, 13.5], exit: [1.5, 4.5], tau: 0.55 }, { id: 'house' });
   add(
     house,
-    it('banner', 'House sign — Hindu Way of Life', 's3', 95.1, 49.3, 270, { w: 5, h: 2, bottom: 5.6, title: 'Hindu Way of Life', sub: 'Section 3', style: 'maroon', feet: false, onDrape: true }),
-    it('banner', 'House title — The Hindu Way of Life (north face)', 's3', 101.1, 73.65, 90, { w: 12, h: 2.5, bottom: 5.4, title: 'THE HINDU WAY OF LIFE', sub: 'Hindu Jivan Shaili', style: 'cream', feet: false, onDrape: true }),
+    it('banner', 'House title — The Hindu Way of Life (south face)', 's3', 109, 59.1, 270, { w: 9, h: 2.5, bottom: 5.4, title: 'THE HINDU WAY OF LIFE', sub: 'Hindu Jivan Shaili', style: 'cream', feet: false, onDrape: true }),
+    it('signStand', 'Section 3 sign', 's3', 95.5, 56, 270, { title: 'The Hindu Way of Life', num: 3 }),
+    { ...rig('pipebar', 'House light pipe (east, south half)', 's3', 117.6, 67.5, 180, 12, 'pbHouseS'), params: { h: 12, w: 10 } },
+    { ...rig('pipebar', 'House light pipe (east, north half)', 's3', 117.6, 75.3, 180, 12, 'pbHouseN'), params: { h: 12, w: 10 } },
+    rig('tbar', 'House title stand', 's3', 104.5, 51, 90, 10, 'tbHouse'),
   );
   const H = houseXY(house);
   const hp = (sx: number, sy: number): [number, number, number] => { const q = H(sx, sy); return [q.x, q.y, 2.5]; };
   add(
-    fxD('House glow — entrance side', 's3', 'cobPar200', 'pmStN', 10, hp(16, 8), { ww: 1 }),
-    fxD('House glow — reading/exit', 's3', 'cobPar200', 'pmStN', 12.5, hp(7, 9), { ww: 1 }),
-    fxD('House glow — mandir/living', 's3', 'cobPar200', 'pmStN', 17, hp(16, 15), { ww: 1 }),
-    fxD('House glow — kitchen', 's3', 'cobPar200', 'pmStN', 21, hp(9, 18), { ww: 1 }),
-  );
-  add(
-    fxD('House sign spot', 's3', 'gallery30', 'drGuideW', 11, [95.1, 49.2, 6.6], { ww: 1 }, 0.45),
-    fxD('House title banner spot', 's3', 'gallery30', 'pmN2', 11, [101.1, 73.55, 6.65], { ww: 1 }, 1),
+    fx('House glow — entrance side', 's3', 'cobPar200', 'pbHouseS', 0, hp(16, 8), { ww: 1 }, 1, { u: -0.7 }),
+    fx('House glow — reading/exit', 's3', 'cobPar200', 'pbHouseS', 0, hp(7, 9), { ww: 1 }, 1, { u: 1.8 }),
+    fx('House glow — mandir/living', 's3', 'cobPar200', 'pbHouseN', 0, hp(16, 15), { ww: 1 }, 1, { u: -1.5 }),
+    fx('House glow — kitchen', 's3', 'cobPar200', 'pbHouseN', 0, hp(9, 18), { ww: 1 }, 1, { u: 2.5 }),
+    fx('House title banner spot', 's3', 'gallery30', 'tbHouse', 1.5, [109, 59.05, 6.65], { ww: 1 }, 1),
   );
   const clamp = (name: string, atp: [number, number], to: [number, number, number], dim: number) => {
     const a = H(atp[0], atp[1]);
@@ -181,129 +234,83 @@ export function defaultProject(): Project {
     clamp('Living-room poster spot', [2.45, 17], [21.9, 19, 4.6], 0.6),
   );
 
-  // ——— 4 BELIEFS & WORLDVIEW (black drape room; two rows Mirror · TV · Poster, the six nodes from the slides) ———
+  // ——— 4 BELIEFS & WORLDVIEW + 5 CORE VALUES (one black drape room x 40.4–90.1, y 61.7–93.6) ———
   add(
-    run('Beliefs room — south half (light pipe)', 's4', [[66.8, 75], [66.8, 65.3], [82.1, 65.3], [82.1, 75]], { h: 10, color: 'black', fullness: 0.5, ...LIGHT_PIPE }, 'drBel1'),
-    run('Beliefs room — north half (light pipe)', 's4', [[66.8, 81.5], [66.8, 91.5], [82.1, 91.5], [82.1, 81.5]], { h: 10, color: 'black', fullness: 0.5, ...LIGHT_PIPE }, 'drBel2'),
-    run('Beliefs room — west header (valance + light pipe)', 's4', [[66.8, 75], [66.8, 81.5]], { h: 10, color: 'black', fullness: 0.5, valance: 1.5, sharedEnds: true, ...LIGHT_PIPE }, 'drBelW'),
-    run('Beliefs room — east header (valance)', 's4', [[82.1, 75], [82.1, 81.5]], { h: 10, color: 'black', fullness: 0.5, valance: 1.5, sharedEnds: true }, 'drBelE'),
-    line('zoneArea', 'Beliefs room', 's4', [[66.8, 65.3], [82.1, 65.3], [82.1, 91.5], [66.8, 91.5]], { rho: 0.03, h: 10 }),
-    it('signStand', 'Section 4 sign', 's4', 84.2, 84.5, 315, { title: 'Beliefs & Worldview', num: 4 }),
-    // north row (faces south): Mirror · TV · Poster
-    it('mirrors', 'Node 2 — Who am I? (illuminated mirrors)', 's4', 69.4, 86.8, 270, { w: 4.6, d: 2.2, n: 2 }, { id: 'nMirror' }),
-    it('tvStand', 'Node 4 — What happens after this life? (TV, tree of life forms)', 's4', 74.0, 86.6, 270, { w: 4.8, screen: 'tree' }),
-    it('diorama', 'Node 1 — Who is God? (8′×8′ layered diorama + poster)', 's4', 78.9, 87.2, 215, { w: 8, h: 8, d: 2, art: 'god', nits: 110, cct: 2900 }),
-    // south row (faces north): Mirror · TV · Poster
-    it('fiberTower', 'Node 5 — How does God remain accessible? (fibre-optic murti)', 's4', 69.4, 71.5, 90, {}, { id: 'nFiber' }),
-    it('kiosk', 'Node 3 — Why do my actions matter? (touch-screen ripple)', 's4', 74.0, 71.8, 90, { nits: 300 }),
-    it('diorama', 'Node 6 — Why is a Guru important? (8′×8′ map diorama + poster)', 's4', 78.9, 69.6, 145, { w: 8, h: 8, d: 2, art: 'guru', nits: 110, cct: 2900 }),
+    line('zoneArea', 'Beliefs room', 's4', [[40.4, 61.7], [90.1, 61.7], [90.1, 93.6], [40.4, 93.6]], { rho: 0.03, h: 12 }),
+    it('signStand', 'Section 4 sign', 's4', 87, 69, 180, { title: 'Beliefs & Worldview', num: 4 }),
+    it('mirrors', 'Node 2 — Who am I? (illuminated mirrors)', 's4', 62.8, 88, 270, { w: 10, d: 4, n: 4 }, { id: 'nMirror' }),
+    it('diorama', 'Node 1 — Who is God? (8′×8′ layered diorama + poster)', 's4', 81.3, 88, 270, { w: 8, h: 8, d: 2, art: 'god', nits: 110, cct: 2900 }),
+    it('diorama', 'Node 6 — Why is a Guru important? (8′×8′ map diorama + poster)', 's4', 72.8, 68.7, 90, { w: 8, h: 8, d: 2, art: 'guru', nits: 110, cct: 2900 }),
+    it('fiberTower', 'Node 5 — Nilkanth Varni box (fibre-optic murti)', 's4', 57, 68.7, 90, {}, { id: 'nFiber' }),
   );
   add(
-    fxAt('Mirror face light W', 's4', 'artSpot', 'clamp', 68.25, 86.6, 7.4, [69.4, 83.8, 5.25], { ww: 1, cw: 0 }, 0.2),
-    fxAt('Mirror face light E', 's4', 'artSpot', 'clamp', 70.55, 86.6, 7.4, [69.4, 83.8, 5.25], { ww: 1, cw: 0 }, 0.2),
-    fxD('Fibre-optic murti accent', 's4', 'artSpot', 'drBelW', 1, [69.4, 71.8, 2.6], { ww: 1, cw: 0.4 }, 0.35),
+    fxAt('Mirror face light W', 's4', 'artSpot', 'clamp', 60.3, 87.8, 7.4, [62.8, 85, 5.25], { ww: 1, cw: 0 }, 0.2),
+    fxAt('Mirror face light E', 's4', 'artSpot', 'clamp', 65.3, 87.8, 7.4, [62.8, 85, 5.25], { ww: 1, cw: 0 }, 0.2),
+    fxD('Fibre-optic murti accent', 's4', 'artSpot', 'dr_dc1', 5.8, [57, 68.7, 2.6], { ww: 1, cw: 0.4 }, 0.35),
   );
-
-  // ——— 5 CORE VALUES (activity table between two angled lotus boards) ———
-  const lotusN = it('nailWall', 'Lotus board — The Lotus (poster + nail art)', 's5', 46.6, 87.2, 302, { w: 8, h: 8, d: 2, table: false, poster: true }, { id: 'lotusN' });
-  const lotusS = it('nailWall', 'Lotus board — nail art', 's5', 46.6, 68.6, 55, { w: 8, h: 8, d: 2, table: false, poster: false }, { id: 'lotusS' });
-  const LN = sfOf(lotusN), LS = sfOf(lotusS);
+  const lotusN = it('nailWall', 'Lotus activity — The Lotus (poster + nail art)', 's5', 42.9, 80, 0, { w: 12, h: 8, d: 2, table: false, poster: true }, { id: 'lotusN' });
+  const LN = sfOf(lotusN);
   add(
-    it('table', 'Activity — Hindu Mulya lotus peg board (Sankalp cards & bands)', 's5', 41.7, 77.7, 0, { w: 10, d: 4, h: 2.5 }),
     lotusN,
-    lotusS,
-    it('signStand', 'Section 5 sign', 's5', 62, 89.5, 0, { title: 'Hindu Core Values', num: 5 }),
+    it('signStand', 'Section 5 sign', 's5', 46, 90, 0, { title: 'Hindu Core Values', num: 5 }),
+    rig('tbar', 'Lotus stand', 's5', 51, 80, 180, 10, 'tbLotus'),
   );
-  const rakeN = ahead(lotusN.x, lotusN.y, 302, 6), rakeS = ahead(lotusS.x, lotusS.y, 55, 6);
+  const rakeN = ahead(lotusN.x, lotusN.y, 0, 6);
   add(
-    fxD('Lotus key N', 's5', 'cobPar100', 'drBel2', 2.5, at(LN('lotus'), 4.6), { ww: 1, cw: 1 }),
-    fxD('Lotus poster zone N', 's5', 'gallery30', 'drBel2', 4.5, at(LN('poster'), 4.2), { ww: 1 }, 0.7),
-    fxD('Lotus key S', 's5', 'cobPar100', 'drBel1', 3, at(LS('lotus'), 4.6), { ww: 1, cw: 1 }),
-    fxD('Lotus board S art', 's5', 'gallery30', 'drBel1', 1, [LS('lotus').c.x - 1.5, LS('lotus').c.y + 1, 4.2], { ww: 1 }, 0.7),
-    fxAt('Lotus rake N', 's5', 'rgbwPar200', 'floor', rakeN[0], rakeN[1], 0.75, [lotusN.x + 0.3, lotusN.y - 0.5, 5.5], { r: 1, g: 0.18, b: 0.25, w: 0.3 }, 0.7),
-    fxAt('Lotus rake S', 's5', 'rgbwPar200', 'floor', rakeS[0], rakeS[1], 0.75, [lotusS.x + 0.3, lotusS.y + 0.5, 5.5], { r: 1, g: 0.4, b: 0, w: 0.3 }, 0.7),
+    fx('Lotus key', 's5', 'cobPar100', 'tbLotus', 1, at(LN('lotus'), 4.6), { ww: 1, cw: 1 }),
+    fx('Lotus poster zone', 's5', 'gallery30', 'tbLotus', 2, at(LN('poster'), 4.2), { ww: 1 }, 0.7),
+    fxAt('Lotus rake', 's5', 'rgbwPar200', 'floor', rakeN[0], rakeN[1], 0.75, [lotusN.x + 0.3, lotusN.y - 0.5, 5.5], { r: 1, g: 0.18, b: 0.25, w: 0.3 }, 0.7),
   );
 
-  // ——— CENTERPIECE + 6 ADHAR STAMBH (Shastras · Mandir · Sant, framed by the four red-square light towers) ———
+  // ——— 6 ADHAR STAMBH (Shastra · Mandir · Sant bays in the middle room, framed by four light towers) ———
+  const BAY = { w: 10.5, h: 10, d: 3 };
   add(
-    it('centerpiece', 'Centerpiece', 'infra', 50.05, 47.85, 0, { w: 24, d: 8, h: 1.2, divos: 60 }),
-    it('stambh', 'Stambh — Shastras', 's6', 77.2, 57.2, 228, { w: 7, h: 10, d: 3, kind: 1 }),
-    it('stambh', 'Stambh — Mandir', 's6', 82.0, 49.4, 180, { w: 7, h: 10, d: 3, kind: 0 }),
-    it('stambh', 'Stambh — Sant', 's6', 78.3, 41.7, 139, { w: 7, h: 10, d: 3, kind: 2 }),
+    it('stambh', 'Stambh — Shastras', 's6', 78.6, 55.4, 235, { ...BAY, kind: 1 }),
+    it('stambh', 'Stambh — Mandir', 's6', 82.5, 48.2, 180, { ...BAY, kind: 0 }),
+    it('stambh', 'Stambh — Sant', 's6', 78.6, 40.9, 125, { ...BAY, kind: 2 }),
     it('signStand', 'Section 6 sign', 's6', 59, 38, 180, { title: 'Adhar Stambh', num: 6 }),
-    rig('crank', 'Light tower SW', 'infra', 43.7, 31.6, 45, 14, 'twSW'),
-    rig('crank', 'Light tower NW', 'infra', 43.7, 62.6, 315, 14, 'twNW'),
-    rig('crank', 'Light tower SE', 'infra', 85.6, 32.1, 135, 14, 'twSE'),
-    rig('crank', 'Light tower NE', 'infra', 85.6, 63.3, 225, 14, 'twNE'),
-    rig('tbar', 'Adhar Stambh photo stand', 's6', 64.5, 48.5, 0, 11, 'tbS6'),
+    rig('crank', 'Light tower SW', 'infra', 42.8, 33, 45, 14, 'twSW'),
+    rig('crank', 'Light tower NW', 'infra', 52.5, 59.5, 315, 14, 'twNW'),
+    rig('crank', 'Light tower SE', 'infra', 86.2, 33, 135, 14, 'twSE'),
+    rig('crank', 'Light tower NE', 'infra', 86.2, 59.5, 225, 14, 'twNE'),
+    rig('tbar', 'Adhar Stambh photo stand', 's6', 64.5, 48.2, 0, 11, 'tbS6'),
   );
   add(
-    fx('Centerpiece key S', 'infra', 'cobPar200', 'twSW', 2.5, [50, 39.5, 2.5], { ww: 1 }, 1),
-    fx('Centerpiece key N', 'infra', 'cobPar200', 'twNW', 2.5, [50, 56, 2.5], { ww: 1 }, 1),
-    fx('Stambh rim SE', 's6', 'rgbwPar200', 'twSE', 2.5, [73.5, 47.5, 6], AMBER_RGBW, 0.45),
-    fx('Stambh rim NE', 's6', 'rgbwPar200', 'twNE', 2.5, [73.5, 49.5, 6], AMBER_RGBW, 0.45),
-    fx('Stambh photo key S', 's6', 'fresnel200', 'tbS6', 2, [73.5, 46.5, 5], { ww: 1, cw: 0.2 }, 0.65, { zoom: 40 }),
-    fx('Stambh photo key N', 's6', 'fresnel200', 'tbS6', 1, [73.5, 50.5, 5], { ww: 1, cw: 0.2 }, 0.65, { zoom: 40 }),
-    fxAt('Shastras graze', 's6', 'wallWash9x12', 'floor', 74.5, 54.2, 0.5, [76.6, 56.5, 7], SAFFRON_WW, 0.8),
-    fxAt('Sant graze', 's6', 'wallWash9x12', 'floor', 75.3, 44.3, 0.5, [77.7, 42.2, 7], SAFFRON_WW, 0.8),
-  );
-
-  // ——— WEST COLUMN: LINE → PHOTO BOOTH → OUTREACH → CALENDAR → SANT MILAN / NEELKANTH VARNI → EXIT (S1) ———
-  add(
-    line('stanchions', 'Queue — lane 1', 'infra', [[14, 70.5], [30, 70.5]]),
-    line('stanchions', 'Queue — lane 2', 'infra', [[5, 74.5], [28, 74.5]]),
-    line('stanchions', 'Queue — lane 3', 'infra', [[7, 78.5], [30, 78.5]]),
-    line('stanchions', 'Queue — lane 4', 'infra', [[5, 82.5], [28, 82.5]]),
-    line('stanchions', 'Queue — lane 5', 'infra', [[7, 86.5], [30, 86.5]]),
-    run('Booth divider — Photo booth | Sant Milan', 'infra', [[2.5, 43.15], [19.3, 43.15]], { h: 10, color: 'maroon', fullness: 0.5 }, 'drDivA'),
-    run('Booth divider — Sant Milan | Neelkanth Varni', 'infra', [[2.5, 25.05], [19.3, 25.05]], { h: 10, color: 'maroon', fullness: 0.5 }, 'drDivB'),
-    it('banner', 'Photo booth backdrop — Happy Diwali', 'photo', 4.6, 52.3, 0, { w: 10, h: 8, bottom: 0, title: 'Happy Diwali', sub: 'Diwali Exhibition 2026', style: 'photo', feet: true }),
-    it('floorMark', 'Stand-here mark', 'photo', 8.4, 52.3, 0, {}),
-    rig('tbar', 'Photo key stand', 'photo', 15.5, 48, 150, 8.5, 'tbPhL'),
-    rig('tbar', 'Photo fill stand', 'photo', 15.5, 56.6, 210, 8.5, 'tbPhR'),
-    it('table', 'Outreach table', 'infra', 36.5, 52.3, 180, { w: 6, d: 2.5, h: 2.5 }),
-    it('signStand', 'Outreach sign', 'infra', 30, 57.5, 180, { title: 'Outreach', num: 0 }),
-    it('table', 'Calendar table 1', 'infra', 31, 36, 90, { w: 6, d: 2.5, h: 2.5 }),
-    it('table', 'Calendar table 2', 'infra', 38, 36, 90, { w: 6, d: 2.5, h: 2.5 }),
-    it('banner', 'Sant Milan backdrop', 'infra', 4.6, 34, 0, { w: 10, h: 8, bottom: 0, title: 'Sant Milan', sub: 'Darshan & blessings', style: 'maroon', feet: true }),
-    it('table', 'Sant Milan dais', 'infra', 7.5, 34, 0, { w: 7, d: 4, h: 1.2, mat: 'drapeMaroon' }),
-    rig('tbar', 'Sant Milan stand', 'infra', 17, 34, 180, 10, 'tbSM'),
-    it('banner', 'Neelkanth Varni backdrop', 'infra', 4.6, 14, 0, { w: 10, h: 8, bottom: 0, title: 'Neelkanth Varni', sub: 'Tapasvi · Yogi · Guide', style: 'night', feet: true }),
-    it('table', 'Neelkanth Varni murti riser', 'infra', 7.2, 14, 0, { w: 5, d: 3.5, h: 3, mat: 'woodDark' }),
-    rig('tbar', 'Neelkanth Varni stand', 'infra', 17, 14, 180, 10, 'tbNV'),
-  );
-  add(
-    fx('Photo key', 'photo', 'fresnel200', 'tbPhL', 1.5, [8.4, 52.3, 5.2], { ww: 1, cw: 0.3 }, 0.45, { zoom: 40 }),
-    fx('Photo fill', 'photo', 'fresnel200', 'tbPhR', 1.5, [8.4, 52.3, 5.2], { ww: 1, cw: 0.3 }, 0.24, { zoom: 45 }),
-    fx('Sant Milan key', 'infra', 'fresnel200', 'tbSM', 1.5, [9.8, 34, 4.4], { ww: 1, cw: 0.2 }, 0.45, { zoom: 45 }),
-    fx('Neelkanth Varni murti', 'infra', 'gallery30', 'tbNV', 1, [7.2, 14, 4], { ww: 1 }, 0.4),
-    fx('Neelkanth Varni backdrop', 'infra', 'gallery30', 'tbNV', 2, [4.7, 14, 5], { ww: 1 }, 0.4),
+    fx('Sant bay key', 's6', 'cobPar200', 'twSW', 2.5, [77.2, 43, 5.5], { ww: 1 }, 1),
+    fx('Shastra bay key', 's6', 'cobPar200', 'twNW', 2.5, [77.2, 53.4, 5.5], { ww: 1 }, 1),
+    fx('Stambh rim SE', 's6', 'rgbwPar200', 'twSE', 2.5, [74, 47, 6], AMBER_RGBW, 0.45),
+    fx('Stambh rim NE', 's6', 'rgbwPar200', 'twNE', 2.5, [74, 49.5, 6], AMBER_RGBW, 0.45),
+    fx('Stambh photo key S', 's6', 'fresnel200', 'tbS6', 2, [74, 46.4, 5], { ww: 1, cw: 0.2 }, 0.65, { zoom: 40 }),
+    fx('Stambh photo key N', 's6', 'fresnel200', 'tbS6', 1, [74, 50, 5], { ww: 1, cw: 0.2 }, 0.65, { zoom: 40 }),
+    fxAt('Shastras graze', 's6', 'wallWash9x12', 'floor', 76.3, 52.1, 0.5, [78, 54.6, 7], SAFFRON_WW, 0.8),
+    fxAt('Mandir graze', 's6', 'wallWash9x12', 'floor', 78.5, 48.2, 0.5, [81.8, 48.2, 7], SAFFRON_WW, 0.8),
+    fxAt('Sant graze', 's6', 'wallWash9x12', 'floor', 76.3, 44.2, 0.5, [78, 41.6, 7], SAFFRON_WW, 0.8),
   );
 
   const hq = (sx: number, sy: number) => H(sx, sy);
   const mandirSpot = hq(15.5, 12.4);
   const livingSpot = hq(17, 18);
-  const lotusSpot = ahead(lotusN.x, lotusN.y, 302, 3.5);
+  const lotusSpot = ahead(lotusN.x, lotusN.y, 0, 3.5);
   const probes: Probe[] = [
-    { id: 'pb1', name: 'Welcome to Diwali', x: 48.8, y: 17.5, facing: 270, section: 'entry' },
-    { id: 'pb2', name: 'India map — north side photo', x: 72, y: 24.6, facing: 90, section: 's1' },
-    { id: 'pb3', name: 'In front of the festival posters', x: 72, y: 7.2, facing: 90, section: 's1' },
+    { id: 'pb1', name: 'CAPA — BAPS Charities', x: 49, y: 16.1, facing: 0, section: 'entry' },
+    { id: 'pb2', name: 'India map — north side photo', x: 72.2, y: 24.4, facing: 90, section: 's1' },
+    { id: 'pb3', name: 'In front of the festival posters', x: 72, y: 6, facing: 90, section: 's1' },
     { id: 'pb4', name: 'Rites — on a lily pad', x: 109.8, y: 18.2, facing: 180, section: 's2' },
     { id: 'pb5', name: 'House — by the Ghar Mandir', x: mandirSpot.x, y: mandirSpot.y, facing: 90, section: 's3' },
     { id: 'pb6', name: 'House — living room', x: livingSpot.x, y: livingSpot.y, facing: 150, section: 's3' },
-    { id: 'pb7', name: 'Beliefs — at the Who am I? mirrors', x: 69.4, y: 83.6, facing: 90, section: 's4' },
-    { id: 'pb8', name: 'Beliefs — centre aisle', x: 74.5, y: 78.4, facing: 0, section: 's4' },
-    { id: 'pb9', name: 'Core values — at the lotus board', x: lotusSpot[0], y: lotusSpot[1], facing: 302, section: 's5' },
-    { id: 'pb10', name: 'Adhar Stambh — group photo', x: 73.5, y: 48.5, facing: 180, section: 's6' },
-    { id: 'pb11', name: 'Centerpiece — east side', x: 55.5, y: 47.85, facing: 0, section: 'infra' },
-    { id: 'pb12', name: 'Photo booth', x: 8.4, y: 52.3, facing: 0, section: 'photo' },
-    { id: 'pb13', name: 'Sant Milan', x: 10.5, y: 34, facing: 0, section: 'infra' },
-    { id: 'pb14', name: 'Neelkanth Varni', x: 11, y: 14, facing: 0, section: 'infra' },
-    { id: 'pb15', name: 'Queue line', x: 17, y: 80, facing: 270, section: 'infra' },
+    { id: 'pb7', name: 'Beliefs — at the Who am I? mirrors', x: 62.8, y: 84.8, facing: 90, section: 's4' },
+    { id: 'pb8', name: 'Beliefs — centre aisle', x: 70, y: 78, facing: 0, section: 's4' },
+    { id: 'pb9', name: 'Core values — at the lotus board', x: lotusSpot[0], y: lotusSpot[1], facing: 0, section: 's5' },
+    { id: 'pb10', name: 'Adhar Stambh — group photo', x: 74, y: 48.2, facing: 180, section: 's6' },
+    { id: 'pb11', name: 'Adhar Stambh — approach', x: 60, y: 45, facing: 0, section: 's6' },
+    { id: 'pb12', name: 'Photo booth', x: 29.6, y: 80, facing: 0, section: 'photo' },
+    { id: 'pb13', name: 'Sant Milan', x: 10, y: 22.65, facing: 0, section: 'infra' },
+    { id: 'pb14', name: 'Neelkanth Varni', x: 12.1, y: 9.5, facing: 90, section: 'infra' },
+    { id: 'pb15', name: 'Queue line', x: 13, y: 80, facing: 270, section: 'infra' },
   ];
 
   return {
-    version: 3,
+    version: 4,
     name: 'Diwali Exhibition 2026',
     venue: 'Assembly Hall · BAPS Milpitas (1430 California Circle)',
     items,

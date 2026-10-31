@@ -38,17 +38,18 @@ function Exposure({ value }: { value: number }) {
 }
 
 const PRESETS: Record<string, { pos: [number, number, number]; tgt: [number, number, number]; label: string }> = {
-  entrance: { pos: [45.5, 3.5, 5.6], tgt: [50, 22, 4.5], label: 'From the entrance' },
+  entrance: { pos: [2.5, 46, 5.6], tgt: [20, 40, 4.5], label: 'From the hall doors' },
   overview: { pos: [60, -42, 62], tgt: [60, 48, 0], label: 'Bird’s-eye' },
+  capa: { pos: [56, 16.1, 6], tgt: [43, 16.1, 4.5], label: 'CAPA' },
   festivals: { pos: [60, 27, 9], tgt: [74, 12, 3], label: '1 Festivals' },
   rites: { pos: [92, 30, 8], tgt: [106, 10, 4], label: '2 Rites' },
-  house: { pos: [92.5, 38, 9.5], tgt: [103, 54, 3.5], label: '3 House' },
-  houseIn: { pos: [104.9, 68, 5.3], tgt: [103.35, 60.1, 3.6], label: '3 House — inside' },
-  beliefs: { pos: [80.5, 78.4, 6.5], tgt: [70, 80, 4], label: '4 Beliefs' },
-  values: { pos: [56, 78, 6], tgt: [44, 78, 4.2], label: '5 Core Values' },
-  stambh: { pos: [67.5, 48.5, 6.2], tgt: [80, 49, 5.5], label: '6 Adhar Stambh' },
-  photo: { pos: [17, 52.3, 5.5], tgt: [4, 52.3, 5], label: 'Photo booth' },
-  pipe: { pos: [58, 79, 7], tgt: [66.8, 84, 9], label: 'Lights on the drape pipe' },
+  house: { pos: [96, 46, 9.5], tgt: [103.6, 63.5, 3.5], label: '3 House' },
+  houseIn: { pos: [105.2, 77.6, 5.3], tgt: [103.6, 69.9, 3.6], label: '3 House — inside' },
+  beliefs: { pos: [80.5, 76, 6.5], tgt: [66, 86, 4], label: '4 Beliefs' },
+  values: { pos: [54, 80, 6], tgt: [43, 80, 4.2], label: '5 Core Values' },
+  stambh: { pos: [64, 48.2, 6.2], tgt: [80, 48.2, 5.5], label: '6 Adhar Stambh' },
+  photo: { pos: [37, 80, 5.5], tgt: [24, 80, 5], label: 'Photo booth' },
+  pipe: { pos: [62, 70, 7], tgt: [56, 61.7, 10], label: 'Lights on the drape pipe' },
 };
 
 export default function ThreeView() {

@@ -8,10 +8,10 @@ import { uid } from './geom';
 export type ViewKey = 'overview' | 'plan' | '3d' | 'campus' | 'campusplan' | 'light' | 'rig' | 'build' | 'exhibits' | 'venue';
 export type HeatMode = 'face' | 'floor' | 'photo' | 'uv' | 'none';
 
-// v3 = layout placed on the client's drawing. Plans saved by earlier versions stay under their old keys and the most
+// v4 = layout synced to the Campus 3D exhibition; v3 = layout placed on the client's drawing. Plans saved by earlier versions stay under their old keys and the most
 // recent one can be brought back from Venue & settings.
-const LS_KEY = 'lightplot.project.v3';
-export const OLD_KEYS = ['lightplot.project.v2', 'lightplot.project.v1'];
+const LS_KEY = 'lightplot.project.v4';
+export const OLD_KEYS = ['lightplot.project.v3', 'lightplot.project.v2', 'lightplot.project.v1'];
 
 function loadProject(): Project {
   if (typeof window === 'undefined') return defaultProject();
@@ -19,7 +19,7 @@ function loadProject(): Project {
     const raw = window.localStorage.getItem(LS_KEY);
     if (raw) {
       const p = JSON.parse(raw) as Project;
-      if (p && p.version >= 1 && p.version <= 3 && Array.isArray(p.items)) return p;
+      if (p && p.version >= 1 && p.version <= 4 && Array.isArray(p.items)) return p;
     }
   } catch {
     /* storage unavailable */
