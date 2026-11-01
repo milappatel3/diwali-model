@@ -1,8 +1,9 @@
 import type { Item, V2, V3 } from './types';
 import { local } from './geom';
+import { lwallStripPts } from './catalog';
 
 export const SLOT_PITCH = { tbar: 1.15, crank: 1.1 } as Record<string, number>;
-export const RIG_TYPES = new Set(['tbar', 'crank', 'pipebar']);
+export const RIG_TYPES = new Set(['tbar', 'crank', 'pipebar', 'truss']);
 /** Fixtures hang from a side arm this far off the drape line, so the lamp clears the fabric */
 export const DRAPE_ARM_FT = 0.55;
 /** Lens sits this far below the top of a drape light pipe (clamp + yoke drop) */
@@ -11,7 +12,16 @@ export const DRAPE_DROP_FT = 0.75;
 /** Anything a fixture can be hung on: stands, light pipes, and pipe & drape runs fitted with a light pipe */
 export function isRig(it: Item | undefined | null): boolean {
   if (!it) return false;
-  return RIG_TYPES.has(it.type) || (it.type === 'drape' && !!it.params?.lightPipe);
+  return RIG_TYPES.has(it.type) || (it.type === 'drape' && !!it.params?.lightPipe) || (it.type === 'lwall' && !!it.params?.topStrip);
+}
+/** rigs that fixtures slide along (a drape light pipe, or the Game of Life wall's top strip) as a polyline "run" */
+export function rigRun(rig: Item): Item | null {
+  if (rig.type === 'drape') return rig;
+  if (rig.type === 'lwall' && rig.params?.topStrip) {
+    const pts = lwallStripPts(rig);
+    return { ...rig, type: 'drape', x: pts[0].x, y: pts[0].y, points: pts.map((q) => ({ x: q.x - pts[0].x, y: q.y - pts[0].y })), params: { ...rig.params, closed: false } };
+  }
+  return null;
 }
 
 function runPts(run: Item): V2[] {
@@ -78,6 +88,16 @@ export function fixtureWorld(fx: Item, byId: Map<string, Item> | Record<string, 
   const get = (id: string) => (byId instanceof Map ? byId.get(id) : (byId as Record<string, Item>)[id]);
   if (p.rig) {
     const rig = get(p.rig);
+    if (rig && rig.type === 'truss') {
+      // vertical truss: the fixture hangs under the end of the top arm (arm points the way the truss faces)
+      const w = local(rig.x, rig.y, rig.rot, 0, rig.params?.arm ?? 4);
+      return { x: w.x, y: w.y, z: (rig.z || 0) + (rig.params?.h ?? 16) - 1.1 };
+    }
+    if (rig && rig.type === 'lwall' && rig.params?.topStrip) {
+      // LED bar standing on the wood strip on top of the wall
+      const { p: q } = runPoint(rigRun(rig)!, p.u ?? 0);
+      return { x: q.x, y: q.y, z: (rig.z || 0) + (rig.params?.h ?? 8) + 0.1 + 0.2 };
+    }
     if (rig && rig.type === 'drape') {
       const { lamp } = drapeHang(fx, rig);
       return { x: lamp.x, y: lamp.y, z: (rig.z || 0) + (rig.params?.h ?? 10) - DRAPE_DROP_FT };

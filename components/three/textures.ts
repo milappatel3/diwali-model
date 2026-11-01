@@ -920,3 +920,47 @@ export const mandirBackTex = () =>
     g.strokeStyle = '#f2c94c'; g.lineWidth = 10; g.strokeRect(8, 8, w - 16, h - 16);
     lotus(g, w / 2, h - 34, 28, '#f6d38a');
   });
+
+/** Projection-mapping content for the India map: glowing state-festival colour fields, light rings around each festival,
+ *  diya sparks and a bright traced outline, on black (black = no light from the projector). Same UV layout as indiaTex. */
+export const mappingTex = () =>
+  tex('mapping', 1024, 1024, (g, w, h) => {
+    g.fillStyle = '#000';
+    g.fillRect(0, 0, w, h);
+    const P = (x: number, y: number): [number, number] => [w / 2 + x * w * 0.9, h / 2 - y * h * 0.9];
+    g.save();
+    g.beginPath();
+    INDIA.forEach(([x, y], i) => (i ? g.lineTo(...P(x, y)) : g.moveTo(...P(x, y))));
+    g.closePath();
+    g.clip();
+    const bg = g.createLinearGradient(0, 0, w, h);
+    bg.addColorStop(0, '#3a0f4a'); bg.addColorStop(0.5, '#5a1a2a'); bg.addColorStop(1, '#102a4a');
+    g.fillStyle = bg; g.fillRect(0, 0, w, h);
+    g.globalCompositeOperation = 'lighter';
+    for (const f of FESTIVALS) {
+      const [x, y] = P(f.u, f.v);
+      const gr = g.createRadialGradient(x, y, 4, x, y, 170);
+      gr.addColorStop(0, f.color); gr.addColorStop(0.35, f.color + '88'); gr.addColorStop(1, f.color + '00');
+      g.fillStyle = gr; g.beginPath(); g.arc(x, y, 170, 0, Math.PI * 2); g.fill();
+      g.strokeStyle = '#ffffffaa'; g.lineWidth = 3;
+      for (const r of [38, 62]) { g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.stroke(); }
+    }
+    const r = rnd(21);
+    for (let i = 0; i < 260; i++) {
+      const x = r() * w, y = r() * h, s = 1.5 + r() * 3.5;
+      const gr = g.createRadialGradient(x, y, 0, x, y, s * 3);
+      gr.addColorStop(0, '#fff3c0'); gr.addColorStop(1, '#ffb34700');
+      g.fillStyle = gr; g.beginPath(); g.arc(x, y, s * 3, 0, Math.PI * 2); g.fill();
+    }
+    g.restore();
+    g.globalCompositeOperation = 'source-over';
+    g.shadowColor = '#ffd27a'; g.shadowBlur = 24;
+    g.strokeStyle = '#ffe7a8'; g.lineWidth = 9;
+    g.beginPath();
+    INDIA.forEach(([x, y], i) => (i ? g.lineTo(...P(x, y)) : g.moveTo(...P(x, y))));
+    g.closePath();
+    g.stroke();
+    g.shadowBlur = 0;
+    g.fillStyle = '#fff'; g.textAlign = 'center'; g.font = '700 30px Georgia, serif';
+    for (const f of FESTIVALS) { const [x, y] = P(f.u, f.v); g.fillText(f.fest.split(' / ')[0], x, y - 78); }
+  });

@@ -115,7 +115,8 @@ export const TYPES: Record<string, TypeDef> = {
     key: 'lwall',
     label: 'Engraved panel wall (L)',
     group: 'Exhibits',
-    defaults: { runA: 16, corner: 4, runB: 16, depth: 2, h: 8, mirror: false },
+    // topStrip: a wood board capping the wall that overhangs the panel faces by `stripOverhang` ft — an LED bar sits on it and washes the boards
+    defaults: { runA: 16, corner: 4, runB: 16, depth: 2, h: 8, mirror: false, topStrip: false, stripOverhang: 1 },
     footprint: (it) => {
       const p = P(it);
       const k = p.corner / Math.SQRT2;
@@ -125,11 +126,18 @@ export const TYPES: Record<string, TypeDef> = {
       const p = P(it);
       const k = p.corner / Math.SQRT2;
       const cu = p.runA + k / 2 + p.depth * 0.35, cv = p.depth / 2 + k / 2 + 0.35;
-      return [
+      const out: Solid[] = [
         box(it, p.runA / 2, p.depth / 2, 0, p.runA, p.depth, p.h, 'mdf', { label: 'Run A — 2 modules 8′×8′×2′' }),
         box(it, cu, cv, 0, p.corner + 0.8, p.depth, p.h, 'mdf', { label: 'Corner panel 4′' }, 45),
         box(it, p.runA + k + p.depth / 2, p.depth + k + p.runB / 2, 0, p.depth, p.runB, p.h, 'mdf', { label: 'Run B — 2 modules 8′×8′×2′' }),
       ];
+      if (p.topStrip) {
+        const o = p.stripOverhang, T = 0.1;
+        out.push(box(it, p.runA / 2, (p.depth + o) / 2, p.h, p.runA, p.depth + o, T, 'wood', { label: 'top light strip (run A)' }));
+        out.push(box(it, cu - o / 2 / Math.SQRT2, cv + o / 2 / Math.SQRT2, p.h, p.corner + 0.8, p.depth + o, T, 'wood', { label: 'top light strip (corner)' }, 45));
+        out.push(box(it, p.runA + k + p.depth / 2 - o / 2, p.depth + k + p.runB / 2, p.h, p.depth + o, p.runB, T, 'wood', { label: 'top light strip (run B)' }));
+      }
+      return out;
     },
     surfaces: (it) => {
       const p = P(it);
@@ -149,9 +157,15 @@ export const TYPES: Record<string, TypeDef> = {
       return out;
     },
     bom: (it) => [
+      ...(P(it).topStrip
+        ? [
+            { key: 'lwallStrip', name: `Top light strip for the Game of Life wall: 1×8 pine boards (${P(it).stripOverhang}′ overhang over the panels), painted`, qty: Math.ceil((P(it).runA + P(it).corner + P(it).runB) / 8), unit: '8′ board', cat: 'Build (by team)' as const, price: [9, 16] as [number, number] },
+            { key: 'lwallStripBr', name: 'L-brackets for the light strip (screw to the wall frame)', qty: Math.ceil((P(it).runA + P(it).corner + P(it).runB) / 2), unit: 'ea', cat: 'Build (by team)' as const, price: [1, 2] as [number, number] },
+          ]
+        : []),
       { key: 'build-lwall', name: `Engraved panel wall: ${Math.round((P(it).runA + P(it).runB) / 8)} frame modules 8′×8′×2′ (${P(it).runA}′ + ${P(it).runB}′ runs) + 4′ corner, 2×3 framing, 16 CNC/engraved boards 2′×7′9″`, qty: 1, unit: 'set', cat: 'Build (by team)' },
     ],
-    describe: (it) => [`Stage boards 1–8 on run A (${P(it).runA}′), corner intro, 9–16 on run B (${P(it).runB}′).`],
+    describe: (it) => [`Stage boards 1–8 on run A (${P(it).runA}′), corner intro, 9–16 on run B (${P(it).runB}′).`, ...(P(it).topStrip ? ['A wood light strip caps the wall; LED bars placed on it slide along it on the plan.'] : [])],
   },
 
   lilyPath: {
@@ -639,6 +653,30 @@ export const TYPES: Record<string, TypeDef> = {
     bom: (it) => [{ key: 'build-stambh', name: `Centerpiece pillar bay (${['Mandir', 'Shastra', 'Sant'][P(it).kind]}): plinth + plaque, 2 sandstone pillars, back wall, set piece`, qty: 1, unit: 'ea', cat: 'Build (by team)' }],
   },
 
+  truss: {
+    key: 'truss',
+    label: 'Vertical truss on base plate (projector / lights)',
+    group: 'Rigging',
+    // 12″ box truss standing on a steel base plate, with a horizontal arm at the top pointing the way it faces; h = height, arm = arm length
+    defaults: { h: 16, arm: 4, plate: 2.5 },
+    footprint: (it) => rectFoot(it, P(it).plate, P(it).plate),
+    solids: (it) => {
+      const p = P(it);
+      const out: Solid[] = [box(it, 0, 0, 0, p.plate, p.plate, 0.06, 'metal', { label: 'steel base plate 30″', shadow: false })];
+      const c = 0.42, t = 0.13;
+      for (const [u, v] of [[-c, -c], [c, -c], [c, c], [-c, c]]) out.push(box(it, u, v, 0.06, t, t, p.h - 0.06, 'chrome', { label: '12″ box truss (vertical)', shadow: false }));
+      for (let z = 1; z < p.h; z += 2) out.push(box(it, 0, -c, z, 2 * c, t * 0.6, t * 0.6, 'chrome', { label: 'truss lacing', shadow: false }), box(it, 0, c, z, 2 * c, t * 0.6, t * 0.6, 'chrome', { label: 'truss lacing', shadow: false }));
+      for (const u of [-c, c]) for (const dz of [-0.84, 0]) out.push(box(it, u, p.arm / 2, p.h - 0.13 + dz, t, p.arm + 0.84, t, 'chrome', { label: 'truss arm', shadow: false }));
+      return out;
+    },
+    bom: (it) => [
+      { key: 'trussV', name: `12″ aluminium box truss, ${P(it).h}′ vertical + ${P(it).arm}′ arm with corner block`, qty: 1, unit: 'set', cat: 'Rigging & stands', price: [380, 700] },
+      { key: 'trussPlate', name: '30″ steel truss base plate (+ sandbags)', qty: 1, unit: 'ea', cat: 'Rigging & stands', price: [90, 180] },
+      { key: 'trussClamp', name: 'Projector cradle + safety cable for truss', qty: 1, unit: 'ea', cat: 'Rigging & stands', price: [40, 90] },
+    ],
+    describe: (it) => [`${P(it).h}′ vertical truss, ${P(it).arm}′ arm at the top. Put a fixture or projector "On stand" here and it hangs under the arm.`],
+  },
+
   riser: {
     key: 'riser',
     label: 'Stage / riser',
@@ -997,4 +1035,12 @@ function pointInPolyLocal(p: V2, poly: V2[]) {
     if (a.y > p.y !== b.y > p.y && p.x < ((b.x - a.x) * (p.y - a.y)) / (b.y - a.y) + a.x) inside = !inside;
   }
   return inside;
+}
+
+/** Centre line (world, ft) along which LED bars sit on the Game of Life wall's top light strip: in front of run A, across the
+ *  corner, then along run B — i.e. over the panel faces, `stripOverhang` × 0.55 out from them. */
+export function lwallStripPts(it: Item): V2[] {
+  const p = P(it);
+  const k = p.corner / Math.SQRT2, s = (p.stripOverhang ?? 1) * 0.55;
+  return [L(it, 0, p.depth + s), L(it, p.runA + s * 0.414, p.depth + s), L(it, p.runA + k - s, p.depth + k + s * 0.414), L(it, p.runA + k - s, p.depth + k + p.runB)];
 }

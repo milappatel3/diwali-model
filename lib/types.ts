@@ -73,6 +73,8 @@ export interface Project {
   house: HouseLights;
   /** master switch for every exhibit fixture (house lights have their own switch in `house.enabled`) */
   fixturesOff?: boolean;
+  /** one-time upgrades already applied to this saved plan */
+  migr?: string[];
   settings: Settings;
   inventory: Record<string, number>; // fixture model -> owned qty
   artSpotVariant: 'framing20' | 'pinspot10' | 'gallery30';

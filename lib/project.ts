@@ -166,6 +166,11 @@ export function defaultProject(): Project {
   const posterX = (i: number) => 60.3 + i * 3.45;
   for (let i = 0; i < 8; i++) add(it('poster', `Poster — ${FESTIVAL_POSTERS[i]}`, 's1', posterX(i), PY, 90, { w: 2.4, h: 5, bottom: 1.6, title: FESTIVAL_POSTERS[i] }));
   for (let i = 0; i < 8; i++) add(fx(`Posters ${i + 1}`, 's1', 'gallery30', i < 4 ? 'pbF1' : 'pbF2', 0, [posterX(i), PY + 0.02, 4.1], { ww: 1 }, 0.38, { u: posterX(i) - (i < 4 ? 66 : 79.5) }));
+  // projection mapping: a projector under the arm of a 16′ vertical truss (on a base plate) north of the map, pointing down at it
+  add(
+    { ...rig('crank', 'Projector truss (16′, base plate)', 's1', 72.2, 26.2, 270, 16, 'trProj'), type: 'truss', params: { h: 16, arm: 4, plate: 2.5 } },
+    fx('Projector — India map mapping', 's1', 'projector5k', 'trProj', 0, [72.2, 16.4, 3], { w: 0.35 }, 1),
+  );
   // map keys hang on the dc3 light pipe (y 30.7, starts at x 39.5)
   add(
     fxD('Map key W', 's1', 'cobPar100', 'dr_dc3', 30, [69.7, 17.4, 3.2], { ww: 1, cw: 1 }),
@@ -174,7 +179,7 @@ export function defaultProject(): Project {
   );
 
   // ——— 2 RITES & TRADITIONS (engraved L-wall in the south-east corner, lily-pad path) — same place as before ———
-  const lwall = it('lwall', 'Game of Life — 16 Sacred Steps (engraved panel wall)', 's2', 87.77, 1.0, 90, { runA: 24, corner: 4, runB: 32, depth: 2, h: 8, mirror: false }, { id: 'lwall' });
+  const lwall = it('lwall', 'Game of Life — 16 Sacred Steps (engraved panel wall)', 's2', 87.77, 1.0, 90, { runA: 24, corner: 4, runB: 32, depth: 2, h: 8, mirror: false, topStrip: true, stripOverhang: 1 }, { id: 'lwall' });
   const LW = sfOf(lwall);
   const mid = (a: Surface, b: Surface, z = 4.3): [number, number, number] => [(a.c.x + b.c.x) / 2, (a.c.y + b.c.y) / 2, z];
   add(
@@ -311,6 +316,7 @@ export function defaultProject(): Project {
 
   return {
     version: 4,
+    migr: ['projector', 'lwallStrip'],
     name: 'Diwali Exhibition 2026',
     venue: 'Assembly Hall · BAPS Milpitas (1430 California Circle)',
     items,

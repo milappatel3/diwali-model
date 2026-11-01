@@ -4,7 +4,10 @@ import * as THREE from 'three';
 import type { Item, Project, Surface } from '@/lib/types';
 import { itemSolids, itemSurfaces, itemEmitters, params as P, absPts, drapeCounts, drapeUprights, stanchionCount } from '@/lib/catalog';
 import { mats, W, FTm, yawRad } from './materials';
-import { posterTex, bannerTex, samskaraTex, introPanelTex, signTex, indiaTex, dioramaTex, tvTex, kioskTex, lotusWallTex, bayTex, INDIA } from './textures';
+import { posterTex, bannerTex, samskaraTex, introPanelTex, signTex, indiaTex, dioramaTex, tvTex, kioskTex, lotusWallTex, bayTex, INDIA, mappingTex } from './textures';
+import { fixtureWorld, fixtureAim } from '@/lib/rig';
+import { resolveModel } from '@/lib/fixtures';
+import { itemFootprint } from '@/lib/catalog';
 import { alongPath } from '../plan/PlanView';
 import { NODES } from '@/lib/content';
 import { HouseDressing } from './House3D';
@@ -616,3 +619,82 @@ function Stand({ it }: { it: Item }) {
 }
 
 export { drapeCounts };
+
+
+/* ───────────────────────── projection mapping ─────────────────────────
+ * Every projector fixture aimed at an India map deck draws its mapping content onto the map outline (warped to the map —
+ * that is the point of projection mapping) and a faint frustum from the lens to the image corners. Brightness follows the
+ * projector's lumens and level spread over the deck, so it sits correctly against the rest of the lit scene. */
+export function ProjectionMapping({ project }: { project: Project }) {
+  const byId = useMemo(() => new Map(project.items.map((i) => [i.id, i])), [project.items]);
+  const jobs = useMemo(() => {
+    if (project.fixturesOff) return [];
+    const decks = project.items.filter((i) => i.type === 'mapDeck' && !i.hidden);
+    const out: { f: Item; deck: Item; lens: THREE.Vector3; nits: number }[] = [];
+    for (const f of project.items) {
+      if (f.type !== 'fixture' || f.hidden) continue;
+      const m = resolveModel(f.params.model, project.artSpotVariant);
+      if (!m || m.category !== 'projector') continue;
+      const pos = fixtureWorld(f, byId), aim = fixtureAim(f, pos);
+      const deck = decks.find((d) => pointIn({ x: aim.x, y: aim.y }, itemFootprint(d)));
+      if (!deck) continue;
+      const dp = P(deck);
+      const level = Math.min(1, (f.params.ch?.w ?? m.defaultCh.w ?? 0.35) * (f.params.dim ?? 1) / 0.35) * 0.35;
+      const areaM2 = dp.w * dp.d * 0.0929;
+      const ePeak = (m.channels[0].lm * project.settings.derate) / areaM2; // lux of full white
+      out.push({ f, deck, lens: W(pos.x, pos.y, pos.z), nits: ((ePeak * 0.8) / Math.PI) * (level / 0.35) });
+    }
+    return out;
+  }, [project, byId]);
+  return <>{jobs.map((j) => <MapProjection key={j.f.id} deck={j.deck} lens={j.lens} nits={j.nits} />)}</>;
+}
+function pointIn(p: { x: number; y: number }, poly: { x: number; y: number }[]) {
+  let inside = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const a = poly[i], b = poly[j];
+    if (a.y > p.y !== b.y > p.y && p.x < ((b.x - a.x) * (p.y - a.y)) / (b.y - a.y) + a.x) inside = !inside;
+  }
+  return inside;
+}
+function MapProjection({ deck, lens, nits }: { deck: Item; lens: THREE.Vector3; nits: number }) {
+  const p = P(deck);
+  const S = (p.w - 2.6) * FTm;
+  const geo = useMemo(() => {
+    const sh = new THREE.Shape();
+    INDIA.forEach(([x, y], i) => (i ? sh.lineTo(x * S * 0.9, y * S * 0.9) : sh.moveTo(x * S * 0.9, y * S * 0.9)));
+    const g = new THREE.ShapeGeometry(sh);
+    const pos = g.attributes.position as THREE.BufferAttribute;
+    const uv = new Float32Array(pos.count * 2);
+    for (let i = 0; i < pos.count; i++) { uv[i * 2] = pos.getX(i) / S + 0.5; uv[i * 2 + 1] = pos.getY(i) / S + 0.5; }
+    g.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+    return g;
+  }, [S]);
+  const top = (deck.z || 0) + p.h + 0.24; // just above the raised India map (0.05 m extrusion + bevel)
+  // image corners = the deck top square (what the projector is set to fill)
+  const corners = useMemo(() => {
+    const a = yawRad(deck.rot - 90);
+    return [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([u, v]) => {
+      const lu = (u * p.w) / 2, lv = (v * p.d) / 2;
+      return W(deck.x + lu * Math.cos(a) - lv * Math.sin(a), deck.y + lu * Math.sin(a) + lv * Math.cos(a), top);
+    });
+  }, [deck.x, deck.y, deck.rot, p.w, p.d, top]);
+  const lines = useMemo(() => {
+    const pts: number[] = [];
+    for (const c of corners) pts.push(lens.x, lens.y, lens.z, c.x, c.y, c.z);
+    for (let i = 0; i < 4; i++) { const a = corners[i], b = corners[(i + 1) % 4]; pts.push(a.x, a.y, a.z, b.x, b.y, b.z); }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+    return g;
+  }, [corners, lens]);
+  const lineCol = useMemo(() => new THREE.Color(0.35, 0.8, 1).multiplyScalar(Math.max(4, nits * 0.25)), [nits]);
+  return (
+    <>
+      <mesh geometry={geo} position={W(deck.x, deck.y, top)} rotation={[-Math.PI / 2, 0, yawRad(deck.rot) - Math.PI / 2]} renderOrder={3}>
+        <meshBasicMaterial map={mappingTex()} color={new THREE.Color(1, 1, 1).multiplyScalar(nits)} transparent blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} polygonOffset polygonOffsetFactor={-4} />
+      </mesh>
+      <lineSegments geometry={lines}>
+        <lineBasicMaterial color={lineCol} transparent opacity={0.5} blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} />
+      </lineSegments>
+    </>
+  );
+}

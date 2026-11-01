@@ -4,7 +4,7 @@ import LightSwitches from '@/components/LightSwitches';
 import { useStore, isProbeId } from '@/lib/store';
 import type { Item, V2 } from '@/lib/types';
 import { itemFootprint, TYPES, absPts, params as itemParams, drapeCounts, drapeUprights, stanchionCount } from '@/lib/catalog';
-import { fixtureWorld, projectOnRun, drapeHang } from '@/lib/rig';
+import { fixtureWorld, projectOnRun, drapeHang, rigRun } from '@/lib/rig';
 import { resolveModel } from '@/lib/fixtures';
 import { HALL, OPENINGS, openingSegment, ROOM_POLY } from '@/lib/hall';
 import { SECTION_MAP } from '@/lib/content';
@@ -219,8 +219,8 @@ export default function PlanView() {
     const p = evPos(e);
     let target = it;
     if (it.type === 'fixture' && it.params.rig && byId.get(it.params.rig)) target = byId.get(it.params.rig)!;
-    if (target.type === 'drape') {
-      // a fixture on a drape light pipe slides along the run instead of dragging the whole drape
+    if (target.type === 'drape' || (target.type === 'lwall' && it.type === 'fixture')) {
+      // a fixture on a drape light pipe (or on the Game of Life top strip) slides along it instead of dragging the whole rig
       wrapRef.current?.setPointerCapture?.(e.pointerId);
       setDrag({ kind: 'slide', id: it.id, run: target.id });
       return;
@@ -244,7 +244,8 @@ export default function PlanView() {
       if (!e.shiftKey) a = Math.round(a / 15) * 15;
       updateItem(drag.id, { rot: (a + 360) % 360 }, `rot-${drag.id}`);
     } else if (drag.kind === 'slide') {
-      const run = byId.get(drag.run);
+      const rr = byId.get(drag.run);
+      const run = rr ? rigRun(rr) : null;
       if (!run) return;
       const u = Math.round(projectOnRun(run, p.x, p.y) * (e.shiftKey ? 10 : 2)) / (e.shiftKey ? 10 : 2);
       updateParams(drag.id, { u }, `slide-${drag.id}`);
@@ -358,7 +359,7 @@ export default function PlanView() {
   );
 
   const probeRes = useMemo(() => new Map((result?.probes || []).map((p) => [p.id, p])), [result]);
-  const ADDABLE = ['riser', 'posterStand', 'poster', 'banner', 'signStand', 'drape', 'stanchions', 'tbar', 'crank', 'pipebar', 'fixture', 'table', 'diorama', 'mirrors', 'kiosk', 'tvArch', 'fiberTower', 'mapDeck', 'lwall', 'house', 'nailWall', 'pillars', 'lilyPath', 'floorMark', 'zoneArea'];
+  const ADDABLE = ['riser', 'truss', 'posterStand', 'poster', 'banner', 'signStand', 'drape', 'stanchions', 'tbar', 'crank', 'pipebar', 'fixture', 'table', 'diorama', 'mirrors', 'kiosk', 'tvArch', 'fiberTower', 'mapDeck', 'lwall', 'house', 'nailWall', 'pillars', 'lilyPath', 'floorMark', 'zoneArea'];
 
   return (
     <div className="view-full" style={{ flexDirection: 'column' }}>
@@ -483,6 +484,29 @@ export default function PlanView() {
                 const c = m ? m.channels.reduce((acc, ch) => { const lv = (f.params.ch ? f.params.ch[ch.key] ?? 0 : m.defaultCh[ch.key] ?? 0); return [acc[0] + ch.rgb[0] * lv * ch.lm, acc[1] + ch.rgb[1] * lv * ch.lm, acc[2] + ch.rgb[2] * lv * ch.lm]; }, [0, 0, 0]) : [1, 1, 1];
                 const mx = Math.max(...c) || 1;
                 const colr = `rgb(${Math.round(255 * Math.pow(c[0] / mx, 0.45))},${Math.round(255 * Math.pow(c[1] / mx, 0.45))},${Math.round(255 * Math.pow(c[2] / mx, 0.45))})`;
+                // projector: draw its mapped image (the deck it is aimed at, else a throw-ratio square) instead of a round beam
+                if (m?.category === 'projector') {
+                  const deck = project.items.find((d) => d.type === 'mapDeck' && !d.hidden && pointInPoly({ x: aim.x, y: aim.y }, itemFootprint(d)));
+                  const throwFt = Math.hypot(aim.x - pos.x, aim.y - pos.y, aim.z - pos.z), side = throwFt / (m.throwRatio || 1.2);
+                  const img = deck ? itemFootprint(deck) : [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([a, b]) => ({ x: aim.x + (a * side) / 2, y: aim.y + (b * side) / 2 }));
+                  const cx = img.reduce((a, q) => a + q.x, 0) / img.length, cy = Math.max(...img.map((q) => q.y));
+                  return (
+                    <g key={f.id}>
+                      {!project.fixturesOff && <polygon points={img.map((q) => `${q.x},${q.y}`).join(' ')} fill="#5ec8ff" fillOpacity={isSel ? 0.14 : 0.07} stroke="#5ec8ff" strokeOpacity={0.9} strokeWidth={1.4} strokeDasharray="5 3" vectorEffect="non-scaling-stroke" pointerEvents="none" />}
+                      {!project.fixturesOff && img.map((q, k) => <line key={k} x1={pos.x} y1={pos.y} x2={q.x} y2={q.y} stroke="#5ec8ff" strokeOpacity={0.45} strokeWidth={1} vectorEffect="non-scaling-stroke" pointerEvents="none" />)}
+                      {!project.fixturesOff && <text x={cx} y={-(cy + 1.2)} transform="scale(1,-1)" fontSize={1.5} fill="#8fdcff" textAnchor="middle" pointerEvents="none">{deck ? 'Projection mapping — India map' : `Projection ${side.toFixed(0)}′ wide`}</text>}
+                      <g onPointerDown={(e) => startMove(e, f)} style={{ cursor: 'pointer' }}>
+                        <rect x={pos.x - 0.9} y={pos.y - 0.6} width={1.8} height={1.2} rx={0.2} fill="#5ec8ff" stroke={isSel ? '#fff' : '#111'} strokeWidth={isSel ? 2 : 1} vectorEffect="non-scaling-stroke" />
+                        <circle cx={pos.x} cy={pos.y} r={1.8} fill="transparent" />
+                      </g>
+                      {isSel && (
+                        <g onPointerDown={(e) => { e.stopPropagation(); setDrag({ kind: 'aim', id: f.id }); }} style={{ cursor: 'crosshair' }}>
+                          <circle cx={aim.x} cy={aim.y} r={1.1} fill="#0009" stroke="#fff" strokeWidth={1.5} vectorEffect="non-scaling-stroke" />
+                        </g>
+                      )}
+                    </g>
+                  );
+                }
                 return (
                   <g key={f.id}>
                     {show && beam.length > 2 && <polygon points={beam.map((p) => `${p.x},${p.y}`).join(' ')} fill={colr} fillOpacity={isSel ? 0.16 : 0.06} stroke={colr} strokeOpacity={isSel ? 0.9 : 0.35} strokeWidth={1} vectorEffect="non-scaling-stroke" strokeDasharray="2 3" pointerEvents="none" />}

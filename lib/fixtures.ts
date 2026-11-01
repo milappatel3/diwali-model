@@ -22,8 +22,10 @@ export interface FixtureModel {
   key: string;
   name: string;
   short: string;
-  category: 'wash' | 'spot' | 'wall' | 'uv' | 'profile' | 'fresnel' | 'gallery' | 'uplight';
-  body: 'par' | 'cob' | 'bar' | 'mini' | 'flood' | 'leko' | 'fresnel' | 'track' | 'uplight';
+  category: 'wash' | 'spot' | 'wall' | 'uv' | 'profile' | 'fresnel' | 'gallery' | 'uplight' | 'projector';
+  body: 'par' | 'cob' | 'bar' | 'mini' | 'flood' | 'leko' | 'fresnel' | 'track' | 'uplight' | 'projector';
+  /** projectors: throw ratio (throw distance ÷ image width) */
+  throwRatio?: number;
   channels: Channel[];
   beam: number; // deg (50% intensity)
   field: number; // deg (10%)
@@ -226,6 +228,30 @@ export const FIXTURES: Record<string, FixtureModel> = {
     ],
     defaultCh: { uv: 1 },
   },
+  // ——— Projection ———
+  projector5k: {
+    key: 'projector5k',
+    name: 'Laser projector 5,000 ANSI lm, WUXGA, throw 1.2–1.9 (projection mapping)',
+    short: 'Projector',
+    category: 'projector',
+    body: 'projector',
+    // light that reaches the surface: mapping content averages ~35 % of full white, so the default level is 0.35
+    channels: [{ key: 'w', label: 'Image brightness', lm: 5000, rgb: K(6500), cri: 75, watts: 330, cct: 6500 }],
+    beam: 44,
+    field: 50,
+    profile: 'flat',
+    throwRatio: 1.2,
+    dmx: [],
+    weightLb: 24,
+    sizeIn: { w: 18, h: 7, d: 16 },
+    ip: 'IP20',
+    idleW: 15,
+    owned: false,
+    price: [1400, 2600],
+    ali: '5000 lumen laser projector WUXGA lens shift projection mapping',
+    notes: ['Hung pointing down at the India map; the content is warped to the map outline (projection mapping, e.g. MadMapper / Resolume Arena / HeavyM).', 'Needs an HDMI run (or HDBaseT) and a laptop/media player; keep house lights low over the map so the image reads.'],
+    defaultCh: { w: 0.35 },
+  },
   // ——— Purchase candidates (AliExpress) ———
   leko200: {
     key: 'leko200',
@@ -348,7 +374,7 @@ export const FIXTURES: Record<string, FixtureModel> = {
 };
 
 export const OWNED_KEYS = ['rgbwPar200', 'cobPar100', 'wallWash9x12', 'artSpot', 'uvFlood100'] as const;
-export const BUY_KEYS = ['fresnel200', 'cobPar200', 'gallery30', 'leko200', 'batteryUp'] as const;
+export const BUY_KEYS = ['fresnel200', 'cobPar200', 'gallery30', 'leko200', 'batteryUp', 'projector5k'] as const;
 
 export const ART_VARIANTS: Record<string, string> = {
   framing20: 'artFraming20',

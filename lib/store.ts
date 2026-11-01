@@ -20,12 +20,36 @@ function loadProject(): Project {
     const raw = window.localStorage.getItem(LS_KEY);
     if (raw) {
       const p = JSON.parse(raw) as Project;
-      if (p && p.version >= 1 && p.version <= 4 && Array.isArray(p.items)) return p;
+      if (p && p.version >= 1 && p.version <= 4 && Array.isArray(p.items)) return upgrade(p);
     }
   } catch {
     /* storage unavailable */
   }
   return defaultProject();
+}
+
+/** one-time additions to a saved plan when new features ship (each runs once; deleting the result afterwards sticks) */
+function upgrade(p: Project): Project {
+  const done = new Set(p.migr || []);
+  let items = p.items;
+  if (!done.has('projector')) {
+    done.add('projector');
+    const deck = items.find((i) => i.type === 'mapDeck' && !i.hidden);
+    const hasProj = items.some((i) => i.type === 'fixture' && i.params?.model === 'projector5k');
+    if (deck && !hasProj) {
+      const d = defaultProject();
+      const tr = d.items.find((i) => i.id === 'trProj'), fx = d.items.find((i) => i.type === 'fixture' && i.params?.rig === 'trProj');
+      if (tr && fx) {
+        const dx = deck.x - 72.2, dy = deck.y - 16.4;
+        items = [...items, { ...tr, x: tr.x + dx, y: tr.y + dy }, { ...fx, id: uid('fix'), params: { ...fx.params, aim: { ...fx.params.aim, x: deck.x, y: deck.y } } }];
+      }
+    }
+  }
+  if (!done.has('lwallStrip')) {
+    done.add('lwallStrip');
+    items = items.map((i) => (i.type === 'lwall' && i.params?.topStrip === undefined ? { ...i, params: { ...i.params, topStrip: true, stripOverhang: 1 } } : i));
+  }
+  return { ...p, items, migr: [...done] };
 }
 
 interface State {

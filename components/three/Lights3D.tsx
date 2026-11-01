@@ -28,7 +28,8 @@ export function useSpotDefs(project: Project, sc: CalcScene | null, quality: 'hi
   return useMemo(() => {
     if (!sc) return [] as SpotDef[];
     const byRef = new Map<string, Src[]>();
-    for (const s of sc.srcs) if (s.kind === 'fixture') byRef.set(s.ref, [...(byRef.get(s.ref) || []), s]);
+    // projectors are drawn as their mapped image (ProjectionMapping), not as a round spotlight
+    for (const s of sc.srcs) if (s.kind === 'fixture' && s.model !== 'projector5k') byRef.set(s.ref, [...(byRef.get(s.ref) || []), s]);
     const houses = project.items.filter((i) => i.type === 'house' && !i.hidden);
     const defs: SpotDef[] = [];
     for (const [ref, ss] of byRef) {
@@ -323,7 +324,22 @@ function FixtureBody({ f, byId, project, sel, onSelect, onHover }: { f: Item; by
       {hang && <SideArm from={W(hang.pipe.x, hang.pipe.y, pos.z + DRAPE_DROP_FT - 0.08)} to={P} />}
       <group ref={ref}>
         {/* local +Z points at the aim */}
-        {body === 'bar' ? (
+        {body === 'projector' ? (
+          <>
+            <mesh position={[0, 0, -dims.d / 2]} castShadow>
+              <boxGeometry args={[dims.w, dims.h, dims.d]} />
+              <meshStandardMaterial color={sel ? '#3a3a40' : '#e8e8ea'} metalness={0.2} roughness={0.5} />
+            </mesh>
+            <mesh position={[dims.w * 0.22, 0, 0.012]} rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[dims.h * 0.32, dims.h * 0.36, 0.03, 24]} />
+              <meshStandardMaterial color="#111" metalness={0.6} roughness={0.3} />
+            </mesh>
+            <mesh position={[dims.w * 0.22, 0, 0.03]}>
+              <circleGeometry args={[dims.h * 0.26, 24]} />
+              <meshStandardMaterial color="#000" emissive={lens} emissiveIntensity={glow} />
+            </mesh>
+          </>
+        ) : body === 'bar' ? (
           <>
             <mesh position={[0, 0, -dims.d / 2]} castShadow>
               <boxGeometry args={[dims.w, dims.h, dims.d]} />

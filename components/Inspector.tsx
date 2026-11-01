@@ -3,7 +3,8 @@ import React, { useMemo } from 'react';
 import { useStore, isProbeId } from '@/lib/store';
 import { TYPES, params as itemParams, drapeCounts } from '@/lib/catalog';
 import { FIXTURES, resolveModel, mixMetrics, OWNED_KEYS, BUY_KEYS } from '@/lib/fixtures';
-import { fixtureWorld, isRig, runLength } from '@/lib/rig';
+import { fixtureWorld, isRig, runLength, rigRun, projectOnRun } from '@/lib/rig';
+import { itemSurfaces } from '@/lib/catalog';
 import { SECTIONS } from '@/lib/content';
 import { Icon, Field, NumIn, Slider, rgbCss, Pill } from './ui';
 import { VERDICT_COLOR, fmtLux, fc } from '@/lib/heat';
@@ -11,7 +12,7 @@ import { fmtFt, DEG } from '@/lib/geom';
 import type { Item } from '@/lib/types';
 
 const PARAM_LABELS: Record<string, string> = {
-  w: 'Width (ft)', d: 'Depth (ft)', h: 'Height (ft)', skirt: 'Skirt colour', steps: 'Steps on the front', rail: 'Rails (back + sides)', bottom: 'Bottom edge (ft)', title: 'Title', sub: 'Sub-title', style: 'Style', feet: 'Free-standing',
+  topStrip: 'Top light strip', stripOverhang: 'Strip overhang (ft)', w: 'Width (ft)', d: 'Depth (ft)', h: 'Height (ft)', skirt: 'Skirt colour', steps: 'Steps on the front', rail: 'Rails (back + sides)', bottom: 'Bottom edge (ft)', title: 'Title', sub: 'Sub-title', style: 'Style', feet: 'Free-standing',
   double: 'Double-sided', color: 'Drape colour', fullness: 'Fullness', closed: 'Closed loop', runA: 'Run A (ft)', runB: 'Run B (ft)', corner: 'Corner (ft)', depth: 'Module depth',
   mirror: 'Mirror', nits: 'Glow (nits)', cct: 'Glow CCT (K)', art: 'Artwork', divos: 'LED divos', n: 'Count', r: 'Pad radius (ft)', spacing: 'Post spacing (ft)', tau: 'Ceiling transmission',
   lightPipe: 'Light pipe (hang fixtures)', valance: 'Valance only (ft, 0 = full)', sharedEnds: 'Ends share uprights',
@@ -81,6 +82,20 @@ function ItemBody({ it }: { it: Item }) {
   const rigLike = isRig(it);
   const rigFx = rigLike ? project.items.filter((f) => f.type === 'fixture' && f.params.rig === it.id) : [];
   const select = useStore((s) => s.select);
+  const addItem = useStore((s) => s.addItem);
+  /** put an owned LED wall-washer bar on the wall's top strip, at the next free spot, aimed down at the board under it */
+  const addStripBar = (w: Item) => {
+    const run = rigRun(w);
+    if (!run) return;
+    const len = runLength(run);
+    const used = project.items.filter((f) => f.type === 'fixture' && f.params.rig === w.id).map((f) => f.params.u ?? 0);
+    // one bar above each board, in board order (1–8, intro, 9–16), skipping boards that already have a bar over them
+    const boards = itemSurfaces(w).map((q) => ({ q, u: projectOnRun(run, q.c.x, q.c.y) })).sort((a, b) => a.u - b.u);
+    const free = boards.find((b) => !used.some((x) => Math.abs(x - b.u) < 1));
+    const target = free ?? boards[boards.length - 1];
+    const u = Math.max(0.5, Math.min(len - 0.5, free ? target.u : (used.length ? Math.max(...used) + 3 : 1)));
+    addItem({ type: 'fixture', name: `LED bar on wall strip ${used.length + 1}`, section: w.section, x: 0, y: 0, rot: 0, params: { model: 'wallWash9x12', mount: 'rig', rig: w.id, u, aim: { x: target.q.c.x, y: target.q.c.y, z: 3.4 }, ch: { r: 0.35, g: 0.22, b: 0, w: 1 }, dim: 1 } });
+  };
   return (
     <>
       <Common it={it} />
@@ -142,15 +157,26 @@ function ItemBody({ it }: { it: Item }) {
           ))}
         {it.type === 'drape' && <span className="muted tiny">{def.describe?.(it).join(' · ')}</span>}
       </div>
+      {it.type === 'lwall' && (
+        <div className="sub-card">
+          <span className="eyebrow">LED bars on the top strip</span>
+          {!p.topStrip ? (
+            <button className="btn btn-sm" onClick={() => updateParams(it.id, { topStrip: true })}>Add a wood light strip on top</button>
+          ) : (
+            <button className="btn btn-sm" onClick={() => addStripBar(it)}>+ Add LED bar on the strip</button>
+          )}
+          <span className="muted tiny">The strip is a 1×8 board capping the wall, overhanging the boards by {p.stripOverhang ?? 1}′. Each LED bar (Wall Washer 9×12W — you own 2) sits on it and washes the boards below; drag it on the plan to slide it along the strip.</span>
+        </div>
+      )}
       {rigLike && (
         <div className="sub-card">
-          <span className="eyebrow">Fixtures on this {it.type === 'drape' ? 'drape light pipe' : 'stand'} ({rigFx.length})</span>
+          <span className="eyebrow">Fixtures on this {it.type === 'drape' ? 'drape light pipe' : it.type === 'lwall' ? 'wall strip' : 'stand'} ({rigFx.length})</span>
           {rigFx.map((f) => (
             <button key={f.id} className="ref" onClick={() => select(f.id)} style={{ justifyContent: 'flex-start' }}>
               <span className="k">{resolveModel(f.params.model, project.artSpotVariant)?.short}</span> {f.name}
             </button>
           ))}
-          <span className="muted tiny">{it.type === 'drape' ? 'Fixtures hang on 12″ side arms clamped to the steel pipe. Drag a fixture on the plan to slide it along the run.' : 'Moving the stand moves its fixtures; their aim points stay where they are (as on site).'}</span>
+          <span className="muted tiny">{it.type === 'lwall' ? 'Bars stand on the strip and aim down at the boards.' : it.type === 'drape' ? 'Fixtures hang on 12″ side arms clamped to the steel pipe. Drag a fixture on the plan to slide it along the run.' : 'Moving the stand moves its fixtures; their aim points stay where they are (as on site).'}</span>
         </div>
       )}
       {def.describe && it.type !== 'drape' && <p className="muted small" style={{ margin: 0 }}>{def.describe(it).join(' ')}</p>}
@@ -216,7 +242,7 @@ function FixtureBody({ it }: { it: Item }) {
           <select className="txt-in" value={it.params.rig || ''} onChange={(e) => {
             const rid = e.target.value;
             if (!rid) updateParams(it.id, { rig: undefined, mount: 'clamp', h: pos.z });
-            else updateParams(it.id, { rig: rid, mount: 'rig', slot: 1, u: byId.get(rid)?.type === 'drape' ? runLength(byId.get(rid)!) / 2 : 0 });
+            else { const rr = byId.get(rid); const run = rr ? rigRun(rr) : null; updateParams(it.id, { rig: rid, mount: 'rig', slot: 1, u: run ? runLength(run) / 2 : 0 }); }
           }}>
             <option value="">— free (floor / clamp) —</option>
             {rigs.map((r) => (
@@ -225,8 +251,8 @@ function FixtureBody({ it }: { it: Item }) {
           </select>
         </Field>
         {it.params.rig ? (
-          byId.get(it.params.rig)?.type === 'pipebar' || byId.get(it.params.rig)?.type === 'drape' ? (
-            <Field label={byId.get(it.params.rig)?.type === 'drape' ? `Along run (0–${runLength(byId.get(it.params.rig)!).toFixed(0)}′)` : 'Along pipe'}>
+          byId.get(it.params.rig)?.type === 'pipebar' || byId.get(it.params.rig)?.type === 'drape' || byId.get(it.params.rig)?.type === 'lwall' ? (
+            <Field label={byId.get(it.params.rig)?.type === 'pipebar' ? 'Along pipe' : `Along ${byId.get(it.params.rig)?.type === 'lwall' ? 'strip' : 'run'} (0–${runLength(rigRun(byId.get(it.params.rig)!)!).toFixed(0)}′)`}>
               <NumIn value={it.params.u ?? 0} step={0.5} onChange={(v) => updateParams(it.id, { u: v }, `u-${it.id}`)} suffix="ft" />
             </Field>
           ) : (

@@ -14,7 +14,7 @@ import { SECTION_MAP } from '@/lib/content';
 import { VERDICT_COLOR, fmtLux, luxColor } from '@/lib/heat';
 import { DEG } from '@/lib/geom';
 import Hall3D from './Hall3D';
-import { Items3D } from './Items3D';
+import { Items3D, ProjectionMapping } from './Items3D';
 import { useSpotDefs, LightPool, FixtureBodies, BeamCones } from './Lights3D';
 import { mats, W, FTm } from './materials';
 import { Seg, Icon } from '../ui';
@@ -289,6 +289,7 @@ function SceneContent(props: {
       {props.heat && <FloorHeat />}
       {props.people && <People />}
       {props.labels && <Labels />}
+      <ProjectionMapping project={project} />
       <MirrorEnv />
     </>
   );
