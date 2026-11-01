@@ -178,6 +178,9 @@ export default function ThreeView() {
             </select>
           )}
         </div>
+        <div className="tool-strip tr" style={{ top: 58 }}>
+          <LightSwitches compact />
+        </div>
         <div className="tool-strip tr">
           <Seg value={exp} onChange={setExp} options={[{ v: 'phone', label: 'Phone camera', title: 'Auto-ISO phone at f/1.8 · 1/60 s' }, { v: 'eye', label: 'Eye', title: 'Partial eye adaptation' }, { v: 'manual', label: 'Manual EV' }]} />
           {exp === 'manual' && (
@@ -188,8 +191,6 @@ export default function ThreeView() {
           {([['labels', labels, setLabels, 'Labels'], ['people', people, setPeople, 'People'], ['heat', heat, setHeat, 'Lux on floor'], ['beams', beams, setBeams, 'Haze beams']] as const).map(([k, v, set, l]) => (
             <button key={k} className="chip" aria-pressed={v} onClick={() => (set as any)(!v)}>{l}</button>
           ))}
-          <span className="sep" />
-          <LightSwitches compact />
           <span className="sep" />
           <Seg value={quality} onChange={setQuality} options={[{ v: 'high', label: 'High' }, { v: 'low', label: 'Fast' }]} />
         </div>

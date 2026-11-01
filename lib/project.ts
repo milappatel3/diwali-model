@@ -263,7 +263,7 @@ export function defaultProject(): Project {
   );
 
   // ——— 6 ADHAR STAMBH (Shastra · Mandir · Sant bays in the middle room, framed by four light towers) ———
-  const BAY = { w: 10.5, h: 10, d: 3 };
+  const BAY = { w: 10.5, h: 11, d: 3 };
   add(
     it('stambh', 'Stambh — Shastras', 's6', 78.6, 55.4, 235, { ...BAY, kind: 1 }),
     it('stambh', 'Stambh — Mandir', 's6', 82.5, 48.2, 180, { ...BAY, kind: 0 }),

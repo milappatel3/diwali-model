@@ -664,7 +664,8 @@ export default function PlanView() {
             <Icon.plus size={14} /> Add
           </button>
           {typeof tool === 'object' && <span className="pill sev-warning">Click to place {TYPES[tool.place]?.label}</span>}
-          <span className="sep" />
+        </div>
+        <div className="tool-strip tl" style={{ top: 58 }}>
           <LightSwitches compact />
         </div>
         {addOpen && (

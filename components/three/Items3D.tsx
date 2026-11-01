@@ -1,5 +1,5 @@
 'use client';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import type { Item, Project, Surface } from '@/lib/types';
 import { itemSolids, itemSurfaces, itemEmitters, params as P, absPts, drapeCounts, drapeUprights, stanchionCount } from '@/lib/catalog';
@@ -8,6 +8,7 @@ import { posterTex, bannerTex, samskaraTex, introPanelTex, signTex, indiaTex, di
 import { alongPath } from '../plan/PlanView';
 import { NODES } from '@/lib/content';
 import { HouseDressing } from './House3D';
+import { PillarBay } from './CampusSets';
 
 type Ev = { onSelect: (id: string) => void; onHover: (id: string | null, name?: string, e?: any) => void };
 
@@ -56,6 +57,9 @@ const ItemNode = React.memo(function ItemNode({ it, ev, sel }: { it: Item; ev: E
     case 'booth':
       body = it.params?.zone ? null : <BoothTape it={it} />;
       break;
+    case 'stambh':
+      body = <CenterpieceBay it={it} />;
+      break;
     default:
       body = (
         <>
@@ -76,6 +80,21 @@ const ItemNode = React.memo(function ItemNode({ it, ev, sel }: { it: Item; ev: E
 /** raise parts drawn at floor level (stands, floor marks, extras) onto the item's base height — e.g. a stage/riser deck */
 function Lift({ z, children }: { z?: number; children: React.ReactNode }) {
   return z ? <group position={[0, z * FTm, 0]}>{children}</group> : <>{children}</>;
+}
+
+/** the centerpiece bays use the same model as Campus 3D (CampusSets → PillarBay), lit by the fixtures */
+function CenterpieceBay({ it }: { it: Item }) {
+  const p = P(it);
+  const g = useRef<THREE.Group>(null);
+  const kind = (['mandir', 'shastra', 'sant'] as const)[p.kind] ?? 'mandir';
+  useEffect(() => {
+    g.current?.traverse((o: any) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+  });
+  return (
+    <group ref={g} position={W(it.x, it.y, it.z || 0)} rotation={[0, yawRad(it.rot), 0]}>
+      <PillarBay kind={kind} w={p.w} d={p.d} physical glowNits={p.nits ?? 90} />
+    </group>
+  );
 }
 
 function SelectionBox({ it }: { it: Item }) {

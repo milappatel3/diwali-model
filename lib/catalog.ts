@@ -582,33 +582,61 @@ export const TYPES: Record<string, TypeDef> = {
 
   stambh: {
     key: 'stambh',
-    label: 'Pillar (stambh) bay',
+    label: 'Centerpiece pillar bay (Mandir · Shastra · Sant)',
     group: 'Exhibits',
-    defaults: { w: 7, h: 10, d: 3, kind: 0, nits: 90 },
-    footprint: (it) => rectFoot(it, P(it).w + 0.6, P(it).d + 0.6),
+    // same build as the Campus 3D centerpiece (CampusSets → PillarBay): plywood plinth with a name plaque, two sandstone pillars,
+    // a back wall between them, and the set piece — Mandir shrine with a lit door, Shastra back-lit arch with the scriptures, or the
+    // Sant mural with a seated sant. w = across the front, d = plinth depth (11′ tall). kind 0 Mandir · 1 Shastra · 2 Sant.
+    defaults: { w: 10.5, d: 3, kind: 0, nits: 90 },
+    footprint: (it) => rectFoot(it, P(it).w, Math.max(P(it).d, 3.2), 0, 0),
     solids: (it) => {
       const p = P(it);
-      return [
-        box(it, 0, 0, 0, p.w + 0.6, p.d + 0.6, 0.8, 'stone', { label: 'carved plinth' }),
-        box(it, 0, -p.d / 2 + 0.25, 0.8, p.w - 0.4, 0.5, p.h - 2.4, 'wood', { label: 'bay back panel' }),
-        box(it, -p.w / 2 + 0.6, 0.3, 0.8, 1.2, 1.2, p.h - 2.4, 'wood', { label: 'carved pillar' }),
-        box(it, p.w / 2 - 0.6, 0.3, 0.8, 1.2, 1.2, p.h - 2.4, 'wood', { label: 'carved pillar' }),
-        box(it, 0, 0, p.h - 1.6, p.w + 0.4, p.d + 0.2, 1.6, 'wood', { label: `${['Mandir', 'Shastra', 'Sant'][p.kind] || 'Stambh'} — carved capital` }),
+      const H = 11, px = p.w / 2 - 0.9, bw = p.w - 2.6; // the model is 11′ tall
+      const out: Solid[] = [
+        box(it, 0, 0, 0, p.w, p.d, 1.2, 'plywood', { label: 'plinth' }),
+        box(it, 0, -1.2, 1.2, bw, 0.4, H - 3, p.kind === 2 ? 'paintPeach' : 'paintOchre', { label: 'bay back wall' }),
       ];
+      for (const sd of [-1, 1]) {
+        out.push(box(it, sd * px, 0, 1.15, 1.9, 1.9, 0.9, 'paintOchre', { label: 'pillar base' }));
+        out.push(box(it, sd * px, 0, 1.6, 1.2, 1.2, H - 3.4, 'paintOchre', { label: 'sandstone pillar' }));
+        out.push(box(it, sd * px, 0, H - 1.85, 1.9, 1.9, 0.7, 'paintOchre', { label: 'pillar capital' }));
+        out.push(box(it, sd * px, 0, H - 1.05, 2.4, 2.4, 0.5, 'paintOchre', { label: 'pillar cap' }));
+      }
+      if (p.kind === 0) {
+        out.push(box(it, 0, -0.3, 1.5, 3.6, 3.6, 0.6, 'paintCream', { label: 'shrine base' }));
+        out.push(box(it, 0, -0.3, 2.1, 2.4, 2.4, 2.6, 'paintCream', { label: 'shrine' }));
+        for (let k = 0; k < 5; k++) out.push(box(it, 0, -0.3, 4.7 + k * 0.85, 2.1 - k * 0.38, 2.1 - k * 0.38, 0.85, 'paintCream', { label: 'shikhar' }));
+      } else if (p.kind === 1) {
+        out.push(box(it, 1.7, 0, 1.2, 3.7, 2.9, 0.7, 'paintOchre', { label: 'scripture stand' }));
+        out.push(box(it, 1.7, 0.05, 1.9, 3.3, 2.4, 2.6, 'wood', { label: 'scriptures (5 volumes)' }));
+      } else {
+        out.push(box(it, 0.6, 0.1, 1.2, 2.2, 2.6, 1.4, 'stone', { label: 'rock seat' }));
+        out.push(box(it, 0.2, 0.1, 2.0, 1.6, 1.6, 3.2, 'paintSaffron', { label: 'seated sant' }));
+      }
+      return out;
     },
     surfaces: (it) => {
       const p = P(it);
+      const name = ['Mandir', 'Shastra', 'Sant'][p.kind] || 'Stambh';
       return [
-        surf(it, `bay${p.kind}`, `${['Mandir', 'Shastra', 'Sant'][p.kind]} bay`, 0, -p.d / 2 + 0.55, 0.8 + (p.h - 2.4) / 2, p.w - 2.6, p.h - 3, 'diorama', [150, 400]),
-        surf(it, 'pillar', `${['Mandir', 'Shastra', 'Sant'][p.kind]} — carved pillars`, -p.w / 2 + 0.6, 0.92, 0.8 + (p.h - 2.4) / 2, 1.2, p.h - 2.4, 'panel', [200, 500]),
+        surf(it, `bay${p.kind}`, `${name} bay`, 0, -0.98, 1.2 + (11 - 3) / 2, p.w - 2.9, 11 - 3.2, 'diorama', [150, 400]),
+        surf(it, 'pillar', `${name} — pillar name tag`, -(p.w / 2 - 0.9), 0.62, 6.2, 0.9, 1.4, 'panel', [200, 500]),
+        surf(it, 'plaque', `${name} — plaque`, 0, p.d / 2 + 0.02, 0.62, Math.min(8, p.w - 2), 0.85, 'panel', [150, 400]),
       ];
     },
     emitters: (it) => {
       const p = P(it);
-      const c = L(it, 0, -p.d / 2 + 0.6);
-      return [{ id: `${it.id}:bay`, itemId: it.id, name: 'Bay glow (LED strip)', c: { x: c.x, y: c.y, z: z0(it) + 0.8 + (p.h - 2.4) / 2 }, n: nrm(it), areaFt2: (p.w - 2.6) * (p.h - 3), nits: p.nits, rgb: kelvinRGB(2700), cct: 2700, cri: 85 }];
+      if (p.kind === 0) {
+        const c = L(it, 0, 0.95);
+        return [{ id: `${it.id}:door`, itemId: it.id, name: 'Shrine door glow', c: { x: c.x, y: c.y, z: z0(it) + 3.2 }, n: nrm(it), areaFt2: 0.9 * 1.3, nits: p.nits * 3, rgb: kelvinRGB(2400), cct: 2400, cri: 85 }];
+      }
+      if (p.kind === 1) {
+        const c = L(it, 0, -0.85);
+        return [{ id: `${it.id}:arch`, itemId: it.id, name: 'Back-lit arch', c: { x: c.x, y: c.y, z: z0(it) + 6.4 }, n: nrm(it), areaFt2: 4.6 * 6.6, nits: p.nits, rgb: kelvinRGB(2700), cct: 2700, cri: 85 }];
+      }
+      return [];
     },
-    bom: (it) => [{ key: 'build-stambh', name: `Adhar Stambh pillar bay (${['Mandir', 'Shastra', 'Sant'][P(it).kind]}): plinth, 2 carved pillars, capital, back-lit bay`, qty: 1, unit: 'ea', cat: 'Build (by team)' }],
+    bom: (it) => [{ key: 'build-stambh', name: `Centerpiece pillar bay (${['Mandir', 'Shastra', 'Sant'][P(it).kind]}): plinth + plaque, 2 sandstone pillars, back wall, set piece`, qty: 1, unit: 'ea', cat: 'Build (by team)' }],
   },
 
   riser: {
