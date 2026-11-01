@@ -32,6 +32,8 @@ export interface TypeDef {
 }
 
 // ——— helpers ———
+/** treads needed for a deck h ft high (≤ 7½″ rise per step); 0 below 9″ */
+export const riserSteps = (h: number) => (h <= 0.75 ? 0 : Math.ceil(h / 0.625) - 1);
 const P = (it: Item) => ({ ...(TYPES[it.type]?.defaults || {}), ...it.params });
 const z0 = (it: Item) => it.z || 0;
 function L(it: Item, u: number, v: number) {
@@ -609,6 +611,74 @@ export const TYPES: Record<string, TypeDef> = {
     bom: (it) => [{ key: 'build-stambh', name: `Adhar Stambh pillar bay (${['Mandir', 'Shastra', 'Sant'][P(it).kind]}): plinth, 2 carved pillars, capital, back-lit bay`, qty: 1, unit: 'ea', cat: 'Build (by team)' }],
   },
 
+  riser: {
+    key: 'riser',
+    label: 'Stage / riser',
+    group: 'Structure',
+    // w = width across the front, d = depth (front edge faces the item's "Faces °" direction), h = deck height
+    defaults: { w: 8, d: 4, h: 1.5, skirt: 'black', steps: true, rail: false },
+    footprint: (it) => {
+      const p = P(it);
+      const f = rectFoot(it, p.w, p.d);
+      const n = riserSteps(p.h);
+      if (!p.steps || n < 1) return f;
+      // deck outline with the step block notched onto the front edge
+      const sw = Math.min(4, p.w), sd = n;
+      return [f[0], f[1], L(it, p.w / 2, p.d / 2), L(it, sw / 2, p.d / 2), L(it, sw / 2, p.d / 2 + sd), L(it, -sw / 2, p.d / 2 + sd), L(it, -sw / 2, p.d / 2), L(it, -p.w / 2, p.d / 2)];
+    },
+    solids: (it) => {
+      const p = P(it);
+      const skirt: MatKey = p.skirt === 'maroon' ? 'drapeMaroon' : p.skirt === 'ivory' ? 'drapeIvory' : 'drapeBlack';
+      const out: Solid[] = [
+        box(it, 0, 0, 0, p.w, p.d, Math.max(0.1, p.h - 0.06), skirt, { label: 'skirted stage deck' }),
+        box(it, 0, 0, Math.max(0.1, p.h - 0.06), p.w, p.d, 0.06, 'carpet', { label: 'deck top (carpet)' }),
+      ];
+      const n = riserSteps(p.h);
+      if (p.steps && n >= 1) {
+        const sw = Math.min(4, p.w);
+        for (let k = 1; k <= n; k++) {
+          const zt = (p.h * k) / (n + 1);
+          out.push(box(it, 0, p.d / 2 + (n - k) + 0.5, 0, sw, 1, zt, 'carpet', { label: 'stage step', shadow: false }));
+        }
+      }
+      if (p.rail) {
+        const RH = 3.5, mat: MatKey = 'chrome', t = 0.12;
+        const seg = (u0: number, v0: number, u1: number, v1: number) => {
+          const len = Math.hypot(u1 - u0, v1 - v0), um = (u0 + u1) / 2, vm = (v0 + v1) / 2;
+          const along = Math.abs(u1 - u0) > Math.abs(v1 - v0);
+          out.push(box(it, um, vm, p.h + RH - 0.1, along ? len : t, along ? t : len, 0.1, mat, { label: 'guard rail', shadow: false }));
+          out.push(box(it, um, vm, p.h + RH / 2 - 0.05, along ? len : t, along ? t : len, 0.08, mat, { label: 'mid rail', shadow: false }));
+          const nPost = Math.max(2, Math.ceil(len / 4) + 1);
+          for (let i = 0; i < nPost; i++) {
+            const f = i / (nPost - 1);
+            out.push(box(it, u0 + (u1 - u0) * f, v0 + (v1 - v0) * f, p.h, t, t, RH, mat, { label: 'rail post', shadow: false }));
+          }
+        };
+        const e = 0.1;
+        seg(-p.w / 2 + e, -p.d / 2 + e, p.w / 2 - e, -p.d / 2 + e); // back
+        seg(-p.w / 2 + e, -p.d / 2 + e, -p.w / 2 + e, p.d / 2 - e); // left side
+        seg(p.w / 2 - e, -p.d / 2 + e, p.w / 2 - e, p.d / 2 - e); // right side
+      }
+      return out;
+    },
+    bom: (it) => {
+      const p = P(it);
+      const decks = Math.min(Math.ceil(p.w / 8) * Math.ceil(p.d / 4), Math.ceil(p.w / 4) * Math.ceil(p.d / 8));
+      const out: BomLine[] = [
+        { key: 'stageDeck', name: '4′×8′ portable stage deck (adjustable legs)', qty: decks, unit: 'ea', cat: 'Build (by team)', price: [150, 320], note: `${p.w}′×${p.d}′ at ${p.h}′ high` },
+        { key: `stageSkirt-${p.skirt}`, name: `Stage skirting (${p.skirt}, pleated, velcro clips)`, qty: Math.ceil(2 * (p.w + p.d)), unit: 'ft', cat: 'Pipe & drape', price: [3, 6] },
+      ];
+      if (p.steps && riserSteps(p.h) >= 1) out.push({ key: 'stageSteps', name: `Stage steps (${riserSteps(p.h)} tread${riserSteps(p.h) > 1 ? 's' : ''}, with handrail)`, qty: 1, unit: 'ea', cat: 'Build (by team)', price: [120, 260] });
+      if (p.rail) out.push({ key: 'stageRail', name: 'Guard rail section (8′, 42″)', qty: Math.ceil((p.w + 2 * p.d) / 8), unit: 'ea', cat: 'Build (by team)', price: [80, 160] });
+      return out;
+    },
+    describe: (it) => {
+      const p = P(it);
+      const n = riserSteps(p.h);
+      return [`${p.w}′ × ${p.d}′ deck, ${p.h}′ high (${Math.round(p.h * 12)}″)${p.steps && n ? ` · ${n} step${n > 1 ? 's' : ''} on the front` : ''}${p.rail ? ' · rails on back and sides' : ''}`, 'Anything you put on it is lifted to the deck height automatically.'];
+    },
+  },
+
   centerpiece: {
     key: 'centerpiece',
     label: 'Centerpiece riser',
@@ -866,3 +936,37 @@ export { absPts, L as localPt };
 
 export const DEFAULT_POSTER_TITLES = FESTIVAL_POSTERS;
 export const NODE_LIST = NODES;
+
+/** Items standing on a stage/riser are lifted to its deck. Returns the project with every item's base height (z) settled:
+ *  an item whose centre is on a riser sits on the highest deck under it; one that was lifted by a riser and moved off drops to the floor. */
+export function settleOnRisers(items: Item[]): Item[] {
+  const risers = items.filter((i) => i.type === 'riser' && !i.hidden);
+  if (!risers.length && !items.some((i) => i.params?.onRiser)) return items;
+  const decks = risers.map((r) => ({ r, poly: rectFoot(r, P(r).w, P(r).d), top: (r.z || 0) + P(r).h }));
+  let changed = false;
+  const out = items.map((it) => {
+    if (it.type === 'riser' || it.points || (it.type === 'fixture' && it.params?.rig)) return it;
+    let top = -1;
+    for (const d of decks) if (d.top > top && pointInPolyLocal({ x: it.x, y: it.y }, d.poly)) top = d.top;
+    if (top >= 0) {
+      if (Math.abs((it.z || 0) - top) < 1e-6 && it.params?.onRiser) return it;
+      changed = true;
+      return { ...it, z: top, params: { ...it.params, onRiser: true } };
+    }
+    if (it.params?.onRiser) {
+      changed = true;
+      const { onRiser: _o, ...rest } = it.params;
+      return { ...it, z: 0, params: rest };
+    }
+    return it;
+  });
+  return changed ? out : items;
+}
+function pointInPolyLocal(p: V2, poly: V2[]) {
+  let inside = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const a = poly[i], b = poly[j];
+    if (a.y > p.y !== b.y > p.y && p.x < ((b.x - a.x) * (p.y - a.y)) / (b.y - a.y) + a.x) inside = !inside;
+  }
+  return inside;
+}

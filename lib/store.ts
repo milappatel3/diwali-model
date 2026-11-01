@@ -4,6 +4,7 @@ import type { Item, Probe, Project } from './types';
 import { defaultProject } from './project';
 import type { FullResult } from './engine';
 import { uid } from './geom';
+import { settleOnRisers } from './catalog';
 
 export type ViewKey = 'overview' | 'plan' | '3d' | 'campus' | 'campusplan' | 'light' | 'rig' | 'build' | 'exhibits' | 'venue';
 export type HeatMode = 'face' | 'floor' | 'photo' | 'uv' | 'none';
@@ -157,7 +158,9 @@ export const useStore = create<State>((set, get) => ({
     const s = get();
     const now = Date.now();
     const coalesce = coalesceKey && coalesceKey === lastKey && now - lastTime < 1200;
-    const next = { ...fn(s.project), updatedAt: now };
+    const raw = fn(s.project);
+    const items = settleOnRisers(raw.items);
+    const next = { ...raw, items, updatedAt: now };
     lastKey = coalesceKey;
     lastTime = now;
     set({ project: next, past: coalesce ? s.past : [...s.past.slice(-80), s.project], future: [] });

@@ -11,13 +11,13 @@ import { fmtFt, DEG } from '@/lib/geom';
 import type { Item } from '@/lib/types';
 
 const PARAM_LABELS: Record<string, string> = {
-  w: 'Width (ft)', d: 'Depth (ft)', h: 'Height (ft)', bottom: 'Bottom edge (ft)', title: 'Title', sub: 'Sub-title', style: 'Style', feet: 'Free-standing',
+  w: 'Width (ft)', d: 'Depth (ft)', h: 'Height (ft)', skirt: 'Skirt colour', steps: 'Steps on the front', rail: 'Rails (back + sides)', bottom: 'Bottom edge (ft)', title: 'Title', sub: 'Sub-title', style: 'Style', feet: 'Free-standing',
   double: 'Double-sided', color: 'Drape colour', fullness: 'Fullness', closed: 'Closed loop', runA: 'Run A (ft)', runB: 'Run B (ft)', corner: 'Corner (ft)', depth: 'Module depth',
   mirror: 'Mirror', nits: 'Glow (nits)', cct: 'Glow CCT (K)', art: 'Artwork', divos: 'LED divos', n: 'Count', r: 'Pad radius (ft)', spacing: 'Post spacing (ft)', tau: 'Ceiling transmission',
   lightPipe: 'Light pipe (hang fixtures)', valance: 'Valance only (ft, 0 = full)', sharedEnds: 'Ends share uprights',
   table: 'Table in front', num: 'Section #', text: 'Text', rho: 'Reflectance', bar: 'Bar width (ft)', mat: 'Material', wall: 'Wall depth (ft)',
 };
-const HIDDEN_PARAMS = new Set(['entry', 'exit', 'target', 'model', 'mount', 'rig', 'slot', 'aim', 'ch', 'dim', 'zoom', 'u']);
+const HIDDEN_PARAMS = new Set(['onRiser', 'entry', 'exit', 'target', 'model', 'mount', 'rig', 'slot', 'aim', 'ch', 'dim', 'zoom', 'u']);
 
 export default function Inspector() {
   const selected = useStore((s) => s.selected);
@@ -122,6 +122,12 @@ function ItemBody({ it }: { it: Item }) {
                   <option value="black">Black velour</option>
                   <option value="ivory">Ivory / white</option>
                   <option value="maroon">Maroon</option>
+                </select>
+              ) : k === 'skirt' ? (
+                <select className="txt-in" value={v} onChange={(e) => updateParams(it.id, { skirt: e.target.value })}>
+                  <option value="black">Black</option>
+                  <option value="maroon">Maroon</option>
+                  <option value="ivory">Ivory / white</option>
                 </select>
               ) : k === 'style' ? (
                 <select className="txt-in" value={v} onChange={(e) => updateParams(it.id, { style: e.target.value })}>

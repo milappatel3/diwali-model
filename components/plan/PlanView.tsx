@@ -357,7 +357,7 @@ export default function PlanView() {
   );
 
   const probeRes = useMemo(() => new Map((result?.probes || []).map((p) => [p.id, p])), [result]);
-  const ADDABLE = ['posterStand', 'poster', 'banner', 'signStand', 'drape', 'stanchions', 'tbar', 'crank', 'pipebar', 'fixture', 'table', 'diorama', 'mirrors', 'kiosk', 'tvArch', 'fiberTower', 'mapDeck', 'lwall', 'house', 'nailWall', 'pillars', 'lilyPath', 'floorMark', 'zoneArea'];
+  const ADDABLE = ['riser', 'posterStand', 'poster', 'banner', 'signStand', 'drape', 'stanchions', 'tbar', 'crank', 'pipebar', 'fixture', 'table', 'diorama', 'mirrors', 'kiosk', 'tvArch', 'fiberTower', 'mapDeck', 'lwall', 'house', 'nailWall', 'pillars', 'lilyPath', 'floorMark', 'zoneArea'];
 
   return (
     <div className="view-full" style={{ flexDirection: 'column' }}>

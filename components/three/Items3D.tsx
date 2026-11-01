@@ -45,13 +45,13 @@ const ItemNode = React.memo(function ItemNode({ it, ev, sel }: { it: Item; ev: E
     case 'tbar':
     case 'crank':
     case 'pipebar':
-      body = <Stand it={it} />;
+      body = <Lift z={it.z}><Stand it={it} /></Lift>;
       break;
     case 'zoneArea':
       body = null;
       break;
     case 'floorMark':
-      body = <FloorMark it={it} />;
+      body = <Lift z={it.z}><FloorMark it={it} /></Lift>;
       break;
     case 'booth':
       body = it.params?.zone ? null : <BoothTape it={it} />;
@@ -61,7 +61,7 @@ const ItemNode = React.memo(function ItemNode({ it, ev, sel }: { it: Item; ev: E
         <>
           <Solids it={it} />
           <Surfaces it={it} />
-          <Extras it={it} />
+          {it.type === 'house' ? <Extras it={it} /> : <Lift z={it.z}><Extras it={it} /></Lift>}
         </>
       );
   }
@@ -72,6 +72,11 @@ const ItemNode = React.memo(function ItemNode({ it, ev, sel }: { it: Item; ev: E
     </group>
   );
 });
+
+/** raise parts drawn at floor level (stands, floor marks, extras) onto the item's base height — e.g. a stage/riser deck */
+function Lift({ z, children }: { z?: number; children: React.ReactNode }) {
+  return z ? <group position={[0, z * FTm, 0]}>{children}</group> : <>{children}</>;
+}
 
 function SelectionBox({ it }: { it: Item }) {
   const box = useMemo(() => {
@@ -182,7 +187,7 @@ function Surfaces({ it }: { it: Item }) {
   const surfaces = useMemo(() => itemSurfaces(it), [it]);
   const p = P(it);
   if (it.type === 'nailWall') {
-    const c = W(it.x + Math.cos(yawRad(it.rot)) * (p.d / 2 + 0.03), it.y + Math.sin(yawRad(it.rot)) * (p.d / 2 + 0.03), p.h / 2);
+    const c = W(it.x + Math.cos(yawRad(it.rot)) * (p.d / 2 + 0.03), it.y + Math.sin(yawRad(it.rot)) * (p.d / 2 + 0.03), (it.z || 0) + p.h / 2);
     return (
       <mesh position={c} rotation={[0, yawRad(it.rot) + Math.PI / 2, 0]} receiveShadow>
         <planeGeometry args={[p.w * FTm, p.h * FTm]} />
