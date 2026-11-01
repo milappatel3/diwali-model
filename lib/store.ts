@@ -44,6 +44,10 @@ interface State {
   paletteOpen: boolean;
   navOpen: boolean;
   focus3d: { x: number; y: number; z: number } | null;
+  /** autosave status of the plan */
+  saveState: 'saved' | 'saving' | 'error';
+  savedAt: number | null;
+  saveError: string | null;
   setView: (v: ViewKey) => void;
   select: (id: string | null) => void;
   setHover: (id: string | null) => void;
@@ -73,18 +77,50 @@ interface State {
 
 let lastKey: string | undefined;
 let lastTime = 0;
-let saveTimer: any = null;
+
+// ── autosave ──
+// Every change to the plan is written to this browser's localStorage a moment after it happens (and immediately when the tab is
+// hidden, reloaded or closed), so nothing is lost between visits. Storage belongs to one browser at one address: localhost:3000
+// (npm run dev), localhost:8123 (the export) and the GitHub Pages site each keep their own copy — use Export / Import in
+// Venue & settings to move a plan between them.
+let saveTimer: ReturnType<typeof setTimeout> | null = null;
+let pending: Project | null = null;
+function writeNow() {
+  if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
+  if (!pending || typeof window === 'undefined') return;
+  const p = pending;
+  pending = null;
+  try {
+    window.localStorage.setItem(LS_KEY, JSON.stringify(p));
+    useStore.setState({ saveState: 'saved', savedAt: Date.now(), saveError: null });
+  } catch (e: any) {
+    useStore.setState({ saveState: 'error', saveError: e?.name === 'QuotaExceededError' ? 'Browser storage is full' : 'This browser blocked saving (private window?)' });
+  }
+}
+/** write any pending change right now (⌘S) */
+export function saveNow() {
+  if (pending) writeNow();
+  else useStore.setState({ saveState: 'saved', savedAt: Date.now() });
+}
 function persist(p: Project) {
   if (typeof window === 'undefined') return;
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(() => {
-    try {
-      window.localStorage.setItem(LS_KEY, JSON.stringify(p));
-    } catch {
-      /* ignore */
-    }
-  }, 400);
+  pending = p;
+  if (useStore.getState().saveState !== 'saving') useStore.setState({ saveState: 'saving' });
+  if (saveTimer) clearTimeout(saveTimer);
+  saveTimer = setTimeout(writeNow, 250);
 }
+
+const UI_KEY = 'lightplot.ui.v1';
+type UiPrefs = Pick<State, 'heat' | 'faceDir' | 'layers'>;
+function loadUi(): Partial<UiPrefs> {
+  if (typeof window === 'undefined') return {};
+  try { return JSON.parse(window.localStorage.getItem(UI_KEY) || '{}') || {}; } catch { return {}; }
+}
+function saveUi(u: UiPrefs) {
+  try { window.localStorage.setItem(UI_KEY, JSON.stringify(u)); } catch { /* not critical */ }
+}
+const DEFAULT_LAYERS: State['layers'] = { dwg: true, beams: true, labels: true, egress: true, grid: false, probes: true, fixtures: true };
+const ui0 = loadUi();
 
 export const useStore = create<State>((set, get) => ({
   project: loadProject(),
@@ -97,20 +133,23 @@ export const useStore = create<State>((set, get) => ({
   calcState: 'idle',
   calcProgress: 0,
   calcError: null,
-  heat: 'face',
-  faceDir: null,
-  layers: { dwg: true, beams: true, labels: true, egress: true, grid: false, probes: true, fixtures: true },
+  heat: ui0.heat ?? 'face',
+  faceDir: ui0.faceDir ?? null,
+  layers: { ...DEFAULT_LAYERS, ...(ui0.layers || {}) },
   paletteOpen: false,
   navOpen: true,
   focus3d: null,
+  saveState: 'saved',
+  savedAt: null,
+  saveError: null,
   setView: (view) => set({ view }),
   select: (selected) => set({ selected }),
   setHover: (hover) => set({ hover }),
   setResult: (result, calcState = 'idle', calcError = null) => set({ result, calcState, calcError }),
   setProgress: (calcProgress) => set({ calcProgress, calcState: 'running' }),
-  setHeat: (heat) => set({ heat }),
-  setFaceDir: (faceDir) => set({ faceDir }),
-  toggleLayer: (k) => set((s) => ({ layers: { ...s.layers, [k]: !s.layers[k] } })),
+  setHeat: (heat) => { set({ heat }); const s = get(); saveUi({ heat: s.heat, faceDir: s.faceDir, layers: s.layers }); },
+  setFaceDir: (faceDir) => { set({ faceDir }); const s = get(); saveUi({ heat: s.heat, faceDir: s.faceDir, layers: s.layers }); },
+  toggleLayer: (k) => { set((s) => ({ layers: { ...s.layers, [k]: !s.layers[k] } })); const s = get(); saveUi({ heat: s.heat, faceDir: s.faceDir, layers: s.layers }); },
   setPalette: (paletteOpen) => set({ paletteOpen }),
   setNav: (navOpen) => set({ navOpen }),
   setFocus3d: (focus3d) => set({ focus3d }),
@@ -171,14 +210,14 @@ export const useStore = create<State>((set, get) => ({
   undo: () => {
     const s = get();
     if (!s.past.length) return;
-    const prev = s.past[s.past.length - 1];
+    const prev = { ...s.past[s.past.length - 1], updatedAt: Date.now() };
     set({ project: prev, past: s.past.slice(0, -1), future: [s.project, ...s.future] });
     persist(prev);
   },
   redo: () => {
     const s = get();
     if (!s.future.length) return;
-    const nx = s.future[0];
+    const nx = { ...s.future[0], updatedAt: Date.now() };
     set({ project: nx, future: s.future.slice(1), past: [...s.past, s.project] });
     persist(nx);
   },
@@ -187,10 +226,28 @@ export const useStore = create<State>((set, get) => ({
     set((s) => ({ project: p, past: [...s.past, s.project], future: [], selected: null }));
     persist(p);
   },
-  loadFromJSON: (p) => {
+  loadFromJSON: (p0) => {
+    const p = { ...p0, updatedAt: Date.now() };
     set((s) => ({ project: p, past: [...s.past, s.project], future: [], selected: null }));
     persist(p);
   },
 }));
+
+if (typeof window !== 'undefined') {
+  // never lose the last change: write straight away when the tab is hidden, reloaded or closed
+  const flush = () => writeNow();
+  window.addEventListener('pagehide', flush);
+  window.addEventListener('beforeunload', flush);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
+  // another tab of the app saved a newer plan → pick it up here too (undoable)
+  window.addEventListener('storage', (e) => {
+    if (e.key !== LS_KEY || !e.newValue) return;
+    try {
+      const p = JSON.parse(e.newValue) as Project;
+      const s = useStore.getState();
+      if (p && Array.isArray(p.items) && (p.updatedAt ?? 0) > (s.project.updatedAt ?? 0)) useStore.setState({ project: p, past: [...s.past.slice(-80), s.project], future: [], saveState: 'saved', savedAt: Date.now() });
+    } catch { /* ignore */ }
+  });
+}
 
 export const isProbeId = (id: string | null) => !!id && id.startsWith('pb');

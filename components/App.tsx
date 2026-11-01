@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { useStore, type ViewKey } from '@/lib/store';
+import { useStore, saveNow, type ViewKey } from '@/lib/store';
 import { Icon } from './ui';
 import { buildScene, computeAll, type FullResult } from '@/lib/engine';
 import Inspector from './Inspector';
@@ -114,6 +114,8 @@ export default function App() {
   const redo = useStore((s) => s.redo);
   const setPalette = useStore((s) => s.setPalette);
   const selected = useStore((s) => s.selected);
+  const saveState = useStore((s) => s.saveState);
+  const saveError = useStore((s) => s.saveError);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -122,6 +124,11 @@ export default function App() {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setPalette(true);
+        return;
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        saveNow();
         return;
       }
       if (typing) return;
@@ -193,6 +200,10 @@ export default function App() {
           <span className="pill hide-sm" title="Photometric calculation">
             <span className="dot" style={{ background: calcState === 'running' ? 'var(--warn)' : calcState === 'error' ? 'var(--err)' : 'var(--ok)' }} />
             {calcState === 'running' ? 'Calculating…' : calcState === 'error' ? 'Calc error' : result ? `${result.srcCount} sources · ${result.ms} ms` : '—'}
+          </span>
+          <span className="pill" title={saveState === 'error' ? `${saveError} — use Export in Venue & settings to keep a copy` : 'Every change is saved in this browser automatically'} style={saveState === 'error' ? { color: 'var(--err)' } : undefined}>
+            <span className="dot" style={{ background: saveState === 'saving' ? 'var(--warn)' : saveState === 'error' ? 'var(--err)' : 'var(--ok)' }} />
+            {saveState === 'saving' ? 'Saving…' : saveState === 'error' ? 'Not saved' : 'Saved'}
           </span>
           <button className="btn icon-btn" onClick={undo} title="Undo (⌘Z)">
             <Icon.undo size={16} />
