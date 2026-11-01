@@ -6,6 +6,7 @@ import { OrbitControls, PointerLockControls } from '@react-three/drei';
 import { NearHtml, LabelOverlay, LabelProjector } from './Labels';
 import { EffectComposer, Bloom, ToneMapping, Noise, Vignette, N8AO } from '@react-three/postprocessing';
 import { ToneMappingMode, Effect, BlendFunction } from 'postprocessing';
+import LightSwitches from '@/components/LightSwitches';
 import { useStore } from '@/lib/store';
 import { buildScene, evalProbe, type Scene as CalcScene } from '@/lib/engine';
 import { itemFootprint, absPts } from '@/lib/catalog';
@@ -14,7 +15,7 @@ import { VERDICT_COLOR, fmtLux, luxColor } from '@/lib/heat';
 import { DEG } from '@/lib/geom';
 import Hall3D from './Hall3D';
 import { Items3D } from './Items3D';
-import { useSpotDefs, Spots, EmitterLights, FixtureBodies, BeamCones } from './Lights3D';
+import { useSpotDefs, LightPool, FixtureBodies, BeamCones } from './Lights3D';
 import { mats, W, FTm } from './materials';
 import { Seg, Icon } from '../ui';
 
@@ -48,7 +49,7 @@ const PRESETS: Record<string, { pos: [number, number, number]; tgt: [number, num
   houseIn: { pos: [105.2, 77.6, 5.3], tgt: [103.6, 69.9, 3.6], label: '3 House — inside' },
   beliefs: { pos: [80.5, 76, 6.5], tgt: [66, 86, 4], label: '4 Beliefs' },
   values: { pos: [54, 80, 6], tgt: [43, 80, 4.2], label: '5 Core Values' },
-  stambh: { pos: [64, 48.2, 6.2], tgt: [80, 48.2, 5.5], label: '6 Adhar Stambh' },
+  stambh: { pos: [61, 43.5, 6.2], tgt: [80, 48.2, 5.5], label: '6 Adhar Stambh' },
   photo: { pos: [37, 80, 5.5], tgt: [24, 80, 5], label: 'Photo booth' },
   pipe: { pos: [62, 70, 7], tgt: [56, 61.7, 10], label: 'Lights on the drape pipe' },
 };
@@ -188,6 +189,8 @@ export default function ThreeView() {
             <button key={k} className="chip" aria-pressed={v} onClick={() => (set as any)(!v)}>{l}</button>
           ))}
           <span className="sep" />
+          <LightSwitches compact />
+          <span className="sep" />
           <Seg value={quality} onChange={setQuality} options={[{ v: 'high', label: 'High' }, { v: 'low', label: 'Fast' }]} />
         </div>
         <div className="cam-badge">
@@ -280,8 +283,7 @@ function SceneContent(props: {
       <Hall3D ceilingFt={project.settings.ceilingFt} stageFt={project.settings.stageHeightFt} houseLevel={project.house.enabled ? project.house.level : 0} houseRows={project.house.rows} houseCols={project.house.cols} />
       <Items3D project={project} ev={{ onSelect: props.onSelect, onHover: props.onHover }} selected={props.selected} />
       <FixtureBodies project={project} selected={props.selected} onSelect={props.onSelect} onHover={props.onHover} />
-      <Spots defs={defs} />
-      <EmitterLights project={project} />
+      <LightPool defs={defs} project={project} quality={quality} shadowBudget={shadowBudget} />
       {props.beams && <BeamCones defs={defs} />}
       {props.heat && <FloorHeat />}
       {props.people && <People />}

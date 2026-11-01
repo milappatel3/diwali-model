@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js';
 import type { Item, Project } from '@/lib/types';
 import type { Scene as CalcScene, Src } from '@/lib/engine';
@@ -111,6 +111,146 @@ function Spot({ d }: { d: SpotDef }) {
   );
 }
 
+
+/* ───────────────────────── light pool ─────────────────────────
+ * three.js shades every pixel against every light in the scene, and recompiles every material whenever the number of lights
+ * changes. With ~55 fixtures + ~22 self-lit emitters that is ~80 lights per pixel — far too slow on a laptop GPU (and the
+ * shader compile alone took many seconds). Instead a FIXED number of real lights is kept (so shaders compile once) and they are
+ * handed to the fixtures and emitters that matter most for the current view: bright, close to the camera and in front of it.
+ * Light numbers (lux, exposure) come from the photometric calc, not from these lights, so they are unaffected. */
+export const POOL = {
+  high: { spot: 16, rect: 4, point: 6 },
+  low: { spot: 8, rect: 2, point: 3 },
+};
+type Em = ReturnType<typeof itemEmitters>[number];
+const _fr = new THREE.Frustum();
+const _m = new THREE.Matrix4();
+const _sph = new THREE.Sphere();
+function score(cam: THREE.Camera, p: THREE.Vector3, power: number, r: number) {
+  _sph.center.copy(p); _sph.radius = r;
+  const vis = _fr.intersectsSphere(_sph) ? 1 : 0.12;
+  const d2 = cam.position.distanceToSquared(p);
+  return (power * vis) / (d2 + 9);
+}
+/** keep slot assignments stable: ids still wanted stay in their slot, new ones fill the free slots */
+function assign(prev: (string | null)[], want: string[]): (string | null)[] {
+  const keep = new Set(want);
+  const out = prev.map((id) => (id && keep.has(id) ? id : null));
+  const placed = new Set(out.filter(Boolean) as string[]);
+  let k = 0;
+  for (const id of want) {
+    if (placed.has(id)) continue;
+    while (k < out.length && out[k]) k++;
+    if (k >= out.length) break;
+    out[k] = id;
+  }
+  return out;
+}
+
+export function LightPool({ defs, project, quality, shadowBudget }: { defs: SpotDef[]; project: Project; quality: 'high' | 'low'; shadowBudget: number }) {
+  const K = POOL[quality];
+  const nShadow = quality === 'high' ? Math.min(shadowBudget, K.spot) : 0;
+  const { camera, scene } = useThree();
+  const ems = useMemo(() => project.items.filter((i) => !i.hidden).flatMap((i) => itemEmitters(i)), [project.items]);
+  const spotRefs = useRef<(THREE.SpotLight | null)[]>([]);
+  const rectRefs = useRef<(THREE.RectAreaLight | null)[]>([]);
+  const pointRefs = useRef<(THREE.PointLight | null)[]>([]);
+  const slots = useRef({ shadow: [] as (string | null)[], spot: [] as (string | null)[], rect: [] as (string | null)[], point: [] as (string | null)[] });
+  const last = useRef({ pos: new THREE.Vector3(1e9, 0, 0), q: new THREE.Quaternion(), defs: null as SpotDef[] | null, ems: null as Em[] | null });
+
+  // spot targets must live in the scene for their matrices to update
+  useEffect(() => {
+    const ls = spotRefs.current.filter(Boolean) as THREE.SpotLight[];
+    ls.forEach((l) => scene.add(l.target));
+    return () => ls.forEach((l) => scene.remove(l.target));
+  }, [scene, K.spot]);
+
+  useFrame(() => {
+    const L = last.current;
+    const moved = L.pos.distanceTo(camera.position) > 0.4 || L.q.angleTo(camera.quaternion) > 0.05;
+    if (!moved && L.defs === defs && L.ems === ems) return;
+    L.pos.copy(camera.position); L.q.copy(camera.quaternion); L.defs = defs; L.ems = ems;
+    camera.updateMatrixWorld();
+    _fr.setFromProjectionMatrix(_m.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse));
+
+    // ── spots: the most important get the shadow-casting slots, the next ones the plain slots ──
+    const byId = new Map(defs.map((d) => [d.id, d]));
+    const ranked = defs.map((d) => ({ d, s: score(camera, d.target, d.lm, 3) })).sort((a, b) => b.s - a.s);
+    const wantShadow = ranked.slice(0, nShadow).map((x) => x.d.id);
+    const wantPlain = ranked.slice(nShadow, K.spot).map((x) => x.d.id);
+    const S = slots.current;
+    S.shadow = assign(S.shadow.length ? S.shadow : Array(nShadow).fill(null), wantShadow);
+    S.spot = assign(S.spot.length ? S.spot : Array(K.spot - nShadow).fill(null), wantPlain);
+    [...S.shadow, ...S.spot].forEach((id, i) => {
+      const l = spotRefs.current[i];
+      if (!l) return;
+      const d = id ? byId.get(id) : undefined;
+      if (!d) { l.intensity = 0; return; }
+      l.position.copy(d.pos);
+      l.target.position.copy(d.target);
+      l.target.updateMatrixWorld();
+      l.color.copy(d.color);
+      l.intensity = d.intensity;
+      l.angle = d.angle;
+      l.penumbra = d.penumbra;
+    });
+
+    // ── self-lit emitters ──
+    const rects = ems.filter((e) => e.n), points = ems.filter((e) => !e.n);
+    const pos = (e: Em) => W(e.c.x + (e.n ? e.n.x * 0.1 : 0), e.c.y + (e.n ? e.n.y * 0.1 : 0), e.c.z + (e.n ? e.n.z * 0.1 : 0));
+    const rWant = rects.map((e) => ({ e, s: score(camera, pos(e), (e.nits || 100) * (e.areaFt2 || 1), 2) })).sort((a, b) => b.s - a.s).slice(0, K.rect);
+    const pWant = points.map((e) => ({ e, s: score(camera, pos(e), e.lumens || 100, 1) })).sort((a, b) => b.s - a.s).slice(0, K.point);
+    const emById = new Map(ems.map((e) => [e.id, e]));
+    S.rect = assign(S.rect.length ? S.rect : Array(K.rect).fill(null), rWant.map((x) => x.e.id));
+    S.point = assign(S.point.length ? S.point : Array(K.point).fill(null), pWant.map((x) => x.e.id));
+    S.rect.forEach((id, i) => {
+      const l = rectRefs.current[i];
+      if (!l) return;
+      const e = id ? emById.get(id) : undefined;
+      if (!e || !e.n) { l.intensity = 0; return; }
+      const Y = luminanceY(e.rgb), side = Math.sqrt(e.areaFt2) * FTm, p = pos(e);
+      l.position.copy(p);
+      l.width = side * 1.1; l.height = side * 0.9;
+      l.color.setRGB(e.rgb[0], e.rgb[1], e.rgb[2]);
+      l.intensity = (e.nits || 100) / Y;
+      l.lookAt(p.clone().add(new THREE.Vector3(e.n.x, e.n.z, -e.n.y)));
+    });
+    S.point.forEach((id, i) => {
+      const l = pointRefs.current[i];
+      if (!l) return;
+      const e = id ? emById.get(id) : undefined;
+      if (!e) { l.intensity = 0; return; }
+      const Y = luminanceY(e.rgb);
+      l.position.copy(pos(e));
+      l.color.setRGB(e.rgb[0], e.rgb[1], e.rgb[2]);
+      l.intensity = (e.lumens || 100) / (4 * Math.PI) / Y;
+    });
+  });
+
+  return (
+    <>
+      {Array.from({ length: K.spot }, (_, i) => (
+        <spotLight
+          key={`s${quality}${i}`}
+          ref={(l) => { spotRefs.current[i] = l; }}
+          intensity={0}
+          decay={2}
+          distance={0}
+          castShadow={i < nShadow}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-bias={-0.0003}
+          shadow-normalBias={0.02}
+          shadow-camera-near={0.2}
+          shadow-camera-far={45}
+        />
+      ))}
+      {Array.from({ length: K.rect }, (_, i) => <rectAreaLight key={`r${quality}${i}`} ref={(l) => { rectRefs.current[i] = l; }} intensity={0} />)}
+      {Array.from({ length: K.point }, (_, i) => <pointLight key={`p${quality}${i}`} ref={(l) => { pointRefs.current[i] = l; }} intensity={0} decay={2} distance={0} />)}
+    </>
+  );
+}
+
 /** Self-lit emitters: dioramas/screens as rect area lights; lamps & divos as point lights */
 export function EmitterLights({ project }: { project: Project }) {
   const ems = useMemo(() => project.items.filter((i) => !i.hidden).flatMap((i) => itemEmitters(i)), [project.items]);
@@ -162,7 +302,7 @@ function FixtureBody({ f, byId, project, sel, onSelect, onHover }: { f: Item; by
   const ch: Record<string, number> = {};
   let r = 0, g = 0, b = 0, lm = 0;
   for (const c of m.channels) {
-    const lv = (f.params.ch ? f.params.ch[c.key] ?? 0 : m.defaultCh[c.key] ?? 0) * (f.params.dim ?? 1);
+    const lv = project.fixturesOff ? 0 : (f.params.ch ? f.params.ch[c.key] ?? 0 : m.defaultCh[c.key] ?? 0) * (f.params.dim ?? 1);
     ch[c.key] = lv;
     r += c.rgb[0] * lv * c.lm;
     g += c.rgb[1] * lv * c.lm;

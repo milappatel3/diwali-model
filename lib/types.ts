@@ -71,6 +71,8 @@ export interface Project {
   items: Item[];
   probes: Probe[];
   house: HouseLights;
+  /** master switch for every exhibit fixture (house lights have their own switch in `house.enabled`) */
+  fixturesOff?: boolean;
   settings: Settings;
   inventory: Record<string, number>; // fixture model -> owned qty
   artSpotVariant: 'framing20' | 'pinspot10' | 'gallery30';

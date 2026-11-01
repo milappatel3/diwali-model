@@ -218,7 +218,7 @@ export function buildScene(p: Project): Scene {
   const der = p.settings.derate;
   // fixtures
   for (const it of p.items) {
-    if (it.type !== 'fixture' || it.hidden) continue;
+    if (it.type !== 'fixture' || it.hidden || p.fixturesOff) continue;
     const m = resolveModel(it.params.model, p.artSpotVariant);
     if (!m) continue;
     const dim = it.params.dim ?? 1;

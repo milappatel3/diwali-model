@@ -1,5 +1,6 @@
 'use client';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import LightSwitches from '@/components/LightSwitches';
 import { useStore, isProbeId } from '@/lib/store';
 import type { Item, V2 } from '@/lib/types';
 import { itemFootprint, TYPES, absPts, params as itemParams, drapeCounts, drapeUprights, stanchionCount } from '@/lib/catalog';
@@ -478,7 +479,7 @@ export default function PlanView() {
             {layers.fixtures &&
               fixtures.map(({ f, pos, beam, core, m, aim }) => {
                 const isSel = f.id === selected;
-                const show = layers.beams || isSel;
+                const show = (layers.beams && !project.fixturesOff) || isSel;
                 const c = m ? m.channels.reduce((acc, ch) => { const lv = (f.params.ch ? f.params.ch[ch.key] ?? 0 : m.defaultCh[ch.key] ?? 0); return [acc[0] + ch.rgb[0] * lv * ch.lm, acc[1] + ch.rgb[1] * lv * ch.lm, acc[2] + ch.rgb[2] * lv * ch.lm]; }, [0, 0, 0]) : [1, 1, 1];
                 const mx = Math.max(...c) || 1;
                 const colr = `rgb(${Math.round(255 * Math.pow(c[0] / mx, 0.45))},${Math.round(255 * Math.pow(c[1] / mx, 0.45))},${Math.round(255 * Math.pow(c[2] / mx, 0.45))})`;
@@ -663,6 +664,8 @@ export default function PlanView() {
             <Icon.plus size={14} /> Add
           </button>
           {typeof tool === 'object' && <span className="pill sev-warning">Click to place {TYPES[tool.place]?.label}</span>}
+          <span className="sep" />
+          <LightSwitches compact />
         </div>
         {addOpen && (
           <div className="add-menu">
