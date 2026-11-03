@@ -11,6 +11,7 @@ import type { Item } from '@/lib/types';
 import { FTm } from './materials';
 import { std, canvasTex, Inst, NearHtml } from './CampusModel';
 import { Items3D } from './Items3D';
+import { FixtureBodies } from './Lights3D';
 import { Bx, Cyl, L, place, rad, type V3 } from './CampusFestival';
 import { Beams, type Seg } from './CampusExtras';
 import { CapaBooth, PillarBay, NeelkanthRoom, Pic } from './CampusSets';
@@ -43,14 +44,13 @@ function legacyItems(ex: ExItem[], drapes: DrapeRun[]): Item[] {
   return out;
 }
 
+/** The Assembly Hall exhibition in Campus 3D is drawn straight from the Plan & light map (the source of truth, same browser
+ *  storage): every item, drape and stand there — and the fixture bodies — appear here exactly as placed. */
 export function ExhibitLayout() {
   const project = useStore((s) => s.project);
-  const exAll = useCE((s) => s.e.exItems);
-  const ex = useMemo(() => exAll.filter((e) => !KDC_KINDS.has(e.kind) && !SITE_KINDS.has(e.kind)), [exAll]);
-  const drapes = useCE((s) => s.e.drapes);
   const { scene, invalidate } = useThree();
   const ev = useMemo(() => ({ onSelect: () => {}, onHover: () => {} }), []);
-  const items = useMemo(() => legacyItems(ex, drapes), [ex, drapes]);
+  const items = useMemo(() => project.items.filter((i) => !i.hidden), [project.items]);
   const proj = useMemo(() => ({ ...project, items }), [project, items]);
   // exhibit materials are authored in physical units; clamp their emissive while this plain-lit view is mounted
   useEffect(() => {
@@ -64,15 +64,14 @@ export function ExhibitLayout() {
     const t = setTimeout(() => { pass(); invalidate(); }, 400);
     return () => { clearTimeout(t); saved.forEach((v, m) => ((m as any).emissiveIntensity = v)); };
   }, [scene, items, invalidate]);
-  const LEGACY = new Set(['indiaMap', 'stages', 'house', 'tv', 'mirror', 'dioramaGod', 'dioramaGuru', 'nvBox', 'lotus']);
+  // area titles from the plan's boxes (sections and named areas)
+  const titles = useMemo(() => items.filter((i) => i.type === 'booth' && (i.params?.title || i.name)).map((i) => ({ id: i.id, x: i.x, y: i.y, t: String(i.params?.title || i.name), sec: !!i.params?.zone && /^z/.test(i.id) })), [items]);
   return (
     <>
       <Items3D project={proj} ev={ev} selected={null} />
-      {ex.map((e) => (
-        <group key={e.id} {...place(e.x, e.y, e.yaw)}>
-          <ExModel e={e} />
-          {LEGACY.has(e.kind) && <NearHtml pos={L(0, 0, e.kind === 'house' ? 12 : e.kind === 'stages' ? 12 : 10)} max={16}><div className="label3d sec">{EX_KINDS[e.kind].label}</div></NearHtml>}
-        </group>
+      <FixtureBodies project={proj} selected={null} onSelect={() => {}} onHover={() => {}} />
+      {titles.map((l) => (
+        <NearHtml key={l.id} pos={L(l.x, l.y, l.sec ? 13 : 9)} max={l.sec ? 60 : 30}><div className="label3d sec">{l.t}</div></NearHtml>
       ))}
     </>
   );

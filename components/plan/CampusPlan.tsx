@@ -2,6 +2,7 @@
 // Campus plan — a flat blueprint of the whole campus that you can edit. Edits are saved in lib/campusEdits and show up live in Campus 3D.
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useStore } from '@/lib/store';
+import { itemFootprint } from '@/lib/catalog';
 import { loadCampus, type CampusData, type PolyJ } from '@/lib/campus';
 import { useCE, editedData, inRect, lineBooths, newId, normRect, type Added, type Edits, type Rect, EX_KINDS, KDC_KINDS, SITE_KINDS, type ExKind } from '@/lib/campusEdits';
 import { Field, NumIn } from '../ui';
@@ -129,6 +130,8 @@ function RoomLabels({ base, size, all }: { base: CampusData; size: number; all: 
 
 /* ───────── event + added layers (small, redrawn freely) ───────── */
 function EditedLayer({ e, s, selKey, layers }: { e: Edits; s: number; selKey: string; layers: Layers }) {
+  const planItems = useStore((st) => st.project.items);
+  const hallItems = useMemo(() => planItems.filter((i) => !i.hidden && i.type !== 'fixture' && i.type !== 'zoneArea' && i.type !== 'lilyPath'), [planItems]);
   const sel = (k: string, id: string) => (selKey === k + ':' + id ? HIGHLIGHT : null);
   const lab = (x: number, y: number, t: string, col = '#fff', size = 11 * s) => (
     <text transform={`translate(${x},${y}) scale(1,-1)`} fill={col} fontSize={size} textAnchor="middle" fontWeight={700} fontFamily="DM Sans Variable, sans-serif" pointerEvents="none">{t}</text>
@@ -204,10 +207,18 @@ function EditedLayer({ e, s, selKey, layers }: { e: Edits; s: number; selKey: st
               </g>
             );
           })}
-          {e.drapes.map((r) => (
-            <line key={r.id} x1={r.a[0]} y1={r.a[1]} x2={r.b[0]} y2={r.b[1]} stroke={sel('drape', r.id) || '#4a6fd0'} strokeWidth={sel('drape', r.id) ? 5 : 3.5} strokeLinecap="round" opacity={0.9} {...nsc} data-k="drape" data-id={r.id} style={{ cursor: 'pointer' }} />
-          ))}
-          {e.exItems.map((q) => {
+          {/* the hall exhibition comes from the Plan & light map (read-only here) */}
+          <g pointerEvents="none" opacity={0.85}>
+            {hallItems.map((it) =>
+              it.type === 'drape' || it.type === 'stanchions' ? (
+                <polyline key={it.id} points={(it.points || []).map((q) => `${it.x + q.x},${it.y + q.y}`).join(' ')} fill="none" stroke={it.type === 'drape' ? '#4a6fd0' : '#c4252d'} strokeWidth={it.type === 'drape' ? 3 : 1.2} strokeLinecap="round" {...nsc} />
+              ) : (
+                <polygon key={it.id} points={itemFootprint(it).map((q) => `${q.x},${q.y}`).join(' ')} fill={it.type === 'booth' ? 'none' : '#c9a36a'} fillOpacity={0.3} stroke={it.type === 'booth' ? '#8ea2c7' : '#e0c08a'} strokeWidth={0.8} strokeDasharray={it.type === 'booth' ? '4 3' : undefined} {...nsc} />
+              ),
+            )}
+            {hallItems.filter((it) => it.type === 'booth' && /^z/.test(it.id)).map((it) => <g key={'l' + it.id}>{lab(it.x, it.y, String(it.params?.title || it.name), '#c7d4ef', 8 * s)}</g>)}
+          </g>
+          {e.exItems.filter((q) => (KDC_KINDS.has(q.kind) || SITE_KINDS.has(q.kind))).map((q) => {
             const K = EX_KINDS[q.kind];
             if (q.kind === 'label') return <g key={q.id} data-k="exitem" data-id={q.id} style={{ cursor: 'pointer' }}>{lab(q.x, q.y, q.t || 'Label', sel('exitem', q.id) || '#9db8ff', 9 * s)}</g>;
             return (
@@ -605,12 +616,12 @@ export default function CampusPlan() {
             <button className="btn btn-sm" style={{ marginTop: 10 }} title="Re-line the 10 booths along the east wall of the KDC zone" onClick={() => { const z = e.zones.find((q) => q.id === 'kdc'); if (z) commit((x) => { x.booths = lineBooths(z.r).map((nb, i) => ({ ...nb, title: x.booths[i]?.title ?? nb.title, sub: x.booths[i]?.sub ?? nb.sub, color: x.booths[i]?.color ?? nb.color })); }); }}>Line up KDC booths along its east wall</button>
 
             <div className="row-flex" style={{ gap: 6, marginTop: 8 }}>
-              <select className="txt-in" defaultValue="" onChange={(ev) => { const k = ev.target.value as ExKind; if (!k) return; const K = EX_KINDS[k]; const id = newId('x'); commit((x) => x.exItems.push({ id, kind: k, x: KDC_KINDS.has(k) ? 222 : SITE_KINDS.has(k) ? -34 : 60, y: KDC_KINDS.has(k) ? 330 : SITE_KINDS.has(k) ? -40 : 47, yaw: K.yaw, w: K.w, d: K.d, t: k === 'label' ? 'Label' : undefined })); setSel({ k: 'exitem', id }); ev.target.value = ''; }}>
+              <select className="txt-in" defaultValue="" onChange={(ev) => { const k = ev.target.value as ExKind; if (!k) return; const K = EX_KINDS[k]; const id = newId('x'); commit((x) => x.exItems.push({ id, kind: k, x: KDC_KINDS.has(k) ? 222 : -34, y: KDC_KINDS.has(k) ? 330 : -40, yaw: K.yaw, w: K.w, d: K.d, t: k === 'label' ? 'Label' : undefined })); setSel({ k: 'exitem', id }); ev.target.value = ''; }}>
                 <option value="">+ Add exhibit…</option>
-                {(Object.keys(EX_KINDS) as ExKind[]).map((k) => <option key={k} value={k}>{EX_KINDS[k].label}</option>)}
+                {(Object.keys(EX_KINDS) as ExKind[]).filter((k) => KDC_KINDS.has(k) || SITE_KINDS.has(k)).map((k) => <option key={k} value={k}>{EX_KINDS[k].label}</option>)}
               </select>
-              <button className="btn btn-sm" onClick={() => { const id = newId('d'); commit((x) => x.drapes.push({ id, a: [50, 47], b: [70, 47], h: 12 })); setSel({ k: 'drape', id }); }}>+ Drape run</button>
             </div>
+            <span className="muted tiny" style={{ display: 'block', marginTop: 6 }}>The Assembly Hall exhibition (drapes, exhibits, stands, lights) is edited in Plan &amp; light map — it shows here and in Campus 3D automatically.</span>
             <div className="stack" style={{ gap: 4, marginTop: 8, maxHeight: 260, overflow: 'auto' }}>
               {e.zones.map((z) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'zone'} onClick={() => setSel({ k: 'zone', id: z.id })} dot={z.color} label={z.label} sub="zone" />)}
               {e.signs.map((z) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'sign'} onClick={() => setSel({ k: 'sign', id: z.id })} dot="#c94f5a" label={`Sign ${z.n}`} sub="sign" />)}
@@ -618,8 +629,7 @@ export default function CampusPlan() {
               {e.booths.map((z, i) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'booth'} onClick={() => setSel({ k: 'booth', id: z.id })} dot={z.color} label={`Booth ${i + 1}: ${z.title}`} sub="booth" />)}
               {e.carnival.map((z) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'carnival'} onClick={() => setSel({ k: 'carnival', id: z.id })} dot="#c2255f" label={`Carnival gate`} sub="gate" />)}
               {e.annakut.map((z) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'annakut'} onClick={() => setSel({ k: 'annakut', id: z.id })} dot="#7a4aa0" label="Annakut layout" sub="mandir" />)}
-              {e.exItems.map((z) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'exitem'} onClick={() => setSel({ k: 'exitem', id: z.id })} dot={EX_KINDS[z.kind].color} label={z.kind === 'label' ? `Label: ${z.t}` : EX_KINDS[z.kind].label} sub={KDC_KINDS.has(z.kind) ? 'KDC' : SITE_KINDS.has(z.kind) ? 'site' : 'exhibit'} />)}
-              {e.drapes.map((z, i) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'drape'} onClick={() => setSel({ k: 'drape', id: z.id })} dot="#4a6fd0" label={`Pipe & drape ${i + 1}`} sub="drape" />)}
+              {e.exItems.filter((q) => (KDC_KINDS.has(q.kind) || SITE_KINDS.has(q.kind))).map((z) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'exitem'} onClick={() => setSel({ k: 'exitem', id: z.id })} dot={EX_KINDS[z.kind].color} label={z.kind === 'label' ? `Label: ${z.t}` : EX_KINDS[z.kind].label} sub={KDC_KINDS.has(z.kind) ? 'KDC' : SITE_KINDS.has(z.kind) ? 'site' : 'exhibit'} />)}
               {e.displays.map((z) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'display'} onClick={() => setSel({ k: 'display', id: z.id })} dot="#c9783a" label="Side-room display" sub="display" />)}
               {e.canopies.map((z) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'canopy'} onClick={() => setSel({ k: 'canopy', id: z.id })} dot="#3b4a7a" label="Solar canopy" sub="canopy" />)}
               {e.shoes.map((z) => <ObjRow key={z.id} on={sel?.id === z.id && sel.k === 'shoes'} onClick={() => setSel({ k: 'shoes', id: z.id })} dot="#9c3d22" label={`Shoe stands (${z.n})`} sub="shoes" />)}
