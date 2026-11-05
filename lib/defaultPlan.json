@@ -1,0 +1,3128 @@
+{
+ "version": 4,
+ "migr": [
+  "projector",
+  "lwallStrip"
+ ],
+ "name": "Diwali Exhibition 2026",
+ "venue": "Assembly Hall \u00b7 BAPS Milpitas (1430 California Circle)",
+ "items": [
+  {
+   "id": "zS1",
+   "type": "booth",
+   "name": "Hindu Festivals",
+   "section": "s1",
+   "x": 61,
+   "y": 16.5,
+   "rot": 90,
+   "params": {
+    "w": 30.099999999999994,
+    "d": 28.599999999999998,
+    "title": "Hindu Festivals",
+    "zone": true
+   }
+  },
+  {
+   "id": "zS2",
+   "type": "booth",
+   "name": "Rites & Traditions",
+   "section": "s2",
+   "x": 101.75,
+   "y": 19.05,
+   "rot": 90,
+   "params": {
+    "w": 27.900000000000006,
+    "d": 33.9,
+    "title": "Rites & Traditions",
+    "zone": true
+   }
+  },
+  {
+   "id": "zS3",
+   "type": "booth",
+   "name": "The Hindu Way of Life",
+   "section": "s3",
+   "x": 103.8,
+   "y": 60.5,
+   "rot": 90,
+   "params": {
+    "w": 26.400000000000006,
+    "d": 47,
+    "title": "The Hindu Way of Life",
+    "zone": true
+   }
+  },
+  {
+   "id": "zS4",
+   "type": "booth",
+   "name": "Beliefs & Worldview",
+   "section": "s4",
+   "x": 71.05,
+   "y": 77.65,
+   "rot": 90,
+   "params": {
+    "w": 38.099999999999994,
+    "d": 31.89999999999999,
+    "title": "Beliefs & Worldview",
+    "zone": true
+   }
+  },
+  {
+   "id": "zS5",
+   "type": "booth",
+   "name": "Core Values",
+   "section": "s5",
+   "x": 46.2,
+   "y": 77.65,
+   "rot": 90,
+   "params": {
+    "w": 11.600000000000001,
+    "d": 31.89999999999999,
+    "title": "Core Values",
+    "zone": true
+   }
+  },
+  {
+   "id": "zS6",
+   "type": "booth",
+   "name": "Adhar Stambh",
+   "section": "s6",
+   "x": 64.6,
+   "y": 46.2,
+   "rot": 90,
+   "params": {
+    "w": 47.60000000000001,
+    "d": 31.000000000000004,
+    "title": "Adhar Stambh",
+    "zone": true
+   }
+  },
+  {
+   "id": "boo1",
+   "type": "booth",
+   "name": "Line",
+   "section": "infra",
+   "x": 13.200000000000001,
+   "y": 73.1,
+   "rot": 90,
+   "params": {
+    "w": 19.2,
+    "d": 38.2,
+    "title": "Line",
+    "zone": false
+   }
+  },
+  {
+   "id": "boo2",
+   "type": "booth",
+   "name": "Photo booth",
+   "section": "photo",
+   "x": 31,
+   "y": 80,
+   "rot": 90,
+   "params": {
+    "w": 15.099999999999998,
+    "d": 24.400000000000006,
+    "title": "Photo booth",
+    "zone": false
+   }
+  },
+  {
+   "id": "boo3",
+   "type": "booth",
+   "name": "Calendar distribution",
+   "section": "infra",
+   "x": 12.100000000000001,
+   "y": 39.7,
+   "rot": 90,
+   "params": {
+    "w": 16,
+    "d": 19.9,
+    "title": "Calendar distribution",
+    "zone": false
+   }
+  },
+  {
+   "id": "boo4",
+   "type": "booth",
+   "name": "Sant Milan",
+   "section": "infra",
+   "x": 10.899999999999999,
+   "y": 22.65,
+   "rot": 90,
+   "params": {
+    "w": 18,
+    "d": 9.900000000000002,
+    "title": "Sant Milan",
+    "zone": false
+   }
+  },
+  {
+   "id": "boo5",
+   "type": "booth",
+   "name": "Neelkanth Varni",
+   "section": "infra",
+   "x": 10.899999999999999,
+   "y": 9.9,
+   "rot": 90,
+   "params": {
+    "w": 18,
+    "d": 15.6,
+    "title": "Neelkanth Varni",
+    "zone": false
+   }
+  },
+  {
+   "id": "boo6",
+   "type": "booth",
+   "name": "CAPA \u2014 BAPS Charities",
+   "section": "entry",
+   "x": 49.5,
+   "y": 16.1,
+   "rot": 90,
+   "params": {
+    "w": 15,
+    "d": 24.7,
+    "title": "CAPA \u2014 BAPS Charities",
+    "zone": false
+   }
+  },
+  {
+   "id": "boo7",
+   "type": "booth",
+   "name": "Hall doors",
+   "section": "entry",
+   "x": 1.8,
+   "y": 39.85,
+   "rot": 90,
+   "params": {
+    "w": 3.2,
+    "d": 6.3,
+    "title": "Hall doors",
+    "zone": true
+   }
+  },
+  {
+   "id": "boo8",
+   "type": "booth",
+   "name": "House entrance",
+   "section": "infra",
+   "x": 99.1,
+   "y": 57.6,
+   "rot": 90,
+   "params": {
+    "w": 4,
+    "d": 2,
+    "title": "Entrance",
+    "zone": true
+   }
+  },
+  {
+   "id": "boo9",
+   "type": "booth",
+   "name": "House exit",
+   "section": "infra",
+   "x": 90.6,
+   "y": 66.5,
+   "rot": 90,
+   "params": {
+    "w": 2,
+    "d": 4,
+    "title": "Exit",
+    "zone": true
+   }
+  },
+  {
+   "id": "dr_dn",
+   "type": "drape",
+   "name": "North run (Beliefs room)",
+   "section": "s4",
+   "x": 39,
+   "y": 93.6,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 49.900000000000006,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "id": "dr_dwMid",
+   "type": "drape",
+   "name": "Beliefs room \u2014 west wall (behind the lotus)",
+   "section": "s5",
+   "x": 40.4,
+   "y": 93.6,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": -41.199999999999996
+    }
+   ]
+  },
+  {
+   "id": "dr_dmid",
+   "type": "drape",
+   "name": "Centre divider",
+   "section": "infra",
+   "x": 38.4,
+   "y": 52.4,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 27.6,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "id": "dr_dhw",
+   "type": "drape",
+   "name": "Beliefs room \u2014 east wall",
+   "section": "s4",
+   "x": 90.1,
+   "y": 95,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": -23
+    }
+   ]
+  },
+  {
+   "id": "dr_dc1",
+   "type": "drape",
+   "name": "Beliefs | Adhar Stambh divider (light pipe)",
+   "section": "s4",
+   "x": 51.2,
+   "y": 61.7,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5,
+    "lightPipe": true
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 37.7,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "id": "dr_dc2",
+   "type": "drape",
+   "name": "Adhar Stambh \u2014 east wall",
+   "section": "s6",
+   "x": 88.4,
+   "y": 61.7,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": -30.500000000000004
+    }
+   ]
+  },
+  {
+   "id": "dr_dc3",
+   "type": "drape",
+   "name": "Festivals | Adhar Stambh divider (light pipe)",
+   "section": "s1",
+   "x": 39.5,
+   "y": 30.7,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5,
+    "lightPipe": true
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 48.900000000000006,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "id": "dr_dcapaW",
+   "type": "drape",
+   "name": "CAPA \u2014 back wall",
+   "section": "entry",
+   "x": 40.8,
+   "y": 30.7,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": -28.599999999999998
+    }
+   ]
+  },
+  {
+   "id": "dr_dbot",
+   "type": "drape",
+   "name": "South run (festival posters)",
+   "section": "s1",
+   "x": 59.4,
+   "y": 2.1,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 54.800000000000004,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "id": "dr_deast",
+   "type": "drape",
+   "name": "East run (Rites / TVs)",
+   "section": "s2",
+   "x": 115.7,
+   "y": 58.9,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": -56.8
+    }
+   ]
+  },
+  {
+   "id": "dr_dwl",
+   "type": "drape",
+   "name": "West run (Sant Milan / Neelkanth Varni)",
+   "section": "infra",
+   "x": 1.9,
+   "y": 29.8,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": -27.7
+    }
+   ]
+  },
+  {
+   "id": "dr_dbotL",
+   "type": "drape",
+   "name": "South run (west)",
+   "section": "infra",
+   "x": 0.8,
+   "y": 2.1,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 40,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "id": "dr_dsmT",
+   "type": "drape",
+   "name": "Sant Milan \u2014 north wall",
+   "section": "infra",
+   "x": 1.9,
+   "y": 27.6,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 18,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "id": "dr_dsmR",
+   "type": "drape",
+   "name": "Sant Milan \u2014 east wall",
+   "section": "infra",
+   "x": 19.9,
+   "y": 27.6,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": -9.900000000000002
+    }
+   ]
+  },
+  {
+   "id": "dr_dsmB",
+   "type": "drape",
+   "name": "Sant Milan | Neelkanth Varni divider",
+   "section": "infra",
+   "x": 1.9,
+   "y": 17.7,
+   "rot": 0,
+   "params": {
+    "h": 12,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 18,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "id": "sta10",
+   "type": "stanchions",
+   "name": "Queue line (6 rows)",
+   "section": "infra",
+   "x": 4.6,
+   "y": 57,
+   "rot": 0,
+   "params": {},
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 17.200000000000003,
+     "y": 0
+    },
+    {
+     "x": 17.200000000000003,
+     "y": 6.5
+    },
+    {
+     "x": 0,
+     "y": 6.5
+    },
+    {
+     "x": 0,
+     "y": 13
+    },
+    {
+     "x": 17.200000000000003,
+     "y": 13
+    },
+    {
+     "x": 17.200000000000003,
+     "y": 19.5
+    },
+    {
+     "x": 0,
+     "y": 19.5
+    },
+    {
+     "x": 0,
+     "y": 26
+    },
+    {
+     "x": 17.200000000000003,
+     "y": 26
+    },
+    {
+     "x": 17.200000000000003,
+     "y": 32.5
+    },
+    {
+     "x": 0,
+     "y": 32.5
+    }
+   ]
+  },
+  {
+   "id": "ban11",
+   "type": "banner",
+   "name": "Photo booth backdrop \u2014 Happy Diwali",
+   "section": "photo",
+   "x": 24.1,
+   "y": 80,
+   "rot": 0,
+   "params": {
+    "w": 10,
+    "h": 8,
+    "bottom": 0,
+    "title": "Happy Diwali",
+    "sub": "Diwali Exhibition 2026",
+    "style": "photo",
+    "feet": true
+   }
+  },
+  {
+   "id": "flo12",
+   "type": "floorMark",
+   "name": "Stand-here mark",
+   "section": "photo",
+   "x": 29.6,
+   "y": 80,
+   "rot": 0,
+   "params": {}
+  },
+  {
+   "id": "tbPhL",
+   "type": "tbar",
+   "name": "Photo key stand",
+   "section": "photo",
+   "x": 35.8,
+   "y": 75.4,
+   "rot": 145,
+   "params": {
+    "h": 8.5
+   }
+  },
+  {
+   "id": "tbPhR",
+   "type": "tbar",
+   "name": "Photo fill stand",
+   "section": "photo",
+   "x": 35.8,
+   "y": 84.6,
+   "rot": 215,
+   "params": {
+    "h": 8.5
+   }
+  },
+  {
+   "id": "fix13",
+   "type": "fixture",
+   "name": "Photo key",
+   "section": "photo",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "fresnel200",
+    "mount": "rig",
+    "rig": "tbPhL",
+    "slot": 1.5,
+    "aim": {
+     "x": 29.6,
+     "y": 80,
+     "z": 5.2
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0.3
+    },
+    "dim": 0.45,
+    "zoom": 40
+   }
+  },
+  {
+   "id": "fix14",
+   "type": "fixture",
+   "name": "Photo fill",
+   "section": "photo",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "fresnel200",
+    "mount": "rig",
+    "rig": "tbPhR",
+    "slot": 1.5,
+    "aim": {
+     "x": 29.6,
+     "y": 80,
+     "z": 5.2
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0.3
+    },
+    "dim": 0.24,
+    "zoom": 45
+   }
+  },
+  {
+   "id": "tab15",
+   "type": "table",
+   "name": "Calendar table 1",
+   "section": "infra",
+   "x": 8.6,
+   "y": 39.7,
+   "rot": 90,
+   "params": {
+    "w": 10,
+    "d": 2.5,
+    "h": 2.5
+   }
+  },
+  {
+   "id": "tab16",
+   "type": "table",
+   "name": "Calendar table 2",
+   "section": "infra",
+   "x": 15.6,
+   "y": 39.7,
+   "rot": 90,
+   "params": {
+    "w": 10,
+    "d": 2.5,
+    "h": 2.5
+   }
+  },
+  {
+   "id": "ban17",
+   "type": "banner",
+   "name": "Sant Milan backdrop",
+   "section": "infra",
+   "x": 2.6,
+   "y": 22.65,
+   "rot": 0,
+   "params": {
+    "w": 8,
+    "h": 8,
+    "bottom": 0,
+    "title": "Sant Milan",
+    "sub": "Darshan & blessings",
+    "style": "maroon",
+    "feet": true
+   }
+  },
+  {
+   "id": "tab18",
+   "type": "table",
+   "name": "Sant Milan table",
+   "section": "infra",
+   "x": 11.5,
+   "y": 22.65,
+   "rot": 90,
+   "params": {
+    "w": 8,
+    "d": 2.4,
+    "h": 2.6,
+    "mat": "drapeMaroon"
+   }
+  },
+  {
+   "id": "tbSM",
+   "type": "tbar",
+   "name": "Sant Milan stand",
+   "section": "infra",
+   "x": 18.4,
+   "y": 22.65,
+   "rot": 180,
+   "params": {
+    "h": 10
+   }
+  },
+  {
+   "id": "fix19",
+   "type": "fixture",
+   "name": "Sant Milan key",
+   "section": "infra",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "fresnel200",
+    "mount": "rig",
+    "rig": "tbSM",
+    "slot": 1.5,
+    "aim": {
+     "x": 9.4,
+     "y": 22.65,
+     "z": 4.2
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0.2
+    },
+    "dim": 0.45,
+    "zoom": 45
+   }
+  },
+  {
+   "id": "ban20",
+   "type": "banner",
+   "name": "Neelkanth Varni backdrop",
+   "section": "infra",
+   "x": 12.1,
+   "y": 2.9,
+   "rot": 90,
+   "params": {
+    "w": 10,
+    "h": 8,
+    "bottom": 0,
+    "title": "Neelkanth Varni",
+    "sub": "Tapasvi \u00b7 Yogi \u00b7 Guide",
+    "style": "night",
+    "feet": true
+   }
+  },
+  {
+   "id": "tab21",
+   "type": "table",
+   "name": "Neelkanth Varni murti riser",
+   "section": "infra",
+   "x": 12.1,
+   "y": 6,
+   "rot": 90,
+   "params": {
+    "w": 5,
+    "d": 3.5,
+    "h": 3,
+    "mat": "woodDark"
+   }
+  },
+  {
+   "id": "tbNV",
+   "type": "tbar",
+   "name": "Neelkanth Varni stand",
+   "section": "infra",
+   "x": 12.1,
+   "y": 15.8,
+   "rot": 270,
+   "params": {
+    "h": 10
+   }
+  },
+  {
+   "id": "fix22",
+   "type": "fixture",
+   "name": "Neelkanth Varni murti",
+   "section": "infra",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "tbNV",
+    "slot": 1,
+    "aim": {
+     "x": 12.1,
+     "y": 6,
+     "z": 4
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.4
+   }
+  },
+  {
+   "id": "fix23",
+   "type": "fixture",
+   "name": "Neelkanth Varni backdrop",
+   "section": "infra",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "tbNV",
+    "slot": 2,
+    "aim": {
+     "x": 12.1,
+     "y": 3,
+     "z": 5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.4
+   }
+  },
+  {
+   "id": "ban24",
+   "type": "banner",
+   "name": "CAPA backdrop \u2014 Light Beyond the Celebration",
+   "section": "entry",
+   "x": 42.6,
+   "y": 16.1,
+   "rot": 0,
+   "params": {
+    "w": 12,
+    "h": 8,
+    "bottom": 0,
+    "title": "BAPS Charities",
+    "sub": "Light Beyond the Celebration",
+    "style": "maroon",
+    "feet": true
+   }
+  },
+  {
+   "id": "tab25",
+   "type": "table",
+   "name": "CAPA table",
+   "section": "entry",
+   "x": 46.5,
+   "y": 16.1,
+   "rot": 90,
+   "params": {
+    "w": 8,
+    "d": 2.5,
+    "h": 2.5,
+    "mat": "drapeMaroon"
+   }
+  },
+  {
+   "id": "tbCapa",
+   "type": "tbar",
+   "name": "CAPA stand",
+   "section": "entry",
+   "x": 55.4,
+   "y": 16.1,
+   "rot": 180,
+   "params": {
+    "h": 10
+   }
+  },
+  {
+   "id": "fix26",
+   "type": "fixture",
+   "name": "CAPA backdrop L",
+   "section": "entry",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "tbCapa",
+    "slot": 0.5,
+    "aim": {
+     "x": 42.7,
+     "y": 12.6,
+     "z": 5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.55
+   }
+  },
+  {
+   "id": "fix27",
+   "type": "fixture",
+   "name": "CAPA backdrop R",
+   "section": "entry",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "tbCapa",
+    "slot": 2.5,
+    "aim": {
+     "x": 42.7,
+     "y": 19.6,
+     "z": 5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.55
+   }
+  },
+  {
+   "id": "fix28",
+   "type": "fixture",
+   "name": "CAPA table key",
+   "section": "entry",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "fresnel200",
+    "mount": "rig",
+    "rig": "tbCapa",
+    "slot": 1.5,
+    "aim": {
+     "x": 47,
+     "y": 16.1,
+     "z": 3.4
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0.2
+    },
+    "dim": 0.35,
+    "zoom": 45
+   }
+  },
+  {
+   "id": "map29",
+   "type": "mapDeck",
+   "name": "Interactive India map \u2014 Many Traditions. One Light.",
+   "section": "s1",
+   "x": 72.2,
+   "y": 16.4,
+   "rot": 90,
+   "params": {
+    "w": 12,
+    "d": 12,
+    "h": 3,
+    "divos": 44
+   }
+  },
+  {
+   "id": "ban30",
+   "type": "banner",
+   "name": "Header \u2014 Many Traditions. One Light.",
+   "section": "s1",
+   "x": 72.5,
+   "y": 2.32,
+   "rot": 90,
+   "params": {
+    "w": 18,
+    "h": 2.1,
+    "bottom": 7.4,
+    "title": "MANY TRADITIONS. ONE LIGHT.",
+    "sub": "Hindu Festivals",
+    "style": "cream",
+    "feet": false,
+    "onDrape": true
+   }
+  },
+  {
+   "id": "sig31",
+   "type": "signStand",
+   "name": "Section 1 sign",
+   "section": "s1",
+   "x": 61.5,
+   "y": 26,
+   "rot": 180,
+   "params": {
+    "title": "Hindu Festivals",
+    "num": 1
+   }
+  },
+  {
+   "id": "pbF1",
+   "type": "pipebar",
+   "name": "Poster light pipe W",
+   "section": "s1",
+   "x": 66,
+   "y": 7.8,
+   "rot": 90,
+   "params": {
+    "h": 10,
+    "w": 12
+   }
+  },
+  {
+   "id": "pbF2",
+   "type": "pipebar",
+   "name": "Poster light pipe E",
+   "section": "s1",
+   "x": 79.5,
+   "y": 7.8,
+   "rot": 90,
+   "params": {
+    "h": 10,
+    "w": 12
+   }
+  },
+  {
+   "id": "pos32",
+   "type": "poster",
+   "name": "Poster \u2014 More than a Celebration",
+   "section": "s1",
+   "x": 60.3,
+   "y": 2.28,
+   "rot": 90,
+   "params": {
+    "w": 2.4,
+    "h": 5,
+    "bottom": 1.6,
+    "title": "More than a Celebration"
+   }
+  },
+  {
+   "id": "pos33",
+   "type": "poster",
+   "name": "Poster \u2014 Diwali \u2014 Light over Darkness",
+   "section": "s1",
+   "x": 63.75,
+   "y": 2.28,
+   "rot": 90,
+   "params": {
+    "w": 2.4,
+    "h": 5,
+    "bottom": 1.6,
+    "title": "Diwali \u2014 Light over Darkness"
+   }
+  },
+  {
+   "id": "pos34",
+   "type": "poster",
+   "name": "Poster \u2014 Navratri \u2014 Grace over Ego",
+   "section": "s1",
+   "x": 67.2,
+   "y": 2.28,
+   "rot": 90,
+   "params": {
+    "w": 2.4,
+    "h": 5,
+    "bottom": 1.6,
+    "title": "Navratri \u2014 Grace over Ego"
+   }
+  },
+  {
+   "id": "pos35",
+   "type": "poster",
+   "name": "Poster \u2014 Durga Puja \u2014 Victory over Illusion",
+   "section": "s1",
+   "x": 70.65,
+   "y": 2.28,
+   "rot": 90,
+   "params": {
+    "w": 2.4,
+    "h": 5,
+    "bottom": 1.6,
+    "title": "Durga Puja \u2014 Victory over Illusion"
+   }
+  },
+  {
+   "id": "pos36",
+   "type": "poster",
+   "name": "Poster \u2014 Holi \u2014 Faith over Fear",
+   "section": "s1",
+   "x": 74.1,
+   "y": 2.28,
+   "rot": 90,
+   "params": {
+    "w": 2.4,
+    "h": 5,
+    "bottom": 1.6,
+    "title": "Holi \u2014 Faith over Fear"
+   }
+  },
+  {
+   "id": "pos37",
+   "type": "poster",
+   "name": "Poster \u2014 Onam \u2014 Unity over Pride",
+   "section": "s1",
+   "x": 77.55,
+   "y": 2.28,
+   "rot": 90,
+   "params": {
+    "w": 2.4,
+    "h": 5,
+    "bottom": 1.6,
+    "title": "Onam \u2014 Unity over Pride"
+   }
+  },
+  {
+   "id": "pos38",
+   "type": "poster",
+   "name": "Poster \u2014 Celebration Connects Us",
+   "section": "s1",
+   "x": 81,
+   "y": 2.28,
+   "rot": 90,
+   "params": {
+    "w": 2.4,
+    "h": 5,
+    "bottom": 1.6,
+    "title": "Celebration Connects Us"
+   }
+  },
+  {
+   "id": "pos39",
+   "type": "poster",
+   "name": "Poster \u2014 The Five Days of Diwali",
+   "section": "s1",
+   "x": 84.45,
+   "y": 2.28,
+   "rot": 90,
+   "params": {
+    "w": 2.4,
+    "h": 5,
+    "bottom": 1.6,
+    "title": "The Five Days of Diwali"
+   }
+  },
+  {
+   "id": "fix40",
+   "type": "fixture",
+   "name": "Posters 1",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "pbF1",
+    "slot": 0,
+    "aim": {
+     "x": 60.3,
+     "y": 2.3,
+     "z": 4.1
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.38,
+    "u": -5.700000000000003
+   }
+  },
+  {
+   "id": "fix41",
+   "type": "fixture",
+   "name": "Posters 2",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "pbF1",
+    "slot": 0,
+    "aim": {
+     "x": 63.75,
+     "y": 2.3,
+     "z": 4.1
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.38,
+    "u": -2.25
+   }
+  },
+  {
+   "id": "fix42",
+   "type": "fixture",
+   "name": "Posters 3",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "pbF1",
+    "slot": 0,
+    "aim": {
+     "x": 67.2,
+     "y": 2.3,
+     "z": 4.1
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.38,
+    "u": 1.2000000000000028
+   }
+  },
+  {
+   "id": "fix43",
+   "type": "fixture",
+   "name": "Posters 4",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "pbF1",
+    "slot": 0,
+    "aim": {
+     "x": 70.65,
+     "y": 2.3,
+     "z": 4.1
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.38,
+    "u": 4.650000000000006
+   }
+  },
+  {
+   "id": "fix44",
+   "type": "fixture",
+   "name": "Posters 5",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "pbF2",
+    "slot": 0,
+    "aim": {
+     "x": 74.1,
+     "y": 2.3,
+     "z": 4.1
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.38,
+    "u": -5.400000000000006
+   }
+  },
+  {
+   "id": "fix45",
+   "type": "fixture",
+   "name": "Posters 6",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "pbF2",
+    "slot": 0,
+    "aim": {
+     "x": 77.55,
+     "y": 2.3,
+     "z": 4.1
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.38,
+    "u": -1.9500000000000028
+   }
+  },
+  {
+   "id": "fix46",
+   "type": "fixture",
+   "name": "Posters 7",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "pbF2",
+    "slot": 0,
+    "aim": {
+     "x": 81,
+     "y": 2.3,
+     "z": 4.1
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.38,
+    "u": 1.5
+   }
+  },
+  {
+   "id": "fix47",
+   "type": "fixture",
+   "name": "Posters 8",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "pbF2",
+    "slot": 0,
+    "aim": {
+     "x": 84.45,
+     "y": 2.3,
+     "z": 4.1
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.38,
+    "u": 4.950000000000003
+   }
+  },
+  {
+   "id": "trProj",
+   "type": "truss",
+   "name": "Projector truss (16\u2032, base plate)",
+   "section": "s1",
+   "x": 72.2,
+   "y": 26.2,
+   "rot": 270,
+   "params": {
+    "h": 16,
+    "arm": 4,
+    "plate": 2.5
+   }
+  },
+  {
+   "id": "fix48",
+   "type": "fixture",
+   "name": "Projector \u2014 India map mapping",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "projector5k",
+    "mount": "rig",
+    "rig": "trProj",
+    "slot": 0,
+    "aim": {
+     "x": 72.2,
+     "y": 16.4,
+     "z": 3
+    },
+    "ch": {
+     "w": 0.35
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix49",
+   "type": "fixture",
+   "name": "Map key W",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "cobPar100",
+    "mount": "rig",
+    "rig": "dr_dc3",
+    "u": 30,
+    "aim": {
+     "x": 69.7,
+     "y": 17.4,
+     "z": 3.2
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix50",
+   "type": "fixture",
+   "name": "Map key E",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "cobPar100",
+    "mount": "rig",
+    "rig": "dr_dc3",
+    "u": 35,
+    "aim": {
+     "x": 74.7,
+     "y": 17.4,
+     "z": 3.2
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix51",
+   "type": "fixture",
+   "name": "Map photo key",
+   "section": "s1",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "fresnel200",
+    "mount": "rig",
+    "rig": "dr_dc3",
+    "u": 32.7,
+    "aim": {
+     "x": 72.2,
+     "y": 24.4,
+     "z": 5
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0.25
+    },
+    "dim": 0.12,
+    "zoom": 45
+   }
+  },
+  {
+   "id": "lwall",
+   "type": "lwall",
+   "name": "Game of Life \u2014 16 Sacred Steps (engraved panel wall)",
+   "section": "s2",
+   "x": 87.77,
+   "y": 1,
+   "rot": 90,
+   "params": {
+    "runA": 24,
+    "corner": 4,
+    "runB": 32,
+    "depth": 2,
+    "h": 8,
+    "mirror": false,
+    "topStrip": true,
+    "stripOverhang": 1
+   }
+  },
+  {
+   "id": "lil52",
+   "type": "lilyPath",
+   "name": "Lily pads (16)",
+   "section": "s2",
+   "x": 90,
+   "y": 8.6,
+   "rot": 0,
+   "params": {
+    "n": 16,
+    "r": 1.1
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 3.5,
+     "y": 0
+    },
+    {
+     "x": 8.5,
+     "y": 1.200000000000001
+    },
+    {
+     "x": 13.900000000000006,
+     "y": 0
+    },
+    {
+     "x": 18.299999999999997,
+     "y": 3.4000000000000004
+    },
+    {
+     "x": 19.799999999999997,
+     "y": 9.6
+    },
+    {
+     "x": 19.200000000000003,
+     "y": 16.4
+    },
+    {
+     "x": 21.200000000000003,
+     "y": 23.5
+    }
+   ]
+  },
+  {
+   "id": "sig53",
+   "type": "signStand",
+   "name": "Section 2 sign",
+   "section": "s2",
+   "x": 88.5,
+   "y": 27,
+   "rot": 180,
+   "params": {
+    "title": "Rites & Traditions",
+    "num": 2
+   }
+  },
+  {
+   "id": "crS2a",
+   "type": "crank",
+   "name": "Rites stand \u2014 south run (crank + 6\u2032 truss)",
+   "section": "s2",
+   "x": 100,
+   "y": 15.5,
+   "rot": 270,
+   "params": {
+    "h": 12
+   }
+  },
+  {
+   "id": "crS2b",
+   "type": "crank",
+   "name": "Rites stand \u2014 east run (crank + 6\u2032 truss)",
+   "section": "s2",
+   "x": 101,
+   "y": 24,
+   "rot": 0,
+   "params": {
+    "h": 12
+   }
+  },
+  {
+   "id": "fix54",
+   "type": "fixture",
+   "name": "Panels 1\u20132",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "crS2a",
+    "slot": 5,
+    "aim": {
+     "x": 90.77,
+     "y": 3.0199999999999996,
+     "z": 4.3
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix55",
+   "type": "fixture",
+   "name": "Panels 3\u20134",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "crS2a",
+    "slot": 4,
+    "aim": {
+     "x": 96.77,
+     "y": 3.0199999999999996,
+     "z": 4.3
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix56",
+   "type": "fixture",
+   "name": "South run wash",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "rgbwPar200",
+    "mount": "rig",
+    "rig": "crS2a",
+    "slot": 3,
+    "aim": {
+     "x": 99.77,
+     "y": 3.0199999999999996,
+     "z": 4.4
+    },
+    "ch": {
+     "r": 0.55,
+     "g": 0.22,
+     "b": 0,
+     "w": 1
+    },
+    "dim": 0.8
+   }
+  },
+  {
+   "id": "fix57",
+   "type": "fixture",
+   "name": "Panels 5\u20136",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "crS2a",
+    "slot": 2,
+    "aim": {
+     "x": 102.77,
+     "y": 3.019999999999999,
+     "z": 4.3
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix58",
+   "type": "fixture",
+   "name": "Panels 7\u20138",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "crS2a",
+    "slot": 1,
+    "aim": {
+     "x": 108.77,
+     "y": 3.0199999999999987,
+     "z": 4.3
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix59",
+   "type": "fixture",
+   "name": "Corner intro",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "crS2a",
+    "slot": 0,
+    "aim": {
+     "x": 113.18421356237309,
+     "y": 4.414213562373093,
+     "z": 4.3
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.8
+   }
+  },
+  {
+   "id": "fix60",
+   "type": "fixture",
+   "name": "Panels 15\u201316",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "crS2b",
+    "slot": 0,
+    "aim": {
+     "x": 114.57842712474618,
+     "y": 34.42842712474619,
+     "z": 4.3
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix61",
+   "type": "fixture",
+   "name": "Panels 13\u201314",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "crS2b",
+    "slot": 1,
+    "aim": {
+     "x": 114.57842712474618,
+     "y": 25.82842712474619,
+     "z": 4.3
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix62",
+   "type": "fixture",
+   "name": "East run wash",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "rgbwPar200",
+    "mount": "rig",
+    "rig": "crS2b",
+    "slot": 2.5,
+    "aim": {
+     "x": 114.57842712474618,
+     "y": 21.82842712474619,
+     "z": 4.4
+    },
+    "ch": {
+     "r": 0.55,
+     "g": 0.22,
+     "b": 0,
+     "w": 1
+    },
+    "dim": 0.8
+   }
+  },
+  {
+   "id": "fix63",
+   "type": "fixture",
+   "name": "Panels 11\u201312",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "crS2b",
+    "slot": 4,
+    "aim": {
+     "x": 114.57842712474618,
+     "y": 17.82842712474619,
+     "z": 4.3
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix64",
+   "type": "fixture",
+   "name": "Panels 9\u201310",
+   "section": "s2",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "crS2b",
+    "slot": 5,
+    "aim": {
+     "x": 114.57842712474618,
+     "y": 9.828427124746188,
+     "z": 4.3
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "kio65",
+   "type": "kiosk",
+   "name": "TV / touch-screen kiosk 1",
+   "section": "s3",
+   "x": 94,
+   "y": 50.1,
+   "rot": 305,
+   "params": {
+    "nits": 300
+   }
+  },
+  {
+   "id": "kio66",
+   "type": "kiosk",
+   "name": "TV / touch-screen kiosk 2",
+   "section": "s3",
+   "x": 112.4,
+   "y": 50.4,
+   "rot": 247,
+   "params": {
+    "nits": 300
+   }
+  },
+  {
+   "id": "kio67",
+   "type": "kiosk",
+   "name": "TV / touch-screen kiosk 3",
+   "section": "s3",
+   "x": 97,
+   "y": 40,
+   "rot": 300,
+   "params": {
+    "nits": 300
+   }
+  },
+  {
+   "id": "kio68",
+   "type": "kiosk",
+   "name": "TV / touch-screen kiosk 4",
+   "section": "s3",
+   "x": 110.3,
+   "y": 40,
+   "rot": 253,
+   "params": {
+    "nits": 300
+   }
+  },
+  {
+   "id": "house",
+   "type": "house",
+   "name": "Hindu House (walk-through)",
+   "section": "s3",
+   "x": 103.6,
+   "y": 71.3,
+   "rot": 270,
+   "params": {
+    "w": 24,
+    "d": 24,
+    "h": 8,
+    "wall": 2,
+    "entry": [
+     10.5,
+     13.5
+    ],
+    "exit": [
+     1.5,
+     4.5
+    ],
+    "tau": 0.55
+   }
+  },
+  {
+   "id": "ban69",
+   "type": "banner",
+   "name": "House title \u2014 The Hindu Way of Life (south face)",
+   "section": "s3",
+   "x": 109,
+   "y": 59.1,
+   "rot": 270,
+   "params": {
+    "w": 9,
+    "h": 2.5,
+    "bottom": 5.4,
+    "title": "THE HINDU WAY OF LIFE",
+    "sub": "Hindu Jivan Shaili",
+    "style": "cream",
+    "feet": false,
+    "onDrape": true
+   }
+  },
+  {
+   "id": "sig70",
+   "type": "signStand",
+   "name": "Section 3 sign",
+   "section": "s3",
+   "x": 95.5,
+   "y": 56,
+   "rot": 270,
+   "params": {
+    "title": "The Hindu Way of Life",
+    "num": 3
+   }
+  },
+  {
+   "id": "pbHouseS",
+   "type": "pipebar",
+   "name": "House light pipe (east, south half)",
+   "section": "s3",
+   "x": 117.6,
+   "y": 67.5,
+   "rot": 180,
+   "params": {
+    "h": 12,
+    "w": 10
+   }
+  },
+  {
+   "id": "pbHouseN",
+   "type": "pipebar",
+   "name": "House light pipe (east, north half)",
+   "section": "s3",
+   "x": 117.6,
+   "y": 75.3,
+   "rot": 180,
+   "params": {
+    "h": 12,
+    "w": 10
+   }
+  },
+  {
+   "id": "tbHouse",
+   "type": "tbar",
+   "name": "House title stand",
+   "section": "s3",
+   "x": 104.5,
+   "y": 51,
+   "rot": 90,
+   "params": {
+    "h": 10
+   }
+  },
+  {
+   "id": "fix71",
+   "type": "fixture",
+   "name": "House glow \u2014 entrance side",
+   "section": "s3",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "cobPar200",
+    "mount": "rig",
+    "rig": "pbHouseS",
+    "slot": 0,
+    "aim": {
+     "x": 107.6,
+     "y": 67.3,
+     "z": 2.5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1,
+    "u": -0.7
+   }
+  },
+  {
+   "id": "fix72",
+   "type": "fixture",
+   "name": "House glow \u2014 reading/exit",
+   "section": "s3",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "cobPar200",
+    "mount": "rig",
+    "rig": "pbHouseS",
+    "slot": 0,
+    "aim": {
+     "x": 98.6,
+     "y": 68.3,
+     "z": 2.5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1,
+    "u": 1.8
+   }
+  },
+  {
+   "id": "fix73",
+   "type": "fixture",
+   "name": "House glow \u2014 mandir/living",
+   "section": "s3",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "cobPar200",
+    "mount": "rig",
+    "rig": "pbHouseN",
+    "slot": 0,
+    "aim": {
+     "x": 107.6,
+     "y": 74.3,
+     "z": 2.5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1,
+    "u": -1.5
+   }
+  },
+  {
+   "id": "fix74",
+   "type": "fixture",
+   "name": "House glow \u2014 kitchen",
+   "section": "s3",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "cobPar200",
+    "mount": "rig",
+    "rig": "pbHouseN",
+    "slot": 0,
+    "aim": {
+     "x": 100.6,
+     "y": 77.3,
+     "z": 2.5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1,
+    "u": 2.5
+   }
+  },
+  {
+   "id": "fix75",
+   "type": "fixture",
+   "name": "House title banner spot",
+   "section": "s3",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "tbHouse",
+    "slot": 1.5,
+    "aim": {
+     "x": 109,
+     "y": 59.05,
+     "z": 6.65
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix76",
+   "type": "fixture",
+   "name": "Ghar Mandir spot",
+   "section": "s3",
+   "x": 103.6,
+   "y": 80.85,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "clamp",
+    "h": 7.6,
+    "aim": {
+     "x": 103.6,
+     "y": 70.8,
+     "z": 3.5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.17
+   }
+  },
+  {
+   "id": "fix77",
+   "type": "fixture",
+   "name": "Entrance poster spot",
+   "section": "s3",
+   "x": 103.6,
+   "y": 61.75,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "clamp",
+    "h": 7.6,
+    "aim": {
+     "x": 103.6,
+     "y": 68.5,
+     "z": 4.6
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.45
+   }
+  },
+  {
+   "id": "fix78",
+   "type": "fixture",
+   "name": "Exit-reflection poster spot",
+   "section": "s3",
+   "x": 97.19999999999999,
+   "y": 80.85,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "clamp",
+    "h": 7.6,
+    "aim": {
+     "x": 97.19999999999999,
+     "y": 61.4,
+     "z": 4.6
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.7
+   }
+  },
+  {
+   "id": "fix79",
+   "type": "fixture",
+   "name": "Reading-corner poster spot",
+   "section": "s3",
+   "x": 105.1,
+   "y": 80.85,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "clamp",
+    "h": 7.6,
+    "aim": {
+     "x": 93.69999999999999,
+     "y": 68.3,
+     "z": 4.6
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.5
+   }
+  },
+  {
+   "id": "fix80",
+   "type": "fixture",
+   "name": "Living-room poster spot",
+   "section": "s3",
+   "x": 94.05,
+   "y": 76.3,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "clamp",
+    "h": 7.6,
+    "aim": {
+     "x": 113.5,
+     "y": 78.3,
+     "z": 4.6
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.6
+   }
+  },
+  {
+   "id": "zon81",
+   "type": "zoneArea",
+   "name": "Beliefs room",
+   "section": "s4",
+   "x": 40.4,
+   "y": 61.7,
+   "rot": 0,
+   "params": {
+    "rho": 0.03,
+    "h": 12
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 49.699999999999996,
+     "y": 0
+    },
+    {
+     "x": 49.699999999999996,
+     "y": 31.89999999999999
+    },
+    {
+     "x": 0,
+     "y": 31.89999999999999
+    }
+   ]
+  },
+  {
+   "id": "sig82",
+   "type": "signStand",
+   "name": "Section 4 sign",
+   "section": "s4",
+   "x": 87,
+   "y": 69,
+   "rot": 180,
+   "params": {
+    "title": "Beliefs & Worldview",
+    "num": 4
+   }
+  },
+  {
+   "id": "nMirror",
+   "type": "mirrors",
+   "name": "Node 2 \u2014 Who am I? (illuminated mirrors)",
+   "section": "s4",
+   "x": 62.8,
+   "y": 88,
+   "rot": 270,
+   "params": {
+    "w": 10,
+    "d": 4,
+    "n": 4
+   }
+  },
+  {
+   "id": "dio83",
+   "type": "diorama",
+   "name": "Node 1 \u2014 Who is God? (8\u2032\u00d78\u2032 layered diorama + poster)",
+   "section": "s4",
+   "x": 81.3,
+   "y": 88,
+   "rot": 270,
+   "params": {
+    "w": 8,
+    "h": 8,
+    "d": 2,
+    "art": "god",
+    "nits": 110,
+    "cct": 2900
+   }
+  },
+  {
+   "id": "dio84",
+   "type": "diorama",
+   "name": "Node 6 \u2014 Why is a Guru important? (8\u2032\u00d78\u2032 map diorama + poster)",
+   "section": "s4",
+   "x": 72.8,
+   "y": 68.7,
+   "rot": 90,
+   "params": {
+    "w": 8,
+    "h": 8,
+    "d": 2,
+    "art": "guru",
+    "nits": 110,
+    "cct": 2900
+   }
+  },
+  {
+   "id": "nFiber",
+   "type": "fiberTower",
+   "name": "Node 5 \u2014 Nilkanth Varni box (fibre-optic murti)",
+   "section": "s4",
+   "x": 57,
+   "y": 68.7,
+   "rot": 90,
+   "params": {}
+  },
+  {
+   "id": "fix85",
+   "type": "fixture",
+   "name": "Mirror face light W",
+   "section": "s4",
+   "x": 60.3,
+   "y": 87.8,
+   "rot": 0,
+   "params": {
+    "model": "artSpot",
+    "mount": "clamp",
+    "h": 7.4,
+    "aim": {
+     "x": 62.8,
+     "y": 85,
+     "z": 5.25
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0
+    },
+    "dim": 0.2
+   }
+  },
+  {
+   "id": "fix86",
+   "type": "fixture",
+   "name": "Mirror face light E",
+   "section": "s4",
+   "x": 65.3,
+   "y": 87.8,
+   "rot": 0,
+   "params": {
+    "model": "artSpot",
+    "mount": "clamp",
+    "h": 7.4,
+    "aim": {
+     "x": 62.8,
+     "y": 85,
+     "z": 5.25
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0
+    },
+    "dim": 0.2
+   }
+  },
+  {
+   "id": "fix87",
+   "type": "fixture",
+   "name": "Fibre-optic murti accent",
+   "section": "s4",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "artSpot",
+    "mount": "rig",
+    "rig": "dr_dc1",
+    "u": 5.8,
+    "aim": {
+     "x": 57,
+     "y": 68.7,
+     "z": 2.6
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0.4
+    },
+    "dim": 0.35
+   }
+  },
+  {
+   "id": "lotusN",
+   "type": "nailWall",
+   "name": "Lotus activity \u2014 The Lotus (poster + nail art)",
+   "section": "s5",
+   "x": 42.9,
+   "y": 80,
+   "rot": 0,
+   "params": {
+    "w": 12,
+    "h": 8,
+    "d": 2,
+    "table": false,
+    "poster": true
+   }
+  },
+  {
+   "id": "sig88",
+   "type": "signStand",
+   "name": "Section 5 sign",
+   "section": "s5",
+   "x": 46,
+   "y": 90,
+   "rot": 0,
+   "params": {
+    "title": "Hindu Core Values",
+    "num": 5
+   }
+  },
+  {
+   "id": "tbLotus",
+   "type": "tbar",
+   "name": "Lotus stand",
+   "section": "s5",
+   "x": 51,
+   "y": 80,
+   "rot": 180,
+   "params": {
+    "h": 10
+   }
+  },
+  {
+   "id": "fix89",
+   "type": "fixture",
+   "name": "Lotus key",
+   "section": "s5",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "cobPar100",
+    "mount": "rig",
+    "rig": "tbLotus",
+    "slot": 1,
+    "aim": {
+     "x": 43.949999999999996,
+     "y": 78,
+     "z": 4.6
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix90",
+   "type": "fixture",
+   "name": "Lotus poster zone",
+   "section": "s5",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "gallery30",
+    "mount": "rig",
+    "rig": "tbLotus",
+    "slot": 2,
+    "aim": {
+     "x": 43.949999999999996,
+     "y": 84,
+     "z": 4.2
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 0.7
+   }
+  },
+  {
+   "id": "fix91",
+   "type": "fixture",
+   "name": "Lotus rake",
+   "section": "s5",
+   "x": 48.9,
+   "y": 80,
+   "rot": 0,
+   "params": {
+    "model": "rgbwPar200",
+    "mount": "floor",
+    "h": 0.75,
+    "aim": {
+     "x": 43.199999999999996,
+     "y": 79.5,
+     "z": 5.5
+    },
+    "ch": {
+     "r": 1,
+     "g": 0.18,
+     "b": 0.25,
+     "w": 0.3
+    },
+    "dim": 0.7
+   }
+  },
+  {
+   "id": "sta92",
+   "type": "stambh",
+   "name": "Stambh \u2014 Shastras",
+   "section": "s6",
+   "x": 78.6,
+   "y": 55.4,
+   "rot": 235,
+   "params": {
+    "w": 10.5,
+    "h": 11,
+    "d": 3,
+    "kind": 1
+   }
+  },
+  {
+   "id": "sta93",
+   "type": "stambh",
+   "name": "Stambh \u2014 Mandir",
+   "section": "s6",
+   "x": 82.5,
+   "y": 48.2,
+   "rot": 180,
+   "params": {
+    "w": 10.5,
+    "h": 11,
+    "d": 3,
+    "kind": 0
+   }
+  },
+  {
+   "id": "sta94",
+   "type": "stambh",
+   "name": "Stambh \u2014 Sant",
+   "section": "s6",
+   "x": 78.6,
+   "y": 40.9,
+   "rot": 125,
+   "params": {
+    "w": 10.5,
+    "h": 11,
+    "d": 3,
+    "kind": 2
+   }
+  },
+  {
+   "id": "sig95",
+   "type": "signStand",
+   "name": "Section 6 sign",
+   "section": "s6",
+   "x": 59,
+   "y": 38,
+   "rot": 180,
+   "params": {
+    "title": "Adhar Stambh",
+    "num": 6
+   }
+  },
+  {
+   "id": "twSW",
+   "type": "crank",
+   "name": "Light tower SW",
+   "section": "infra",
+   "x": 42.8,
+   "y": 33,
+   "rot": 45,
+   "params": {
+    "h": 14
+   }
+  },
+  {
+   "id": "twNW",
+   "type": "crank",
+   "name": "Light tower NW",
+   "section": "infra",
+   "x": 52.5,
+   "y": 59.5,
+   "rot": 315,
+   "params": {
+    "h": 14
+   }
+  },
+  {
+   "id": "twSE",
+   "type": "crank",
+   "name": "Light tower SE",
+   "section": "infra",
+   "x": 86.2,
+   "y": 33,
+   "rot": 135,
+   "params": {
+    "h": 14
+   }
+  },
+  {
+   "id": "twNE",
+   "type": "crank",
+   "name": "Light tower NE",
+   "section": "infra",
+   "x": 86.2,
+   "y": 59.5,
+   "rot": 225,
+   "params": {
+    "h": 14
+   }
+  },
+  {
+   "id": "tbS6",
+   "type": "tbar",
+   "name": "Adhar Stambh photo stand",
+   "section": "s6",
+   "x": 64.5,
+   "y": 48.2,
+   "rot": 0,
+   "params": {
+    "h": 11
+   }
+  },
+  {
+   "id": "fix96",
+   "type": "fixture",
+   "name": "Sant bay key",
+   "section": "s6",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "cobPar200",
+    "mount": "rig",
+    "rig": "twSW",
+    "slot": 2.5,
+    "aim": {
+     "x": 77.2,
+     "y": 43,
+     "z": 5.5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix97",
+   "type": "fixture",
+   "name": "Shastra bay key",
+   "section": "s6",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "cobPar200",
+    "mount": "rig",
+    "rig": "twNW",
+    "slot": 2.5,
+    "aim": {
+     "x": 77.2,
+     "y": 53.4,
+     "z": 5.5
+    },
+    "ch": {
+     "ww": 1
+    },
+    "dim": 1
+   }
+  },
+  {
+   "id": "fix98",
+   "type": "fixture",
+   "name": "Stambh rim SE",
+   "section": "s6",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "rgbwPar200",
+    "mount": "rig",
+    "rig": "twSE",
+    "slot": 2.5,
+    "aim": {
+     "x": 74,
+     "y": 47,
+     "z": 6
+    },
+    "ch": {
+     "r": 1,
+     "g": 0.42,
+     "b": 0,
+     "w": 0.35
+    },
+    "dim": 0.45
+   }
+  },
+  {
+   "id": "fix99",
+   "type": "fixture",
+   "name": "Stambh rim NE",
+   "section": "s6",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "rgbwPar200",
+    "mount": "rig",
+    "rig": "twNE",
+    "slot": 2.5,
+    "aim": {
+     "x": 74,
+     "y": 49.5,
+     "z": 6
+    },
+    "ch": {
+     "r": 1,
+     "g": 0.42,
+     "b": 0,
+     "w": 0.35
+    },
+    "dim": 0.45
+   }
+  },
+  {
+   "id": "fix100",
+   "type": "fixture",
+   "name": "Stambh photo key S",
+   "section": "s6",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "fresnel200",
+    "mount": "rig",
+    "rig": "tbS6",
+    "slot": 2,
+    "aim": {
+     "x": 74,
+     "y": 46.4,
+     "z": 5
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0.2
+    },
+    "dim": 0.65,
+    "zoom": 40
+   }
+  },
+  {
+   "id": "fix101",
+   "type": "fixture",
+   "name": "Stambh photo key N",
+   "section": "s6",
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "params": {
+    "model": "fresnel200",
+    "mount": "rig",
+    "rig": "tbS6",
+    "slot": 1,
+    "aim": {
+     "x": 74,
+     "y": 50,
+     "z": 5
+    },
+    "ch": {
+     "ww": 1,
+     "cw": 0.2
+    },
+    "dim": 0.65,
+    "zoom": 40
+   }
+  },
+  {
+   "id": "fix102",
+   "type": "fixture",
+   "name": "Shastras graze",
+   "section": "s6",
+   "x": 76.3,
+   "y": 52.1,
+   "rot": 0,
+   "params": {
+    "model": "wallWash9x12",
+    "mount": "floor",
+    "h": 0.5,
+    "aim": {
+     "x": 78,
+     "y": 54.6,
+     "z": 7
+    },
+    "ch": {
+     "r": 1,
+     "g": 0.3,
+     "b": 0,
+     "w": 0.15
+    },
+    "dim": 0.8
+   }
+  },
+  {
+   "id": "fix103",
+   "type": "fixture",
+   "name": "Mandir graze",
+   "section": "s6",
+   "x": 78.5,
+   "y": 48.2,
+   "rot": 0,
+   "params": {
+    "model": "wallWash9x12",
+    "mount": "floor",
+    "h": 0.5,
+    "aim": {
+     "x": 81.8,
+     "y": 48.2,
+     "z": 7
+    },
+    "ch": {
+     "r": 1,
+     "g": 0.3,
+     "b": 0,
+     "w": 0.15
+    },
+    "dim": 0.8
+   }
+  },
+  {
+   "id": "fix104",
+   "type": "fixture",
+   "name": "Sant graze",
+   "section": "s6",
+   "x": 76.3,
+   "y": 44.2,
+   "rot": 0,
+   "params": {
+    "model": "wallWash9x12",
+    "mount": "floor",
+    "h": 0.5,
+    "aim": {
+     "x": 78,
+     "y": 41.6,
+     "z": 7
+    },
+    "ch": {
+     "r": 1,
+     "g": 0.3,
+     "b": 0,
+     "w": 0.15
+    },
+    "dim": 0.8
+   }
+  }
+ ],
+ "probes": [
+  {
+   "id": "pb1",
+   "name": "CAPA \u2014 BAPS Charities",
+   "x": 49,
+   "y": 16.1,
+   "facing": 0,
+   "section": "entry"
+  },
+  {
+   "id": "pb2",
+   "name": "India map \u2014 north side photo",
+   "x": 72.2,
+   "y": 24.4,
+   "facing": 90,
+   "section": "s1"
+  },
+  {
+   "id": "pb3",
+   "name": "In front of the festival posters",
+   "x": 72,
+   "y": 6,
+   "facing": 90,
+   "section": "s1"
+  },
+  {
+   "id": "pb4",
+   "name": "Rites \u2014 on a lily pad",
+   "x": 109.8,
+   "y": 18.2,
+   "facing": 180,
+   "section": "s2"
+  },
+  {
+   "id": "pb5",
+   "name": "House \u2014 by the Ghar Mandir",
+   "x": 107.1,
+   "y": 71.7,
+   "facing": 90,
+   "section": "s3"
+  },
+  {
+   "id": "pb6",
+   "name": "House \u2014 living room",
+   "x": 108.6,
+   "y": 77.3,
+   "facing": 150,
+   "section": "s3"
+  },
+  {
+   "id": "pb7",
+   "name": "Beliefs \u2014 at the Who am I? mirrors",
+   "x": 62.8,
+   "y": 84.8,
+   "facing": 90,
+   "section": "s4"
+  },
+  {
+   "id": "pb8",
+   "name": "Beliefs \u2014 centre aisle",
+   "x": 70,
+   "y": 78,
+   "facing": 0,
+   "section": "s4"
+  },
+  {
+   "id": "pb9",
+   "name": "Core values \u2014 at the lotus board",
+   "x": 46.4,
+   "y": 80,
+   "facing": 0,
+   "section": "s5"
+  },
+  {
+   "id": "pb10",
+   "name": "Adhar Stambh \u2014 group photo",
+   "x": 74,
+   "y": 48.2,
+   "facing": 180,
+   "section": "s6"
+  },
+  {
+   "id": "pb11",
+   "name": "Adhar Stambh \u2014 approach",
+   "x": 60,
+   "y": 45,
+   "facing": 0,
+   "section": "s6"
+  },
+  {
+   "id": "pb12",
+   "name": "Photo booth",
+   "x": 29.6,
+   "y": 80,
+   "facing": 0,
+   "section": "photo"
+  },
+  {
+   "id": "pb13",
+   "name": "Sant Milan",
+   "x": 10,
+   "y": 22.65,
+   "facing": 0,
+   "section": "infra"
+  },
+  {
+   "id": "pb14",
+   "name": "Neelkanth Varni",
+   "x": 12.1,
+   "y": 9.5,
+   "facing": 90,
+   "section": "infra"
+  },
+  {
+   "id": "pb15",
+   "name": "Queue line",
+   "x": 13,
+   "y": 80,
+   "facing": 270,
+   "section": "infra"
+  }
+ ],
+ "house": {
+  "enabled": true,
+  "level": 0.25,
+  "rows": 6,
+  "cols": 7,
+  "lumensEach": 9000,
+  "cct": 4000,
+  "cri": 80,
+  "beam": 100
+ },
+ "settings": {
+  "ceilingFt": 20,
+  "floorFinish": "carpet",
+  "derate": 0.85,
+  "faceHeightFt": 5.25,
+  "gridFt": 2,
+  "bounce": true,
+  "stageHeightFt": 3.5,
+  "hazeBeams": false,
+  "wallRho": 0.6,
+  "ceilingRho": 0.5
+ },
+ "inventory": {
+  "rgbwPar200": 8,
+  "cobPar100": 4,
+  "wallWash9x12": 2,
+  "artSpot": 4,
+  "uvFlood100": 2
+ },
+ "artSpotVariant": "framing20",
+ "updatedAt": 0
+}
