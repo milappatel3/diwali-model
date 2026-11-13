@@ -52,13 +52,29 @@ function zone(name: string, section: SectionId, x0: number, x1: number, y0: numb
   return it('booth', name, section, (x0 + x1) / 2, (y0 + y1) / 2, 90, { w: x1 - x0, d: y1 - y0, title: name, zone: isSectionBox }, idv ? { id: idv } : {});
 }
 
-import SAVED_PLAN from './defaultPlan.json';
+import PLAN_2026 from './plan2026.json';
 
-/** The built-in plan: the layout exported from the Plan & light map (lib/defaultPlan.json — replace that file with a newer
- *  export from Venue & settings to change what everyone starts from). */
+/** Diwali 2027 starts from a blank canvas: the same Assembly Hall (walls, doors, stage, ceiling, house lights) with nothing placed. */
 export function defaultProject(): Project {
-  const p = JSON.parse(JSON.stringify(SAVED_PLAN)) as Project;
-  return { ...p, version: 4, migr: Array.from(new Set([...(p.migr || []), 'projector', 'lwallStrip'])), updatedAt: Date.now() };
+  const p = PLAN_2026 as unknown as Project;
+  return {
+    version: 4,
+    migr: ['projector', 'lwallStrip'],
+    name: 'Diwali Exhibition 2027',
+    venue: p.venue,
+    items: [],
+    probes: [],
+    house: { ...p.house },
+    settings: { ...p.settings },
+    inventory: { ...p.inventory },
+    artSpotVariant: p.artSpotVariant,
+    updatedAt: Date.now(),
+  };
+}
+
+/** The final Diwali 2026 layout (archive/2026), to look back at or start 2027 from. */
+export function plan2026(): Project {
+  return { ...(JSON.parse(JSON.stringify(PLAN_2026)) as Project), updatedAt: Date.now() };
 }
 
 /** The layout as originally generated in code (kept for reference / rebuilding from scratch). */

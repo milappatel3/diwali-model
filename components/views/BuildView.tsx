@@ -24,7 +24,7 @@ export default function BuildView() {
     const blob = new Blob([bomCSV(bom)], { type: 'text/csv' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'diwali-exhibition-2026-build-list.csv';
+    a.download = 'diwali-exhibition-2027-build-list.csv';
     a.click();
   };
   return (

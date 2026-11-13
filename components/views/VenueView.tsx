@@ -4,6 +4,7 @@ import { useStore, OLD_KEYS } from '@/lib/store';
 import { HALL_FACTS, OPENINGS } from '@/lib/hall';
 import { Field, NumIn, Slider, Icon } from '../ui';
 import { buildScene, evalProbe, indirect } from '@/lib/engine';
+import { plan2026 } from '@/lib/project';
 import type { Project } from '@/lib/types';
 
 export default function VenueView() {
@@ -40,7 +41,7 @@ export default function VenueView() {
     const blob = new Blob([JSON.stringify(project, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'diwali-exhibition-2026.lightplot.json';
+    a.download = 'diwali-exhibition-2027.lightplot.json';
     a.click();
   };
   return (
@@ -129,7 +130,7 @@ export default function VenueView() {
               <button className="btn btn-sm" onClick={exportJSON}><Icon.download size={14} /> Export</button>
               <button className="btn btn-sm" onClick={() => fileRef.current?.click()}><Icon.upload size={14} /> Import</button>
               <button className="btn btn-sm" onClick={async () => { try { await navigator.clipboard.writeText(JSON.stringify(project)); setCopied(true); setTimeout(() => setCopied(false), 1800); } catch { /* clipboard refused */ } }}><Icon.copy size={14} /> {copied ? 'Copied' : 'Copy project'}</button>
-              <button className="btn btn-sm" style={armed ? { color: '#ff9a8c', borderColor: '#ff9a8c' } : undefined} onClick={() => { if (armed) { resetProject(); setArmed(false); } else { setArmed(true); setTimeout(() => setArmed(false), 4000); } }}><Icon.reset size={14} /> {armed ? 'Click again to replace your plan' : 'Reset to first pass'}</button>
+              <button className="btn btn-sm" style={armed ? { color: '#ff9a8c', borderColor: '#ff9a8c' } : undefined} onClick={() => { if (armed) { resetProject(); setArmed(false); } else { setArmed(true); setTimeout(() => setArmed(false), 4000); } }}><Icon.reset size={14} /> {armed ? 'Click again to clear your plan' : 'Start over (blank hall)'}</button>
               <input ref={fileRef} type="file" accept=".json" hidden onChange={async (e) => {
                 const f = e.target.files?.[0];
                 if (!f) return;
@@ -137,11 +138,12 @@ export default function VenueView() {
               }} />
             </div>
             <span className="muted-3 tiny" style={{ display: 'block', marginTop: 8 }}>Changes save in this browser automatically.</span>
-            {oldPlan && (
-              <div className="row-flex" style={{ marginTop: 8 }}>
-                <button className="btn btn-sm" onClick={() => { try { const p = JSON.parse(oldPlan); if (p && Array.isArray(p.items)) loadFromJSON(p); } catch { /* unreadable */ } }}><Icon.upload size={14} /> Load my previously saved plan</button>
-              </div>
-            )}
+            <div className="row-flex" style={{ marginTop: 8 }}>
+              <button className="btn btn-sm" title="Replace this plan with the final Diwali 2026 layout (undo brings your plan back)" onClick={() => loadFromJSON({ ...plan2026(), name: 'Diwali Exhibition 2027' })}><Icon.upload size={14} /> Start from the 2026 layout</button>
+              {oldPlan && (
+                <button className="btn btn-sm" title="Your own saved 2026 copy from this browser" onClick={() => { try { const p = JSON.parse(oldPlan); if (p && Array.isArray(p.items)) loadFromJSON({ ...p, name: 'Diwali Exhibition 2027' }); } catch { /* unreadable */ } }}><Icon.upload size={14} /> Load my saved 2026 plan</button>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -11,9 +11,9 @@ export type HeatMode = 'face' | 'floor' | 'photo' | 'uv' | 'none';
 
 // v4 = layout synced to the Campus 3D exhibition; v3 = layout placed on the client's drawing. Plans saved by earlier versions stay under their old keys and the most
 // recent one can be brought back from Venue & settings.
-// v5: the built-in plan is the layout exported from localhost:8123 (lib/defaultPlan.json); older saved copies stay restorable
-const LS_KEY = 'lightplot.project.v5';
-export const OLD_KEYS = ['lightplot.project.v4', 'lightplot.project.v3', 'lightplot.project.v2', 'lightplot.project.v1'];
+// Diwali 2027 keeps its own saved plan; the 2026 copies (v1–v5) are left untouched for the 2026 archive
+const LS_KEY = 'lightplot.2027.project.v1';
+export const OLD_KEYS = ['lightplot.project.v5', 'lightplot.project.v4', 'lightplot.project.v3', 'lightplot.project.v2', 'lightplot.project.v1'];
 
 function loadProject(): Project {
   if (typeof window === 'undefined') return defaultProject();

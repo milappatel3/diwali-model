@@ -41,11 +41,11 @@ export default function OverviewView() {
     <div className="view">
       <div className="section-title" style={{ alignItems: 'flex-end' }}>
         <div className="stack" style={{ gap: 4 }}>
-          <span className="eyebrow">First pass · Assembly Hall · 119′6″ × 95′2″</span>
-          <h1 className="h-display" style={{ fontSize: 52 }}>Diwali Exhibition 2026</h1>
+          <span className="eyebrow">{project.items.length ? 'Plan' : 'Blank canvas'} · Assembly Hall · 119′6″ × 95′2″</span>
+          <h1 className="h-display" style={{ fontSize: 52 }}>{project.name}</h1>
         </div>
         <span className="muted small" style={{ maxWidth: 560 }}>
-          Laid out from your sketch — Foyer entrance to the south-west exit, every exit kept clear. Light is calculated from real beam data for your fixtures, with shadows and bounce, so the numbers below are lux you could check with a meter.
+          {project.items.length ? 'Light is calculated from real beam data for your fixtures, with shadows and bounce, so the numbers below are lux you could check with a meter.' : 'The hall is empty and ready for the 2027 layout. Start placing drapes, exhibits and lights in Plan & light map, or bring back the 2026 layout from Venue & settings.'}
         </span>
       </div>
 

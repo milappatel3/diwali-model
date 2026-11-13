@@ -404,7 +404,7 @@ export function Dressing({ data, dusk }: { data: CampusData; dusk: boolean }) {
         g.fillStyle = gr; g.fillRect(0, 0, w, h);
         g.strokeStyle = '#e3b84c'; g.lineWidth = 8; g.strokeRect(14, 14, w - 28, h - 28);
         g.fillStyle = '#f6d98a'; g.textAlign = 'center'; g.textBaseline = 'middle';
-        g.font = '700 96px Georgia, serif'; g.fillText('Diwali Exhibition 2026', w / 2, h * 0.42);
+        g.font = '700 96px Georgia, serif'; g.fillText('Diwali Exhibition 2027', w / 2, h * 0.42);
         g.font = '500 40px Georgia, serif'; g.fillStyle = '#ffe9b8'; g.fillText('Assembly Hall  ·  Welcome', w / 2, h * 0.76);
       }),
     [],

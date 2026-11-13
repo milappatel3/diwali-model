@@ -132,80 +132,31 @@ export interface Edits {
 export const KDC_ZONE: Rect = [190, 241.5, 20, 375.8];
 const OLD_KDC_ZONE: Rect = [134, 215, 349, 525];
 
+/** Diwali 2027 starts with the campus as built (DWG, solar canopy) and no event layout. The 2026 layout is in archive/2026. */
 export const DEFAULT_EDITS: Edits = {
   v: 1,
   rev: 7,
-  zones: [
-    { id: 'food', label: 'Food Court', color: '#2f6fdb', r: [-62, 178, 205, 316], tents: true },
-    { id: 'kdc', label: 'KDC', color: '#e0282e', r: KDC_ZONE, tents: false },
-    { id: 'walk', label: 'Walking lane', color: '#8fa3c0', r: [-279, 210, -55, -36], tents: false },
-    { id: 'lane3', label: 'Lane 3 · shuttles only', color: '#f0a020', r: [-279, 181, -68.1, -57.5], tents: false },
-    { id: 'lane2', label: 'Lane 2 · cars', color: '#3b82f0', r: [-235, 134, -77.5, -68.1], tents: false },
-    { id: 'lane1', label: 'Lane 1 · cars', color: '#2fae5a', r: [-235, 134, -94, -77.5], tents: false },
-    { id: 'guest', label: 'Parking for Invited Guests', color: '#f2c230', r: [-258, -106, 247, 288], tents: false },
-    { id: 'wc', label: 'Bathrooms', color: '#d6249f', r: [150, 182, 231, 309], tents: false },
-  ],
-  signs: [
-    [1, -137, -20], [2, -6, -23], [3, 51, -14], [4, 39, 100], [5, -27, 100], [6, -30, 19],
-    [7, -10, 19], [8, -26, -6], [9, 131, -26], [10, 194, 19], [11, 184, 234], [12, 189, 331],
-  ].map(([n, x, y]) => ({ id: 's' + n, n, x, y })),
-  shuttles: [[-8, -40], [131, -40], [186, 225]].map(([x, y], i) => ({ id: 'h' + i, x, y })),
+  zones: [],
+  signs: [],
+  shuttles: [],
   added: [],
   hidden: [],
   wallH: {},
-  // DWG planter islands that land inside the KDC layout: the island across the strip at y≈341–370 (activity row) and the one at y≈222–233 (booth 8)
-  erase: [[199, 244, 338, 372], [218, 244, 220, 234]],
-  booths: lineBooths(KDC_ZONE),
-  // the real Utsavpur gate: across the south end of the KDC strip, at the KDC gate marker (sign 10), facing south
-  carnival: [{ id: 'cg1', x: 219, y: 19, w: 24, yaw: -90, title: 'WELCOME TO UTSAVPUR', style: 'utsavpur' }],
-  // Mandir Hall interior is x −66..−19, y 111.5..173. Layout from the darshan sketch: shrine along the north wall,
-  // annakut model in front of it (34 × 23 ft), then a walkway, a cross ramp, and a ramp up each side wall from the doors.
-  annakut: [{ id: 'ak1', x: -43.6, y: 155, w: 34, d: 23, yaw: 0 }],
+  erase: [],
+  booths: [],
+  carnival: [],
+  annakut: [],
   canopies: [{ id: 'cp1', r: [-62, 178, 205, 316], h: 14 }],
-  // shoe stands on the sidewalk, east of the main entrance
-  shoes: [{ id: 'sh1', x: -8, y: -30.3, yaw: 0, n: 5 }],
-  ramps: [
-    { id: 'rp1', x: -58.1, y: 111.7, yaw: 90, len: 25.2, w: 5, h: 2, lane: 0 },
-    { id: 'rp2', x: -27.8, y: 111.7, yaw: 90, len: 25.2, w: 5, h: 2, lane: 0 },
-    { id: 'rp3', x: -60.6, y: 139.15, yaw: 0, len: 35.3, w: 4.5, h: 2, lane: 2, flat: true },
-  ],
-  // the decorated side room (last year's annakut photo style) — first guess: the Gymnasium, against its north wall
-  displays: [{ id: 'dp1', x: -118, y: 187, w: 36, d: 14, yaw: 0 }],
-  // ───── exhibition layout in the Assembly Hall (from the client's layout drawing; x = px·0.0628, y = 95.17 − py·0.0883) ─────
-  drapes: ([
-    ['dn', [39, 93.6], [88.9, 93.6]], ['dwMid', [40.4, 93.6], [40.4, 52.4]], ['dmid', [38.4, 52.4], [66, 52.4]], ['dhw', [90.1, 95], [90.1, 72]],
-    ['dc1', [51.2, 61.7], [88.9, 61.7]], ['dc2', [88.4, 61.7], [88.4, 31.2]], ['dc3', [39.5, 30.7], [88.4, 30.7]], ['dcapaW', [40.8, 30.7], [40.8, 2.1]],
-    ['dbot', [59.4, 2.1], [114.2, 2.1]], ['deast', [115.7, 58.9], [115.7, 2.1]], ['dwl', [1.9, 29.8], [1.9, 2.1]], ['dbotL', [0.8, 2.1], [40.8, 2.1]],
-    ['dsmT', [1.9, 27.6], [19.9, 27.6]], ['dsmR', [19.9, 27.6], [19.9, 17.7]], ['dsmB', [1.9, 17.7], [19.9, 17.7]],
-  ] as [string, [number, number], [number, number]][]).map(([id, a, b]) => ({ id, a, b, h: 12 })),
-  exItems: ([
-    ['xLine', 'line', 13.2, 73.1, 0, 19.2, 38.2], ['xPhoto', 'photo', 31, 80, 0, 15.1, 24.4], ['xCal', 'calendar', 12.1, 39.7, 0, 16, 19.9],
-    ['xSant', 'santMilan', 11.3, 22.6, 0, 14.4, 5.5], ['xNv', 'nvVarni', 12.1, 10.1, 90, 16, 11.3], ['xCapa', 'capa', 49.5, 16.1, 0, 15, 24.7],
-    ['xMap', 'indiaMap', 72.2, 16.4, 90, 12, 12], ['xStages', 'stages', 87.77, 1, 0, 24, 32], ['xHouse', 'house', 103.6, 71.3, 270, 24, 24],
-    ['xTv1', 'tv', 94, 50.1, 305, 4.2, 2.6], ['xTv2', 'tv', 112.4, 50.4, 247, 4.2, 2.6], ['xTv3', 'tv', 97, 40, 300, 4.2, 2.6], ['xTv4', 'tv', 110.3, 40, 253, 4.2, 2.6],
-    ['xMirror', 'mirror', 62.8, 88, 270, 10, 4], ['xD1', 'dioramaGod', 81.3, 88, 270, 8, 2], ['xD2', 'dioramaGuru', 72.8, 68.7, 90, 8, 2],
-    ['xNvBox', 'nvBox', 57, 68.7, 90, 3.5, 3.5], ['xLotus', 'lotus', 42.9, 80, 0, 12, 2],
-    ['xShas', 'shastra', 78.6, 55.4, 235, 10.5, 3], ['xMand', 'mandir', 82.5, 48.2, 180, 10.5, 3], ['xSantB', 'sant', 78.6, 40.9, 125, 10.5, 3],
-    ['xPocket', 'pocket', 188.1, 395, 217.1, 62, 95], ['xPath', 'path', 204.6, 321.6, 90, 105.5, 3.7], ['xRath', 'rath', 194.9, 360.9, 0, 16.4, 16.4],
-    ['xShoot', 'shootout', 231, 347.3, 180, 13, 24], ['xSteps', 'steps', 231.5, 321.9, 180, 12, 22], ['xAct', 'actSpace', 225.2, 296.5, 180, 24.6, 25.4],
-    ['xQuest', 'quest', 217.5, 393.4, 217.1, 13, 24], ['xMoon', 'moonwalker', 202.6, 414, 217.1, 12, 24], ['xCastle', 'castle', 185.7, 433.1, 217.1, 16, 22],
-    ['xF0', 'fence', 225.2, 360, 180, 24.6, 0.5], ['xF1', 'fence', 220.6, 379.8, 217.1, 24.6, 0.5], ['xF2', 'fence', 205.3, 400.1, 217.1, 24.6, 0.5],
-    ['xF3', 'fence', 190, 420.3, 217.1, 24.6, 0.5], ['xF4', 'fence', 174.6, 440.6, 217.1, 24.6, 0.5],
-    // ── facility front: welcome peacock pillars left of the shoe racks, wooden art panel, wall-wash lights (4 per side), pick-up lane barricades ──
-    ['xPeaL', 'peacock', -27, -32.4, -90, 4.6, 4.6], ['xPeaR', 'peacock', -13, -32.4, -90, 4.6, 4.6], ['xArt', 'woodArt', -44, -33.4, -90, 1.2, 8],
-    ['xWashL', 'washRow', -80.5, -32.6, 0, 27, 1.5], ['xWashR', 'washRow', 11.5, -32.6, 0, 27, 1.5],
-    ['xBa1', 'barrier', -164.4, -56.1, 0, 229.3, 0.5], ['xBa2', 'barrier', 96.8, -58.9, 0, 229.2, 0.5], ['xBb', 'barrier', -49.2, -68.1, 0, 459.6, 0.5],
-    ['xBc', 'barrier', -50.5, -77.5, 0, 368.2, 0.5], ['xBl', 'barrier', -317, -89.2, 90, 75.6, 0.5], ['xBls', 'barrier', -299, -51.4, 0, 36, 0.5], ['xBr', 'barrier', 210, -97, 90, 76, 0.5],
-    ['xA1', 'arrow', 58.2, 16.6, 0, 3, 1], ['xA2', 'arrow', 86.2, 17.6, 35, 3, 1], ['xA3', 'arrow', 102.2, 36.5, 90, 4, 1],
-  ] as [string, ExKind, number, number, number, number, number][]).map(([id, kind, x, y, yaw, w, d]): ExItem => ({ id, kind, x, y, yaw, w, d, t: id === 'xPeaL' ? 'L' : id === 'xPeaR' ? 'R' : id === 'xWashL' ? '#2f6bff' : id === 'xWashR' ? '#e0262e' : undefined })).concat([
-    { id: 'xL1', kind: 'label', x: 1.8, y: 39.8, yaw: 90, w: 6, d: 2, t: 'Hall doors' }, { id: 'xL2', kind: 'label', x: 99.1, y: 57.6, yaw: 0, w: 6, d: 2, t: 'Entrance' },
-    { id: 'xL3', kind: 'label', x: 90.6, y: 66.5, yaw: 90, w: 6, d: 2, t: 'Exit' }, { id: 'xL4', kind: 'label', x: 67, y: 46.2, yaw: 0, w: 8, d: 2, t: 'Centerpiece' },
-  ] as ExItem[]),
-  // site-map image placed so px(845,915) is the hall SW corner at 1.6 px/ft (a first guess — drag/scale to trace)
+  shoes: [],
+  ramps: [],
+  displays: [],
+  drapes: [],
+  exItems: [],
   under: { on: false, op: 0.5, s: 1 / 1.6, x: -845 / 1.6, y: 915 / 1.6 },
 };
 
-const KEY = 'lightplot.campus.edits.v1';
+// Diwali 2027 has its own campus layout; the 2026 one stays under lightplot.campus.edits.v1 for the archive
+const KEY = 'lightplot.2027.campus.edits.v1';
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x));
 function load(): Edits {
   try {

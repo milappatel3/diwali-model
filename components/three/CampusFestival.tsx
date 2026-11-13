@@ -69,7 +69,7 @@ function BoothModel({ b, n }: { b: Booth; n: number }) {
     g.fillStyle = b.color; g.fillRect(70, 226, 120, 6);
     g.fillStyle = '#2b2b33'; g.font = '500 40px Georgia, serif';
     g.fillText('Add the story and the ask for this', 70, 300); g.fillText('festival here.', 70, 350);
-    g.fillStyle = '#7b6f5e'; g.font = '500 26px Georgia, serif'; g.fillText('Utsavpur · Diwali Exhibition 2026', 70, 430);
+    g.fillStyle = '#7b6f5e'; g.font = '500 26px Georgia, serif'; g.fillText('Utsavpur · Diwali Exhibition 2027', 70, 430);
   }), [b.title, b.sub, b.color]);
   const sign = useMemo(() => canvasTex(512, 128, (g, w, h) => {
     g.fillStyle = b.color; g.fillRect(0, 0, w, h);
