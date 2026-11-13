@@ -4,7 +4,7 @@ import { useStore, OLD_KEYS } from '@/lib/store';
 import { HALL_FACTS, OPENINGS } from '@/lib/hall';
 import { Field, NumIn, Slider, Icon } from '../ui';
 import { buildScene, evalProbe, indirect } from '@/lib/engine';
-import { plan2026 } from '@/lib/project';
+import { plan2026, defaultProject } from '@/lib/project';
 import type { Project } from '@/lib/types';
 
 export default function VenueView() {
@@ -140,6 +140,7 @@ export default function VenueView() {
             <span className="muted-3 tiny" style={{ display: 'block', marginTop: 8 }}>Changes save in this browser automatically.</span>
             <div className="row-flex" style={{ marginTop: 8 }}>
               <button className="btn btn-sm" title="Replace this plan with the final Diwali 2026 layout (undo brings your plan back)" onClick={() => loadFromJSON({ ...plan2026(), name: 'Diwali Exhibition 2027' })}><Icon.upload size={14} /> Start from the 2026 layout</button>
+              <button className="btn btn-sm" title="Replace this plan with the first draft of Welcome to India from the planning Whiteboard (undo brings your plan back)" onClick={() => loadFromJSON(defaultProject())}><Icon.upload size={14} /> Load the 2027 draft layout</button>
               {oldPlan && (
                 <button className="btn btn-sm" title="Your own saved 2026 copy from this browser" onClick={() => { try { const p = JSON.parse(oldPlan); if (p && Array.isArray(p.items)) loadFromJSON({ ...p, name: 'Diwali Exhibition 2027' }); } catch { /* unreadable */ } }}><Icon.upload size={14} /> Load my saved 2026 plan</button>
               )}

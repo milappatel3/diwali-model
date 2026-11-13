@@ -48,6 +48,9 @@ export const OPENINGS: Opening[] = [
   { id: 'S2a', wall: 'S', a: 26.1, b: 32.4, kind: 'door-pair', label: 'Exit (pair)', swing: 'out', exit: true },
   { id: 'S2b', wall: 'S', a: 34.5, b: 40.8, kind: 'door-pair', label: 'Exit (pair)', swing: 'out', exit: true },
   { id: 'S2c', wall: 'S', a: 43.4, b: 46.4, kind: 'door', label: 'Door', swing: 'in', exit: true },
+  // Diwali 2027: the Multi Room doors from the client's sketch (not in the DWG, which shows this stretch of wall solid)
+  { id: 'S-mr-in', wall: 'S', a: 55, b: 61, kind: 'opening', label: 'Multi Room — in (from sketch)' },
+  { id: 'S-mr-out', wall: 'S', a: 82, b: 87, kind: 'opening', label: 'Multi Room — out (from sketch)' },
   { id: 'S4', wall: 'S', a: 101.2, b: 104.2, kind: 'door', label: 'Door to Multi room corridor', swing: 'in', exit: true },
   { id: 'S5a', wall: 'S', a: 110.1, b: 116.4, kind: 'door-pair', label: 'Exit (pair)', swing: 'out', exit: true },
   { id: 'S5b', wall: 'S', a: 117.0, b: 123.3, kind: 'door-pair', label: 'Exit (pair) — south passage', swing: 'out', exit: true },

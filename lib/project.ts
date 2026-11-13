@@ -53,16 +53,18 @@ function zone(name: string, section: SectionId, x0: number, x1: number, y0: numb
 }
 
 import PLAN_2026 from './plan2026.json';
+import { plan2027Items } from './plan2027';
 
-/** Diwali 2027 starts from a blank canvas: the same Assembly Hall (walls, doors, stage, ceiling, house lights) with nothing placed. */
+/** Diwali 2027: the same Assembly Hall (walls, doors, stage, ceiling, house lights) with the first draft of
+ *  "Welcome to India" from the planning Whiteboard (lib/plan2027.ts). No lights are placed yet. */
 export function defaultProject(): Project {
   const p = PLAN_2026 as unknown as Project;
   return {
     version: 4,
-    migr: ['projector', 'lwallStrip'],
+    migr: ['projector', 'lwallStrip', 'layout2027'],
     name: 'Diwali Exhibition 2027',
     venue: p.venue,
-    items: [],
+    items: plan2027Items(),
     probes: [],
     house: { ...p.house },
     settings: { ...p.settings },

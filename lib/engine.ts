@@ -17,6 +17,7 @@ export const MAT_RHO: Record<string, number> = {
   drywall: 0.8, fabricSheer: 0.3, poster: 0.65, banner: 0.55, metal: 0.4, chrome: 0.5, black: 0.04, mirror: 0.85, glass: 0.08,
   carpet: 0.15, plant: 0.12, cushion: 0.3, gold: 0.5, screen: 0.05, stone: 0.5, acrylic: 0.08, paper: 0.8, white: 0.85,
   paintOchre: 0.4, paintPeach: 0.55, paintSaffron: 0.5, paintSage: 0.42, paintCream: 0.68, couchTeal: 0.12, granite: 0.18, terracotta: 0.25,
+  water: 0.08, waterGreen: 0.08, sandstone: 0.45, snow: 0.8, rock: 0.2, violet: 0.08,
 };
 export const FLOOR_RHO = { carpet: 0.15, vinyl: 0.35, concrete: 0.3 } as const;
 

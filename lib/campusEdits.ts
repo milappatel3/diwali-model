@@ -132,15 +132,26 @@ export interface Edits {
 export const KDC_ZONE: Rect = [190, 241.5, 20, 375.8];
 const OLD_KDC_ZONE: Rect = [134, 215, 349, 525];
 
-/** Diwali 2027 starts with the campus as built (DWG, solar canopy) and no event layout. The 2026 layout is in archive/2026. */
+/** Diwali 2027: Multi Room per the client's sketch. The DWG shows the hall's south wall solid from 46.6 to 101.3 ft and the
+ *  Multi Room starting at x 61; the sketch has two doors from the hall (55–61 in, 82–87 out) and the room starting at x 53.
+ *  So the DWG wall (w171) and the Office | Multi Room partition (w247) are hidden and redrawn with those openings. */
+export const MULTI_ROOM_WALLS: Added[] = [
+  { id: 'mr-s1', t: 'wall', a: [46.6, -1.45], b: [55, -1.45], w: 2.9, h: 22 },
+  { id: 'mr-s2', t: 'wall', a: [61, -1.45], b: [82, -1.45], w: 2.9, h: 22 },
+  { id: 'mr-s3', t: 'wall', a: [87, -1.45], b: [101.3, -1.45], w: 2.9, h: 22 },
+  { id: 'mr-div', t: 'wall', a: [53, -20.5], b: [53, -2.9], w: 0.5, h: 12 },
+];
+export const MULTI_ROOM_HIDDEN = ['w171', 'w247'];
+
+/** Diwali 2027 starts with the campus as built (DWG, solar canopy) plus the Multi Room doors; the hall exhibition comes from the Plan. The 2026 layout is in archive/2026. */
 export const DEFAULT_EDITS: Edits = {
   v: 1,
-  rev: 7,
+  rev: 8,
   zones: [],
   signs: [],
   shuttles: [],
-  added: [],
-  hidden: [],
+  added: [...MULTI_ROOM_WALLS],
+  hidden: [...MULTI_ROOM_HIDDEN],
   wallH: {},
   erase: [],
   booths: [],
@@ -194,6 +205,12 @@ function load(): Edits {
           const pk = m.zones.find((z: Zone) => z.id === 'pick');
           if (pk && pk.r.join() === '-240,170,-72,-32') m.zones = [...m.zones.filter((z: Zone) => z.id !== 'pick'), ...clone(DEFAULT_EDITS.zones).filter((z: Zone) => ['walk', 'lane3', 'lane2', 'lane1'].includes(z.id))];
           if (!m.exItems.some((q: ExItem) => SITE_KINDS.has(q.kind))) m.exItems = [...m.exItems, ...clone(DEFAULT_EDITS.exItems).filter((q: ExItem) => SITE_KINDS.has(q.kind))];
+        }
+        if ((p.rev ?? 1) < 8) {
+          m.rev = 8;
+          // 2027: Multi Room doors from the sketch (see MULTI_ROOM_WALLS)
+          m.hidden = [...new Set([...(m.hidden || []), ...MULTI_ROOM_HIDDEN])];
+          m.added = [...(m.added || []).filter((a: Added) => !MULTI_ROOM_WALLS.some((w) => w.id === a.id)), ...clone(MULTI_ROOM_WALLS)];
         }
         return m;
       }

@@ -62,6 +62,13 @@ export function mats(): Record<MatKey | 'wall' | 'ceiling' | 'studs' | 'tile' | 
     couchTeal: std({ color: '#1f5d5e', roughness: 0.95 }),
     granite: std({ color: '#2b2522', roughness: 0.25, metalness: 0.05 }),
     terracotta: std({ color: '#a4532f', roughness: 0.9 }),
+    // Diwali 2027 set pieces
+    water: std({ color: '#2f6f9a', roughness: 0.08, metalness: 0.1, emissive: new THREE.Color('#0d3550'), emissiveIntensity: 0.6 }),
+    waterGreen: std({ color: '#2f7a5a', roughness: 0.08, metalness: 0.1, emissive: new THREE.Color('#0f3a28'), emissiveIntensity: 0.6 }),
+    sandstone: std({ color: '#d6b183', roughness: 0.9 }),
+    snow: std({ color: '#f2f4f7', roughness: 0.8 }),
+    rock: std({ color: '#6e6258', roughness: 0.95 }),
+    violet: std({ color: '#3b1f5c', roughness: 0.95 }),
   } as any;
   return MATS as any;
 }
