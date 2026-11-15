@@ -56,7 +56,7 @@ import PLAN_2026 from './plan2026.json';
 import { plan2027Items } from './plan2027';
 
 /** Diwali 2027: the same Assembly Hall (walls, doors, stage, ceiling, house lights) with the first draft of
- *  "Welcome to India" from the planning Whiteboard (lib/plan2027.ts). No lights are placed yet. */
+ *  "Welcome to India" (lib/plan2027.ts). Later edits live in layout/plan-2027.json and load through Campus plan → Layout ↔ repo. */
 export function defaultProject(): Project {
   const p = PLAN_2026 as unknown as Project;
   return {

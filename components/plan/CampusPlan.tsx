@@ -6,6 +6,7 @@ import { itemFootprint } from '@/lib/catalog';
 import { loadCampus, type CampusData, type PolyJ } from '@/lib/campus';
 import { useCE, editedData, inRect, lineBooths, newId, normRect, type Added, type Edits, type Rect, EX_KINDS, KDC_KINDS, SITE_KINDS, type ExKind } from '@/lib/campusEdits';
 import { Field, NumIn } from '../ui';
+import { HallInspector, HallAdd, RepoSync } from './CampusHallEdit';
 
 type Tool = 'select' | 'carnival' | 'wall' | 'glass' | 'door' | 'area' | 'tree' | 'tent' | 'gate' | 'text' | 'sign' | 'shuttle' | 'under' | 'shoes' | 'ramp' | 'canopy' | 'display';
 type Sel = { k: string; id: string } | null;
@@ -18,7 +19,7 @@ const AREA_KINDS = ['zone', 'lawn', 'paving', 'asphalt', 'floor', 'water', 'bloc
 type AreaTool = (typeof AREA_KINDS)[number];
 const AREA_COL: Record<string, string> = { lawn: '#3f8f5c', paving: '#b9c4cf', asphalt: '#2b3a4a', floor: '#c9bfae', water: '#4a86a8', block: '#d9c7a6' };
 const ZONE_COLS = ['#2f6fdb', '#e0282e', '#2fae5a', '#f2c230', '#d6249f', '#e8620a', '#1f7a6e', '#8a5cd6'];
-const EDIT_KINDS = ['zone', 'sign', 'shuttle', 'added', 'erase', 'booth', 'carnival', 'annakut', 'canopy', 'shoes', 'ramp', 'display', 'exitem', 'drape'];
+const EDIT_KINDS = ['hall', 'zone', 'sign', 'shuttle', 'added', 'erase', 'booth', 'carnival', 'annakut', 'canopy', 'shoes', 'ramp', 'display', 'exitem', 'drape'];
 const draggable = (k: string) => EDIT_KINDS.includes(k);
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x));
 
@@ -207,16 +208,26 @@ function EditedLayer({ e, s, selKey, layers }: { e: Edits; s: number; selKey: st
               </g>
             );
           })}
-          {/* the hall exhibition comes from the Plan & light map (read-only here) */}
-          <g pointerEvents="none" opacity={0.85}>
-            {hallItems.map((it) =>
-              it.type === 'drape' || it.type === 'stanchions' ? (
-                <polyline key={it.id} points={(it.points || []).map((q) => `${it.x + q.x},${it.y + q.y}`).join(' ')} fill="none" stroke={it.type === 'drape' ? '#4a6fd0' : '#c4252d'} strokeWidth={it.type === 'drape' ? 3 : 1.2} strokeLinecap="round" {...nsc} />
+          {/* the hall exhibition (the Plan's items): select, drag, edit here too — same data as Plan & light map and Campus 3D */}
+          <g opacity={0.9}>
+            {hallItems.map((it) => {
+              const hi = sel('hall', it.id);
+              const common = { 'data-k': 'hall', 'data-id': it.id, style: { cursor: 'move' } } as any;
+              const zoneLike = it.type === 'booth' && it.params?.zone;
+              return it.type === 'drape' || it.type === 'stanchions' ? (
+                <g key={it.id} {...common}>
+                  <polyline points={(it.points || []).map((q) => `${it.x + q.x},${it.y + q.y}`).join(' ')} fill="none" stroke="transparent" strokeWidth={Math.max(2.5, 8 * s)} strokeLinecap="round" />
+                  <polyline points={(it.points || []).map((q) => `${it.x + q.x},${it.y + q.y}`).join(' ')} fill="none" stroke={hi || (it.type === 'drape' ? '#4a6fd0' : '#c4252d')} strokeWidth={it.type === 'drape' ? (hi ? 4 : 3) : 1.2} strokeLinecap="round" {...nsc} />
+                </g>
               ) : (
-                <polygon key={it.id} points={itemFootprint(it).map((q) => `${q.x},${q.y}`).join(' ')} fill={it.type === 'booth' ? 'none' : '#c9a36a'} fillOpacity={0.3} stroke={it.type === 'booth' ? '#8ea2c7' : '#e0c08a'} strokeWidth={0.8} strokeDasharray={it.type === 'booth' ? '4 3' : undefined} {...nsc} />
-              ),
-            )}
-            {hallItems.filter((it) => it.type === 'booth' && /^z/.test(it.id)).map((it) => <g key={'l' + it.id}>{lab(it.x, it.y, String(it.params?.title || it.name), '#c7d4ef', 8 * s)}</g>)}
+                <polygon key={it.id} points={itemFootprint(it).map((q) => `${q.x},${q.y}`).join(' ')} fill={zoneLike ? 'none' : it.params?.ask ? '#ff7a59' : '#c9a36a'} fillOpacity={0.3} stroke={hi || (zoneLike ? '#8ea2c7' : it.params?.ask ? '#ff7a59' : '#e0c08a')} strokeWidth={hi ? 2.2 : 0.8} strokeDasharray={zoneLike ? '4 3' : undefined} pointerEvents={zoneLike ? 'stroke' : undefined} {...nsc} {...common} />
+              );
+            })}
+            <g pointerEvents="none">
+              {hallItems.filter((it) => it.type === 'booth' && it.params?.zone).map((it) => <g key={'l' + it.id}>{lab(it.x, it.y, String(it.params?.title || it.name), '#c7d4ef', 8 * s)}</g>)}
+              {hallItems.filter((it) => it.params?.ask).map((it) => <g key={'q' + it.id}>{lab(it.x, it.y + 1.5, '✎ ' + String(it.params.ask).slice(0, 40), '#ffb59c', 7 * s)}</g>)}
+              {selKey.startsWith('hall:') && (() => { const it = hallItems.find((q) => 'hall:' + q.id === selKey); return it ? lab(it.x, it.y - 2, it.name, HIGHLIGHT, 9 * s) : null; })()}
+            </g>
           </g>
           {e.exItems.filter((q) => (KDC_KINDS.has(q.kind) || SITE_KINDS.has(q.kind))).map((q) => {
             const K = EX_KINDS[q.kind];
@@ -275,6 +286,10 @@ export default function CampusPlan() {
   const { live, commit, checkpoint, undo, redo, reset, importJSON } = useCE.getState();
   const canUndo = useCE((s) => s.past.length > 0), canRedo = useCE((s) => s.future.length > 0);
   const setView3 = useStore((s) => s.setView);
+  const planItems = useStore((s) => s.project.items);
+  const lastEdited = useRef<'plan' | 'campus'>('campus');
+  const undoAny = () => (lastEdited.current === 'plan' ? useStore.getState().undo() : undo());
+  const redoAny = () => (lastEdited.current === 'plan' ? useStore.getState().redo() : redo());
   const [tool, setTool] = useState<Tool>('select');
   const [areaKind, setAreaKind] = useState<AreaTool>('zone');
   const [sel, setSel] = useState<Sel>(null);
@@ -384,11 +399,24 @@ export default function CampusPlan() {
     const handle = t.closest('[data-handle]') as HTMLElement | null;
     svg.current!.setPointerCapture(ev.pointerId);
     if (ev.button === 1 || ev.button === 2 || space.current) { drag.current = { m: 'pan', sx: ev.clientX, sy: ev.clientY, v: { ...vp } }; return; }
+    const hpt = t.closest('[data-hpt]') as HTMLElement | null;
+    if (hpt && sel?.k === 'hall') {
+      const it = useStore.getState().project.items.find((q) => q.id === sel.id);
+      if (it) { lastEdited.current = 'plan'; drag.current = { m: 'hallpt', id: it.id, i: +hpt.dataset.hpt!, key: 'cpt' + Date.now() }; }
+      return;
+    }
     if (handle && sel) { checkpoint(); drag.current = { m: 'handle', h: handle.dataset.handle }; return; }
     if (tool === 'select') {
       if (el) {
         const s = { k: el.dataset.k!, id: el.dataset.id! };
         setSel(s);
+        if (s.k === 'hall') {
+          const it = useStore.getState().project.items.find((q) => q.id === s.id);
+          useStore.getState().select(s.id);
+          if (it) { lastEdited.current = 'plan'; drag.current = { m: 'hallmove', id: it.id, start: sp, orig: { x: it.x, y: it.y }, key: 'cmv' + Date.now() }; }
+          return;
+        }
+        lastEdited.current = 'campus';
         if (draggable(s.k)) { checkpoint(); drag.current = { m: 'move', s, start: sp, orig: clone(getItem(useCE.getState().e, s)) }; }
         return;
       }
@@ -407,7 +435,17 @@ export default function CampusPlan() {
     const d = drag.current;
     if (!d) return;
     if (d.m === 'pan') setVp({ ...d.v, cx: d.v.cx - (ev.clientX - d.sx) * d.v.s, cy: d.v.cy + (ev.clientY - d.sy) * d.v.s });
-    else if (d.m === 'move') {
+    else if (d.m === 'hallmove') {
+      const dx = sp[0] - d.start[0], dy = sp[1] - d.start[1];
+      if (dx || dy) useStore.getState().updateItem(d.id, { x: d.orig.x + dx, y: d.orig.y + dy }, d.key);
+    } else if (d.m === 'hallpt') {
+      useStore.getState().updateItem(d.id, (it) => {
+        const pts = (it.points || []).map((q) => ({ ...q }));
+        if (!pts[d.i]) return it;
+        pts[d.i] = { x: sp[0] - it.x, y: sp[1] - it.y };
+        return { ...it, points: pts };
+      }, d.key);
+    } else if (d.m === 'move') {
       const dx = sp[0] - d.start[0], dy = sp[1] - d.start[1];
       live((x) => { const it = getItem(x, d.s); if (it) translate(it, d.orig, dx, dy); });
     } else if (d.m === 'handle' && sel) {
@@ -440,6 +478,7 @@ export default function CampusPlan() {
   /* ───────── keyboard ───────── */
   const deleteSel = () => {
     if (!sel) return;
+    if (sel.k === 'hall') { lastEdited.current = 'plan'; useStore.getState().removeItem(sel.id); setSel(null); return; }
     if (sel.k === 'zone') commit((x) => { x.zones = x.zones.filter((z) => z.id !== sel.id); });
     else if (sel.k === 'sign') commit((x) => { x.signs = x.signs.filter((z) => z.id !== sel.id); });
     else if (sel.k === 'shuttle') commit((x) => { x.shuttles = x.shuttles.filter((z) => z.id !== sel.id); });
@@ -465,7 +504,7 @@ export default function CampusPlan() {
     if (ev.type !== 'keydown' || typing) return;
     if ((ev.metaKey || ev.ctrlKey) && ev.key.toLowerCase() === 'z') {
       ev.preventDefault(); ev.stopImmediatePropagation();
-      if (ev.shiftKey) redo(); else undo();
+      if (ev.shiftKey) redoAny(); else undoAny();
       return;
     }
     if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
@@ -541,6 +580,11 @@ export default function CampusPlan() {
                   ))}
                 </g>
               )}
+              {sel?.k === 'hall' && (() => {
+                const it = planItems.find((q) => q.id === sel.id);
+                if (!it?.points || (it.type !== 'drape' && it.type !== 'stanchions')) return null;
+                return <g>{it.points.map((q, i) => <circle key={i} cx={it.x + q.x} cy={it.y + q.y} r={hs * 0.7} fill={HIGHLIGHT} stroke="#000" strokeWidth={1} {...nsc} data-hpt={i} style={{ cursor: 'move' }} />)}</g>;
+              })()}
               {selItem && sel?.k === 'added' && 'a' in selItem && (
                 <g>
                   {(['a', 'b'] as const).map((h) => <circle key={h} cx={selItem[h][0]} cy={selItem[h][1]} r={hs * 0.7} fill={HIGHLIGHT} stroke="#000" strokeWidth={1} {...nsc} data-handle={h} style={{ cursor: 'move' }} />)}
@@ -565,9 +609,10 @@ export default function CampusPlan() {
             )}
           </div>
           <div className="tool-strip bl">
-            <button className="chip" onClick={undo} disabled={!canUndo} style={{ opacity: canUndo ? 1 : 0.4 }}>Undo</button>
-            <button className="chip" onClick={redo} disabled={!canRedo} style={{ opacity: canRedo ? 1 : 0.4 }}>Redo</button>
+            <button className="chip" onClick={undoAny}>Undo</button>
+            <button className="chip" onClick={redoAny}>Redo</button>
             <button className="chip" onClick={fit}>Fit</button>
+            <button className="chip" onClick={() => setVp({ cx: 60, cy: 34, s: Math.max(150 / box.w, 140 / box.h) })} title="Zoom to the Assembly Hall and the Multi Room">Hall</button>
             <select className="input" style={{ height: 28, fontSize: 12 }} value={snapG} onChange={(ev) => setSnapG(parseFloat(ev.target.value))} title="Snap to grid">
               <option value={0}>No snap</option><option value={0.5}>Snap 0.5′</option><option value={1}>Snap 1′</option><option value={2}>Snap 2′</option><option value={5}>Snap 5′</option>
             </select>
@@ -577,10 +622,12 @@ export default function CampusPlan() {
 
         {/* side panel */}
         <div className="stack" style={{ width: 310, flex: 'none', overflow: 'auto', gap: 10 }}>
+          <RepoSync />
           <div className="card" style={{ padding: 14 }}>
             <span className="eyebrow">{sel ? 'Selected' : 'Nothing selected'}</span>
             {!sel && <p className="small muted" style={{ margin: '6px 0 0' }}>Click anything on the plan to select it. Drag zones, signs and added items to move them; drag the orange handles to resize. Scroll to zoom, drag the background or hold Space to pan. Delete removes (or hides, for DWG items).</p>}
-            {sel && <Inspector sel={sel} e={e} item={selItem} onDelete={deleteSel} onClose={() => setSel(null)} />}
+            {sel && sel.k === 'hall' && <HallInspector id={sel.id} onClose={() => setSel(null)} onDeleted={() => setSel(null)} onSelect={(id) => setSel({ k: 'hall', id })} />}
+            {sel && sel.k !== 'hall' && <Inspector sel={sel} e={e} item={selItem} onDelete={deleteSel} onClose={() => setSel(null)} />}
           </div>
 
           <div className="card" style={{ padding: 14 }}>
@@ -639,6 +686,7 @@ export default function CampusPlan() {
             </div>
           </div>
 
+          <HallAdd center={[vp.cx, vp.cy]} onAdded={(id) => { lastEdited.current = 'plan'; setTool('select'); setSel({ k: 'hall', id }); }} />
           <div className="card card-flat" style={{ padding: 14 }}>
             <span className="eyebrow">Edits file</span>
             <div className="row-flex" style={{ marginTop: 8, gap: 6 }}>
