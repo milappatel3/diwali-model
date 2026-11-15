@@ -3764,86 +3764,6 @@
    ]
   },
   {
-   "id": "y27kp1",
-   "type": "poster",
-   "name": "Kashi \u00b7 One of the oldest living cities",
-   "section": "s4",
-   "x": 115.9,
-   "y": 31,
-   "rot": 180,
-   "params": {
-    "w": 5,
-    "h": 5.5,
-    "bottom": 1.75,
-    "title": "Kashi \u00b7 One of the oldest living cities",
-    "style": "cream"
-   }
-  },
-  {
-   "id": "y27kp2",
-   "type": "poster",
-   "name": "Kashi \u00b7 Kashi Vishwanath",
-   "section": "s4",
-   "x": 115.9,
-   "y": 39.5,
-   "rot": 180,
-   "params": {
-    "w": 5,
-    "h": 5.5,
-    "bottom": 1.75,
-    "title": "Kashi \u00b7 Kashi Vishwanath",
-    "style": "cream"
-   }
-  },
-  {
-   "id": "y27kp3",
-   "type": "poster",
-   "name": "Kashi \u00b7 The evening Ganga aarti",
-   "section": "s4",
-   "x": 115.9,
-   "y": 48,
-   "rot": 180,
-   "params": {
-    "w": 5,
-    "h": 5.5,
-    "bottom": 1.75,
-    "title": "Kashi \u00b7 The evening Ganga aarti",
-    "style": "cream"
-   }
-  },
-  {
-   "id": "y27kp4",
-   "type": "poster",
-   "name": "Kashi \u00b7 Dashashwamedh Ghat",
-   "section": "s4",
-   "x": 115.9,
-   "y": 56.5,
-   "rot": 180,
-   "params": {
-    "w": 5,
-    "h": 5.5,
-    "bottom": 1.75,
-    "title": "Kashi \u00b7 Dashashwamedh Ghat",
-    "style": "cream"
-   }
-  },
-  {
-   "id": "y27kp5",
-   "type": "poster",
-   "name": "Kashi \u00b7 Ghanshyam among the scholars",
-   "section": "s4",
-   "x": 115.9,
-   "y": 65,
-   "rot": 180,
-   "params": {
-    "w": 5,
-    "h": 5.5,
-    "bottom": 1.75,
-    "title": "Kashi \u00b7 Ghanshyam among the scholars",
-    "style": "cream"
-   }
-  },
-  {
    "id": "y27set74",
    "type": "setPiece",
    "name": "Sangam \u00b7 the meeting (corner pool)",
@@ -5866,6 +5786,49 @@
      ]
     ]
    }
+  },
+  {
+   "id": "y27kj1",
+   "type": "setPiece",
+   "name": "Kashi \u2014 projection wall behind the Ganga",
+   "section": "s4",
+   "x": 115.95,
+   "y": 49,
+   "rot": 180,
+   "params": {
+    "title": "Kashi \u2014 projection wall behind the Ganga",
+    "w": 44,
+    "d": 0.2,
+    "h": 8,
+    "parts": [
+     [
+      0,
+      0,
+      0,
+      44,
+      0.15,
+      8,
+      "screen",
+      "projection surface (no printed content)"
+     ]
+    ],
+    "face": true,
+    "faceZ": 4,
+    "faceH": 8,
+    "glow": [
+     {
+      "u": 0,
+      "v": 0.1,
+      "z": 4,
+      "nits": 30,
+      "area": 350,
+      "cct": 2700,
+      "dir": "front",
+      "name": "Kashi projection (river, ghats, aarti)"
+     }
+    ],
+    "note": "Plain projection surface on the 8 ft wall behind the river: moving river, ghats and aarti scenes; no printed content."
+   }
   }
  ],
  "probes": [],
@@ -5900,5 +5863,5 @@
  },
  "artSpotVariant": "framing20",
  "updatedAt": 1794708921175,
- "savedAt": "2026-11-15T02:49:32.000Z"
+ "savedAt": "2026-11-15T03:01:51.000Z"
 }
