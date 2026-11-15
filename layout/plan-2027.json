@@ -125,8 +125,10 @@
     "w": 15,
     "d": 23,
     "title": "8 · Nilkanth Varni abhishek",
-    "zone": true
-   }
+    "zone": true,
+    "onRiser": true
+   },
+   "z": 1.5
   },
   {
    "id": "y27boo9",
@@ -297,35 +299,11 @@
    ]
   },
   {
-   "id": "y27drp19",
-   "type": "drape",
-   "name": "Welcome room — east wall",
-   "section": "entry",
-   "x": 50,
-   "y": 9,
-   "rot": 0,
-   "params": {
-    "h": 8,
-    "color": "black",
-    "fullness": 0.5
-   },
-   "points": [
-    {
-     "x": 0,
-     "y": 0
-    },
-    {
-     "x": 0,
-     "y": 17
-    }
-   ]
-  },
-  {
    "id": "y27drp20",
    "type": "drape",
    "name": "BAPS & Satsang — south wall (message panels)",
    "section": "s6",
-   "x": 17,
+   "x": 24,
    "y": 26,
    "rot": 0,
    "params": {
@@ -339,7 +317,7 @@
      "y": 0
     },
     {
-     "x": 91,
+     "x": 75,
      "y": 0
     }
    ]
@@ -470,7 +448,7 @@
    "name": "BAPS & Satsang — north wall (guru panel) / Himalaya back",
    "section": "s6",
    "x": 32,
-   "y": 56.2,
+   "y": 66.2,
    "rot": 0,
    "params": {
     "h": 8,
@@ -494,7 +472,7 @@
    "name": "Stage walkway — west wall",
    "section": "infra",
    "x": 25,
-   "y": 56.2,
+   "y": 52.2,
    "rot": 0,
    "params": {
     "h": 8,
@@ -508,31 +486,7 @@
     },
     {
      "x": 0,
-     "y": 35.8
-    }
-   ]
-  },
-  {
-   "id": "y27drp28",
-   "type": "drape",
-   "name": "Exit lane — west wall",
-   "section": "infra",
-   "x": 17,
-   "y": 26,
-   "rot": 0,
-   "params": {
-    "h": 8,
-    "color": "black",
-    "fullness": 0.5
-   },
-   "points": [
-    {
-     "x": 0,
-     "y": 0
-    },
-    {
-     "x": 0,
-     "y": 64
+     "y": 42.8
     }
    ]
   },
@@ -773,7 +727,7 @@
    "type": "setPiece",
    "name": "Rangoli (floor)",
    "section": "entry",
-   "x": 39,
+   "x": 41,
    "y": 19,
    "rot": 90,
    "params": {
@@ -1750,7 +1704,7 @@
    "type": "setPiece",
    "name": "The boat (to Kanyakumari)",
    "section": "s2",
-   "x": 73,
+   "x": 75,
    "y": 13.5,
    "rot": 0,
    "params": {
@@ -1918,7 +1872,7 @@
    "type": "setPiece",
    "name": "Sea light on the floor",
    "section": "s2",
-   "x": 73,
+   "x": 76,
    "y": 13.5,
    "rot": 0,
    "params": {
@@ -1987,8 +1941,8 @@
    "type": "setPiece",
    "name": "Sea projection (south wall)",
    "section": "s2",
-   "x": 71,
-   "y": 0.3,
+   "x": 74,
+   "y": 3.3,
    "rot": 90,
    "params": {
     "title": "Sea projection (south wall)",
@@ -2133,8 +2087,8 @@
    "type": "floorMark",
    "name": "Footprints turn north: “12,000 km. He turned around and kept walking.”",
    "section": "s2",
-   "x": 86,
-   "y": 21,
+   "x": 87,
+   "y": 22,
    "rot": 0,
    "params": {
     "text": "12,000 km"
@@ -2190,8 +2144,8 @@
    "type": "poster",
    "name": "Rameswaram · Nilkanth and Sevakram",
    "section": "s2",
-   "x": 63.5,
-   "y": 0.35,
+   "x": 67.5,
+   "y": 3.35,
    "rot": 90,
    "params": {
     "w": 3.5,
@@ -2205,8 +2159,8 @@
    "type": "poster",
    "name": "Kanyakumari · Kumari Amman",
    "section": "s2",
-   "x": 79,
-   "y": 0.35,
+   "x": 81,
+   "y": 3.35,
    "rot": 90,
    "params": {
     "w": 3.5,
@@ -2769,7 +2723,7 @@
    "type": "poster",
    "name": "Puri · The Rath Yatra",
    "section": "s3",
-   "x": 93,
+   "x": 92,
    "y": 25.65,
    "rot": 270,
    "params": {
@@ -2784,7 +2738,7 @@
    "type": "poster",
    "name": "Puri · Nilkanth at Jagannath Puri (forgiveness)",
    "section": "s3",
-   "x": 99,
+   "x": 96,
    "y": 25.65,
    "rot": 270,
    "params": {
@@ -3253,7 +3207,7 @@
    "name": "Sangam · Yamuna (green)",
    "section": "s4",
    "x": 100.5,
-   "y": 87.7,
+   "y": 88.7,
    "rot": 90,
    "params": {
     "title": "Sangam · Yamuna (green)",
@@ -3461,60 +3415,60 @@
    "name": "Snow floor + drifts",
    "section": "s5",
    "x": 72.5,
-   "y": 74.2,
+   "y": 78.2,
    "rot": 90,
    "params": {
     "title": "Snow floor + drifts",
-    "w": 47,
-    "d": 36,
+    "w": 32,
+    "d": 24,
     "h": 1.5,
     "parts": [
      [
       0,
       0,
       0,
-      47,
-      36,
+      32,
+      24,
       0.06,
       "snow",
       "white snow floor cloth"
      ],
      [
-      -18,
-      16.5,
+      -12.255319148936167,
+      11,
       0,
-      6,
-      2,
+      4.085106382978723,
+      1.3333333333333333,
       1.2,
       "snow",
       "snow drift"
      ],
      [
-      -2,
-      16.8,
+      -1.3617021276595742,
+      11.2,
       0,
-      8,
-      1.5,
+      5.446808510638297,
+      1,
       0.9,
       "snow",
       "snow drift"
      ],
      [
-      14,
-      16.5,
+      9.53191489361702,
+      11,
       0,
-      6,
-      2,
+      4.085106382978723,
+      1.3333333333333333,
       1.4,
       "snow",
       "snow drift"
      ],
      [
-      21,
-      3,
+      14.297872340425528,
+      2,
       0,
-      3,
-      5,
+      2.0425531914893615,
+      3.3333333333333335,
       1,
       "snow",
       "snow drift"
@@ -3528,14 +3482,14 @@
    "type": "setPiece",
    "name": "Mountain · Yamunotri",
    "section": "s5",
-   "x": 56,
-   "y": 61.2,
+   "x": 60,
+   "y": 71,
    "rot": 90,
    "params": {
     "title": "Mountain · Yamunotri",
     "w": 8,
     "d": 9.5,
-    "h": 11,
+    "h": 8,
     "parts": [
      [
       0,
@@ -3543,47 +3497,47 @@
       0,
       8,
       9.5,
-      2.2,
+      1.6,
       "rock",
       "layered mountain (projection-mapped)"
      ],
      [
       0,
       -0.35,
-      2.2,
+      1.6,
       6.64,
       7.885,
-      2.2,
+      1.6,
       "snow",
       "layered mountain (projection-mapped)"
      ],
      [
       0,
       -0.7,
-      4.4,
+      3.2,
       5.279999999999999,
       6.27,
-      2.2,
+      1.6,
       "snow",
       "layered mountain (projection-mapped)"
      ],
      [
       0,
       -1.0499999999999998,
-      6.6,
+      4.8,
       3.92,
       4.655,
-      2.2,
+      1.6,
       "snow",
       "layered mountain (projection-mapped)"
      ],
      [
       0,
       -1.4,
-      8.8,
+      6.4,
       2.5599999999999996,
       3.0399999999999996,
-      2.2,
+      1.6,
       "snow",
       "layered mountain (projection-mapped)"
      ]
@@ -3596,8 +3550,8 @@
    "type": "setPiece",
    "name": "Yamunotri · its own small item",
    "section": "s5",
-   "x": 56,
-   "y": 68,
+   "x": 60,
+   "y": 77,
    "rot": 90,
    "params": {
     "title": "Yamunotri · its own small item",
@@ -3633,8 +3587,8 @@
    "type": "setPiece",
    "name": "Mountain · Gangotri",
    "section": "s5",
-   "x": 64,
-   "y": 61.2,
+   "x": 68,
+   "y": 71.2,
    "rot": 90,
    "params": {
     "title": "Mountain · Gangotri",
@@ -3701,8 +3655,8 @@
    "type": "setPiece",
    "name": "Gangotri · its own small item",
    "section": "s5",
-   "x": 64,
-   "y": 68,
+   "x": 69,
+   "y": 77,
    "rot": 90,
    "params": {
     "title": "Gangotri · its own small item",
@@ -3738,8 +3692,8 @@
    "type": "setPiece",
    "name": "Mountain · Kedarnath",
    "section": "s5",
-   "x": 72,
-   "y": 61.2,
+   "x": 76,
+   "y": 71.2,
    "rot": 90,
    "params": {
     "title": "Mountain · Kedarnath",
@@ -3806,8 +3760,8 @@
    "type": "setPiece",
    "name": "Kedarnath · its own small item",
    "section": "s5",
-   "x": 72,
-   "y": 68,
+   "x": 76,
+   "y": 77,
    "rot": 90,
    "params": {
     "title": "Kedarnath · its own small item",
@@ -3843,8 +3797,8 @@
    "type": "setPiece",
    "name": "Mountain · Badrinath",
    "section": "s5",
-   "x": 80,
-   "y": 61.2,
+   "x": 84,
+   "y": 71.2,
    "rot": 90,
    "params": {
     "title": "Mountain · Badrinath",
@@ -3911,8 +3865,8 @@
    "type": "setPiece",
    "name": "Badrinath · its own small item",
    "section": "s5",
-   "x": 80,
-   "y": 68,
+   "x": 84,
+   "y": 77,
    "rot": 90,
    "params": {
     "title": "Badrinath · its own small item",
@@ -3948,8 +3902,8 @@
    "type": "riser",
    "name": "Nilkanth abhishek stage (15 × 15)",
    "section": "s5",
-   "x": 40.5,
-   "y": 63.7,
+   "x": 47.5,
+   "y": 73.7,
    "rot": 90,
    "params": {
     "w": 15,
@@ -3964,8 +3918,8 @@
    "type": "setPiece",
    "name": "Rocky cave + Nilkanth murti",
    "section": "s5",
-   "x": 40.5,
-   "y": 59.5,
+   "x": 47.5,
+   "y": 69.5,
    "rot": 90,
    "params": {
     "title": "Rocky cave + Nilkanth murti",
@@ -4023,16 +3977,18 @@
       "gold",
       "Nilkanth Varni murti"
      ]
-    ]
-   }
+    ],
+    "onRiser": true
+   },
+   "z": 1.5
   },
   {
    "id": "y27stn89",
    "type": "stanchions",
    "name": "Abhishek queue",
    "section": "s5",
-   "x": 48,
-   "y": 79,
+   "x": 50,
+   "y": 89,
    "rot": 0,
    "params": {
     "spacing": 7,
@@ -4044,12 +4000,12 @@
      "y": 0
     },
     {
-     "x": -13.5,
+     "x": -7,
      "y": 0
     },
     {
-     "x": -13.5,
-     "y": -3.5999999999999943
+     "x": -7,
+     "y": -4
     },
     {
      "x": -1,
@@ -4067,7 +4023,7 @@
    "name": "Akshardham model",
    "section": "s6",
    "x": 79,
-   "y": 38,
+   "y": 42,
    "rot": 180,
    "params": {
     "title": "Akshardham model",
@@ -4175,7 +4131,7 @@
    "name": "Guru parampara portrait panel",
    "section": "s6",
    "x": 62,
-   "y": 55.9,
+   "y": 64.9,
    "rot": 270,
    "params": {
     "w": 24,
@@ -4291,6 +4247,102 @@
     "bottom": 2,
     "title": "BAPS & Satsang · Key message 7"
    }
+  },
+  {
+   "x": 47,
+   "y": 95,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": -22,
+     "y": 0
+    },
+    {
+     "x": 49,
+     "y": 0
+    }
+   ],
+   "id": "dra_5h86dh9hc"
+  },
+  {
+   "x": 47,
+   "y": 1,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": 11
+    }
+   ],
+   "id": "dra_yw7q36akg"
+  },
+  {
+   "x": 79,
+   "y": 3,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": -13,
+     "y": 0
+    },
+    {
+     "x": 10,
+     "y": 0
+    }
+   ],
+   "id": "dra_5sdot57tz"
+  },
+  {
+   "x": 106,
+   "y": 26,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": -2,
+     "y": 0
+    },
+    {
+     "x": 10,
+     "y": 0
+    }
+   ],
+   "id": "dra_4trhpnnpe"
   }
  ],
  "probes": [],
@@ -4324,6 +4376,6 @@
   "uvFlood100": 2
  },
  "artSpotVariant": "framing20",
- "updatedAt": 1794708004486,
- "savedAt": "2026-11-14T00:00:00.000Z"
+ "updatedAt": 1794708921175,
+ "savedAt": "2026-11-15T02:16:54.604Z"
 }
