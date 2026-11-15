@@ -82,6 +82,7 @@ export function HallInspector({ id, onClose, onDeleted, onSelect }: { id: string
 
 const ADDS: [string, string][] = [
   ['wall', '8 ft wall (pipe & drape)'],
+  ['backdrop', 'Large printed backdrop (like Kashi, 20 × 10 ft)'],
   ['poster', 'Poster (3.5 × 5 ft)'],
   ['box', 'Set piece (box)'],
   ['area', 'Area / zone outline'],
@@ -95,6 +96,7 @@ export function HallAdd({ center, onAdded }: { center: [number, number]; onAdded
     const base = { x, y, rot: 0, section: 'infra' as SectionId };
     const items: Record<string, Omit<Item, 'id'>> = {
       wall: { ...base, type: 'drape', name: 'New wall', params: { h: 8, color: 'black', fullness: 0.5 }, points: [{ x: 0, y: 0 }, { x: 10, y: 0 }] },
+      backdrop: { ...base, type: 'banner', name: 'Printed backdrop', rot: 90, params: { w: 20, h: 10, bottom: 0.5, title: '', sub: 'Printed backdrop', style: 'photo', feet: false, onDrape: true } },
       poster: { ...base, type: 'poster', name: 'New poster', rot: 90, params: { w: 3.5, h: 5, bottom: 2, title: 'New poster' } },
       box: { ...base, type: 'setPiece', name: 'New set piece', params: { title: 'New set piece', w: 4, d: 4, h: 4, mat: 'mdfPainted', parts: null } },
       area: { ...base, type: 'booth', name: 'New area', rot: 90, params: { w: 12, d: 10, title: 'New area', zone: true } },
