@@ -46,7 +46,7 @@ const PRESETS: Record<string, { pos: [number, number, number]; tgt: [number, num
   welcome: { pos: [45, 12, 6], tgt: [27, 24, 4.5], label: '1 Welcome — intro L walls' },
   ayodhya: { pos: [86, -6, 6], tgt: [71, -14, 1.5], label: '2 Ayodhya (Multi Room)' },
   boat: { pos: [85, 3, 6], tgt: [70, 14, 3], label: '3 The boat (Rameswaram → Kanyakumari)' },
-  puri: { pos: [100, 22, 6.5], tgt: [102.5, 5, 5], label: '4 Puri raths' },
+  puri: { pos: [102.5, 24, 6], tgt: [102.5, 3, 5.5], label: '4 Puri raths' },
   kashi: { pos: [100.5, 30, 6], tgt: [100.5, 60, 4], label: '5 Kashi walkway' },
   sangam: { pos: [100, 74, 6.5], tgt: [110, 87, 1.5], label: '6 Triveni Sangam' },
   himalaya: { pos: [72, 90, 6.5], tgt: [72, 68, 6.5], label: '7 Himalaya (from the corridor)' },

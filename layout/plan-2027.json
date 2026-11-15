@@ -2215,540 +2215,6 @@
    }
   },
   {
-   "id": "y27set63",
-   "type": "setPiece",
-   "name": "Jagannath\u2019s ratha (red-yellow)",
-   "section": "s3",
-   "x": 94,
-   "y": 5,
-   "rot": 90,
-   "params": {
-    "title": "Jagannath\u2019s ratha (red-yellow)",
-    "w": 7,
-    "d": 6.5,
-    "h": 11.5,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      6,
-      6,
-      2.5,
-      "woodDark",
-      "chariot deck"
-     ],
-     [
-      -3.25,
-      -1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      -3.25,
-      1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      3.25,
-      -1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      3.25,
-      1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      -2.6,
-      -2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      -2.6,
-      2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      2.6,
-      -2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      2.6,
-      2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      0,
-      0,
-      6,
-      6.4,
-      6.4,
-      0.9,
-      "drapeMaroon",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      6.9,
-      5.2,
-      5.2,
-      0.9,
-      "paintSaffron",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      7.8,
-      4,
-      4,
-      0.9,
-      "drapeMaroon",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      8.7,
-      2.8000000000000007,
-      2.8000000000000007,
-      0.9,
-      "paintSaffron",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      9.6,
-      1.6000000000000005,
-      1.6000000000000005,
-      0.9,
-      "drapeMaroon",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      10.5,
-      0.6,
-      0.6,
-      1,
-      "gold",
-      "kalash"
-     ]
-    ],
-    "note": "Printed body, foam wheels, cloth canopy; about 11\u00bd ft tall."
-   }
-  },
-  {
-   "id": "y27set64",
-   "type": "setPiece",
-   "name": "Subhadra\u2019s ratha (red-black)",
-   "section": "s3",
-   "x": 102.5,
-   "y": 5,
-   "rot": 90,
-   "params": {
-    "title": "Subhadra\u2019s ratha (red-black)",
-    "w": 7,
-    "d": 6.5,
-    "h": 11.5,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      6,
-      6,
-      2.5,
-      "woodDark",
-      "chariot deck"
-     ],
-     [
-      -3.25,
-      -1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      -3.25,
-      1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      3.25,
-      -1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      3.25,
-      1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      -2.6,
-      -2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      -2.6,
-      2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      2.6,
-      -2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      2.6,
-      2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      0,
-      0,
-      6,
-      6.4,
-      6.4,
-      0.9,
-      "drapeMaroon",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      6.9,
-      5.2,
-      5.2,
-      0.9,
-      "black",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      7.8,
-      4,
-      4,
-      0.9,
-      "drapeMaroon",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      8.7,
-      2.8000000000000007,
-      2.8000000000000007,
-      0.9,
-      "black",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      9.6,
-      1.6000000000000005,
-      1.6000000000000005,
-      0.9,
-      "drapeMaroon",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      10.5,
-      0.6,
-      0.6,
-      1,
-      "gold",
-      "kalash"
-     ]
-    ],
-    "note": "Printed body, foam wheels, cloth canopy; about 11\u00bd ft tall."
-   }
-  },
-  {
-   "id": "y27set65",
-   "type": "setPiece",
-   "name": "Balabhadra\u2019s ratha (red-green)",
-   "section": "s3",
-   "x": 111,
-   "y": 5,
-   "rot": 90,
-   "params": {
-    "title": "Balabhadra\u2019s ratha (red-green)",
-    "w": 7,
-    "d": 6.5,
-    "h": 11.5,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      6,
-      6,
-      2.5,
-      "woodDark",
-      "chariot deck"
-     ],
-     [
-      -3.25,
-      -1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      -3.25,
-      1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      3.25,
-      -1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      3.25,
-      1.6,
-      0,
-      0.5,
-      2.8,
-      2.8,
-      "black",
-      "foam wheel"
-     ],
-     [
-      -2.6,
-      -2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      -2.6,
-      2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      2.6,
-      -2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      2.6,
-      2.6,
-      2.5,
-      0.3,
-      0.3,
-      3.5,
-      "wood",
-      "canopy post"
-     ],
-     [
-      0,
-      0,
-      6,
-      6.4,
-      6.4,
-      0.9,
-      "drapeMaroon",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      6.9,
-      5.2,
-      5.2,
-      0.9,
-      "paintSage",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      7.8,
-      4,
-      4,
-      0.9,
-      "drapeMaroon",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      8.7,
-      2.8000000000000007,
-      2.8000000000000007,
-      0.9,
-      "paintSage",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      9.6,
-      1.6000000000000005,
-      1.6000000000000005,
-      0.9,
-      "drapeMaroon",
-      "cloth canopy tier"
-     ],
-     [
-      0,
-      0,
-      10.5,
-      0.6,
-      0.6,
-      1,
-      "gold",
-      "kalash"
-     ]
-    ],
-    "note": "Printed body, foam wheels, cloth canopy; about 11\u00bd ft tall."
-   }
-  },
-  {
-   "id": "y27pos66",
-   "type": "poster",
-   "name": "Puri \u00b7 The Rath Yatra",
-   "section": "s3",
-   "x": 92,
-   "y": 25.65,
-   "rot": 270,
-   "params": {
-    "w": 3.5,
-    "h": 5,
-    "bottom": 2,
-    "title": "Puri \u00b7 The Rath Yatra"
-   }
-  },
-  {
-   "id": "y27pos67",
-   "type": "poster",
-   "name": "Puri \u00b7 Nilkanth at Jagannath Puri (forgiveness)",
-   "section": "s3",
-   "x": 96,
-   "y": 25.65,
-   "rot": 270,
-   "params": {
-    "w": 3.5,
-    "h": 5,
-    "bottom": 2,
-    "title": "Puri \u00b7 Nilkanth at Jagannath Puri (forgiveness)"
-   }
-  },
-  {
    "id": "y27set68",
    "type": "setPiece",
    "name": "Kashi steps (4 tiers, stone)",
@@ -5586,6 +5052,820 @@
     ],
     "note": "Round stone kund about 6 ft across, with fog for steam."
    }
+  },
+  {
+   "id": "y27pr1",
+   "type": "setPiece",
+   "name": "Jagannath's ratha (red-yellow)",
+   "section": "s3",
+   "x": 93.5,
+   "y": 1.0,
+   "rot": 90,
+   "params": {
+    "title": "Jagannath's ratha (red-yellow)",
+    "w": 8.6,
+    "d": 2,
+    "h": 11,
+    "parts": [
+     [
+      0,
+      0,
+      0.4,
+      8,
+      0.3,
+      7.8,
+      "drapeMaroon",
+      "printed chariot panel (deity, horses, patterns)"
+     ],
+     [
+      -3.6,
+      0.6,
+      0,
+      0.3,
+      1.4,
+      0.4,
+      "wood",
+      "easel foot"
+     ],
+     [
+      3.6,
+      0.6,
+      0,
+      0.3,
+      1.4,
+      0.4,
+      "wood",
+      "easel foot"
+     ],
+     [
+      0,
+      0.1,
+      8.2,
+      8.6,
+      0.5,
+      1.2,
+      "paintSaffron",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      9.4,
+      6.2,
+      0.5,
+      1.0,
+      "drapeMaroon",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      10.4,
+      3.6,
+      0.5,
+      0.5,
+      "paintSaffron",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      10.9,
+      0.4,
+      0.3,
+      0.6,
+      "gold",
+      "finial"
+     ],
+     [
+      0,
+      0.25,
+      7.5,
+      7.6,
+      0.15,
+      0.3,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      -3.7,
+      0.25,
+      1.5,
+      0.2,
+      0.15,
+      6.0,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      3.7,
+      0.25,
+      1.5,
+      0.2,
+      0.15,
+      6.0,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      2.2,
+      0.75,
+      0.1,
+      2.1633307652783933,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      0.7,
+      3.4467375879228173,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      1.3,
+      4.024922359499621,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      1.9,
+      4.2,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      2.5,
+      4.024922359499622,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      3.1,
+      3.4467375879228177,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      3.6999999999999997,
+      2.163330765278396,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.95,
+      1.85,
+      0.7,
+      0.1,
+      0.7,
+      "gold",
+      "wheel hub"
+     ]
+    ],
+    "note": "Flat printed chariot panel against the south wall, about 11 ft tall with a cloth canopy top, marigold garlands and a mounted wooden wheel prop."
+   }
+  },
+  {
+   "id": "y27pr2",
+   "type": "setPiece",
+   "name": "Subhadra's ratha (red-black)",
+   "section": "s3",
+   "x": 102.5,
+   "y": 1.0,
+   "rot": 90,
+   "params": {
+    "title": "Subhadra's ratha (red-black)",
+    "w": 8.6,
+    "d": 2,
+    "h": 10,
+    "parts": [
+     [
+      0,
+      0,
+      0.4,
+      8,
+      0.3,
+      6.8,
+      "drapeMaroon",
+      "printed chariot panel (deity, horses, patterns)"
+     ],
+     [
+      -3.6,
+      0.6,
+      0,
+      0.3,
+      1.4,
+      0.4,
+      "wood",
+      "easel foot"
+     ],
+     [
+      3.6,
+      0.6,
+      0,
+      0.3,
+      1.4,
+      0.4,
+      "wood",
+      "easel foot"
+     ],
+     [
+      0,
+      0.1,
+      7.2,
+      8.6,
+      0.5,
+      1.2,
+      "black",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      8.4,
+      6.2,
+      0.5,
+      1.0,
+      "drapeMaroon",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      9.4,
+      3.6,
+      0.5,
+      0.5,
+      "black",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      9.9,
+      0.4,
+      0.3,
+      0.6,
+      "gold",
+      "finial"
+     ],
+     [
+      0,
+      0.25,
+      6.5,
+      7.6,
+      0.15,
+      0.3,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      -3.7,
+      0.25,
+      1.5,
+      0.2,
+      0.15,
+      5.0,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      3.7,
+      0.25,
+      1.5,
+      0.2,
+      0.15,
+      5.0,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      2.2,
+      0.75,
+      0.1,
+      2.1633307652783933,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      0.7,
+      3.4467375879228173,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      1.3,
+      4.024922359499621,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      1.9,
+      4.2,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      2.5,
+      4.024922359499622,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      3.1,
+      3.4467375879228177,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      3.6999999999999997,
+      2.163330765278396,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.95,
+      1.85,
+      0.7,
+      0.1,
+      0.7,
+      "gold",
+      "wheel hub"
+     ]
+    ],
+    "note": "Flat printed chariot panel against the south wall, about 10 ft tall with a cloth canopy top, marigold garlands and a mounted wooden wheel prop."
+   }
+  },
+  {
+   "id": "y27pr3",
+   "type": "setPiece",
+   "name": "Balabhadra's ratha (red-green)",
+   "section": "s3",
+   "x": 111.5,
+   "y": 1.0,
+   "rot": 90,
+   "params": {
+    "title": "Balabhadra's ratha (red-green)",
+    "w": 8.6,
+    "d": 2,
+    "h": 12,
+    "parts": [
+     [
+      0,
+      0,
+      0.4,
+      8,
+      0.3,
+      8.8,
+      "drapeMaroon",
+      "printed chariot panel (deity, horses, patterns)"
+     ],
+     [
+      -3.6,
+      0.6,
+      0,
+      0.3,
+      1.4,
+      0.4,
+      "wood",
+      "easel foot"
+     ],
+     [
+      3.6,
+      0.6,
+      0,
+      0.3,
+      1.4,
+      0.4,
+      "wood",
+      "easel foot"
+     ],
+     [
+      0,
+      0.1,
+      9.200000000000001,
+      8.6,
+      0.5,
+      1.2,
+      "paintSage",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      10.4,
+      6.2,
+      0.5,
+      1.0,
+      "drapeMaroon",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      11.4,
+      3.6,
+      0.5,
+      0.5,
+      "paintSage",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      11.9,
+      0.4,
+      0.3,
+      0.6,
+      "gold",
+      "finial"
+     ],
+     [
+      0,
+      0.25,
+      8.5,
+      7.6,
+      0.15,
+      0.3,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      -3.7,
+      0.25,
+      1.5,
+      0.2,
+      0.15,
+      7.000000000000001,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      3.7,
+      0.25,
+      1.5,
+      0.2,
+      0.15,
+      7.000000000000001,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      2.2,
+      0.75,
+      0.1,
+      2.1633307652783933,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      0.7,
+      3.4467375879228173,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      1.3,
+      4.024922359499621,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      1.9,
+      4.2,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      2.5,
+      4.024922359499622,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      3.1,
+      3.4467375879228177,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.75,
+      3.6999999999999997,
+      2.163330765278396,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.2,
+      0.95,
+      1.85,
+      0.7,
+      0.1,
+      0.7,
+      "gold",
+      "wheel hub"
+     ]
+    ],
+    "note": "Flat printed chariot panel against the south wall, about 12 ft tall with a cloth canopy top, marigold garlands and a mounted wooden wheel prop."
+   }
+  },
+  {
+   "id": "y27pb1",
+   "type": "banner",
+   "name": "Rath Yatra crowd (Pattachitra print, west wall)",
+   "section": "s3",
+   "x": 89.3,
+   "y": 10.5,
+   "rot": 0,
+   "params": {
+    "w": 12,
+    "h": 7,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Pattachitra crowd print",
+    "style": "saffron",
+    "feet": false,
+    "onDrape": true
+   }
+  },
+  {
+   "id": "y27pb2",
+   "type": "banner",
+   "name": "Pattachitra frieze (north wall, west)",
+   "section": "s3",
+   "x": 94,
+   "y": 25.7,
+   "rot": 270,
+   "params": {
+    "w": 9.5,
+    "h": 3,
+    "bottom": 4.5,
+    "title": "",
+    "sub": "Pattachitra frieze",
+    "style": "saffron",
+    "feet": false,
+    "onDrape": true
+   }
+  },
+  {
+   "id": "y27pb3",
+   "type": "banner",
+   "name": "Pattachitra frieze (north wall, east)",
+   "section": "s3",
+   "x": 110,
+   "y": 25.7,
+   "rot": 270,
+   "params": {
+    "w": 11,
+    "h": 3,
+    "bottom": 4.5,
+    "title": "",
+    "sub": "Pattachitra frieze",
+    "style": "saffron",
+    "feet": false,
+    "onDrape": true
+   }
+  },
+  {
+   "id": "y27pp1",
+   "type": "poster",
+   "name": "Puri \u00b7 The Rath Yatra",
+   "section": "s3",
+   "x": 115.7,
+   "y": 9,
+   "rot": 180,
+   "params": {
+    "w": 3.5,
+    "h": 5,
+    "bottom": 2,
+    "title": "Puri \u00b7 The Rath Yatra",
+    "style": "cream"
+   }
+  },
+  {
+   "id": "y27pp2",
+   "type": "poster",
+   "name": "Puri \u00b7 Jagannath, Balabhadra and Subhadra",
+   "section": "s3",
+   "x": 115.7,
+   "y": 13.5,
+   "rot": 180,
+   "params": {
+    "w": 3.5,
+    "h": 5,
+    "bottom": 2,
+    "title": "Puri \u00b7 Jagannath, Balabhadra and Subhadra",
+    "style": "cream"
+   }
+  },
+  {
+   "id": "y27pp3",
+   "type": "poster",
+   "name": "Puri \u00b7 Nilkanth at Jagannath Puri (forgiveness)",
+   "section": "s3",
+   "x": 115.7,
+   "y": 18,
+   "rot": 180,
+   "params": {
+    "w": 3.5,
+    "h": 5,
+    "bottom": 2,
+    "title": "Puri \u00b7 Nilkanth at Jagannath Puri (forgiveness)",
+    "style": "cream"
+   }
+  },
+  {
+   "id": "y27pp4",
+   "type": "poster",
+   "name": "Puri \u00b7 Everyone pulls the rope together",
+   "section": "s3",
+   "x": 115.7,
+   "y": 22.5,
+   "rot": 180,
+   "params": {
+    "w": 3.5,
+    "h": 5,
+    "bottom": 2,
+    "title": "Puri \u00b7 Everyone pulls the rope together",
+    "style": "cream"
+   }
+  },
+  {
+   "id": "y27pf1",
+   "type": "setPiece",
+   "name": "Road floor print (Bada Danda)",
+   "section": "s3",
+   "x": 102.5,
+   "y": 15,
+   "rot": 90,
+   "params": {
+    "title": "Road floor print (Bada Danda)",
+    "w": 26,
+    "d": 22,
+    "h": 0.03,
+    "parts": [
+     [
+      0,
+      -8.5,
+      0,
+      25,
+      4,
+      0.02,
+      "terracotta",
+      "road floor print along the raths"
+     ],
+     [
+      -0.5,
+      2.5,
+      0,
+      4.5,
+      18,
+      0.02,
+      "terracotta",
+      "road floor print to the exit"
+     ]
+    ],
+    "note": "Printed floor vinyl: the Grand Road in front of the raths, turning north to the exit into Kashi."
+   }
+  },
+  {
+   "id": "y27pf2",
+   "type": "setPiece",
+   "name": "Pulling rope (from Jagannath's ratha)",
+   "section": "s3",
+   "x": 102.5,
+   "y": 15,
+   "rot": 90,
+   "params": {
+    "title": "Pulling rope (from Jagannath's ratha)",
+    "w": 2,
+    "d": 11,
+    "h": 0.4,
+    "parts": [
+     [
+      -6.9,
+      -10.85,
+      0,
+      2.9658633371878658,
+      0.4,
+      0.4,
+      "paintCream",
+      "thick pulling rope",
+      77.47119229084848
+     ],
+     [
+      -7.1,
+      -8.25,
+      0,
+      2.892582403567252,
+      0.4,
+      0.4,
+      "paintCream",
+      "thick pulling rope",
+      111.80140948635182
+     ],
+     [
+      -7.199999999999999,
+      -5.75,
+      0,
+      2.8248809496813374,
+      0.4,
+      0.4,
+      "paintCream",
+      "thick pulling rope",
+      72.25532837494306
+     ],
+     [
+      -7.3,
+      -3.25,
+      0,
+      2.892582403567252,
+      0.4,
+      0.4,
+      "paintCream",
+      "thick pulling rope",
+      111.80140948635182
+     ]
+    ]
+   }
   }
  ],
  "probes": [],
@@ -5620,5 +5900,5 @@
  },
  "artSpotVariant": "framing20",
  "updatedAt": 1794708921175,
- "savedAt": "2026-11-15T02:44:59.000Z"
+ "savedAt": "2026-11-15T02:49:32.000Z"
 }
