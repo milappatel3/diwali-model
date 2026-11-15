@@ -6,12 +6,12 @@
   "layout2027"
  ],
  "name": "Diwali Exhibition 2027",
- "venue": "Assembly Hall · BAPS Milpitas (1430 California Circle)",
+ "venue": "Assembly Hall \u00b7 BAPS Milpitas (1430 California Circle)",
  "items": [
   {
    "id": "y27boo1",
    "type": "booth",
-   "name": "1 · Welcome to India",
+   "name": "1 \u00b7 Welcome to India",
    "section": "entry",
    "x": 37.75,
    "y": 13,
@@ -19,14 +19,14 @@
    "params": {
     "w": 24.5,
     "d": 26,
-    "title": "1 · Welcome to India",
+    "title": "1 \u00b7 Welcome to India",
     "zone": true
    }
   },
   {
    "id": "y27boo2",
    "type": "booth",
-   "name": "2 · Ayodhya (Multi Room)",
+   "name": "2 \u00b7 Ayodhya (Multi Room)",
    "section": "s1",
    "x": 71,
    "y": -15.25,
@@ -34,14 +34,14 @@
    "params": {
     "w": 36,
     "d": 24.5,
-    "title": "2 · Ayodhya (Multi Room)",
+    "title": "2 \u00b7 Ayodhya (Multi Room)",
     "zone": true
    }
   },
   {
    "id": "y27boo3",
    "type": "booth",
-   "name": "3 · Rameswaram → Kanyakumari (the boat)",
+   "name": "3 \u00b7 Rameswaram \u2192 Kanyakumari (the boat)",
    "section": "s2",
    "x": 75,
    "y": 13,
@@ -49,14 +49,14 @@
    "params": {
     "w": 28,
     "d": 26,
-    "title": "3 · Rameswaram → Kanyakumari (the boat)",
+    "title": "3 \u00b7 Rameswaram \u2192 Kanyakumari (the boat)",
     "zone": true
    }
   },
   {
    "id": "y27boo4",
    "type": "booth",
-   "name": "4 · Jagannath Puri",
+   "name": "4 \u00b7 Jagannath Puri",
    "section": "s3",
    "x": 102.5,
    "y": 13,
@@ -64,14 +64,14 @@
    "params": {
     "w": 27,
     "d": 26,
-    "title": "4 · Jagannath Puri",
+    "title": "4 \u00b7 Jagannath Puri",
     "zone": true
    }
   },
   {
    "id": "y27boo5",
    "type": "booth",
-   "name": "5 · Kashi ghats",
+   "name": "5 \u00b7 Kashi ghats",
    "section": "s4",
    "x": 102.5,
    "y": 49.1,
@@ -79,14 +79,14 @@
    "params": {
     "w": 27,
     "d": 46.2,
-    "title": "5 · Kashi ghats",
+    "title": "5 \u00b7 Kashi ghats",
     "zone": true
    }
   },
   {
    "id": "y27boo6",
    "type": "booth",
-   "name": "6 · Triveni Sangam",
+   "name": "6 \u00b7 Triveni Sangam",
    "section": "s4",
    "x": 106,
    "y": 82.2,
@@ -94,14 +94,14 @@
    "params": {
     "w": 20,
     "d": 20,
-    "title": "6 · Triveni Sangam",
+    "title": "6 \u00b7 Triveni Sangam",
     "zone": true
    }
   },
   {
    "id": "y27boo7",
    "type": "booth",
-   "name": "7 · Himalaya · Char Dham",
+   "name": "7 \u00b7 Himalaya \u00b7 Char Dham",
    "section": "s5",
    "x": 69,
    "y": 67.7,
@@ -109,14 +109,14 @@
    "params": {
     "w": 40,
     "d": 23,
-    "title": "7 · Himalaya · Char Dham",
+    "title": "7 \u00b7 Himalaya \u00b7 Char Dham",
     "zone": true
    }
   },
   {
    "id": "y27boo8",
    "type": "booth",
-   "name": "8 · Nilkanth Varni abhishek",
+   "name": "8 \u00b7 Nilkanth Varni abhishek",
    "section": "s5",
    "x": 40.5,
    "y": 67.7,
@@ -124,7 +124,7 @@
    "params": {
     "w": 15,
     "d": 23,
-    "title": "8 · Nilkanth Varni abhishek",
+    "title": "8 \u00b7 Nilkanth Varni abhishek",
     "zone": true,
     "onRiser": true
    },
@@ -133,7 +133,7 @@
   {
    "id": "y27boo9",
    "type": "booth",
-   "name": "9 · BAPS & Satsang (Akshardham)",
+   "name": "9 \u00b7 BAPS & Satsang (Akshardham)",
    "section": "s6",
    "x": 56.5,
    "y": 41.1,
@@ -141,7 +141,7 @@
    "params": {
     "w": 63,
     "d": 30.200000000000003,
-    "title": "9 · BAPS & Satsang (Akshardham)",
+    "title": "9 \u00b7 BAPS & Satsang (Akshardham)",
     "zone": true
    }
   },
@@ -206,36 +206,6 @@
    }
   },
   {
-   "id": "y27boo14",
-   "type": "booth",
-   "name": "Calendars",
-   "section": "infra",
-   "x": 10.5,
-   "y": 12.5,
-   "rot": 90,
-   "params": {
-    "w": 15,
-    "d": 19,
-    "title": "Calendars",
-    "zone": true
-   }
-  },
-  {
-   "id": "y27boo15",
-   "type": "booth",
-   "name": "Sant Milan",
-   "section": "infra",
-   "x": 21.5,
-   "y": 12.5,
-   "rot": 90,
-   "params": {
-    "w": 5,
-    "d": 19,
-    "title": "Sant Milan",
-    "zone": true
-   }
-  },
-  {
    "id": "y27boo16",
    "type": "booth",
    "name": "Corridor to the Multi Room",
@@ -253,7 +223,7 @@
   {
    "id": "y27drp17",
    "type": "drape",
-   "name": "Welcome tunnel — west wall",
+   "name": "Welcome tunnel \u2014 west wall",
    "section": "entry",
    "x": 25.5,
    "y": 0.3,
@@ -275,33 +245,9 @@
    ]
   },
   {
-   "id": "y27drp18",
-   "type": "drape",
-   "name": "Welcome tunnel — east wall",
-   "section": "entry",
-   "x": 41.5,
-   "y": 0.3,
-   "rot": 0,
-   "params": {
-    "h": 8,
-    "color": "black",
-    "fullness": 0.5
-   },
-   "points": [
-    {
-     "x": 0,
-     "y": 0
-    },
-    {
-     "x": 0,
-     "y": 12.7
-    }
-   ]
-  },
-  {
    "id": "y27drp20",
    "type": "drape",
-   "name": "BAPS & Satsang — south wall (message panels)",
+   "name": "BAPS & Satsang \u2014 south wall (message panels)",
    "section": "s6",
    "x": 22,
    "y": 26,
@@ -313,7 +259,7 @@
    },
    "points": [
     {
-     "x": 0,
+     "x": 3,
      "y": 0
     },
     {
@@ -323,57 +269,9 @@
    ]
   },
   {
-   "id": "y27drp21",
-   "type": "drape",
-   "name": "Boat room — west wall",
-   "section": "s2",
-   "x": 61,
-   "y": 0.3,
-   "rot": 0,
-   "params": {
-    "h": 8,
-    "color": "black",
-    "fullness": 0.5
-   },
-   "points": [
-    {
-     "x": 0,
-     "y": 0
-    },
-    {
-     "x": 0,
-     "y": 25.7
-    }
-   ]
-  },
-  {
-   "id": "y27drp22",
-   "type": "drape",
-   "name": "Boat room | Puri (exit at the north end)",
-   "section": "s2",
-   "x": 89,
-   "y": 0.3,
-   "rot": 0,
-   "params": {
-    "h": 8,
-    "color": "black",
-    "fullness": 0.5
-   },
-   "points": [
-    {
-     "x": 0,
-     "y": 0
-    },
-    {
-     "x": 0,
-     "y": 17.7
-    }
-   ]
-  },
-  {
    "id": "y27drp23",
    "type": "drape",
-   "name": "Puri — east wall",
+   "name": "Puri \u2014 east wall",
    "section": "s3",
    "x": 116,
    "y": 0.3,
@@ -397,7 +295,7 @@
   {
    "id": "y27drp24",
    "type": "drape",
-   "name": "Kashi — west wall",
+   "name": "Kashi \u2014 west wall",
    "section": "s4",
    "x": 89,
    "y": 26,
@@ -421,7 +319,7 @@
   {
    "id": "y27drp25",
    "type": "drape",
-   "name": "Sangam — west wall",
+   "name": "Sangam \u2014 west wall",
    "section": "s4",
    "x": 96,
    "y": 83.5,
@@ -445,7 +343,7 @@
   {
    "id": "y27drp26",
    "type": "drape",
-   "name": "BAPS & Satsang — north wall (guru panel) / Himalaya back",
+   "name": "BAPS & Satsang \u2014 north wall (guru panel) / Himalaya back",
    "section": "s6",
    "x": 32,
    "y": 66.2,
@@ -469,7 +367,7 @@
   {
    "id": "y27drp27",
    "type": "drape",
-   "name": "Stage walkway — west wall",
+   "name": "Stage walkway \u2014 west wall",
    "section": "infra",
    "x": 25,
    "y": 52.2,
@@ -489,275 +387,6 @@
      "y": 42.8
     }
    ]
-  },
-  {
-   "id": "y27ban29",
-   "type": "banner",
-   "name": "Welcome to India — header",
-   "section": "entry",
-   "x": 33.5,
-   "y": 1.2,
-   "rot": 270,
-   "params": {
-    "w": 14,
-    "h": 2.5,
-    "bottom": 7.5,
-    "title": "Welcome to India",
-    "style": "saffron",
-    "feet": false
-   }
-  },
-  {
-   "id": "y27set30",
-   "type": "setPiece",
-   "name": "Violet tunnel canopy",
-   "section": "entry",
-   "x": 33.5,
-   "y": 6.65,
-   "rot": 90,
-   "params": {
-    "title": "Violet tunnel canopy",
-    "w": 16,
-    "d": 12.7,
-    "h": 8,
-    "parts": [
-     [
-      0,
-      0,
-      7.85,
-      16,
-      12.7,
-      0.15,
-      "violet",
-      "violet fabric ceiling over the tunnel"
-     ]
-    ],
-    "note": "Dark violet fabric ceiling at 8 ft; the tunnel walls are the drape runs."
-   }
-  },
-  {
-   "id": "y27set31",
-   "type": "setPiece",
-   "name": "Marigold torans + diya strings (tunnel)",
-   "section": "entry",
-   "x": 33.5,
-   "y": 6.65,
-   "rot": 90,
-   "params": {
-    "title": "Marigold torans + diya strings (tunnel)",
-    "w": 16,
-    "d": 12.7,
-    "h": 8,
-    "parts": [
-     [
-      -7.85,
-      0,
-      6.9,
-      0.2,
-      12.7,
-      0.7,
-      "paintSaffron",
-      "marigold toran"
-     ],
-     [
-      7.85,
-      0,
-      6.9,
-      0.2,
-      12.7,
-      0.7,
-      "paintSaffron",
-      "marigold toran"
-     ]
-    ],
-    "glow": [
-     {
-      "u": -7.6,
-      "v": -6,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": 7.6,
-      "v": -6,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": -7.6,
-      "v": -4,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": 7.6,
-      "v": -4,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": -7.6,
-      "v": -2,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": 7.6,
-      "v": -2,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": -7.6,
-      "v": 0,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": 7.6,
-      "v": 0,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": -7.6,
-      "v": 2,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": 7.6,
-      "v": 2,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": -7.6,
-      "v": 4,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": 7.6,
-      "v": 4,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": -7.6,
-      "v": 6,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     },
-     {
-      "u": 7.6,
-      "v": 6,
-      "z": 7.2,
-      "lumens": 12,
-      "cct": 1900,
-      "name": "diya string"
-     }
-    ]
-   }
-  },
-  {
-   "id": "y27ban32",
-   "type": "banner",
-   "name": "Intro wall A (8 × 8, L corner)",
-   "section": "entry",
-   "x": 29.8,
-   "y": 25.6,
-   "rot": 270,
-   "params": {
-    "w": 8,
-    "h": 8,
-    "bottom": 0,
-    "title": "Intro wall A — Welcome to India",
-    "style": "saffron",
-    "feet": false,
-    "onDrape": true
-   }
-  },
-  {
-   "id": "y27ban33",
-   "type": "banner",
-   "name": "Intro wall B (8 × 8, L corner)",
-   "section": "entry",
-   "x": 25.9,
-   "y": 21.8,
-   "rot": 0,
-   "params": {
-    "w": 8,
-    "h": 8,
-    "bottom": 0,
-    "title": "Intro wall B — the journey ahead",
-    "style": "saffron",
-    "feet": false,
-    "onDrape": true
-   }
-  },
-  {
-   "id": "y27set34",
-   "type": "setPiece",
-   "name": "Rangoli (floor)",
-   "section": "entry",
-   "x": 41,
-   "y": 19,
-   "rot": 90,
-   "params": {
-    "title": "Rangoli (floor)",
-    "w": 7,
-    "d": 7,
-    "h": 0.05,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      7,
-      7,
-      0.03,
-      "paintSaffron",
-      "rangoli floor graphic"
-     ],
-     [
-      0,
-      0,
-      0.03,
-      4.5,
-      4.5,
-      0.02,
-      "drapeMaroon",
-      "rangoli centre"
-     ]
-    ]
-   }
   },
   {
    "id": "y27set35",
@@ -1488,13 +1117,13 @@
       "name": "centre lamp"
      }
     ],
-    "note": "The one main piece: three 6″ steps of LED diyas around a centre lamp."
+    "note": "The one main piece: three 6\u2033 steps of LED diyas around a centre lamp."
    }
   },
   {
    "id": "y27pos36",
    "type": "poster",
-   "name": "Shri Ram · Birth of Shri Ram",
+   "name": "Shri Ram \u00b7 Birth of Shri Ram",
    "section": "s1",
    "x": 57,
    "y": -27.3,
@@ -1503,13 +1132,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · Birth of Shri Ram"
+    "title": "Shri Ram \u00b7 Birth of Shri Ram"
    }
   },
   {
    "id": "y27pos37",
    "type": "poster",
-   "name": "Shri Ram · Exile to the forest",
+   "name": "Shri Ram \u00b7 Exile to the forest",
    "section": "s1",
    "x": 64,
    "y": -27.3,
@@ -1518,13 +1147,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · Exile to the forest"
+    "title": "Shri Ram \u00b7 Exile to the forest"
    }
   },
   {
    "id": "y27pos38",
    "type": "poster",
-   "name": "Shri Ram · Bharat and the padukas",
+   "name": "Shri Ram \u00b7 Bharat and the padukas",
    "section": "s1",
    "x": 71,
    "y": -27.3,
@@ -1533,13 +1162,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · Bharat and the padukas"
+    "title": "Shri Ram \u00b7 Bharat and the padukas"
    }
   },
   {
    "id": "y27pos39",
    "type": "poster",
-   "name": "Shri Ram · Victory over Ravan",
+   "name": "Shri Ram \u00b7 Victory over Ravan",
    "section": "s1",
    "x": 78,
    "y": -27.3,
@@ -1548,13 +1177,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · Victory over Ravan"
+    "title": "Shri Ram \u00b7 Victory over Ravan"
    }
   },
   {
    "id": "y27pos40",
    "type": "poster",
-   "name": "Shri Ram · The return to Ayodhya",
+   "name": "Shri Ram \u00b7 The return to Ayodhya",
    "section": "s1",
    "x": 85,
    "y": -27.3,
@@ -1563,58 +1192,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · The return to Ayodhya"
-   }
-  },
-  {
-   "id": "y27pos41",
-   "type": "poster",
-   "name": "Diwali’s origin · The first Diwali: Ayodhya lit with diyas",
-   "section": "s1",
-   "x": 65,
-   "y": -3.1,
-   "rot": 270,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "Diwali’s origin · The first Diwali: Ayodhya lit with diyas"
-   }
-  },
-  {
-   "id": "y27pos42",
-   "type": "poster",
-   "name": "Diwali’s origin · Why we light diyas",
-   "section": "s1",
-   "x": 71.5,
-   "y": -3.1,
-   "rot": 270,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "Diwali’s origin · Why we light diyas"
-   }
-  },
-  {
-   "id": "y27pos43",
-   "type": "poster",
-   "name": "Diwali’s origin · Diwali today",
-   "section": "s1",
-   "x": 78,
-   "y": -3.1,
-   "rot": 270,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "Diwali’s origin · Diwali today"
+    "title": "Shri Ram \u00b7 The return to Ayodhya"
    }
   },
   {
    "id": "y27pos44",
    "type": "poster",
-   "name": "Nilkanth Varni · Ghanshyam in Ayodhya",
+   "name": "Nilkanth Varni \u00b7 Ghanshyam in Ayodhya",
    "section": "s1",
    "x": 53.4,
    "y": -9,
@@ -1623,13 +1207,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Nilkanth Varni · Ghanshyam in Ayodhya"
+    "title": "Nilkanth Varni \u00b7 Ghanshyam in Ayodhya"
    }
   },
   {
    "id": "y27pos45",
    "type": "poster",
-   "name": "Nilkanth Varni · Leaving home at 11",
+   "name": "Nilkanth Varni \u00b7 Leaving home at 11",
    "section": "s1",
    "x": 53.4,
    "y": -16,
@@ -1638,7 +1222,7 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Nilkanth Varni · Leaving home at 11"
+    "title": "Nilkanth Varni \u00b7 Leaving home at 11"
    }
   },
   {
@@ -1721,7 +1305,7 @@
       15,
       0.67,
       "woodDark",
-      "boat deck: stage decks at 8″"
+      "boat deck: stage decks at 8\u2033"
      ],
      [
       0,
@@ -1897,7 +1481,7 @@
   {
    "id": "y27flo54",
    "type": "floorMark",
-   "name": "Footprints turn north: “12,000 km. He turned around and kept walking.”",
+   "name": "Footprints turn north: \u201c12,000 km. He turned around and kept walking.\u201d",
    "section": "s2",
    "x": 87,
    "y": 22,
@@ -1986,7 +1570,7 @@
       38.5,
       0.9,
       "water",
-      "water, ~10″ deep"
+      "water, ~10\u2033 deep"
      ],
      [
       -4.75,
@@ -2446,7 +2030,7 @@
   {
    "id": "y27ris87",
    "type": "riser",
-   "name": "Nilkanth abhishek stage (15 × 15)",
+   "name": "Nilkanth abhishek stage (15 \u00d7 15)",
    "section": "s5",
    "x": 47.5,
    "y": 73.7,
@@ -2668,7 +2252,7 @@
       "kalash"
      ]
     ],
-    "note": "Detailed model on a 2½ ft plinth; size from the plan (10 × 12 ft), height inferred."
+    "note": "Detailed model on a 2\u00bd ft plinth; size from the plan (10 \u00d7 12 ft), height inferred."
    }
   },
   {
@@ -2687,111 +2271,6 @@
     "style": "saffron",
     "feet": false,
     "onDrape": true
-   }
-  },
-  {
-   "id": "y27pos92",
-   "type": "poster",
-   "name": "BAPS & Satsang · Key message 1",
-   "section": "s6",
-   "x": 30,
-   "y": 26.2,
-   "rot": 90,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "BAPS & Satsang · Key message 1"
-   }
-  },
-  {
-   "id": "y27pos93",
-   "type": "poster",
-   "name": "BAPS & Satsang · Key message 2",
-   "section": "s6",
-   "x": 37,
-   "y": 26.2,
-   "rot": 90,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "BAPS & Satsang · Key message 2"
-   }
-  },
-  {
-   "id": "y27pos94",
-   "type": "poster",
-   "name": "BAPS & Satsang · Key message 3",
-   "section": "s6",
-   "x": 44,
-   "y": 26.2,
-   "rot": 90,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "BAPS & Satsang · Key message 3"
-   }
-  },
-  {
-   "id": "y27pos95",
-   "type": "poster",
-   "name": "BAPS & Satsang · Key message 4",
-   "section": "s6",
-   "x": 51,
-   "y": 26.2,
-   "rot": 90,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "BAPS & Satsang · Key message 4"
-   }
-  },
-  {
-   "id": "y27pos96",
-   "type": "poster",
-   "name": "BAPS & Satsang · Key message 5",
-   "section": "s6",
-   "x": 58,
-   "y": 26.2,
-   "rot": 90,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "BAPS & Satsang · Key message 5"
-   }
-  },
-  {
-   "id": "y27pos97",
-   "type": "poster",
-   "name": "BAPS & Satsang · Key message 6",
-   "section": "s6",
-   "x": 65,
-   "y": 26.2,
-   "rot": 90,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "BAPS & Satsang · Key message 6"
-   }
-  },
-  {
-   "id": "y27pos98",
-   "type": "poster",
-   "name": "BAPS & Satsang · Key message 7",
-   "section": "s6",
-   "x": 72,
-   "y": 26.2,
-   "rot": 90,
-   "params": {
-    "w": 4,
-    "h": 5,
-    "bottom": 2,
-    "title": "BAPS & Satsang · Key message 7"
    }
   },
   {
@@ -2819,8 +2298,8 @@
    "id": "dra_5h86dh9hc"
   },
   {
-   "x": 47,
-   "y": 1,
+   "x": 74,
+   "y": 0,
    "rot": 0,
    "section": "infra",
    "type": "drape",
@@ -2832,68 +2311,20 @@
    },
    "points": [
     {
-     "x": 0,
+     "x": -14,
      "y": 0
     },
     {
-     "x": 0,
-     "y": 11
-    }
-   ],
-   "id": "dra_yw7q36akg"
-  },
-  {
-   "x": 79,
-   "y": 3,
-   "rot": 0,
-   "section": "infra",
-   "type": "drape",
-   "name": "New wall",
-   "params": {
-    "h": 8,
-    "color": "black",
-    "fullness": 0.5
-   },
-   "points": [
-    {
-     "x": -13,
-     "y": 0
-    },
-    {
-     "x": 10,
+     "x": 8,
      "y": 0
     }
    ],
    "id": "dra_5sdot57tz"
   },
   {
-   "x": 106,
-   "y": 26,
-   "rot": 0,
-   "section": "infra",
-   "type": "drape",
-   "name": "New wall",
-   "params": {
-    "h": 8,
-    "color": "black",
-    "fullness": 0.5
-   },
-   "points": [
-    {
-     "x": -2,
-     "y": 0
-    },
-    {
-     "x": 10,
-     "y": 0
-    }
-   ],
-   "id": "dra_4trhpnnpe"
-  },
-  {
    "id": "y27kb1",
    "type": "banner",
-   "name": "Kashi ghats at dusk — printed backdrop (40 ft)",
+   "name": "Kashi ghats at dusk \u2014 printed backdrop (40 ft)",
    "section": "s4",
    "x": 89.35,
    "y": 49,
@@ -2903,7 +2334,7 @@
     "h": 10,
     "bottom": 0.5,
     "title": "",
-    "sub": "Printed backdrop · the ghats of Kashi at dusk",
+    "sub": "Printed backdrop \u00b7 the ghats of Kashi at dusk",
     "style": "photo",
     "feet": false,
     "onDrape": true
@@ -3434,7 +2865,7 @@
   {
    "id": "y27kd1",
    "type": "drape",
-   "name": "Kashi — east wall (posters behind the river)",
+   "name": "Kashi \u2014 east wall (posters behind the river)",
    "section": "s4",
    "x": 116.2,
    "y": 27,
@@ -3458,13 +2889,13 @@
   {
    "id": "y27set74",
    "type": "setPiece",
-   "name": "Sangam · the meeting (corner pool)",
+   "name": "Sangam \u00b7 the meeting (corner pool)",
    "section": "s4",
    "x": 109,
    "y": 87.2,
    "rot": 90,
    "params": {
-    "title": "Sangam · the meeting (corner pool)",
+    "title": "Sangam \u00b7 the meeting (corner pool)",
     "w": 10,
     "d": 10,
     "h": 1.5,
@@ -3500,19 +2931,19 @@
       "beam of light"
      ]
     ],
-    "note": "Real water, about 12″ deep, in a lined tank behind the stone facing."
+    "note": "Real water, about 12\u2033 deep, in a lined tank behind the stone facing."
    }
   },
   {
    "id": "y27set75",
    "type": "setPiece",
-   "name": "Sangam · Ganga (blue)",
+   "name": "Sangam \u00b7 Ganga (blue)",
    "section": "s4",
    "x": 109,
    "y": 77.2,
    "rot": 90,
    "params": {
-    "title": "Sangam · Ganga (blue)",
+    "title": "Sangam \u00b7 Ganga (blue)",
     "w": 10,
     "d": 8,
     "h": 1.5,
@@ -3538,19 +2969,19 @@
       "water"
      ]
     ],
-    "note": "Real water, about 12″ deep, in a lined tank behind the stone facing."
+    "note": "Real water, about 12\u2033 deep, in a lined tank behind the stone facing."
    }
   },
   {
    "id": "y27set73",
    "type": "setPiece",
-   "name": "Sangam · Yamuna (green)",
+   "name": "Sangam \u00b7 Yamuna (green)",
    "section": "s4",
    "x": 100.2,
    "y": 89,
    "rot": 90,
    "params": {
-    "title": "Sangam · Yamuna (green)",
+    "title": "Sangam \u00b7 Yamuna (green)",
     "w": 6.400000000000006,
     "d": 6.400000000000006,
     "h": 1.5,
@@ -3576,19 +3007,19 @@
       "water"
      ]
     ],
-    "note": "Real water, about 12″ deep, in a lined tank behind the stone facing."
+    "note": "Real water, about 12\u2033 deep, in a lined tank behind the stone facing."
    }
   },
   {
    "id": "y27kc1",
    "type": "setPiece",
-   "name": "Cascade · blue → corner pool",
+   "name": "Cascade \u00b7 blue \u2192 corner pool",
    "section": "s4",
    "x": 109,
    "y": 81.7,
    "rot": 90,
    "params": {
-    "title": "Cascade · blue → corner pool",
+    "title": "Cascade \u00b7 blue \u2192 corner pool",
     "w": 3,
     "d": 1,
     "h": 1.6,
@@ -3609,13 +3040,13 @@
   {
    "id": "y27kc2",
    "type": "setPiece",
-   "name": "Cascade · green → corner pool",
+   "name": "Cascade \u00b7 green \u2192 corner pool",
    "section": "s4",
    "x": 103.7,
    "y": 89,
    "rot": 90,
    "params": {
-    "title": "Cascade · green → corner pool",
+    "title": "Cascade \u00b7 green \u2192 corner pool",
     "w": 0.8,
     "d": 2.4,
     "h": 1.6,
@@ -3673,13 +3104,13 @@
   {
    "id": "y27hm1",
    "type": "setPiece",
-   "name": "Himalaya · layered cut-out mountains (projection-mapped)",
+   "name": "Himalaya \u00b7 layered cut-out mountains (projection-mapped)",
    "section": "s5",
    "x": 72,
    "y": 67,
    "rot": 90,
    "params": {
-    "title": "Himalaya · layered cut-out mountains (projection-mapped)",
+    "title": "Himalaya \u00b7 layered cut-out mountains (projection-mapped)",
     "w": 32,
     "d": 3.6,
     "h": 16,
@@ -4120,7 +3551,7 @@
       "name": "temple scenes (front bays)"
      }
     ],
-    "note": "Three layers of cut-out flats (about 16, 11 and 8½ ft), white and lightly textured so two projectors on the truss can map snow, clouds and sunrise onto them; the front layer has an arched bay for each dham."
+    "note": "Three layers of cut-out flats (about 16, 11 and 8\u00bd ft), white and lightly textured so two projectors on the truss can map snow, clouds and sunrise onto them; the front layer has an arched bay for each dham."
    }
   },
   {
@@ -4190,13 +3621,13 @@
   {
    "id": "y27hi1",
    "type": "setPiece",
-   "name": "Yamunotri · hot spring among rocks",
+   "name": "Yamunotri \u00b7 hot spring among rocks",
    "section": "s5",
    "x": 84,
    "y": 73.6,
    "rot": 90,
    "params": {
-    "title": "Yamunotri · hot spring among rocks",
+    "title": "Yamunotri \u00b7 hot spring among rocks",
     "w": 6,
     "d": 3,
     "h": 1.2,
@@ -4268,13 +3699,13 @@
   {
    "id": "y27hi2",
    "type": "setPiece",
-   "name": "Gangotri · rock cave and waterfall (Gaumukh)",
+   "name": "Gangotri \u00b7 rock cave and waterfall (Gaumukh)",
    "section": "s5",
    "x": 76,
    "y": 73.4,
    "rot": 90,
    "params": {
-    "title": "Gangotri · rock cave and waterfall (Gaumukh)",
+    "title": "Gangotri \u00b7 rock cave and waterfall (Gaumukh)",
     "w": 6,
     "d": 3.6,
     "h": 3.8,
@@ -4356,13 +3787,13 @@
   {
    "id": "y27hi3",
    "type": "setPiece",
-   "name": "Kedarnath · temple bell on a wooden frame",
+   "name": "Kedarnath \u00b7 temple bell on a wooden frame",
    "section": "s5",
    "x": 68,
    "y": 73.4,
    "rot": 90,
    "params": {
-    "title": "Kedarnath · temple bell on a wooden frame",
+    "title": "Kedarnath \u00b7 temple bell on a wooden frame",
     "w": 6.4,
     "d": 1.2,
     "h": 7.1,
@@ -4444,13 +3875,13 @@
   {
    "id": "y27hi4",
    "type": "setPiece",
-   "name": "Badrinath · Tapt Kund (round hot spring)",
+   "name": "Badrinath \u00b7 Tapt Kund (round hot spring)",
    "section": "s5",
    "x": 60,
    "y": 74,
    "rot": 90,
    "params": {
-    "title": "Badrinath · Tapt Kund (round hot spring)",
+    "title": "Badrinath \u00b7 Tapt Kund (round hot spring)",
     "w": 6,
     "d": 6,
     "h": 1.6,
@@ -4671,11 +4102,11 @@
    "name": "Jagannath's ratha (red-yellow)",
    "section": "s3",
    "x": 93.5,
-   "y": 1,
+   "y": 6,
    "rot": 90,
    "params": {
     "title": "Jagannath's ratha (red-yellow)",
-    "w": 8.6,
+    "w": 8,
     "d": 2,
     "h": 11,
     "parts": [
@@ -4683,27 +4114,27 @@
       0,
       0,
       0.4,
-      8,
+      7.441860465116279,
       0.3,
       7.8,
       "drapeMaroon",
       "printed chariot panel (deity, horses, patterns)"
      ],
      [
-      -3.6,
+      -3.3488372093023258,
       0.6,
       0,
-      0.3,
+      0.27906976744186046,
       1.4,
       0.4,
       "wood",
       "easel foot"
      ],
      [
-      3.6,
+      3.3488372093023258,
       0.6,
       0,
-      0.3,
+      0.27906976744186046,
       1.4,
       0.4,
       "wood",
@@ -4713,7 +4144,7 @@
       0,
       0.1,
       8.2,
-      8.6,
+      8,
       0.5,
       1.2,
       "paintSaffron",
@@ -4723,7 +4154,7 @@
       0,
       0.1,
       9.4,
-      6.2,
+      5.767441860465117,
       0.5,
       1,
       "drapeMaroon",
@@ -4733,7 +4164,7 @@
       0,
       0.1,
       10.4,
-      3.6,
+      3.3488372093023258,
       0.5,
       0.5,
       "paintSaffron",
@@ -4743,7 +4174,7 @@
       0,
       0.1,
       10.9,
-      0.4,
+      0.37209302325581395,
       0.3,
       0.6,
       "gold",
@@ -4753,107 +4184,107 @@
       0,
       0.25,
       7.5,
-      7.6,
+      7.069767441860464,
       0.15,
       0.3,
       "paintSaffron",
       "marigold garland"
      ],
      [
-      -3.7,
+      -3.441860465116279,
       0.25,
       1.5,
-      0.2,
+      0.18604651162790697,
       0.15,
       6,
       "paintSaffron",
       "marigold garland"
      ],
      [
-      3.7,
+      3.441860465116279,
       0.25,
       1.5,
-      0.2,
+      0.18604651162790697,
       0.15,
       6,
       "paintSaffron",
       "marigold garland"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       0.1,
-      2.1633307652783933,
+      2.0124007118868774,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       0.7,
-      3.4467375879228173,
+      3.2062675236491325,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       1.3,
-      4.024922359499621,
+      3.744113822790345,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       1.9,
-      4.2,
+      3.906976744186047,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       2.5,
-      4.024922359499622,
+      3.744113822790346,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       3.1,
-      3.4467375879228177,
+      3.206267523649133,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       3.6999999999999997,
-      2.163330765278396,
+      2.01240071188688,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.95,
       1.85,
-      0.7,
+      0.6511627906976744,
       0.1,
       0.7,
       "gold",
@@ -4868,12 +4299,12 @@
    "type": "setPiece",
    "name": "Subhadra's ratha (red-black)",
    "section": "s3",
-   "x": 102.5,
-   "y": 1,
+   "x": 101.5,
+   "y": 6,
    "rot": 90,
    "params": {
     "title": "Subhadra's ratha (red-black)",
-    "w": 8.6,
+    "w": 8,
     "d": 2,
     "h": 10,
     "parts": [
@@ -4881,27 +4312,27 @@
       0,
       0,
       0.4,
-      8,
+      7.441860465116279,
       0.3,
       6.8,
       "drapeMaroon",
       "printed chariot panel (deity, horses, patterns)"
      ],
      [
-      -3.6,
+      -3.3488372093023258,
       0.6,
       0,
-      0.3,
+      0.27906976744186046,
       1.4,
       0.4,
       "wood",
       "easel foot"
      ],
      [
-      3.6,
+      3.3488372093023258,
       0.6,
       0,
-      0.3,
+      0.27906976744186046,
       1.4,
       0.4,
       "wood",
@@ -4911,7 +4342,7 @@
       0,
       0.1,
       7.2,
-      8.6,
+      8,
       0.5,
       1.2,
       "black",
@@ -4921,7 +4352,7 @@
       0,
       0.1,
       8.4,
-      6.2,
+      5.767441860465117,
       0.5,
       1,
       "drapeMaroon",
@@ -4931,7 +4362,7 @@
       0,
       0.1,
       9.4,
-      3.6,
+      3.3488372093023258,
       0.5,
       0.5,
       "black",
@@ -4941,7 +4372,7 @@
       0,
       0.1,
       9.9,
-      0.4,
+      0.37209302325581395,
       0.3,
       0.6,
       "gold",
@@ -4951,107 +4382,107 @@
       0,
       0.25,
       6.5,
-      7.6,
+      7.069767441860464,
       0.15,
       0.3,
       "paintSaffron",
       "marigold garland"
      ],
      [
-      -3.7,
+      -3.441860465116279,
       0.25,
       1.5,
-      0.2,
+      0.18604651162790697,
       0.15,
       5,
       "paintSaffron",
       "marigold garland"
      ],
      [
-      3.7,
+      3.441860465116279,
       0.25,
       1.5,
-      0.2,
+      0.18604651162790697,
       0.15,
       5,
       "paintSaffron",
       "marigold garland"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       0.1,
-      2.1633307652783933,
+      2.0124007118868774,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       0.7,
-      3.4467375879228173,
+      3.2062675236491325,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       1.3,
-      4.024922359499621,
+      3.744113822790345,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       1.9,
-      4.2,
+      3.906976744186047,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       2.5,
-      4.024922359499622,
+      3.744113822790346,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       3.1,
-      3.4467375879228177,
+      3.206267523649133,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.75,
       3.6999999999999997,
-      2.163330765278396,
+      2.01240071188688,
       0.35,
       0.6,
       "wood",
       "mounted wheel prop"
      ],
      [
-      2.2,
+      2.046511627906977,
       0.95,
       1.85,
-      0.7,
+      0.6511627906976744,
       0.1,
       0.7,
       "gold",
@@ -5062,209 +4493,11 @@
    }
   },
   {
-   "id": "y27pr3",
-   "type": "setPiece",
-   "name": "Balabhadra's ratha (red-green)",
-   "section": "s3",
-   "x": 111.5,
-   "y": 1,
-   "rot": 90,
-   "params": {
-    "title": "Balabhadra's ratha (red-green)",
-    "w": 8.6,
-    "d": 2,
-    "h": 12,
-    "parts": [
-     [
-      0,
-      0,
-      0.4,
-      8,
-      0.3,
-      8.8,
-      "drapeMaroon",
-      "printed chariot panel (deity, horses, patterns)"
-     ],
-     [
-      -3.6,
-      0.6,
-      0,
-      0.3,
-      1.4,
-      0.4,
-      "wood",
-      "easel foot"
-     ],
-     [
-      3.6,
-      0.6,
-      0,
-      0.3,
-      1.4,
-      0.4,
-      "wood",
-      "easel foot"
-     ],
-     [
-      0,
-      0.1,
-      9.200000000000001,
-      8.6,
-      0.5,
-      1.2,
-      "paintSage",
-      "canopy"
-     ],
-     [
-      0,
-      0.1,
-      10.4,
-      6.2,
-      0.5,
-      1,
-      "drapeMaroon",
-      "canopy"
-     ],
-     [
-      0,
-      0.1,
-      11.4,
-      3.6,
-      0.5,
-      0.5,
-      "paintSage",
-      "canopy"
-     ],
-     [
-      0,
-      0.1,
-      11.9,
-      0.4,
-      0.3,
-      0.6,
-      "gold",
-      "finial"
-     ],
-     [
-      0,
-      0.25,
-      8.5,
-      7.6,
-      0.15,
-      0.3,
-      "paintSaffron",
-      "marigold garland"
-     ],
-     [
-      -3.7,
-      0.25,
-      1.5,
-      0.2,
-      0.15,
-      7.000000000000001,
-      "paintSaffron",
-      "marigold garland"
-     ],
-     [
-      3.7,
-      0.25,
-      1.5,
-      0.2,
-      0.15,
-      7.000000000000001,
-      "paintSaffron",
-      "marigold garland"
-     ],
-     [
-      2.2,
-      0.75,
-      0.1,
-      2.1633307652783933,
-      0.35,
-      0.6,
-      "wood",
-      "mounted wheel prop"
-     ],
-     [
-      2.2,
-      0.75,
-      0.7,
-      3.4467375879228173,
-      0.35,
-      0.6,
-      "wood",
-      "mounted wheel prop"
-     ],
-     [
-      2.2,
-      0.75,
-      1.3,
-      4.024922359499621,
-      0.35,
-      0.6,
-      "wood",
-      "mounted wheel prop"
-     ],
-     [
-      2.2,
-      0.75,
-      1.9,
-      4.2,
-      0.35,
-      0.6,
-      "wood",
-      "mounted wheel prop"
-     ],
-     [
-      2.2,
-      0.75,
-      2.5,
-      4.024922359499622,
-      0.35,
-      0.6,
-      "wood",
-      "mounted wheel prop"
-     ],
-     [
-      2.2,
-      0.75,
-      3.1,
-      3.4467375879228177,
-      0.35,
-      0.6,
-      "wood",
-      "mounted wheel prop"
-     ],
-     [
-      2.2,
-      0.75,
-      3.6999999999999997,
-      2.163330765278396,
-      0.35,
-      0.6,
-      "wood",
-      "mounted wheel prop"
-     ],
-     [
-      2.2,
-      0.95,
-      1.85,
-      0.7,
-      0.1,
-      0.7,
-      "gold",
-      "wheel hub"
-     ]
-    ],
-    "note": "Flat printed chariot panel against the south wall, about 12 ft tall with a cloth canopy top, marigold garlands and a mounted wooden wheel prop."
-   }
-  },
-  {
    "id": "y27pb2",
    "type": "banner",
    "name": "Pattachitra frieze (north wall, west)",
    "section": "s3",
-   "x": 94,
+   "x": 93,
    "y": 25.7,
    "rot": 270,
    "params": {
@@ -5283,9 +4516,9 @@
    "type": "banner",
    "name": "Pattachitra frieze (north wall, east)",
    "section": "s3",
-   "x": 110,
-   "y": 25.7,
-   "rot": 270,
+   "x": 98,
+   "y": 19.7,
+   "rot": 180,
    "params": {
     "w": 11,
     "h": 3,
@@ -5298,114 +4531,15 @@
    }
   },
   {
-   "id": "y27pf1",
-   "type": "setPiece",
-   "name": "Road floor print (Bada Danda)",
-   "section": "s3",
-   "x": 102.5,
-   "y": 15,
-   "rot": 90,
-   "params": {
-    "title": "Road floor print (Bada Danda)",
-    "w": 26,
-    "d": 22,
-    "h": 0.03,
-    "parts": [
-     [
-      0,
-      -8.5,
-      0,
-      25,
-      4,
-      0.02,
-      "terracotta",
-      "road floor print along the raths"
-     ],
-     [
-      -0.5,
-      2.5,
-      0,
-      4.5,
-      18,
-      0.02,
-      "terracotta",
-      "road floor print to the exit"
-     ]
-    ],
-    "note": "Printed floor vinyl: the Grand Road in front of the raths, turning north to the exit into Kashi."
-   }
-  },
-  {
-   "id": "y27pf2",
-   "type": "setPiece",
-   "name": "Pulling rope (from Jagannath's ratha)",
-   "section": "s3",
-   "x": 102.5,
-   "y": 15,
-   "rot": 90,
-   "params": {
-    "title": "Pulling rope (from Jagannath's ratha)",
-    "w": 2,
-    "d": 11,
-    "h": 0.4,
-    "parts": [
-     [
-      -6.9,
-      -10.85,
-      0,
-      2.9658633371878658,
-      0.4,
-      0.4,
-      "paintCream",
-      "thick pulling rope",
-      77.47119229084848
-     ],
-     [
-      -7.1,
-      -8.25,
-      0,
-      2.892582403567252,
-      0.4,
-      0.4,
-      "paintCream",
-      "thick pulling rope",
-      111.80140948635182
-     ],
-     [
-      -7.199999999999999,
-      -5.75,
-      0,
-      2.8248809496813374,
-      0.4,
-      0.4,
-      "paintCream",
-      "thick pulling rope",
-      72.25532837494306
-     ],
-     [
-      -7.3,
-      -3.25,
-      0,
-      2.892582403567252,
-      0.4,
-      0.4,
-      "paintCream",
-      "thick pulling rope",
-      111.80140948635182
-     ]
-    ]
-   }
-  },
-  {
    "id": "y27kj1",
    "type": "setPiece",
-   "name": "Kashi — projection wall behind the Ganga",
+   "name": "Kashi \u2014 projection wall behind the Ganga",
    "section": "s4",
    "x": 115.95,
    "y": 49,
    "rot": 180,
    "params": {
-    "title": "Kashi — projection wall behind the Ganga",
+    "title": "Kashi \u2014 projection wall behind the Ganga",
     "w": 44,
     "d": 0.2,
     "h": 8,
@@ -5436,7 +4570,7 @@
       "name": "Kashi projection (river, ghats, aarti)"
      }
     ],
-    "note": "Plain projection surface on the 8 ft wall behind the river. Between aartis it runs a 3–4 minute narrated loop (Kashi, the Ganga, young Ghanshyam among the scholars, wisdom with humility), then switches to the aarti scene."
+    "note": "Plain projection surface on the 8 ft wall behind the river. Between aartis it runs a 3\u20134 minute narrated loop (Kashi, the Ganga, young Ghanshyam among the scholars, wisdom with humility), then switches to the aarti scene."
    }
   },
   {
@@ -5459,9 +4593,9 @@
    "id": "ban_eordzcgi7"
   },
   {
-   "x": 72,
+   "x": 70,
    "y": 25,
-   "rot": 90,
+   "rot": 270,
    "section": "infra",
    "type": "banner",
    "name": "Printed backdrop",
@@ -5478,9 +4612,9 @@
    "id": "ban_idwduly4m"
   },
   {
-   "x": 62,
+   "x": 60,
    "y": 15,
-   "rot": 180,
+   "rot": 0,
    "section": "infra",
    "type": "banner",
    "name": "Printed backdrop",
@@ -5495,6 +4629,621 @@
     "onDrape": true
    },
    "id": "ban_ejblelg3n"
+  },
+  {
+   "x": 78,
+   "y": 5,
+   "rot": 90,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_biku950dz"
+  },
+  {
+   "x": 89,
+   "y": 13,
+   "rot": 180,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 6,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_stw4ar84o"
+  },
+  {
+   "x": 36,
+   "y": 25,
+   "rot": 90,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_jvn7ltcai"
+  },
+  {
+   "x": 50,
+   "y": 25,
+   "rot": 90,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_m1dcumsfh"
+  },
+  {
+   "x": 60,
+   "y": 5,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": -5
+    }
+   ],
+   "id": "dra_p3kz0hm62"
+  },
+  {
+   "x": 47,
+   "y": 0,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 13,
+     "y": 0
+    }
+   ],
+   "id": "dra_nxen2ghvd"
+  },
+  {
+   "x": 44,
+   "y": -7,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 11,
+     "y": 0
+    }
+   ],
+   "id": "dra_4jvw1n34o"
+  },
+  {
+   "x": 46,
+   "y": -4,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": -2,
+     "y": -3
+    },
+    {
+     "x": -2,
+     "y": 4
+    }
+   ],
+   "id": "dra_2x0og2fy9"
+  },
+  {
+   "x": 71,
+   "y": -2,
+   "rot": 90,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_jerzw8nlt"
+  },
+  {
+   "x": 91,
+   "y": -2,
+   "rot": 90,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_pna66o06z"
+  },
+  {
+   "x": 71,
+   "y": -23,
+   "rot": 90,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_dpyjox4t9"
+  },
+  {
+   "x": 91,
+   "y": -23,
+   "rot": 90,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_xfdm2a922"
+  },
+  {
+   "x": 105,
+   "y": -13,
+   "rot": 180,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_lrm9cthk4"
+  },
+  {
+   "x": 43,
+   "y": 10,
+   "rot": 180,
+   "section": "infra",
+   "type": "banner",
+   "name": "Printed backdrop",
+   "params": {
+    "w": 20,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   },
+   "id": "ban_40tfoq4ae"
+  },
+  {
+   "x": 94,
+   "y": 0,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 10,
+     "y": 4
+    },
+    {
+     "x": 10,
+     "y": 0
+    }
+   ],
+   "id": "dra_wcx8m2avy"
+  },
+  {
+   "x": 94,
+   "y": 4,
+   "rot": 0,
+   "section": "infra",
+   "type": "drape",
+   "name": "New wall",
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": -28,
+     "y": 0
+    },
+    {
+     "x": 10,
+     "y": 0
+    }
+   ],
+   "id": "dra_z4jp3mn4r"
+  },
+  {
+   "id": "ban_7gopgsch1",
+   "type": "banner",
+   "name": "Pattachitra frieze (north wall, west) (copy)",
+   "section": "s3",
+   "x": 110,
+   "y": 24.7,
+   "rot": 270,
+   "params": {
+    "w": 9.5,
+    "h": 3,
+    "bottom": 4.5,
+    "title": "",
+    "sub": "Pattachitra frieze",
+    "style": "saffron",
+    "feet": false,
+    "onDrape": true
+   }
+  },
+  {
+   "id": "set_gv4kco077",
+   "type": "setPiece",
+   "name": "Balabhadra's ratha (red-green)",
+   "section": "s3",
+   "x": 109.5,
+   "y": 6,
+   "rot": 90,
+   "params": {
+    "title": "Balabhadra's ratha (red-green)",
+    "w": 8,
+    "d": 2,
+    "h": 10,
+    "parts": [
+     [
+      0,
+      0,
+      0.4,
+      7.424752739909116,
+      0.3,
+      6.8,
+      "drapeMaroon",
+      "printed chariot panel (deity, horses, patterns)"
+     ],
+     [
+      -3.3411387329591022,
+      0.6,
+      0,
+      0.2784282277465918,
+      1.4,
+      0.4,
+      "wood",
+      "easel foot"
+     ],
+     [
+      3.3411387329591022,
+      0.6,
+      0,
+      0.2784282277465918,
+      1.4,
+      0.4,
+      "wood",
+      "easel foot"
+     ],
+     [
+      0,
+      0.1,
+      7.2,
+      7.981609195402299,
+      0.5,
+      1.2,
+      "paintSage",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      8.4,
+      5.754183373429565,
+      0.5,
+      1,
+      "drapeMaroon",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      9.4,
+      3.3411387329591022,
+      0.5,
+      0.5,
+      "paintSage",
+      "canopy"
+     ],
+     [
+      0,
+      0.1,
+      9.9,
+      0.3712376369954558,
+      0.3,
+      0.6,
+      "gold",
+      "finial"
+     ],
+     [
+      0,
+      0.25,
+      6.5,
+      7.05351510291366,
+      0.15,
+      0.3,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      -3.4339481422079663,
+      0.25,
+      1.5,
+      0.1856188184977279,
+      0.15,
+      5,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      3.4339481422079663,
+      0.25,
+      1.5,
+      0.1856188184977279,
+      0.15,
+      5,
+      "paintSaffron",
+      "marigold garland"
+     ],
+     [
+      2.041807003475007,
+      0.75,
+      0.1,
+      2.0077745033538044,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.041807003475007,
+      0.75,
+      0.7,
+      3.1988967937097095,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.041807003475007,
+      0.75,
+      1.3,
+      3.7355066645770343,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.041807003475007,
+      0.75,
+      1.9,
+      3.8979951884522865,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.041807003475007,
+      0.75,
+      2.5,
+      3.735506664577035,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.041807003475007,
+      0.75,
+      3.1,
+      3.19889679370971,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.041807003475007,
+      0.75,
+      3.6999999999999997,
+      2.0077745033538066,
+      0.35,
+      0.6,
+      "wood",
+      "mounted wheel prop"
+     ],
+     [
+      2.041807003475007,
+      0.95,
+      1.85,
+      0.6496658647420476,
+      0.1,
+      0.7,
+      "gold",
+      "wheel hub"
+     ]
+    ],
+    "note": "Flat printed chariot panel against the south wall, about 10 ft tall with a cloth canopy top, marigold garlands and a mounted wooden wheel prop."
+   }
+  },
+  {
+   "id": "ban_li45upce3",
+   "type": "banner",
+   "name": "Pattachitra frieze (north wall, west) (copy) (copy)",
+   "section": "s3",
+   "x": 103,
+   "y": 13.7,
+   "rot": 270,
+   "params": {
+    "w": 9.5,
+    "h": 3,
+    "bottom": 4.5,
+    "title": "",
+    "sub": "Pattachitra frieze",
+    "style": "saffron",
+    "feet": false,
+    "onDrape": true
+   }
+  },
+  {
+   "id": "y27wb1",
+   "type": "booth",
+   "name": "Nilkanth Varni",
+   "section": "infra",
+   "x": 10.9,
+   "y": 9.9,
+   "rot": 90,
+   "params": {
+    "w": 18,
+    "d": 15.6,
+    "title": "Nilkanth Varni",
+    "zone": false
+   }
+  },
+  {
+   "id": "y27wb2",
+   "type": "booth",
+   "name": "Sant Milan",
+   "section": "infra",
+   "x": 10.9,
+   "y": 22.65,
+   "rot": 90,
+   "params": {
+    "w": 18,
+    "d": 10,
+    "title": "Sant Milan",
+    "zone": false
+   }
+  },
+  {
+   "id": "y27wb3",
+   "type": "booth",
+   "name": "Calendar distribution",
+   "section": "infra",
+   "x": 12.1,
+   "y": 39.7,
+   "rot": 90,
+   "params": {
+    "w": 16,
+    "d": 20,
+    "title": "Calendar distribution",
+    "zone": false
+   }
   }
  ],
  "probes": [],
@@ -5528,6 +5277,6 @@
   "uvFlood100": 2
  },
  "artSpotVariant": "framing20",
- "updatedAt": 1794712312218,
- "savedAt": "2026-11-15T03:11:57.826Z"
+ "updatedAt": 1794731806261,
+ "savedAt": "2026-11-15T08:40:25.000Z"
 }
