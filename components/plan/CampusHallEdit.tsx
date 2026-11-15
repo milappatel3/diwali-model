@@ -60,6 +60,22 @@ export function HallInspector({ id, onClose, onDeleted, onSelect }: { id: string
           {p.h !== undefined && <Field label="Height"><NumIn value={p.h} onChange={(v) => size('h', v)} suffix="′" /></Field>}
         </div>
       )}
+      {(it.type === 'poster' || it.type === 'banner') && (
+        <div className="stack" style={{ gap: 6 }}>
+          <div className="row-flex" style={{ gap: 6, alignItems: 'end' }}>
+            <Field label="Bottom edge off floor"><NumIn value={p.bottom ?? 0} onChange={(v) => updateParams(id, { bottom: Math.max(0, v) }, key('bottom'))} suffix="′" /></Field>
+            <span className="tiny muted" style={{ paddingBottom: 8 }}>top at {r1((p.bottom ?? 0) + (p.h ?? 0))} ft</span>
+          </div>
+          <div className="row-flex" style={{ gap: 4, flexWrap: 'wrap' }}>
+            {(it.type === 'poster'
+              ? [[2, 3], [3, 4], [3.5, 5], [4, 6], [5, 7]]
+              : [[8, 8], [12, 8], [20, 10], [30, 10], [40, 10]]
+            ).map(([w, h]) => (
+              <button key={`${w}x${h}`} className="chip" aria-pressed={p.w === w && p.h === h} onClick={() => updateParams(id, { w, h })}>{w} × {h}</button>
+            ))}
+          </div>
+        </div>
+      )}
       {isLine && (
         <div className="row-flex" style={{ gap: 6, alignItems: 'end' }}>
           {it.type === 'drape' && <Field label="Wall height"><NumIn value={p.h ?? 8} onChange={(v) => updateParams(id, { h: v }, key('h'))} suffix="′" /></Field>}
