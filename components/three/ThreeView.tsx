@@ -49,7 +49,7 @@ const PRESETS: Record<string, { pos: [number, number, number]; tgt: [number, num
   puri: { pos: [100, 22, 6.5], tgt: [102.5, 5, 5], label: '4 Puri raths' },
   kashi: { pos: [100.5, 30, 6], tgt: [100.5, 60, 4], label: '5 Kashi walkway' },
   sangam: { pos: [100, 74, 6.5], tgt: [110, 87, 1.5], label: '6 Triveni Sangam' },
-  himalaya: { pos: [92, 86, 6], tgt: [68, 64, 6], label: '7 Himalaya (from the corridor)' },
+  himalaya: { pos: [72, 90, 6.5], tgt: [72, 68, 6.5], label: '7 Himalaya (from the corridor)' },
   nilkanth: { pos: [40.5, 86, 7], tgt: [40.5, 62, 4], label: '8 Nilkanth abhishek' },
   baps: { pos: [30, 40, 6.5], tgt: [79, 38, 4], label: '9 BAPS & Satsang' },
 };

@@ -3286,426 +3286,6 @@
    }
   },
   {
-   "id": "y27set79",
-   "type": "setPiece",
-   "name": "Mountain \u00b7 Yamunotri",
-   "section": "s5",
-   "x": 60,
-   "y": 71,
-   "rot": 90,
-   "params": {
-    "title": "Mountain \u00b7 Yamunotri",
-    "w": 8,
-    "d": 9.5,
-    "h": 8,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      8,
-      9.5,
-      1.6,
-      "rock",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -0.35,
-      1.6,
-      6.64,
-      7.885,
-      1.6,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -0.7,
-      3.2,
-      5.279999999999999,
-      6.27,
-      1.6,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -1.0499999999999998,
-      4.8,
-      3.92,
-      4.655,
-      1.6,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -1.4,
-      6.4,
-      2.5599999999999996,
-      3.0399999999999996,
-      1.6,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ]
-    ],
-    "note": "White layered mountain, 8 ft wide, ~11 ft tall, projection-mapped so it comes alive."
-   }
-  },
-  {
-   "id": "y27set80",
-   "type": "setPiece",
-   "name": "Yamunotri \u00b7 its own small item",
-   "section": "s5",
-   "x": 60,
-   "y": 77,
-   "rot": 90,
-   "params": {
-    "title": "Yamunotri \u00b7 its own small item",
-    "w": 3,
-    "d": 2,
-    "h": 6,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      3,
-      2,
-      4.5,
-      "paintCream",
-      "small item (temple / story)"
-     ],
-     [
-      0,
-      0,
-      4.5,
-      2,
-      1.4,
-      1.5,
-      "paintSaffron",
-      "shikhar"
-     ]
-    ]
-   }
-  },
-  {
-   "id": "y27set81",
-   "type": "setPiece",
-   "name": "Mountain \u00b7 Gangotri",
-   "section": "s5",
-   "x": 68,
-   "y": 71.2,
-   "rot": 90,
-   "params": {
-    "title": "Mountain \u00b7 Gangotri",
-    "w": 8,
-    "d": 9.5,
-    "h": 11,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      8,
-      9.5,
-      2.2,
-      "rock",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -0.35,
-      2.2,
-      6.64,
-      7.885,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -0.7,
-      4.4,
-      5.279999999999999,
-      6.27,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -1.0499999999999998,
-      6.6,
-      3.92,
-      4.655,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -1.4,
-      8.8,
-      2.5599999999999996,
-      3.0399999999999996,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ]
-    ],
-    "note": "White layered mountain, 8 ft wide, ~11 ft tall, projection-mapped so it comes alive."
-   }
-  },
-  {
-   "id": "y27set82",
-   "type": "setPiece",
-   "name": "Gangotri \u00b7 its own small item",
-   "section": "s5",
-   "x": 69,
-   "y": 77,
-   "rot": 90,
-   "params": {
-    "title": "Gangotri \u00b7 its own small item",
-    "w": 3,
-    "d": 2,
-    "h": 6,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      3,
-      2,
-      4.5,
-      "paintCream",
-      "small item (temple / story)"
-     ],
-     [
-      0,
-      0,
-      4.5,
-      2,
-      1.4,
-      1.5,
-      "paintSaffron",
-      "shikhar"
-     ]
-    ]
-   }
-  },
-  {
-   "id": "y27set83",
-   "type": "setPiece",
-   "name": "Mountain \u00b7 Kedarnath",
-   "section": "s5",
-   "x": 76,
-   "y": 71.2,
-   "rot": 90,
-   "params": {
-    "title": "Mountain \u00b7 Kedarnath",
-    "w": 8,
-    "d": 9.5,
-    "h": 11,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      8,
-      9.5,
-      2.2,
-      "rock",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -0.35,
-      2.2,
-      6.64,
-      7.885,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -0.7,
-      4.4,
-      5.279999999999999,
-      6.27,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -1.0499999999999998,
-      6.6,
-      3.92,
-      4.655,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -1.4,
-      8.8,
-      2.5599999999999996,
-      3.0399999999999996,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ]
-    ],
-    "note": "White layered mountain, 8 ft wide, ~11 ft tall, projection-mapped so it comes alive."
-   }
-  },
-  {
-   "id": "y27set84",
-   "type": "setPiece",
-   "name": "Kedarnath \u00b7 its own small item",
-   "section": "s5",
-   "x": 76,
-   "y": 77,
-   "rot": 90,
-   "params": {
-    "title": "Kedarnath \u00b7 its own small item",
-    "w": 3,
-    "d": 2,
-    "h": 6,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      3,
-      2,
-      4.5,
-      "paintCream",
-      "small item (temple / story)"
-     ],
-     [
-      0,
-      0,
-      4.5,
-      2,
-      1.4,
-      1.5,
-      "paintSaffron",
-      "shikhar"
-     ]
-    ]
-   }
-  },
-  {
-   "id": "y27set85",
-   "type": "setPiece",
-   "name": "Mountain \u00b7 Badrinath",
-   "section": "s5",
-   "x": 84,
-   "y": 71.2,
-   "rot": 90,
-   "params": {
-    "title": "Mountain \u00b7 Badrinath",
-    "w": 8,
-    "d": 9.5,
-    "h": 11,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      8,
-      9.5,
-      2.2,
-      "rock",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -0.35,
-      2.2,
-      6.64,
-      7.885,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -0.7,
-      4.4,
-      5.279999999999999,
-      6.27,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -1.0499999999999998,
-      6.6,
-      3.92,
-      4.655,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ],
-     [
-      0,
-      -1.4,
-      8.8,
-      2.5599999999999996,
-      3.0399999999999996,
-      2.2,
-      "snow",
-      "layered mountain (projection-mapped)"
-     ]
-    ],
-    "note": "White layered mountain, 8 ft wide, ~11 ft tall, projection-mapped so it comes alive."
-   }
-  },
-  {
-   "id": "y27set86",
-   "type": "setPiece",
-   "name": "Badrinath \u00b7 its own small item",
-   "section": "s5",
-   "x": 84,
-   "y": 77,
-   "rot": 90,
-   "params": {
-    "title": "Badrinath \u00b7 its own small item",
-    "w": 3,
-    "d": 2,
-    "h": 6,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      3,
-      2,
-      4.5,
-      "paintCream",
-      "small item (temple / story)"
-     ],
-     [
-      0,
-      0,
-      4.5,
-      2,
-      1.4,
-      1.5,
-      "paintSaffron",
-      "shikhar"
-     ]
-    ]
-   }
-  },
-  {
    "id": "y27ris87",
    "type": "riser",
    "name": "Nilkanth abhishek stage (15 \u00d7 15)",
@@ -5011,6 +4591,1001 @@
      ]
     ]
    }
+  },
+  {
+   "id": "y27hm1",
+   "type": "setPiece",
+   "name": "Himalaya \u00b7 layered cut-out mountains (projection-mapped)",
+   "section": "s5",
+   "x": 72,
+   "y": 67,
+   "rot": 90,
+   "params": {
+    "title": "Himalaya \u00b7 layered cut-out mountains (projection-mapped)",
+    "w": 32,
+    "d": 3.6,
+    "h": 16,
+    "parts": [
+     [
+      -14,
+      0,
+      0,
+      4.05,
+      0.3,
+      7.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      -14.6,
+      0,
+      7.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      -10,
+      0,
+      0,
+      4.05,
+      0.3,
+      9.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      -9.4,
+      0,
+      9.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      -6,
+      0,
+      0,
+      4.05,
+      0.3,
+      11.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      -6.6,
+      0,
+      11.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      -2,
+      0,
+      0,
+      4.05,
+      0.3,
+      14.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      -1.4,
+      0,
+      14.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      2,
+      0,
+      0,
+      4.05,
+      0.3,
+      12.9,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      1.4,
+      0,
+      12.9,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      6,
+      0,
+      0,
+      4.05,
+      0.3,
+      10.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      6.6,
+      0,
+      10.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      10,
+      0,
+      0,
+      4.05,
+      0.3,
+      8.9,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      9.4,
+      0,
+      8.9,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      14,
+      0,
+      0,
+      4.05,
+      0.3,
+      7.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      14.6,
+      0,
+      7.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      -14,
+      1.5,
+      0,
+      4.05,
+      0.3,
+      5.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      -14.6,
+      1.5,
+      5.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      -10,
+      1.5,
+      0,
+      4.05,
+      0.3,
+      6.9,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      -9.4,
+      1.5,
+      6.9,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      -6,
+      1.5,
+      0,
+      4.05,
+      0.3,
+      8.9,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      -6.6,
+      1.5,
+      8.9,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      -2,
+      1.5,
+      0,
+      4.05,
+      0.3,
+      7.9,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      -1.4,
+      1.5,
+      7.9,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      2,
+      1.5,
+      0,
+      4.05,
+      0.3,
+      9.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      1.4,
+      1.5,
+      9.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      6,
+      1.5,
+      0,
+      4.05,
+      0.3,
+      7.9,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      6.6,
+      1.5,
+      7.9,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      10,
+      1.5,
+      0,
+      4.05,
+      0.3,
+      6.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      9.4,
+      1.5,
+      6.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      14,
+      1.5,
+      0,
+      4.05,
+      0.3,
+      5.4,
+      "snow",
+      "cut-out mountain flat (projection surface)"
+     ],
+     [
+      14.6,
+      1.5,
+      5.4,
+      2.2,
+      0.3,
+      1.6,
+      "snow",
+      "peak"
+     ],
+     [
+      -12,
+      3,
+      0,
+      7.8,
+      0.3,
+      7,
+      "snow",
+      "front flat with arched bay"
+     ],
+     [
+      -12,
+      3,
+      7,
+      4,
+      0.3,
+      1.4,
+      "snow",
+      "peaked top"
+     ],
+     [
+      -4,
+      3,
+      0,
+      7.8,
+      0.3,
+      7,
+      "snow",
+      "front flat with arched bay"
+     ],
+     [
+      -4,
+      3,
+      7,
+      4,
+      0.3,
+      1.4,
+      "snow",
+      "peaked top"
+     ],
+     [
+      4,
+      3,
+      0,
+      7.8,
+      0.3,
+      7,
+      "snow",
+      "front flat with arched bay"
+     ],
+     [
+      4,
+      3,
+      7,
+      4,
+      0.3,
+      1.4,
+      "snow",
+      "peaked top"
+     ],
+     [
+      12,
+      3,
+      0,
+      7.8,
+      0.3,
+      7,
+      "snow",
+      "front flat with arched bay"
+     ],
+     [
+      12,
+      3,
+      7,
+      4,
+      0.3,
+      1.4,
+      "snow",
+      "peaked top"
+     ]
+    ],
+    "face": true,
+    "faceZ": 8,
+    "faceH": 14,
+    "glow": [
+     {
+      "u": 0,
+      "v": 0.2,
+      "z": 11,
+      "nits": 50,
+      "area": 300,
+      "cct": 7000,
+      "dir": "front",
+      "name": "mountain projection (back peaks)"
+     },
+     {
+      "u": 0,
+      "v": 1.7,
+      "z": 7,
+      "nits": 40,
+      "area": 220,
+      "cct": 6000,
+      "dir": "front",
+      "name": "mountain projection (middle range)"
+     },
+     {
+      "u": 0,
+      "v": 3.2,
+      "z": 5,
+      "nits": 30,
+      "area": 200,
+      "cct": 5200,
+      "dir": "front",
+      "name": "temple scenes (front bays)"
+     }
+    ],
+    "note": "Three layers of cut-out flats (about 16, 11 and 8\u00bd ft), white and lightly textured so two projectors on the truss can map snow, clouds and sunrise onto them; the front layer has an arched bay for each dham."
+   }
+  },
+  {
+   "id": "y27hp1",
+   "type": "poster",
+   "name": "Yamunotri temple (printed scene in the bay)",
+   "section": "s5",
+   "x": 84,
+   "y": 70.35,
+   "rot": 90,
+   "params": {
+    "w": 5,
+    "h": 5,
+    "bottom": 0.8,
+    "title": "Yamunotri",
+    "style": "night"
+   }
+  },
+  {
+   "id": "y27hp2",
+   "type": "poster",
+   "name": "Gangotri temple (printed scene in the bay)",
+   "section": "s5",
+   "x": 76,
+   "y": 70.35,
+   "rot": 90,
+   "params": {
+    "w": 5,
+    "h": 5,
+    "bottom": 0.8,
+    "title": "Gangotri",
+    "style": "night"
+   }
+  },
+  {
+   "id": "y27hp3",
+   "type": "poster",
+   "name": "Kedarnath temple (printed scene in the bay)",
+   "section": "s5",
+   "x": 68,
+   "y": 70.35,
+   "rot": 90,
+   "params": {
+    "w": 5,
+    "h": 5,
+    "bottom": 0.8,
+    "title": "Kedarnath",
+    "style": "night"
+   }
+  },
+  {
+   "id": "y27hp4",
+   "type": "poster",
+   "name": "Badrinath temple (printed scene in the bay)",
+   "section": "s5",
+   "x": 60,
+   "y": 70.35,
+   "rot": 90,
+   "params": {
+    "w": 5,
+    "h": 5,
+    "bottom": 0.8,
+    "title": "Badrinath",
+    "style": "night"
+   }
+  },
+  {
+   "id": "y27hi1",
+   "type": "setPiece",
+   "name": "Yamunotri \u00b7 hot spring among rocks",
+   "section": "s5",
+   "x": 84,
+   "y": 73.6,
+   "rot": 90,
+   "params": {
+    "title": "Yamunotri \u00b7 hot spring among rocks",
+    "w": 6,
+    "d": 3,
+    "h": 1.2,
+    "parts": [
+     [
+      0,
+      0.2,
+      0,
+      3,
+      2,
+      0.45,
+      "water",
+      "hot spring (fog for steam)"
+     ],
+     [
+      -2.2,
+      0,
+      0,
+      1.6,
+      1.6,
+      1.1,
+      "rock",
+      "rock"
+     ],
+     [
+      -1.2,
+      -1.1,
+      0,
+      1.4,
+      1,
+      0.8,
+      "rock",
+      "rock"
+     ],
+     [
+      1.9,
+      0.3,
+      0,
+      1.8,
+      1.6,
+      1.0,
+      "rock",
+      "rock"
+     ],
+     [
+      2.7,
+      -0.9,
+      0,
+      1,
+      1,
+      0.6,
+      "rock",
+      "rock"
+     ],
+     [
+      0.3,
+      1.5,
+      0,
+      1.2,
+      0.8,
+      0.5,
+      "rock",
+      "rock"
+     ]
+    ],
+    "note": "Low rock pool with a fog machine for steam."
+   }
+  },
+  {
+   "id": "y27hi2",
+   "type": "setPiece",
+   "name": "Gangotri \u00b7 rock cave and waterfall (Gaumukh)",
+   "section": "s5",
+   "x": 76,
+   "y": 73.4,
+   "rot": 90,
+   "params": {
+    "title": "Gangotri \u00b7 rock cave and waterfall (Gaumukh)",
+    "w": 6,
+    "d": 3.6,
+    "h": 3.8,
+    "parts": [
+     [
+      -1.4,
+      -0.6,
+      0,
+      3,
+      2,
+      3,
+      "rock",
+      "rock mound"
+     ],
+     [
+      1.1,
+      -0.8,
+      0,
+      2.4,
+      1.6,
+      2.2,
+      "rock",
+      "rock mound"
+     ],
+     [
+      -0.4,
+      -0.4,
+      2.9,
+      2.6,
+      1.6,
+      0.8,
+      "snow",
+      "ice and snow"
+     ],
+     [
+      -0.3,
+      0.45,
+      0.4,
+      0.9,
+      0.12,
+      2.4,
+      "water",
+      "waterfall"
+     ],
+     [
+      0,
+      1.3,
+      0,
+      4.4,
+      1.4,
+      0.25,
+      "water",
+      "pool"
+     ],
+     [
+      -2.4,
+      1.3,
+      0,
+      0.9,
+      0.8,
+      0.5,
+      "rock",
+      "rock"
+     ],
+     [
+      2.3,
+      1.2,
+      0,
+      1,
+      0.9,
+      0.5,
+      "rock",
+      "rock"
+     ]
+    ],
+    "note": "Recirculating waterfall out of a rock cave into a shallow pool."
+   }
+  },
+  {
+   "id": "y27hi3",
+   "type": "setPiece",
+   "name": "Kedarnath \u00b7 temple bell on a wooden frame",
+   "section": "s5",
+   "x": 68,
+   "y": 73.4,
+   "rot": 90,
+   "params": {
+    "title": "Kedarnath \u00b7 temple bell on a wooden frame",
+    "w": 6.4,
+    "d": 1.2,
+    "h": 7.1,
+    "parts": [
+     [
+      -2.6,
+      0,
+      0,
+      1.2,
+      1.2,
+      0.8,
+      "stone",
+      "stone base"
+     ],
+     [
+      2.6,
+      0,
+      0,
+      1.2,
+      1.2,
+      0.8,
+      "stone",
+      "stone base"
+     ],
+     [
+      -2.6,
+      0,
+      0.8,
+      0.5,
+      0.5,
+      6,
+      "wood",
+      "post"
+     ],
+     [
+      2.6,
+      0,
+      0.8,
+      0.5,
+      0.5,
+      6,
+      "wood",
+      "post"
+     ],
+     [
+      0,
+      0,
+      6.6,
+      6.6,
+      0.6,
+      0.5,
+      "wood",
+      "beam"
+     ],
+     [
+      0,
+      0,
+      5.4,
+      0.1,
+      0.1,
+      1.2,
+      "black",
+      "rope"
+     ],
+     [
+      0,
+      0,
+      3.6,
+      1.4,
+      1.4,
+      1.8,
+      "gold",
+      "brass bell"
+     ]
+    ],
+    "note": "A large brass bell visitors can ring."
+   }
+  },
+  {
+   "id": "y27hi4",
+   "type": "setPiece",
+   "name": "Badrinath \u00b7 Tapt Kund (round hot spring)",
+   "section": "s5",
+   "x": 60,
+   "y": 74,
+   "rot": 90,
+   "params": {
+    "title": "Badrinath \u00b7 Tapt Kund (round hot spring)",
+    "w": 6,
+    "d": 6,
+    "h": 1.6,
+    "parts": [
+     [
+      2.75,
+      0.0,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      90.0
+     ],
+     [
+      2.5406687144060385,
+      1.0523794390039969,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      112.5
+     ],
+     [
+      1.9445436482630059,
+      1.9445436482630054,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      135.0
+     ],
+     [
+      1.052379439003997,
+      2.5406687144060385,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      157.5
+     ],
+     [
+      1.6838893488276108e-16,
+      2.75,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      180.0
+     ],
+     [
+      -1.0523794390039967,
+      2.5406687144060385,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      202.5
+     ],
+     [
+      -1.9445436482630054,
+      1.9445436482630059,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      225.0
+     ],
+     [
+      -2.5406687144060385,
+      1.052379439003997,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      247.5
+     ],
+     [
+      -2.75,
+      3.3677786976552215e-16,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      270.0
+     ],
+     [
+      -2.540668714406039,
+      -1.0523794390039967,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      292.5
+     ],
+     [
+      -1.944543648263006,
+      -1.9445436482630054,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      315.0
+     ],
+     [
+      -1.0523794390039984,
+      -2.540668714406038,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      337.5
+     ],
+     [
+      -5.051668046482832e-16,
+      -2.75,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      360.0
+     ],
+     [
+      1.0523794390039976,
+      -2.540668714406038,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      382.50000000000006
+     ],
+     [
+      1.9445436482630052,
+      -1.944543648263006,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      405.0
+     ],
+     [
+      2.540668714406038,
+      -1.0523794390039987,
+      0,
+      1.2299224746714912,
+      0.5,
+      1.6,
+      "stone",
+      "stone kund wall",
+      427.49999999999994
+     ],
+     [
+      0,
+      0,
+      0,
+      4.2,
+      4.2,
+      1.45,
+      "water",
+      "warm spring water"
+     ],
+     [
+      0,
+      0,
+      0,
+      5,
+      2.6,
+      1.45,
+      "water",
+      "water"
+     ],
+     [
+      0,
+      0,
+      0,
+      2.6,
+      5,
+      1.45,
+      "water",
+      "water"
+     ]
+    ],
+    "note": "Round stone kund about 6 ft across, with fog for steam."
+   }
   }
  ],
  "probes": [],
@@ -5045,5 +5620,5 @@
  },
  "artSpotVariant": "framing20",
  "updatedAt": 1794708921175,
- "savedAt": "2026-11-15T02:35:15.000Z"
+ "savedAt": "2026-11-15T02:44:59.000Z"
 }
