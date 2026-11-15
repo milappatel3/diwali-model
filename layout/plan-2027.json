@@ -6,12 +6,12 @@
   "layout2027"
  ],
  "name": "Diwali Exhibition 2027",
- "venue": "Assembly Hall · BAPS Milpitas (1430 California Circle)",
+ "venue": "Assembly Hall \u00b7 BAPS Milpitas (1430 California Circle)",
  "items": [
   {
    "id": "y27boo1",
    "type": "booth",
-   "name": "1 · Welcome to India",
+   "name": "1 \u00b7 Welcome to India",
    "section": "entry",
    "x": 37.75,
    "y": 13,
@@ -19,14 +19,14 @@
    "params": {
     "w": 24.5,
     "d": 26,
-    "title": "1 · Welcome to India",
+    "title": "1 \u00b7 Welcome to India",
     "zone": true
    }
   },
   {
    "id": "y27boo2",
    "type": "booth",
-   "name": "2 · Ayodhya (Multi Room)",
+   "name": "2 \u00b7 Ayodhya (Multi Room)",
    "section": "s1",
    "x": 71,
    "y": -15.25,
@@ -34,14 +34,14 @@
    "params": {
     "w": 36,
     "d": 24.5,
-    "title": "2 · Ayodhya (Multi Room)",
+    "title": "2 \u00b7 Ayodhya (Multi Room)",
     "zone": true
    }
   },
   {
    "id": "y27boo3",
    "type": "booth",
-   "name": "3 · Rameswaram → Kanyakumari (the boat)",
+   "name": "3 \u00b7 Rameswaram \u2192 Kanyakumari (the boat)",
    "section": "s2",
    "x": 75,
    "y": 13,
@@ -49,14 +49,14 @@
    "params": {
     "w": 28,
     "d": 26,
-    "title": "3 · Rameswaram → Kanyakumari (the boat)",
+    "title": "3 \u00b7 Rameswaram \u2192 Kanyakumari (the boat)",
     "zone": true
    }
   },
   {
    "id": "y27boo4",
    "type": "booth",
-   "name": "4 · Jagannath Puri",
+   "name": "4 \u00b7 Jagannath Puri",
    "section": "s3",
    "x": 102.5,
    "y": 13,
@@ -64,14 +64,14 @@
    "params": {
     "w": 27,
     "d": 26,
-    "title": "4 · Jagannath Puri",
+    "title": "4 \u00b7 Jagannath Puri",
     "zone": true
    }
   },
   {
    "id": "y27boo5",
    "type": "booth",
-   "name": "5 · Kashi ghats",
+   "name": "5 \u00b7 Kashi ghats",
    "section": "s4",
    "x": 102.5,
    "y": 49.1,
@@ -79,14 +79,14 @@
    "params": {
     "w": 27,
     "d": 46.2,
-    "title": "5 · Kashi ghats",
+    "title": "5 \u00b7 Kashi ghats",
     "zone": true
    }
   },
   {
    "id": "y27boo6",
    "type": "booth",
-   "name": "6 · Triveni Sangam",
+   "name": "6 \u00b7 Triveni Sangam",
    "section": "s4",
    "x": 106,
    "y": 82.2,
@@ -94,14 +94,14 @@
    "params": {
     "w": 20,
     "d": 20,
-    "title": "6 · Triveni Sangam",
+    "title": "6 \u00b7 Triveni Sangam",
     "zone": true
    }
   },
   {
    "id": "y27boo7",
    "type": "booth",
-   "name": "7 · Himalaya · Char Dham",
+   "name": "7 \u00b7 Himalaya \u00b7 Char Dham",
    "section": "s5",
    "x": 69,
    "y": 67.7,
@@ -109,14 +109,14 @@
    "params": {
     "w": 40,
     "d": 23,
-    "title": "7 · Himalaya · Char Dham",
+    "title": "7 \u00b7 Himalaya \u00b7 Char Dham",
     "zone": true
    }
   },
   {
    "id": "y27boo8",
    "type": "booth",
-   "name": "8 · Nilkanth Varni abhishek",
+   "name": "8 \u00b7 Nilkanth Varni abhishek",
    "section": "s5",
    "x": 40.5,
    "y": 67.7,
@@ -124,7 +124,7 @@
    "params": {
     "w": 15,
     "d": 23,
-    "title": "8 · Nilkanth Varni abhishek",
+    "title": "8 \u00b7 Nilkanth Varni abhishek",
     "zone": true,
     "onRiser": true
    },
@@ -133,7 +133,7 @@
   {
    "id": "y27boo9",
    "type": "booth",
-   "name": "9 · BAPS & Satsang (Akshardham)",
+   "name": "9 \u00b7 BAPS & Satsang (Akshardham)",
    "section": "s6",
    "x": 56.5,
    "y": 41.1,
@@ -141,7 +141,7 @@
    "params": {
     "w": 63,
     "d": 30.200000000000003,
-    "title": "9 · BAPS & Satsang (Akshardham)",
+    "title": "9 \u00b7 BAPS & Satsang (Akshardham)",
     "zone": true
    }
   },
@@ -253,7 +253,7 @@
   {
    "id": "y27drp17",
    "type": "drape",
-   "name": "Welcome tunnel — west wall",
+   "name": "Welcome tunnel \u2014 west wall",
    "section": "entry",
    "x": 25.5,
    "y": 0.3,
@@ -277,7 +277,7 @@
   {
    "id": "y27drp18",
    "type": "drape",
-   "name": "Welcome tunnel — east wall",
+   "name": "Welcome tunnel \u2014 east wall",
    "section": "entry",
    "x": 41.5,
    "y": 0.3,
@@ -301,7 +301,7 @@
   {
    "id": "y27drp20",
    "type": "drape",
-   "name": "BAPS & Satsang — south wall (message panels)",
+   "name": "BAPS & Satsang \u2014 south wall (message panels)",
    "section": "s6",
    "x": 24,
    "y": 26,
@@ -325,7 +325,7 @@
   {
    "id": "y27drp21",
    "type": "drape",
-   "name": "Boat room — west wall",
+   "name": "Boat room \u2014 west wall",
    "section": "s2",
    "x": 61,
    "y": 0.3,
@@ -373,7 +373,7 @@
   {
    "id": "y27drp23",
    "type": "drape",
-   "name": "Puri — east wall",
+   "name": "Puri \u2014 east wall",
    "section": "s3",
    "x": 116,
    "y": 0.3,
@@ -397,7 +397,7 @@
   {
    "id": "y27drp24",
    "type": "drape",
-   "name": "Kashi — west wall",
+   "name": "Kashi \u2014 west wall",
    "section": "s4",
    "x": 89,
    "y": 26,
@@ -421,7 +421,7 @@
   {
    "id": "y27drp25",
    "type": "drape",
-   "name": "Sangam — west wall",
+   "name": "Sangam \u2014 west wall",
    "section": "s4",
    "x": 96,
    "y": 83.5,
@@ -445,7 +445,7 @@
   {
    "id": "y27drp26",
    "type": "drape",
-   "name": "BAPS & Satsang — north wall (guru panel) / Himalaya back",
+   "name": "BAPS & Satsang \u2014 north wall (guru panel) / Himalaya back",
    "section": "s6",
    "x": 32,
    "y": 66.2,
@@ -469,7 +469,7 @@
   {
    "id": "y27drp27",
    "type": "drape",
-   "name": "Stage walkway — west wall",
+   "name": "Stage walkway \u2014 west wall",
    "section": "infra",
    "x": 25,
    "y": 52.2,
@@ -493,7 +493,7 @@
   {
    "id": "y27ban29",
    "type": "banner",
-   "name": "Welcome to India — header",
+   "name": "Welcome to India \u2014 header",
    "section": "entry",
    "x": 33.5,
    "y": 1.2,
@@ -689,7 +689,7 @@
   {
    "id": "y27ban32",
    "type": "banner",
-   "name": "Intro wall A (8 × 8, L corner)",
+   "name": "Intro wall A (8 \u00d7 8, L corner)",
    "section": "entry",
    "x": 29.8,
    "y": 25.6,
@@ -698,7 +698,7 @@
     "w": 8,
     "h": 8,
     "bottom": 0,
-    "title": "Intro wall A — Welcome to India",
+    "title": "Intro wall A \u2014 Welcome to India",
     "style": "saffron",
     "feet": false,
     "onDrape": true
@@ -707,7 +707,7 @@
   {
    "id": "y27ban33",
    "type": "banner",
-   "name": "Intro wall B (8 × 8, L corner)",
+   "name": "Intro wall B (8 \u00d7 8, L corner)",
    "section": "entry",
    "x": 25.9,
    "y": 21.8,
@@ -716,7 +716,7 @@
     "w": 8,
     "h": 8,
     "bottom": 0,
-    "title": "Intro wall B — the journey ahead",
+    "title": "Intro wall B \u2014 the journey ahead",
     "style": "saffron",
     "feet": false,
     "onDrape": true
@@ -1488,13 +1488,13 @@
       "name": "centre lamp"
      }
     ],
-    "note": "The one main piece: three 6″ steps of LED diyas around a centre lamp."
+    "note": "The one main piece: three 6\u2033 steps of LED diyas around a centre lamp."
    }
   },
   {
    "id": "y27pos36",
    "type": "poster",
-   "name": "Shri Ram · Birth of Shri Ram",
+   "name": "Shri Ram \u00b7 Birth of Shri Ram",
    "section": "s1",
    "x": 57,
    "y": -27.3,
@@ -1503,13 +1503,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · Birth of Shri Ram"
+    "title": "Shri Ram \u00b7 Birth of Shri Ram"
    }
   },
   {
    "id": "y27pos37",
    "type": "poster",
-   "name": "Shri Ram · Exile to the forest",
+   "name": "Shri Ram \u00b7 Exile to the forest",
    "section": "s1",
    "x": 64,
    "y": -27.3,
@@ -1518,13 +1518,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · Exile to the forest"
+    "title": "Shri Ram \u00b7 Exile to the forest"
    }
   },
   {
    "id": "y27pos38",
    "type": "poster",
-   "name": "Shri Ram · Bharat and the padukas",
+   "name": "Shri Ram \u00b7 Bharat and the padukas",
    "section": "s1",
    "x": 71,
    "y": -27.3,
@@ -1533,13 +1533,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · Bharat and the padukas"
+    "title": "Shri Ram \u00b7 Bharat and the padukas"
    }
   },
   {
    "id": "y27pos39",
    "type": "poster",
-   "name": "Shri Ram · Victory over Ravan",
+   "name": "Shri Ram \u00b7 Victory over Ravan",
    "section": "s1",
    "x": 78,
    "y": -27.3,
@@ -1548,13 +1548,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · Victory over Ravan"
+    "title": "Shri Ram \u00b7 Victory over Ravan"
    }
   },
   {
    "id": "y27pos40",
    "type": "poster",
-   "name": "Shri Ram · The return to Ayodhya",
+   "name": "Shri Ram \u00b7 The return to Ayodhya",
    "section": "s1",
    "x": 85,
    "y": -27.3,
@@ -1563,13 +1563,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Shri Ram · The return to Ayodhya"
+    "title": "Shri Ram \u00b7 The return to Ayodhya"
    }
   },
   {
    "id": "y27pos41",
    "type": "poster",
-   "name": "Diwali’s origin · The first Diwali: Ayodhya lit with diyas",
+   "name": "Diwali\u2019s origin \u00b7 The first Diwali: Ayodhya lit with diyas",
    "section": "s1",
    "x": 65,
    "y": -3.1,
@@ -1578,13 +1578,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Diwali’s origin · The first Diwali: Ayodhya lit with diyas"
+    "title": "Diwali\u2019s origin \u00b7 The first Diwali: Ayodhya lit with diyas"
    }
   },
   {
    "id": "y27pos42",
    "type": "poster",
-   "name": "Diwali’s origin · Why we light diyas",
+   "name": "Diwali\u2019s origin \u00b7 Why we light diyas",
    "section": "s1",
    "x": 71.5,
    "y": -3.1,
@@ -1593,13 +1593,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Diwali’s origin · Why we light diyas"
+    "title": "Diwali\u2019s origin \u00b7 Why we light diyas"
    }
   },
   {
    "id": "y27pos43",
    "type": "poster",
-   "name": "Diwali’s origin · Diwali today",
+   "name": "Diwali\u2019s origin \u00b7 Diwali today",
    "section": "s1",
    "x": 78,
    "y": -3.1,
@@ -1608,13 +1608,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Diwali’s origin · Diwali today"
+    "title": "Diwali\u2019s origin \u00b7 Diwali today"
    }
   },
   {
    "id": "y27pos44",
    "type": "poster",
-   "name": "Nilkanth Varni · Ghanshyam in Ayodhya",
+   "name": "Nilkanth Varni \u00b7 Ghanshyam in Ayodhya",
    "section": "s1",
    "x": 53.4,
    "y": -9,
@@ -1623,13 +1623,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Nilkanth Varni · Ghanshyam in Ayodhya"
+    "title": "Nilkanth Varni \u00b7 Ghanshyam in Ayodhya"
    }
   },
   {
    "id": "y27pos45",
    "type": "poster",
-   "name": "Nilkanth Varni · Leaving home at 11",
+   "name": "Nilkanth Varni \u00b7 Leaving home at 11",
    "section": "s1",
    "x": 53.4,
    "y": -16,
@@ -1638,7 +1638,7 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "Nilkanth Varni · Leaving home at 11"
+    "title": "Nilkanth Varni \u00b7 Leaving home at 11"
    }
   },
   {
@@ -1721,7 +1721,7 @@
       15,
       0.67,
       "woodDark",
-      "boat deck: stage decks at 8″"
+      "boat deck: stage decks at 8\u2033"
      ],
      [
       0,
@@ -1981,13 +1981,13 @@
   {
    "id": "y27set51",
    "type": "setPiece",
-   "name": "Three-seas horizon (sunrise → sunset)",
+   "name": "Three-seas horizon (sunrise \u2192 sunset)",
    "section": "s2",
    "x": 88.7,
    "y": 8.5,
    "rot": 180,
    "params": {
-    "title": "Three-seas horizon (sunrise → sunset)",
+    "title": "Three-seas horizon (sunrise \u2192 sunset)",
     "w": 15,
     "d": 0.3,
     "h": 8,
@@ -2021,13 +2021,13 @@
   {
    "id": "y27set52",
    "type": "setPiece",
-   "name": "Nilkanth carrying Sevakram’s bundle (silhouette)",
+   "name": "Nilkanth carrying Sevakram\u2019s bundle (silhouette)",
    "section": "s2",
    "x": 63.5,
    "y": 4,
    "rot": 90,
    "params": {
-    "title": "Nilkanth carrying Sevakram’s bundle (silhouette)",
+    "title": "Nilkanth carrying Sevakram\u2019s bundle (silhouette)",
     "w": 2.2,
     "d": 0.3,
     "h": 6,
@@ -2048,13 +2048,13 @@
   {
    "id": "y27set53",
    "type": "setPiece",
-   "name": "Sevakram’s bundle (lift it)",
+   "name": "Sevakram\u2019s bundle (lift it)",
    "section": "s2",
    "x": 66,
    "y": 4.5,
    "rot": 90,
    "params": {
-    "title": "Sevakram’s bundle (lift it)",
+    "title": "Sevakram\u2019s bundle (lift it)",
     "w": 2,
     "d": 2,
     "h": 2.4,
@@ -2085,7 +2085,7 @@
   {
    "id": "y27flo54",
    "type": "floorMark",
-   "name": "Footprints turn north: “12,000 km. He turned around and kept walking.”",
+   "name": "Footprints turn north: \u201c12,000 km. He turned around and kept walking.\u201d",
    "section": "s2",
    "x": 87,
    "y": 22,
@@ -2097,7 +2097,7 @@
   {
    "id": "y27pos55",
    "type": "poster",
-   "name": "Rameswaram · Ramanathaswamy Temple",
+   "name": "Rameswaram \u00b7 Ramanathaswamy Temple",
    "section": "s2",
    "x": 61.3,
    "y": 6,
@@ -2106,13 +2106,13 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Rameswaram · Ramanathaswamy Temple"
+    "title": "Rameswaram \u00b7 Ramanathaswamy Temple"
    }
   },
   {
    "id": "y27pos56",
    "type": "poster",
-   "name": "Rameswaram · Corridors and the 22 wells",
+   "name": "Rameswaram \u00b7 Corridors and the 22 wells",
    "section": "s2",
    "x": 61.3,
    "y": 12,
@@ -2121,13 +2121,13 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Rameswaram · Corridors and the 22 wells"
+    "title": "Rameswaram \u00b7 Corridors and the 22 wells"
    }
   },
   {
    "id": "y27pos57",
    "type": "poster",
-   "name": "Rameswaram · How the Setu was built",
+   "name": "Rameswaram \u00b7 How the Setu was built",
    "section": "s2",
    "x": 61.3,
    "y": 18,
@@ -2136,13 +2136,13 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Rameswaram · How the Setu was built"
+    "title": "Rameswaram \u00b7 How the Setu was built"
    }
   },
   {
    "id": "y27pos58",
    "type": "poster",
-   "name": "Rameswaram · Nilkanth and Sevakram",
+   "name": "Rameswaram \u00b7 Nilkanth and Sevakram",
    "section": "s2",
    "x": 67.5,
    "y": 3.35,
@@ -2151,13 +2151,13 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Rameswaram · Nilkanth and Sevakram"
+    "title": "Rameswaram \u00b7 Nilkanth and Sevakram"
    }
   },
   {
    "id": "y27pos59",
    "type": "poster",
-   "name": "Kanyakumari · Kumari Amman",
+   "name": "Kanyakumari \u00b7 Kumari Amman",
    "section": "s2",
    "x": 81,
    "y": 3.35,
@@ -2166,13 +2166,13 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Kanyakumari · Kumari Amman"
+    "title": "Kanyakumari \u00b7 Kumari Amman"
    }
   },
   {
    "id": "y27pos60",
    "type": "poster",
-   "name": "Kanyakumari · Vivekananda Rock",
+   "name": "Kanyakumari \u00b7 Vivekananda Rock",
    "section": "s2",
    "x": 79.5,
    "y": 25.65,
@@ -2181,13 +2181,13 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Kanyakumari · Vivekananda Rock"
+    "title": "Kanyakumari \u00b7 Vivekananda Rock"
    }
   },
   {
    "id": "y27pos61",
    "type": "poster",
-   "name": "Kanyakumari · Where three seas meet",
+   "name": "Kanyakumari \u00b7 Where three seas meet",
    "section": "s2",
    "x": 83,
    "y": 25.65,
@@ -2196,13 +2196,13 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Kanyakumari · Where three seas meet"
+    "title": "Kanyakumari \u00b7 Where three seas meet"
    }
   },
   {
    "id": "y27pos62",
    "type": "poster",
-   "name": "Kanyakumari · Nilkanth at the tip",
+   "name": "Kanyakumari \u00b7 Nilkanth at the tip",
    "section": "s2",
    "x": 86.5,
    "y": 25.65,
@@ -2211,19 +2211,19 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Kanyakumari · Nilkanth at the tip"
+    "title": "Kanyakumari \u00b7 Nilkanth at the tip"
    }
   },
   {
    "id": "y27set63",
    "type": "setPiece",
-   "name": "Jagannath’s ratha (red-yellow)",
+   "name": "Jagannath\u2019s ratha (red-yellow)",
    "section": "s3",
    "x": 94,
    "y": 5,
    "rot": 90,
    "params": {
-    "title": "Jagannath’s ratha (red-yellow)",
+    "title": "Jagannath\u2019s ratha (red-yellow)",
     "w": 7,
     "d": 6.5,
     "h": 11.5,
@@ -2379,19 +2379,19 @@
       "kalash"
      ]
     ],
-    "note": "Printed body, foam wheels, cloth canopy; about 11½ ft tall."
+    "note": "Printed body, foam wheels, cloth canopy; about 11\u00bd ft tall."
    }
   },
   {
    "id": "y27set64",
    "type": "setPiece",
-   "name": "Subhadra’s ratha (red-black)",
+   "name": "Subhadra\u2019s ratha (red-black)",
    "section": "s3",
    "x": 102.5,
    "y": 5,
    "rot": 90,
    "params": {
-    "title": "Subhadra’s ratha (red-black)",
+    "title": "Subhadra\u2019s ratha (red-black)",
     "w": 7,
     "d": 6.5,
     "h": 11.5,
@@ -2547,19 +2547,19 @@
       "kalash"
      ]
     ],
-    "note": "Printed body, foam wheels, cloth canopy; about 11½ ft tall."
+    "note": "Printed body, foam wheels, cloth canopy; about 11\u00bd ft tall."
    }
   },
   {
    "id": "y27set65",
    "type": "setPiece",
-   "name": "Balabhadra’s ratha (red-green)",
+   "name": "Balabhadra\u2019s ratha (red-green)",
    "section": "s3",
    "x": 111,
    "y": 5,
    "rot": 90,
    "params": {
-    "title": "Balabhadra’s ratha (red-green)",
+    "title": "Balabhadra\u2019s ratha (red-green)",
     "w": 7,
     "d": 6.5,
     "h": 11.5,
@@ -2715,13 +2715,13 @@
       "kalash"
      ]
     ],
-    "note": "Printed body, foam wheels, cloth canopy; about 11½ ft tall."
+    "note": "Printed body, foam wheels, cloth canopy; about 11\u00bd ft tall."
    }
   },
   {
    "id": "y27pos66",
    "type": "poster",
-   "name": "Puri · The Rath Yatra",
+   "name": "Puri \u00b7 The Rath Yatra",
    "section": "s3",
    "x": 92,
    "y": 25.65,
@@ -2730,13 +2730,13 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Puri · The Rath Yatra"
+    "title": "Puri \u00b7 The Rath Yatra"
    }
   },
   {
    "id": "y27pos67",
    "type": "poster",
-   "name": "Puri · Nilkanth at Jagannath Puri (forgiveness)",
+   "name": "Puri \u00b7 Nilkanth at Jagannath Puri (forgiveness)",
    "section": "s3",
    "x": 96,
    "y": 25.65,
@@ -2745,13 +2745,13 @@
     "w": 3.5,
     "h": 5,
     "bottom": 2,
-    "title": "Puri · Nilkanth at Jagannath Puri (forgiveness)"
+    "title": "Puri \u00b7 Nilkanth at Jagannath Puri (forgiveness)"
    }
   },
   {
    "id": "y27set68",
    "type": "setPiece",
-   "name": "Kashi bleachers (4 steps)",
+   "name": "Kashi steps (4 tiers, stone)",
    "section": "s4",
    "x": 93.5,
    "y": 49,
@@ -2807,144 +2807,6 @@
    }
   },
   {
-   "id": "y27set69",
-   "type": "setPiece",
-   "name": "Six 12-ft ghat flats (projection on this side)",
-   "section": "s4",
-   "x": 89.6,
-   "y": 49,
-   "rot": 0,
-   "params": {
-    "title": "Six 12-ft ghat flats (projection on this side)",
-    "w": 40,
-    "d": 0.4,
-    "h": 13.5,
-    "parts": [
-     [
-      -17.5,
-      0,
-      0,
-      5.5,
-      0.4,
-      12,
-      "sandstone",
-      "printed ghat flat (12 ft), projection-mapped"
-     ],
-     [
-      -17.5,
-      0,
-      12,
-      3,
-      0.4,
-      1.5,
-      "paintSaffron",
-      "chhatri top"
-     ],
-     [
-      -10.5,
-      0,
-      0,
-      5.5,
-      0.4,
-      12,
-      "sandstone",
-      "printed ghat flat (12 ft), projection-mapped"
-     ],
-     [
-      -10.5,
-      0,
-      12,
-      3,
-      0.4,
-      1.5,
-      "paintSaffron",
-      "chhatri top"
-     ],
-     [
-      -3.5,
-      0,
-      0,
-      5.5,
-      0.4,
-      12,
-      "sandstone",
-      "printed ghat flat (12 ft), projection-mapped"
-     ],
-     [
-      -3.5,
-      0,
-      12,
-      3,
-      0.4,
-      1.5,
-      "paintSaffron",
-      "chhatri top"
-     ],
-     [
-      3.5,
-      0,
-      0,
-      5.5,
-      0.4,
-      12,
-      "sandstone",
-      "printed ghat flat (12 ft), projection-mapped"
-     ],
-     [
-      3.5,
-      0,
-      12,
-      3,
-      0.4,
-      1.5,
-      "paintSaffron",
-      "chhatri top"
-     ],
-     [
-      10.5,
-      0,
-      0,
-      5.5,
-      0.4,
-      12,
-      "sandstone",
-      "printed ghat flat (12 ft), projection-mapped"
-     ],
-     [
-      10.5,
-      0,
-      12,
-      3,
-      0.4,
-      1.5,
-      "paintSaffron",
-      "chhatri top"
-     ],
-     [
-      17.5,
-      0,
-      0,
-      5.5,
-      0.4,
-      12,
-      "sandstone",
-      "printed ghat flat (12 ft), projection-mapped"
-     ],
-     [
-      17.5,
-      0,
-      12,
-      3,
-      0.4,
-      1.5,
-      "paintSaffron",
-      "chhatri top"
-     ]
-    ],
-    "note": "Projection-mapped: the first of the two projection sides."
-   }
-  },
-  {
    "id": "y27set70",
    "type": "setPiece",
    "name": "The Ganga (water channel)",
@@ -2966,7 +2828,7 @@
       38.5,
       0.9,
       "water",
-      "water, ~10″ deep"
+      "water, ~10\u2033 deep"
      ],
      [
       -4.75,
@@ -3001,177 +2863,247 @@
     ],
     "glow": [
      {
-      "u": -2,
-      "v": -18,
-      "z": 1,
-      "lumens": 15,
+      "u": -2.3,
+      "v": -18.5,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": 2,
-      "v": -15.6,
-      "z": 1,
-      "lumens": 15,
+      "u": 2.9,
+      "v": -17.224137931034484,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": -2,
-      "v": -13.2,
-      "z": 1,
-      "lumens": 15,
+      "u": -1.6999999999999997,
+      "v": -15.948275862068964,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": 2,
-      "v": -10.8,
-      "z": 1,
-      "lumens": 15,
+      "u": 2.3,
+      "v": -14.672413793103448,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": -2,
-      "v": -8.4,
-      "z": 1,
-      "lumens": 15,
+      "u": -2.3,
+      "v": -13.39655172413793,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": 2,
-      "v": -6,
-      "z": 1,
-      "lumens": 15,
+      "u": 2.9,
+      "v": -12.120689655172413,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": -2,
-      "v": -3.5999999999999996,
-      "z": 1,
-      "lumens": 15,
+      "u": -1.6999999999999997,
+      "v": -10.844827586206897,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": 2,
-      "v": -1.1999999999999993,
-      "z": 1,
-      "lumens": 15,
+      "u": 2.3,
+      "v": -9.568965517241379,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": -2,
-      "v": 1.1999999999999993,
-      "z": 1,
-      "lumens": 15,
+      "u": -2.3,
+      "v": -8.293103448275861,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": 2,
-      "v": 3.6000000000000014,
-      "z": 1,
-      "lumens": 15,
+      "u": 2.9,
+      "v": -7.017241379310345,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": -2,
-      "v": 6,
-      "z": 1,
-      "lumens": 15,
+      "u": -1.6999999999999997,
+      "v": -5.741379310344827,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": 2,
-      "v": 8.399999999999999,
-      "z": 1,
-      "lumens": 15,
+      "u": 2.3,
+      "v": -4.46551724137931,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": -2,
-      "v": 10.8,
-      "z": 1,
-      "lumens": 15,
+      "u": -2.3,
+      "v": -3.1896551724137936,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": 2,
-      "v": 13.2,
-      "z": 1,
-      "lumens": 15,
+      "u": 2.9,
+      "v": -1.9137931034482776,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": -2,
-      "v": 15.600000000000001,
-      "z": 1,
-      "lumens": 15,
+      "u": -1.6999999999999997,
+      "v": -0.637931034482758,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      },
      {
-      "u": 2,
-      "v": 18,
-      "z": 1,
-      "lumens": 15,
+      "u": 2.3,
+      "v": 0.637931034482758,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": -2.3,
+      "v": 1.9137931034482776,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": 2.9,
+      "v": 3.1896551724137936,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": -1.6999999999999997,
+      "v": 4.46551724137931,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": 2.3,
+      "v": 5.741379310344829,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": -2.3,
+      "v": 7.017241379310345,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": 2.9,
+      "v": 8.293103448275861,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": -1.6999999999999997,
+      "v": 9.56896551724138,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": 2.3,
+      "v": 10.844827586206897,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": -2.3,
+      "v": 12.120689655172413,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": 2.9,
+      "v": 13.396551724137932,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": -1.6999999999999997,
+      "v": 14.672413793103445,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": 2.3,
+      "v": 15.948275862068968,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": -2.3,
+      "v": 17.224137931034484,
+      "z": 1.0,
+      "lumens": 12,
+      "cct": 1900,
+      "name": "floating diya"
+     },
+     {
+      "u": 2.9,
+      "v": 18.5,
+      "z": 1.0,
+      "lumens": 12,
       "cct": 1900,
       "name": "floating diya"
      }
     ],
     "note": "Lined channel starting 5 ft in from the Puri exit; floating LED diyas drift north to the Sangam."
-   }
-  },
-  {
-   "id": "y27set71",
-   "type": "setPiece",
-   "name": "Aarti projection wall (east side)",
-   "section": "s4",
-   "x": 116.8,
-   "y": 49,
-   "rot": 180,
-   "params": {
-    "title": "Aarti projection wall (east side)",
-    "w": 38,
-    "d": 0.2,
-    "h": 8.5,
-    "parts": [
-     [
-      0,
-      0,
-      0.5,
-      38,
-      0.2,
-      8,
-      "screen",
-      "projection surface"
-     ]
-    ],
-    "face": true,
-    "faceZ": 4.5,
-    "faceH": 8,
-    "glow": [
-     {
-      "u": 0,
-      "v": 0.15,
-      "z": 4.5,
-      "nits": 30,
-      "area": 300,
-      "cct": 2600,
-      "dir": "front",
-      "name": "aarti projection"
-     }
-    ]
    }
   },
   {
@@ -3199,130 +3131,6 @@
       "feed channel"
      ]
     ]
-   }
-  },
-  {
-   "id": "y27set73",
-   "type": "setPiece",
-   "name": "Sangam · Yamuna (green)",
-   "section": "s4",
-   "x": 100.5,
-   "y": 88.7,
-   "rot": 90,
-   "params": {
-    "title": "Sangam · Yamuna (green)",
-    "w": 7,
-    "d": 7,
-    "h": 1.5,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      7,
-      7,
-      1.4,
-      "stone",
-      "stone-faced pool wall"
-     ],
-     [
-      0,
-      0,
-      1.4,
-      6,
-      6,
-      0.06,
-      "waterGreen",
-      "water"
-     ]
-    ],
-    "note": "Real water, about 12″ deep, in a lined tank behind the stone facing."
-   }
-  },
-  {
-   "id": "y27set74",
-   "type": "setPiece",
-   "name": "Sangam · the meeting (corner pool)",
-   "section": "s4",
-   "x": 110,
-   "y": 87.2,
-   "rot": 90,
-   "params": {
-    "title": "Sangam · the meeting (corner pool)",
-    "w": 10,
-    "d": 10,
-    "h": 1.5,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      10,
-      10,
-      1.4,
-      "stone",
-      "stone-faced pool wall"
-     ],
-     [
-      0,
-      0,
-      1.4,
-      9,
-      9,
-      0.06,
-      "water",
-      "water"
-     ],
-     [
-      0,
-      0,
-      1.45,
-      0.8,
-      0.8,
-      14,
-      "acrylic",
-      "beam of light"
-     ]
-    ],
-    "note": "Real water, about 12″ deep, in a lined tank behind the stone facing."
-   }
-  },
-  {
-   "id": "y27set75",
-   "type": "setPiece",
-   "name": "Sangam · Ganga (blue)",
-   "section": "s4",
-   "x": 110,
-   "y": 77.2,
-   "rot": 90,
-   "params": {
-    "title": "Sangam · Ganga (blue)",
-    "w": 10,
-    "d": 8,
-    "h": 1.5,
-    "parts": [
-     [
-      0,
-      0,
-      0,
-      10,
-      8,
-      1.4,
-      "stone",
-      "stone-faced pool wall"
-     ],
-     [
-      0,
-      0,
-      1.4,
-      9,
-      7,
-      0.06,
-      "water",
-      "water"
-     ]
-    ],
-    "note": "Real water, about 12″ deep, in a lined tank behind the stone facing."
    }
   },
   {
@@ -3480,13 +3288,13 @@
   {
    "id": "y27set79",
    "type": "setPiece",
-   "name": "Mountain · Yamunotri",
+   "name": "Mountain \u00b7 Yamunotri",
    "section": "s5",
    "x": 60,
    "y": 71,
    "rot": 90,
    "params": {
-    "title": "Mountain · Yamunotri",
+    "title": "Mountain \u00b7 Yamunotri",
     "w": 8,
     "d": 9.5,
     "h": 8,
@@ -3548,13 +3356,13 @@
   {
    "id": "y27set80",
    "type": "setPiece",
-   "name": "Yamunotri · its own small item",
+   "name": "Yamunotri \u00b7 its own small item",
    "section": "s5",
    "x": 60,
    "y": 77,
    "rot": 90,
    "params": {
-    "title": "Yamunotri · its own small item",
+    "title": "Yamunotri \u00b7 its own small item",
     "w": 3,
     "d": 2,
     "h": 6,
@@ -3585,13 +3393,13 @@
   {
    "id": "y27set81",
    "type": "setPiece",
-   "name": "Mountain · Gangotri",
+   "name": "Mountain \u00b7 Gangotri",
    "section": "s5",
    "x": 68,
    "y": 71.2,
    "rot": 90,
    "params": {
-    "title": "Mountain · Gangotri",
+    "title": "Mountain \u00b7 Gangotri",
     "w": 8,
     "d": 9.5,
     "h": 11,
@@ -3653,13 +3461,13 @@
   {
    "id": "y27set82",
    "type": "setPiece",
-   "name": "Gangotri · its own small item",
+   "name": "Gangotri \u00b7 its own small item",
    "section": "s5",
    "x": 69,
    "y": 77,
    "rot": 90,
    "params": {
-    "title": "Gangotri · its own small item",
+    "title": "Gangotri \u00b7 its own small item",
     "w": 3,
     "d": 2,
     "h": 6,
@@ -3690,13 +3498,13 @@
   {
    "id": "y27set83",
    "type": "setPiece",
-   "name": "Mountain · Kedarnath",
+   "name": "Mountain \u00b7 Kedarnath",
    "section": "s5",
    "x": 76,
    "y": 71.2,
    "rot": 90,
    "params": {
-    "title": "Mountain · Kedarnath",
+    "title": "Mountain \u00b7 Kedarnath",
     "w": 8,
     "d": 9.5,
     "h": 11,
@@ -3758,13 +3566,13 @@
   {
    "id": "y27set84",
    "type": "setPiece",
-   "name": "Kedarnath · its own small item",
+   "name": "Kedarnath \u00b7 its own small item",
    "section": "s5",
    "x": 76,
    "y": 77,
    "rot": 90,
    "params": {
-    "title": "Kedarnath · its own small item",
+    "title": "Kedarnath \u00b7 its own small item",
     "w": 3,
     "d": 2,
     "h": 6,
@@ -3795,13 +3603,13 @@
   {
    "id": "y27set85",
    "type": "setPiece",
-   "name": "Mountain · Badrinath",
+   "name": "Mountain \u00b7 Badrinath",
    "section": "s5",
    "x": 84,
    "y": 71.2,
    "rot": 90,
    "params": {
-    "title": "Mountain · Badrinath",
+    "title": "Mountain \u00b7 Badrinath",
     "w": 8,
     "d": 9.5,
     "h": 11,
@@ -3863,13 +3671,13 @@
   {
    "id": "y27set86",
    "type": "setPiece",
-   "name": "Badrinath · its own small item",
+   "name": "Badrinath \u00b7 its own small item",
    "section": "s5",
    "x": 84,
    "y": 77,
    "rot": 90,
    "params": {
-    "title": "Badrinath · its own small item",
+    "title": "Badrinath \u00b7 its own small item",
     "w": 3,
     "d": 2,
     "h": 6,
@@ -3900,7 +3708,7 @@
   {
    "id": "y27ris87",
    "type": "riser",
-   "name": "Nilkanth abhishek stage (15 × 15)",
+   "name": "Nilkanth abhishek stage (15 \u00d7 15)",
    "section": "s5",
    "x": 47.5,
    "y": 73.7,
@@ -4122,7 +3930,7 @@
       "kalash"
      ]
     ],
-    "note": "Detailed model on a 2½ ft plinth; size from the plan (10 × 12 ft), height inferred."
+    "note": "Detailed model on a 2\u00bd ft plinth; size from the plan (10 \u00d7 12 ft), height inferred."
    }
   },
   {
@@ -4146,7 +3954,7 @@
   {
    "id": "y27pos92",
    "type": "poster",
-   "name": "BAPS & Satsang · Key message 1",
+   "name": "BAPS & Satsang \u00b7 Key message 1",
    "section": "s6",
    "x": 30,
    "y": 26.2,
@@ -4155,13 +3963,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "BAPS & Satsang · Key message 1"
+    "title": "BAPS & Satsang \u00b7 Key message 1"
    }
   },
   {
    "id": "y27pos93",
    "type": "poster",
-   "name": "BAPS & Satsang · Key message 2",
+   "name": "BAPS & Satsang \u00b7 Key message 2",
    "section": "s6",
    "x": 37,
    "y": 26.2,
@@ -4170,13 +3978,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "BAPS & Satsang · Key message 2"
+    "title": "BAPS & Satsang \u00b7 Key message 2"
    }
   },
   {
    "id": "y27pos94",
    "type": "poster",
-   "name": "BAPS & Satsang · Key message 3",
+   "name": "BAPS & Satsang \u00b7 Key message 3",
    "section": "s6",
    "x": 44,
    "y": 26.2,
@@ -4185,13 +3993,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "BAPS & Satsang · Key message 3"
+    "title": "BAPS & Satsang \u00b7 Key message 3"
    }
   },
   {
    "id": "y27pos95",
    "type": "poster",
-   "name": "BAPS & Satsang · Key message 4",
+   "name": "BAPS & Satsang \u00b7 Key message 4",
    "section": "s6",
    "x": 51,
    "y": 26.2,
@@ -4200,13 +4008,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "BAPS & Satsang · Key message 4"
+    "title": "BAPS & Satsang \u00b7 Key message 4"
    }
   },
   {
    "id": "y27pos96",
    "type": "poster",
-   "name": "BAPS & Satsang · Key message 5",
+   "name": "BAPS & Satsang \u00b7 Key message 5",
    "section": "s6",
    "x": 58,
    "y": 26.2,
@@ -4215,13 +4023,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "BAPS & Satsang · Key message 5"
+    "title": "BAPS & Satsang \u00b7 Key message 5"
    }
   },
   {
    "id": "y27pos97",
    "type": "poster",
-   "name": "BAPS & Satsang · Key message 6",
+   "name": "BAPS & Satsang \u00b7 Key message 6",
    "section": "s6",
    "x": 65,
    "y": 26.2,
@@ -4230,13 +4038,13 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "BAPS & Satsang · Key message 6"
+    "title": "BAPS & Satsang \u00b7 Key message 6"
    }
   },
   {
    "id": "y27pos98",
    "type": "poster",
-   "name": "BAPS & Satsang · Key message 7",
+   "name": "BAPS & Satsang \u00b7 Key message 7",
    "section": "s6",
    "x": 72,
    "y": 26.2,
@@ -4245,7 +4053,7 @@
     "w": 4,
     "h": 5,
     "bottom": 2,
-    "title": "BAPS & Satsang · Key message 7"
+    "title": "BAPS & Satsang \u00b7 Key message 7"
    }
   },
   {
@@ -4343,6 +4151,866 @@
     }
    ],
    "id": "dra_4trhpnnpe"
+  },
+  {
+   "id": "y27kb1",
+   "type": "banner",
+   "name": "Kashi ghats at dusk \u2014 printed backdrop (40 ft)",
+   "section": "s4",
+   "x": 89.35,
+   "y": 49,
+   "rot": 0,
+   "params": {
+    "w": 40,
+    "h": 10,
+    "bottom": 0.5,
+    "title": "",
+    "sub": "Printed backdrop \u00b7 the ghats of Kashi at dusk",
+    "style": "photo",
+    "feet": false,
+    "onDrape": true
+   }
+  },
+  {
+   "id": "y27ka1",
+   "type": "setPiece",
+   "name": "Aarti stand 1 (brass lamp + flowers)",
+   "section": "s4",
+   "x": 102.6,
+   "y": 36,
+   "rot": 0,
+   "params": {
+    "title": "Aarti stand 1 (brass lamp + flowers)",
+    "w": 4.2,
+    "d": 2.6,
+    "h": 4.6,
+    "parts": [
+     [
+      0,
+      0,
+      1.0,
+      4.2,
+      2.6,
+      0.25,
+      "woodDark",
+      "low wooden aarti stand"
+     ],
+     [
+      -1.8,
+      -1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      -1.8,
+      1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      1.8,
+      -1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      1.8,
+      1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      -1.1,
+      0,
+      1.25,
+      0.7,
+      0.7,
+      0.2,
+      "gold",
+      "brass lamp base"
+     ],
+     [
+      -1.1,
+      0,
+      1.45,
+      0.2,
+      0.2,
+      2.6,
+      "gold",
+      "brass deepstambh"
+     ],
+     [
+      -1.1,
+      0,
+      2.3,
+      0.9,
+      0.9,
+      0.1,
+      "gold",
+      "lamp tier"
+     ],
+     [
+      -1.1,
+      0,
+      3.0,
+      0.7,
+      0.7,
+      0.1,
+      "gold",
+      "lamp tier"
+     ],
+     [
+      -1.1,
+      0,
+      3.6,
+      0.5,
+      0.5,
+      0.1,
+      "gold",
+      "lamp tier"
+     ],
+     [
+      -1.1,
+      0,
+      4.05,
+      0.15,
+      0.15,
+      0.5,
+      "gold",
+      "finial"
+     ],
+     [
+      1.0,
+      0,
+      1.25,
+      1.3,
+      1.3,
+      0.1,
+      "gold",
+      "aarti plate"
+     ],
+     [
+      1.0,
+      0,
+      1.35,
+      1.0,
+      1.0,
+      0.08,
+      "drapeMaroon",
+      "rose petals"
+     ]
+    ],
+    "glow": [
+     {
+      "u": -1.1,
+      "v": 0,
+      "z": 2.45,
+      "lumens": 40,
+      "cct": 1900,
+      "name": "brass lamp"
+     },
+     {
+      "u": -1.1,
+      "v": 0,
+      "z": 3.15,
+      "lumens": 40,
+      "cct": 1900,
+      "name": "brass lamp"
+     },
+     {
+      "u": -1.1,
+      "v": 0,
+      "z": 3.75,
+      "lumens": 40,
+      "cct": 1900,
+      "name": "brass lamp"
+     }
+    ],
+    "note": "Low wooden stand at the river edge with a tall brass deepstambh and a plate of flowers."
+   }
+  },
+  {
+   "id": "y27ka2",
+   "type": "setPiece",
+   "name": "Aarti stand 2 (brass lamp + flowers)",
+   "section": "s4",
+   "x": 102.6,
+   "y": 49,
+   "rot": 0,
+   "params": {
+    "title": "Aarti stand 2 (brass lamp + flowers)",
+    "w": 4.2,
+    "d": 2.6,
+    "h": 4.6,
+    "parts": [
+     [
+      0,
+      0,
+      1.0,
+      4.2,
+      2.6,
+      0.25,
+      "woodDark",
+      "low wooden aarti stand"
+     ],
+     [
+      -1.8,
+      -1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      -1.8,
+      1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      1.8,
+      -1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      1.8,
+      1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      -1.1,
+      0,
+      1.25,
+      0.7,
+      0.7,
+      0.2,
+      "gold",
+      "brass lamp base"
+     ],
+     [
+      -1.1,
+      0,
+      1.45,
+      0.2,
+      0.2,
+      2.6,
+      "gold",
+      "brass deepstambh"
+     ],
+     [
+      -1.1,
+      0,
+      2.3,
+      0.9,
+      0.9,
+      0.1,
+      "gold",
+      "lamp tier"
+     ],
+     [
+      -1.1,
+      0,
+      3.0,
+      0.7,
+      0.7,
+      0.1,
+      "gold",
+      "lamp tier"
+     ],
+     [
+      -1.1,
+      0,
+      3.6,
+      0.5,
+      0.5,
+      0.1,
+      "gold",
+      "lamp tier"
+     ],
+     [
+      -1.1,
+      0,
+      4.05,
+      0.15,
+      0.15,
+      0.5,
+      "gold",
+      "finial"
+     ],
+     [
+      1.0,
+      0,
+      1.25,
+      1.3,
+      1.3,
+      0.1,
+      "gold",
+      "aarti plate"
+     ],
+     [
+      1.0,
+      0,
+      1.35,
+      1.0,
+      1.0,
+      0.08,
+      "drapeMaroon",
+      "rose petals"
+     ]
+    ],
+    "glow": [
+     {
+      "u": -1.1,
+      "v": 0,
+      "z": 2.45,
+      "lumens": 40,
+      "cct": 1900,
+      "name": "brass lamp"
+     },
+     {
+      "u": -1.1,
+      "v": 0,
+      "z": 3.15,
+      "lumens": 40,
+      "cct": 1900,
+      "name": "brass lamp"
+     },
+     {
+      "u": -1.1,
+      "v": 0,
+      "z": 3.75,
+      "lumens": 40,
+      "cct": 1900,
+      "name": "brass lamp"
+     }
+    ],
+    "note": "Low wooden stand at the river edge with a tall brass deepstambh and a plate of flowers."
+   }
+  },
+  {
+   "id": "y27ka3",
+   "type": "setPiece",
+   "name": "Aarti stand 3 (brass lamp + flowers)",
+   "section": "s4",
+   "x": 102.6,
+   "y": 62,
+   "rot": 0,
+   "params": {
+    "title": "Aarti stand 3 (brass lamp + flowers)",
+    "w": 4.2,
+    "d": 2.6,
+    "h": 4.6,
+    "parts": [
+     [
+      0,
+      0,
+      1.0,
+      4.2,
+      2.6,
+      0.25,
+      "woodDark",
+      "low wooden aarti stand"
+     ],
+     [
+      -1.8,
+      -1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      -1.8,
+      1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      1.8,
+      -1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      1.8,
+      1.0,
+      0,
+      0.3,
+      0.3,
+      1.0,
+      "woodDark",
+      "leg"
+     ],
+     [
+      -1.1,
+      0,
+      1.25,
+      0.7,
+      0.7,
+      0.2,
+      "gold",
+      "brass lamp base"
+     ],
+     [
+      -1.1,
+      0,
+      1.45,
+      0.2,
+      0.2,
+      2.6,
+      "gold",
+      "brass deepstambh"
+     ],
+     [
+      -1.1,
+      0,
+      2.3,
+      0.9,
+      0.9,
+      0.1,
+      "gold",
+      "lamp tier"
+     ],
+     [
+      -1.1,
+      0,
+      3.0,
+      0.7,
+      0.7,
+      0.1,
+      "gold",
+      "lamp tier"
+     ],
+     [
+      -1.1,
+      0,
+      3.6,
+      0.5,
+      0.5,
+      0.1,
+      "gold",
+      "lamp tier"
+     ],
+     [
+      -1.1,
+      0,
+      4.05,
+      0.15,
+      0.15,
+      0.5,
+      "gold",
+      "finial"
+     ],
+     [
+      1.0,
+      0,
+      1.25,
+      1.3,
+      1.3,
+      0.1,
+      "gold",
+      "aarti plate"
+     ],
+     [
+      1.0,
+      0,
+      1.35,
+      1.0,
+      1.0,
+      0.08,
+      "drapeMaroon",
+      "rose petals"
+     ]
+    ],
+    "glow": [
+     {
+      "u": -1.1,
+      "v": 0,
+      "z": 2.45,
+      "lumens": 40,
+      "cct": 1900,
+      "name": "brass lamp"
+     },
+     {
+      "u": -1.1,
+      "v": 0,
+      "z": 3.15,
+      "lumens": 40,
+      "cct": 1900,
+      "name": "brass lamp"
+     },
+     {
+      "u": -1.1,
+      "v": 0,
+      "z": 3.75,
+      "lumens": 40,
+      "cct": 1900,
+      "name": "brass lamp"
+     }
+    ],
+    "note": "Low wooden stand at the river edge with a tall brass deepstambh and a plate of flowers."
+   }
+  },
+  {
+   "id": "y27kd1",
+   "type": "drape",
+   "name": "Kashi \u2014 east wall (posters behind the river)",
+   "section": "s4",
+   "x": 116.2,
+   "y": 27,
+   "rot": 0,
+   "params": {
+    "h": 8,
+    "color": "black",
+    "fullness": 0.5
+   },
+   "points": [
+    {
+     "x": 0,
+     "y": 0
+    },
+    {
+     "x": 0,
+     "y": 44
+    }
+   ]
+  },
+  {
+   "id": "y27kp1",
+   "type": "poster",
+   "name": "Kashi \u00b7 One of the oldest living cities",
+   "section": "s4",
+   "x": 115.9,
+   "y": 31,
+   "rot": 180,
+   "params": {
+    "w": 5,
+    "h": 5.5,
+    "bottom": 1.75,
+    "title": "Kashi \u00b7 One of the oldest living cities",
+    "style": "cream"
+   }
+  },
+  {
+   "id": "y27kp2",
+   "type": "poster",
+   "name": "Kashi \u00b7 Kashi Vishwanath",
+   "section": "s4",
+   "x": 115.9,
+   "y": 39.5,
+   "rot": 180,
+   "params": {
+    "w": 5,
+    "h": 5.5,
+    "bottom": 1.75,
+    "title": "Kashi \u00b7 Kashi Vishwanath",
+    "style": "cream"
+   }
+  },
+  {
+   "id": "y27kp3",
+   "type": "poster",
+   "name": "Kashi \u00b7 The evening Ganga aarti",
+   "section": "s4",
+   "x": 115.9,
+   "y": 48,
+   "rot": 180,
+   "params": {
+    "w": 5,
+    "h": 5.5,
+    "bottom": 1.75,
+    "title": "Kashi \u00b7 The evening Ganga aarti",
+    "style": "cream"
+   }
+  },
+  {
+   "id": "y27kp4",
+   "type": "poster",
+   "name": "Kashi \u00b7 Dashashwamedh Ghat",
+   "section": "s4",
+   "x": 115.9,
+   "y": 56.5,
+   "rot": 180,
+   "params": {
+    "w": 5,
+    "h": 5.5,
+    "bottom": 1.75,
+    "title": "Kashi \u00b7 Dashashwamedh Ghat",
+    "style": "cream"
+   }
+  },
+  {
+   "id": "y27kp5",
+   "type": "poster",
+   "name": "Kashi \u00b7 Ghanshyam among the scholars",
+   "section": "s4",
+   "x": 115.9,
+   "y": 65,
+   "rot": 180,
+   "params": {
+    "w": 5,
+    "h": 5.5,
+    "bottom": 1.75,
+    "title": "Kashi \u00b7 Ghanshyam among the scholars",
+    "style": "cream"
+   }
+  },
+  {
+   "id": "y27set74",
+   "type": "setPiece",
+   "name": "Sangam \u00b7 the meeting (corner pool)",
+   "section": "s4",
+   "x": 109.0,
+   "y": 87.2,
+   "rot": 90,
+   "params": {
+    "title": "Sangam \u00b7 the meeting (corner pool)",
+    "w": 10,
+    "d": 10.0,
+    "h": 1.5,
+    "parts": [
+     [
+      0,
+      0,
+      0,
+      10,
+      10.0,
+      1.4,
+      "stone",
+      "stone-faced pool wall"
+     ],
+     [
+      0,
+      0,
+      1.4,
+      9,
+      9.0,
+      0.06,
+      "water",
+      "water"
+     ],
+     [
+      0,
+      0,
+      1.45,
+      0.8,
+      0.8,
+      14,
+      "acrylic",
+      "beam of light"
+     ]
+    ],
+    "note": "Real water, about 12\u2033 deep, in a lined tank behind the stone facing."
+   }
+  },
+  {
+   "id": "y27set75",
+   "type": "setPiece",
+   "name": "Sangam \u00b7 Ganga (blue)",
+   "section": "s4",
+   "x": 109.0,
+   "y": 77.2,
+   "rot": 90,
+   "params": {
+    "title": "Sangam \u00b7 Ganga (blue)",
+    "w": 10,
+    "d": 8.0,
+    "h": 1.5,
+    "parts": [
+     [
+      0,
+      0,
+      0,
+      10,
+      8.0,
+      1.4,
+      "stone",
+      "stone-faced pool wall"
+     ],
+     [
+      0,
+      0,
+      1.4,
+      9,
+      7.0,
+      0.06,
+      "water",
+      "water"
+     ]
+    ],
+    "note": "Real water, about 12\u2033 deep, in a lined tank behind the stone facing."
+   }
+  },
+  {
+   "id": "y27set73",
+   "type": "setPiece",
+   "name": "Sangam \u00b7 Yamuna (green)",
+   "section": "s4",
+   "x": 100.2,
+   "y": 89.0,
+   "rot": 90,
+   "params": {
+    "title": "Sangam \u00b7 Yamuna (green)",
+    "w": 6.400000000000006,
+    "d": 6.400000000000006,
+    "h": 1.5,
+    "parts": [
+     [
+      0,
+      0,
+      0,
+      6.400000000000006,
+      6.400000000000006,
+      1.4,
+      "stone",
+      "stone-faced pool wall"
+     ],
+     [
+      0,
+      0,
+      1.4,
+      5.400000000000006,
+      5.400000000000006,
+      0.06,
+      "waterGreen",
+      "water"
+     ]
+    ],
+    "note": "Real water, about 12\u2033 deep, in a lined tank behind the stone facing."
+   }
+  },
+  {
+   "id": "y27kc1",
+   "type": "setPiece",
+   "name": "Cascade \u00b7 blue \u2192 corner pool",
+   "section": "s4",
+   "x": 109,
+   "y": 81.7,
+   "rot": 90,
+   "params": {
+    "title": "Cascade \u00b7 blue \u2192 corner pool",
+    "w": 3,
+    "d": 1,
+    "h": 1.6,
+    "parts": [
+     [
+      0,
+      0,
+      0,
+      3,
+      1,
+      1.5,
+      "water",
+      "small cascade"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "y27kc2",
+   "type": "setPiece",
+   "name": "Cascade \u00b7 green \u2192 corner pool",
+   "section": "s4",
+   "x": 103.7,
+   "y": 89,
+   "rot": 90,
+   "params": {
+    "title": "Cascade \u00b7 green \u2192 corner pool",
+    "w": 0.8,
+    "d": 2.4,
+    "h": 1.6,
+    "parts": [
+     [
+      0,
+      0,
+      0,
+      0.8,
+      2.4,
+      1.5,
+      "water",
+      "small cascade"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "y27kc3",
+   "type": "setPiece",
+   "name": "Planters (Sangam)",
+   "section": "s4",
+   "x": 105,
+   "y": 92,
+   "rot": 90,
+   "params": {
+    "title": "Planters (Sangam)",
+    "w": 1,
+    "d": 1,
+    "h": 1,
+    "parts": [
+     [
+      -7.2,
+      0,
+      0,
+      1.4,
+      1.4,
+      1.2,
+      "paintSage",
+      "planter with flowers"
+     ],
+     [
+      8.4,
+      0.3,
+      0,
+      1.4,
+      1.4,
+      1.2,
+      "paintSage",
+      "planter with flowers"
+     ]
+    ]
+   }
   }
  ],
  "probes": [],
@@ -4377,5 +5045,5 @@
  },
  "artSpotVariant": "framing20",
  "updatedAt": 1794708921175,
- "savedAt": "2026-11-15T02:16:54.604Z"
+ "savedAt": "2026-11-15T02:35:15.000Z"
 }
