@@ -144,7 +144,7 @@ export const MULTI_ROOM_WALLS: Added[] = [
 export const MULTI_ROOM_HIDDEN = ['w171', 'w247'];
 
 /** Diwali 2027 starts with the campus as built (DWG, solar canopy) plus the Multi Room doors; the hall exhibition comes from the Plan. The 2026 layout is in archive/2026. */
-export const DEFAULT_EDITS: Edits = {
+const DRAFT_EDITS: Edits = {
   v: 1,
   rev: 8,
   zones: [],
@@ -165,6 +165,16 @@ export const DEFAULT_EDITS: Edits = {
   exItems: [],
   under: { on: false, op: 0.5, s: 1 / 1.6, x: -845 / 1.6, y: 915 / 1.6 },
 };
+/** The 2027 campus layout as last committed from the app (snapshot of layout/campus-2027.json — not imported directly, because
+ *  npm run dev rewrites layout/ on every edit and importing it would reload the page). Falls back to the draft above. */
+export const DEFAULT_EDITS: Edits = (() => {
+  const s = SAVED_CAMPUS as unknown as Partial<Edits> & { savedAt?: string };
+  if (!s || s.v !== 1) return DRAFT_EDITS;
+  const { savedAt: _s, ...rest } = s;
+  return { ...DRAFT_EDITS, ...rest } as Edits;
+})();
+
+import SAVED_CAMPUS from './defaultCampus2027.json';
 
 // Diwali 2027 has its own campus layout; the 2026 one stays under lightplot.campus.edits.v1 for the archive
 const KEY = 'lightplot.2027.campus.edits.v1';
