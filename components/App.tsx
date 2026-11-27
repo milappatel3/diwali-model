@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useStore, saveNow, type ViewKey } from '@/lib/store';
+import { startFileSync } from '@/lib/fileSync';
 import { Icon } from './ui';
 import { buildScene, computeAll, type FullResult } from '@/lib/engine';
 import Inspector from './Inspector';
@@ -50,6 +51,8 @@ function useCalc() {
       }
     }, 10);
   };
+  // npm run dev: mirror the plan and campus layout into data/ in the project folder
+  useEffect(() => startFileSync(), []);
   useEffect(() => {
     if (failed.current) return;
     try {
