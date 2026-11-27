@@ -779,6 +779,40 @@ export const TYPES: Record<string, TypeDef> = {
     ],
   },
 
+  setPiece: {
+    // Generic built set piece (ghats, mountains, chariots, pools, walkways …) made of oriented boxes.
+    // parts: [u, v, z, su, sv, sz, mat, label?, yawOff?] in the item's local frame (u = width axis, v = toward the front).
+    // glow: optional self-lit points / panels: { u, v, z, lumens?, nits?, area?, cct?, dir?: 'up' | 'front' }.
+    key: 'setPiece',
+    label: 'Set piece (built)',
+    group: 'Exhibits',
+    defaults: { w: 4, d: 4, h: 4, mat: 'mdfPainted', title: 'Set piece', parts: null, glow: null, face: false, note: '' },
+    footprint: (it) => rectFoot(it, P(it).w, P(it).d),
+    solids: (it) => {
+      const p = P(it);
+      const parts: any[] = p.parts || [[0, 0, 0, p.w, p.d, p.h, p.mat]];
+      return parts.map(([u, v, z, su, sv, sz, mat, label, yo]) => box(it, u, v, z, su, sv, sz, (mat || p.mat) as MatKey, { label: label || p.title }, yo || 0));
+    },
+    surfaces: (it) => {
+      const p = P(it);
+      return p.face ? [surf(it, 'face', p.title, 0, p.d / 2 + 0.05, (p.faceZ ?? p.h / 2), p.w, p.faceH ?? p.h, 'panel', [100, 400])] : [];
+    },
+    emitters: (it) => {
+      const p = P(it);
+      if (!p.glow) return [];
+      return (p.glow as any[]).map((g, i) => {
+        const c = L(it, g.u || 0, g.v || 0);
+        const cct = g.cct || 1900;
+        const base = { id: `${it.id}:glow${i}`, itemId: it.id, name: g.name || `${p.title} glow`, c: { x: c.x, y: c.y, z: z0(it) + (g.z || 0) }, rgb: kelvinRGB(cct), cct, cri: 85 };
+        return g.nits
+          ? { ...base, n: g.dir === 'up' ? UP : nrm(it), areaFt2: g.area || 4, nits: g.nits }
+          : { ...base, n: null, areaFt2: 0.01, lumens: g.lumens || 20 };
+      });
+    },
+    bom: (it) => [{ key: `build-${it.id}`, name: `${P(it).title} (≈${P(it).w}′ × ${P(it).d}′ × ${P(it).h}′)`, qty: 1, unit: 'set', cat: 'Build (by team)', note: P(it).note || undefined }],
+    describe: (it) => (P(it).note ? [P(it).note] : []),
+  },
+
   booth: {
     key: 'booth',
     label: 'Booth / zone marker',

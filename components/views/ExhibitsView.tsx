@@ -4,6 +4,9 @@ import { useStore } from '@/lib/store';
 import { SECTIONS, SAMSKARAS, FESTIVALS, NODES, VALUES, HOUSE_AREAS, PANEL_COLORS } from '@/lib/content';
 import { fmtLux, VERDICT_COLOR } from '@/lib/heat';
 
+/** the 2026 per-section content blocks (festivals, samskaras, house areas, nodes, values) don't apply to the 2027 sections */
+const SHOW_2026_CONTENT = false;
+
 export default function ExhibitsView() {
   const project = useStore((s) => s.project);
   const result = useStore((s) => s.result);
@@ -13,7 +16,7 @@ export default function ExhibitsView() {
     <div className="view">
       <div className="section-title">
         <h1 className="h-display">Exhibits</h1>
-        <span className="muted small">What each section is, how it is built and what the light has to do — straight from the Final Content Proposal and the content document.</span>
+        <span className="muted small">What each section is, how it is built and what the light has to do — from the Diwali 2027 planning notes (content still to come).</span>
       </div>
       <div className="stack" style={{ gap: 12 }}>
         {SECTIONS.map((s) => {
@@ -57,14 +60,14 @@ export default function ExhibitsView() {
                   )}
                 </div>
               </div>
-              {s.id === 's1' && (
+              {SHOW_2026_CONTENT && s.id === 's1' && (
                 <div className="chips" style={{ marginTop: 12 }}>
                   {FESTIVALS.map((f) => (
                     <span key={f.state} className="chip" title={f.obj}><span className="sw" style={{ background: f.color }} />{f.state} → {f.fest}</span>
                   ))}
                 </div>
               )}
-              {s.id === 's2' && (
+              {SHOW_2026_CONTENT && s.id === 's2' && (
                 <div className="tbl-wrap" style={{ marginTop: 12, maxHeight: 330 }}>
                   <table className="tbl">
                     <thead><tr><th>#</th><th>Samskara</th><th>Reflection question (lift-flap box)</th><th>Wall</th></tr></thead>
@@ -81,12 +84,12 @@ export default function ExhibitsView() {
                   </table>
                 </div>
               )}
-              {s.id === 's3' && (
+              {SHOW_2026_CONTENT && s.id === 's3' && (
                 <div className="chips" style={{ marginTop: 12 }}>
                   {HOUSE_AREAS.map((a) => <span key={a} className="chip">{a}</span>)}
                 </div>
               )}
-              {s.id === 's4' && (
+              {SHOW_2026_CONTENT && s.id === 's4' && (
                 <div className="grid-3" style={{ marginTop: 12 }}>
                   {NODES.map((n) => (
                     <div key={n.n} className="sub-card">
@@ -97,7 +100,7 @@ export default function ExhibitsView() {
                   ))}
                 </div>
               )}
-              {s.id === 's5' && (
+              {SHOW_2026_CONTENT && s.id === 's5' && (
                 <div className="chips" style={{ marginTop: 12 }}>
                   {VALUES.map((v) => <span key={v.v} className="chip" title={v.s}><span className="sw" style={{ background: v.c }} />{v.v} — <span className="muted-3">{v.s}</span></span>)}
                 </div>

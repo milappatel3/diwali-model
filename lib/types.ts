@@ -86,7 +86,9 @@ export type MatKey =
   | 'drapeBlack' | 'drapeIvory' | 'drapeMaroon' | 'plywood' | 'mdf' | 'mdfPainted' | 'wood' | 'woodDark'
   | 'drywall' | 'fabricSheer' | 'poster' | 'banner' | 'metal' | 'chrome' | 'black' | 'mirror' | 'glass'
   | 'carpet' | 'plant' | 'cushion' | 'gold' | 'screen' | 'stone' | 'acrylic' | 'paper' | 'white'
-  | 'paintOchre' | 'paintPeach' | 'paintSaffron' | 'paintSage' | 'paintCream' | 'couchTeal' | 'granite' | 'terracotta';
+  | 'paintOchre' | 'paintPeach' | 'paintSaffron' | 'paintSage' | 'paintCream' | 'couchTeal' | 'granite' | 'terracotta'
+  // Diwali 2027 set pieces
+  | 'water' | 'waterGreen' | 'sandstone' | 'snow' | 'rock' | 'violet';
 
 export interface Solid {
   // oriented box in FEET: center, size (sx along local x, sy along local y, sz up), yaw (deg CCW)

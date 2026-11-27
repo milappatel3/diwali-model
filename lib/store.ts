@@ -50,6 +50,11 @@ function upgrade(p: Project): Project {
     done.add('lwallStrip');
     items = items.map((i) => (i.type === 'lwall' && i.params?.topStrip === undefined ? { ...i, params: { ...i.params, topStrip: true, stripOverhang: 1 } } : i));
   }
+  if (!done.has('layout2027')) {
+    done.add('layout2027');
+    // a saved 2027 plan that is still the blank canvas picks up the first draft layout; anything already placed is left alone
+    if (!items.length) items = defaultProject().items;
+  }
   return { ...p, items, migr: [...done] };
 }
 

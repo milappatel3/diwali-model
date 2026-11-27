@@ -40,18 +40,18 @@ function Exposure({ value }: { value: number }) {
 }
 
 const PRESETS: Record<string, { pos: [number, number, number]; tgt: [number, number, number]; label: string }> = {
-  entrance: { pos: [2.5, 46, 5.6], tgt: [20, 40, 4.5], label: 'From the hall doors' },
+  // Diwali 2027 · Welcome to India
+  entrance: { pos: [33.5, 2, 5.6], tgt: [33.5, 20, 4.5], label: 'From the south doors (welcome tunnel)' },
   overview: { pos: [60, -42, 62], tgt: [60, 48, 0], label: 'Bird’s-eye' },
-  capa: { pos: [56, 16.1, 6], tgt: [43, 16.1, 4.5], label: 'CAPA' },
-  festivals: { pos: [60, 27, 9], tgt: [74, 12, 3], label: '1 Festivals' },
-  rites: { pos: [92, 30, 8], tgt: [106, 10, 4], label: '2 Rites' },
-  house: { pos: [96, 46, 9.5], tgt: [103.6, 63.5, 3.5], label: '3 House' },
-  houseIn: { pos: [105.2, 77.6, 5.3], tgt: [103.6, 69.9, 3.6], label: '3 House — inside' },
-  beliefs: { pos: [80.5, 76, 6.5], tgt: [66, 86, 4], label: '4 Beliefs' },
-  values: { pos: [54, 80, 6], tgt: [43, 80, 4.2], label: '5 Core Values' },
-  stambh: { pos: [61, 43.5, 6.2], tgt: [80, 48.2, 5.5], label: '6 Adhar Stambh' },
-  photo: { pos: [37, 80, 5.5], tgt: [24, 80, 5], label: 'Photo booth' },
-  pipe: { pos: [62, 70, 7], tgt: [56, 61.7, 10], label: 'Lights on the drape pipe' },
+  welcome: { pos: [45, 12, 6], tgt: [27, 24, 4.5], label: '1 Welcome — intro L walls' },
+  ayodhya: { pos: [86, -6, 6], tgt: [71, -14, 1.5], label: '2 Ayodhya (Multi Room)' },
+  boat: { pos: [85, 3, 6], tgt: [70, 14, 3], label: '3 The boat (Rameswaram → Kanyakumari)' },
+  puri: { pos: [102.5, 24, 6], tgt: [102.5, 3, 5.5], label: '4 Puri raths' },
+  kashi: { pos: [100.5, 30, 6], tgt: [100.5, 60, 4], label: '5 Kashi walkway' },
+  sangam: { pos: [100, 74, 6.5], tgt: [110, 87, 1.5], label: '6 Triveni Sangam' },
+  himalaya: { pos: [72, 90, 6.5], tgt: [72, 68, 6.5], label: '7 Himalaya (from the corridor)' },
+  nilkanth: { pos: [40.5, 86, 7], tgt: [40.5, 62, 4], label: '8 Nilkanth abhishek' },
+  baps: { pos: [30, 40, 6.5], tgt: [79, 38, 4], label: '9 BAPS & Satsang' },
 };
 
 export default function ThreeView() {
