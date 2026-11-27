@@ -57,7 +57,9 @@ import { plan2027Items } from './plan2027';
 
 /** Diwali 2027: the same Assembly Hall (walls, doors, stage, ceiling, house lights) with the first draft of
  *  "Welcome to India" (lib/plan2027.ts). Later edits live in layout/plan-2027.json and load through Campus plan → Layout ↔ repo. */
-import SAVED_2027 from '../layout/plan-2027.json';
+// A snapshot of layout/plan-2027.json, refreshed when the layout is committed. The app must NOT import layout/ directly:
+// npm run dev rewrites those files on every edit, and importing them would make the page reload after each save.
+import SAVED_2027 from './defaultLayout2027.json';
 
 export function defaultProject(): Project {
   const p = PLAN_2026 as unknown as Project;
@@ -66,7 +68,7 @@ export function defaultProject(): Project {
     migr: ['projector', 'lwallStrip', 'layout2027'],
     name: 'Diwali Exhibition 2027',
     venue: p.venue,
-    // the latest layout saved from the app (layout/plan-2027.json); the code-drafted first pass if that file is empty
+    // the latest committed layout (snapshot of layout/plan-2027.json); the code-drafted first pass if that is empty
     items: (SAVED_2027 as unknown as Project)?.items?.length ? JSON.parse(JSON.stringify((SAVED_2027 as unknown as Project).items)) : plan2027Items(),
     probes: [],
     house: { ...p.house },
